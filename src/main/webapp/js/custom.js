@@ -12,8 +12,14 @@ window.fbAsyncInit = function() {
     FB.getLoginStatus(function(response) {
         if (response.authResponse) {
             
-          //response successful
-          // $('.fb-button').hide();
+         FB.api('/me', function(response) {
+                            var picSrc = ("https://graph.facebook.com/" + response.id + "/picture?width=55");
+                           
+                            
+                           // document.getElementById("profilePic").src = picSrc;                            
+                            $(".fb-pic").attr('src', picSrc); 
+                            $("#user-name").append(response.name);
+                        });
         } else {
 
         }
@@ -44,7 +50,7 @@ function fb_login() {
             //  check if user has an account in it. If email is available (have not signed up),create a new user
             FB.api("/me", function(rsp) {
                 if (rsp && !rsp.error) {
-                    $('.fb-button').hide();
+                    //$('.fb-button').hide();
       /*         $.ajax({url: "/sports/processSignUp", type: 'POST',
                         data: {email: rsp.email},
                         success: function(suc) {

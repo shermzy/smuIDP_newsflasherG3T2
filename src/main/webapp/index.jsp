@@ -10,8 +10,8 @@
             </div>
         </div>
         <!-- Start roadmap --><div class="row center">
-            <a href="browse.jsp"><button class="btn btn-4 btn-4c">Browse</button></a>
-            <button class="btn btn-4 btn-4d">Search</button>
+            <a href="browse.jsp"><button class="button btn-4 btn-4c">Browse</button></a>
+            <button class="button btn-4 btn-4d">Search</button>
             <!-- End roadmap -->
             <!-- Facebook login button -->
             <div class="row">

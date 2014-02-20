@@ -35,16 +35,13 @@ Import fonts
 @import url(//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
 */
 
-/* load Open Sans Font from local */
-@import url(../fonts/font.css);
-
 /***
 Reset and overrides  
 ***/
 /* general body settings */
 body { 
   color: #000; 
-  font-family: 'Open Sans', sans-serif;
+  font:'Lato';
   padding: 0px !important;
   margin: 0px !important;
   font-size:13px; 
@@ -100,7 +97,7 @@ h3,
 h4, 
 h5, 
 h6 {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Lato';
   font-weight: 300 !important;
 }
 
