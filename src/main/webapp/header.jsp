@@ -25,12 +25,13 @@
                 <nav class="gn-menu-wrapper">
                     <div class="gn-scroller">
                         <ul class="gn-menu">
-                            <li><img class="fb-pic"/><span class="menu-info" id="user-name"> Hello, </span></li>
+                            <li id="fb-pic"><img class="fb-pic"/></i><span class="menu-info" id="user-name"> Hello, </span></li>
                             <li>
                                 <i class="fa fa-search fa-padding-15"></i><span class="menu-info"><input placeholder="Search" type="search" class="gn-search" ></span>
                                
                             </li>
                             <li><i class="fa fa-cogs fa-padding-15"></i> <span class="menu-info">Settings</span></li>
+                            <li id="sidebar-status"><i class="fa fa-sign-out fa-padding-15"></i> <span class="menu-info" id="sidebar-status-text"></span></li>
                         </ul>
                     </div><!-- /gn-scroller -->
                 </nav>

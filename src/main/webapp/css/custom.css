@@ -7,16 +7,19 @@ and open the template in the editor.
     Created on : Feb 19, 2014, 1:18:32 PM
     Author     : Sherman
 */
+ul.gn-menu li:hover{
+    color:#3DC543;
+}
 .fb-pic{
     border-radius: 50% !important;
 }
 .news_body{
-    position:relative;
+  //  position:relative;
 }
 .news_caption_body{
     font-size: 0.8em;
     bottom: 0;
-    position: absolute !important;
+    //position: absolute !important;
     padding: 5px 5px;
 }
 .news_caption_title{
@@ -24,13 +27,13 @@ and open the template in the editor.
     z-index: 3;
     color: #fff;
     top: 0;
-    position: absolute;
+   // position: absolute;
     opacity: 1;
     padding: 2px 5px;
 }
 .news_caption{
     background:#111;
-    opacity:0.8;
+    //opacity:0.8;
     height:70px;
     z-index:2;  
     color:#fff;
@@ -38,10 +41,10 @@ and open the template in the editor.
     font-size:1.2em;
     word-wrap: break-word; 
     bottom:0;
-    position:absolute;
+   // position:absolute;
 }
 .news_img{
-    position: absolute;
+   // position: absolute;
 
 }
 .news-btn{

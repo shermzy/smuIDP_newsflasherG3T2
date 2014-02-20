@@ -11,17 +11,25 @@ window.fbAsyncInit = function() {
     });
     FB.getLoginStatus(function(response) {
         if (response.authResponse) {
-            
-         FB.api('/me', function(response) {
-                            var picSrc = ("https://graph.facebook.com/" + response.id + "/picture?width=55");
-                           
-                            
-                           // document.getElementById("profilePic").src = picSrc;                            
-                            $(".fb-pic").attr('src', picSrc); 
-                            $("#user-name").append(response.name);
-                        });
-        } else {
 
+            FB.api('/me', function(response) {
+                var picSrc = ("https://graph.facebook.com/" + response.id + "/picture?width=55");
+                var parts = location.pathname.split('/');
+
+
+                // document.getElementById("profilePic").src = picSrc;                            
+                $(".fb-pic").attr('src', picSrc);
+                $("#user-name").append(response.name);
+                $("#sidebar-status-text").text("Sign out");
+                if (parts[parts.length - 1] !== 'browse.jsp' || parts[parts.length - 1] === '') {
+                    location.href = 'browse.jsp';
+                }
+
+            });
+        } else {
+            $("#fb-pic").prepend('<i class="fa fa-user fa-padding-15">');
+            $("#user-name").append("Stranger");
+            $("#sidebar-status-text").text("Sign in");
         }
     });
 };
@@ -39,6 +47,20 @@ $('.fb-button').click(function() {
     fb_login();
 });
 
+$('#sidebar-status').click(function() {
+
+    if ($('#sidebar-status-text').text() === "Sign out") {
+
+        FB.api('/me/permissions', 'delete', function(response) {
+            if (response) {
+                $(location).attr('href', "/newsflasher/index.jsp");
+            }
+        });
+
+    } else {
+        fb_login();
+    }
+});
 /**
  * Calls on fb login when user clicks n fb_login button. Checks if user is in db? if yes,log the user in, if no, sign him up. <- Done with Ajax
  * @returns 
@@ -50,25 +72,26 @@ function fb_login() {
             //  check if user has an account in it. If email is available (have not signed up),create a new user
             FB.api("/me", function(rsp) {
                 if (rsp && !rsp.error) {
+                    $(location).attr("href", "/newsflasher/browse.jsp");
                     //$('.fb-button').hide();
-      /*         $.ajax({url: "/sports/processSignUp", type: 'POST',
-                        data: {email: rsp.email},
-                        success: function(suc) {
-
-                            if ($.trim(suc) === "available") {
-                                $.ajax({url: "/sports/fbSignUp", type: 'POST',
-                                    data: {type: "fb", mSignup: "fb", email: rsp.email, name: rsp.first_name, gender: rsp.gender, dob: rsp.birthday}
-                                });
-                                $.cookie("user",rsp.email, { path: '/' });  
-                                window.location.href = "../Admin/main.jsp";
-                            } else {
-                                $.cookie("user",rsp.email, { path: '/' }); 
-                               
-                                window.location.href = "../Admin/main.jsp";
-                            }
-                            ;
-                        }
-                    });*/
+                    /*         $.ajax({url: "/sports/processSignUp", type: 'POST',
+                     data: {email: rsp.email},
+                     success: function(suc) {
+                     
+                     if ($.trim(suc) === "available") {
+                     $.ajax({url: "/sports/fbSignUp", type: 'POST',
+                     data: {type: "fb", mSignup: "fb", email: rsp.email, name: rsp.first_name, gender: rsp.gender, dob: rsp.birthday}
+                     });
+                     $.cookie("user",rsp.email, { path: '/' });  
+                     window.location.href = "../Admin/main.jsp";
+                     } else {
+                     $.cookie("user",rsp.email, { path: '/' }); 
+                     
+                     window.location.href = "../Admin/main.jsp";
+                     }
+                     ;
+                     }
+                     });*/
                 }
                 ;
             });
