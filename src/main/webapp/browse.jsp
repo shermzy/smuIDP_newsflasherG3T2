@@ -20,9 +20,12 @@
                             </div>
                             <div class="news_caption_body">
                                 Nearly two months after the Little India riot on Dec 8 last year, 
-life has changed for foreign workers who spend their days off there, as well as residents and businesses
+                                life has changed for foreign workers who spend their days off there, as well as residents and businesses
                             </div>
-                           
+
+                        </div>
+                        <div class="social-tasks">
+                            
                         </div>
 
                     </div>

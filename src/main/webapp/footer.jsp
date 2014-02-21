@@ -6,6 +6,7 @@ type="text/javascript"></script>
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
 <script src="js/classie.js"></script><script src="js/custom.js" type="text/javascript"></script>  
 <script src="js/gnmenu.js"></script>
+
 <script>
     new gnMenu(document.getElementById('gn-menu'));
 </script>

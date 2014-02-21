@@ -1,3 +1,6 @@
+
+
+
 var fb_token;
 var fb_userId = null;
 var fb_email;
@@ -15,17 +18,15 @@ window.fbAsyncInit = function() {
             FB.api('/me', function(response) {
                 var picSrc = ("https://graph.facebook.com/" + response.id + "/picture?width=55");
                 var parts = location.pathname.split('/');
-
-
                 // document.getElementById("profilePic").src = picSrc;                            
                 $(".fb-pic").attr('src', picSrc);
                 $("#user-name").append(response.name);
                 $("#sidebar-status-text").text("Sign out");
-                if (parts[parts.length - 1] !== 'browse.jsp' || parts[parts.length - 1] === '') {
-                    location.href = 'browse.jsp';
-                }
-
-            });
+                /*if (parts[parts.length - 1] !== 'browse.jsp' || parts[parts.length - 1] === '') {
+                 location.href = 'browse.jsp';
+                 }*/
+            }
+            );
         } else {
             $("#fb-pic").prepend('<i class="fa fa-user fa-padding-15">');
             $("#user-name").append("Stranger");
@@ -42,21 +43,18 @@ window.fbAsyncInit = function() {
     js.src = "//connect.facebook.net/en_US/all.js";
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
-
 $('.fb-button').click(function() {
     fb_login();
 });
-
 $('#sidebar-status').click(function() {
 
     if ($('#sidebar-status-text').text() === "Sign out") {
 
         FB.api('/me/permissions', 'delete', function(response) {
             if (response) {
-                $(location).attr('href', "/newsflasher/index.jsp");
+                $(location).attr('href', "index.jsp");
             }
         });
-
     } else {
         fb_login();
     }
@@ -72,7 +70,7 @@ function fb_login() {
             //  check if user has an account in it. If email is available (have not signed up),create a new user
             FB.api("/me", function(rsp) {
                 if (rsp && !rsp.error) {
-                    $(location).attr("href", "/newsflasher/browse.jsp");
+                    $(location).attr("href", "browse.jsp");
                     //$('.fb-button').hide();
                     /*         $.ajax({url: "/sports/processSignUp", type: 'POST',
                      data: {email: rsp.email},
@@ -102,6 +100,5 @@ function fb_login() {
     }, {
         scope: 'publish_stream,email,read_stream,user_birthday'
     });
-
 }
 ;
