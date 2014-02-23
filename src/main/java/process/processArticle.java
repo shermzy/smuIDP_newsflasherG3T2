@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -63,27 +64,9 @@ public class processArticle extends HttpServlet {
             String newsTitle = "";
             String newsSnippet = "";
             String newslink = "";
-            /*
-             if (request.getParameter("newstitle") != null) {
-             newsTitle = (String) request.getParameter("newstitle");
-             System.out.println("news title : " + newsTitle);
-             }
-
-             if (request.getParameter("newssnippet") != null) {
-             newsSnippet = (String) request.getParameter("newssnippet");
-             System.out.println(" newssnippet : " + newsSnippet);
-             }
-
-             if (request.getParameter("newslink") != null) {
-             newslink = (String) request.getParameter("newslink");
-             System.out.println(" newslink : " + newslink);
-             }
-             String[] articleDetails = {newsTitle, newsSnippet, newslink};
-           
-           
-             //ArticleDAO.insertArticle(articleDetails);
-             response.sendRedirect("upload.jsp");*/
-
+            String absoultePath = "";
+            String imageLink = "";
+            ArrayList<String> cat = new ArrayList<String>();
             boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 
             if (isMultipart) {
@@ -100,23 +83,42 @@ public class processArticle extends HttpServlet {
                         if (!item.isFormField()) {
                             String fileName = item.getName();
                             String root = getServletContext().getRealPath("/");
-                      
-                          
-                            File path = new File(root + "/uploads/articles");
+            
+                            File path = new File(root + "/images/articles");
                             if (!path.exists()) {
                                 boolean status = path.mkdirs();
                             }
-                            File uploadedFile = new File(path + "/" + fileName);
+                            File uploadedFile = new File(path + "/" + newsTitle + ".png");
+                            imageLink = "images/articles/" + newsTitle +".png";
                             System.out.println(uploadedFile.getAbsolutePath());
-                        /*    if (fileName != "") {
+                            absoultePath =uploadedFile.getAbsolutePath();
+                            if (fileName != "") {
                                 item.write(uploadedFile);
                             } else {
                                 out.println("file not found");
-                            }*/
-                            out.println("<h1>File Uploaded Successfully....:-)@ " + uploadedFile.getAbsolutePath() + "</h1><br/>" + uploadedFile);
+                            }
+                            System.out.println("<h1>File Uploaded Successfully....:-)@ " + uploadedFile.getAbsolutePath() + "</h1><br/>" + uploadedFile);
                         } else {
-                            String abc = item.getString();
-                            //        out.println("<br><br><h1>"+abc+"</h1><br><br>");  
+
+                            if (item.getFieldName().equalsIgnoreCase("newstitle")) {
+                                newsTitle = (String) item.getString();
+                                System.out.println("news title : " + newsTitle);
+                            }
+
+                            if (item.getFieldName().equalsIgnoreCase("newssnippet")) {
+                                newsSnippet = (String)  item.getString();
+                                System.out.println(" newssnippet : " + newsSnippet);
+                            }
+
+                            if (item.getFieldName().equalsIgnoreCase("newslink")) {
+                                newslink = (String)  item.getString();
+                                System.out.println(" newslink : " + newslink);
+                            }
+                            if (item.getFieldName().equalsIgnoreCase("cat")) {
+                                cat.add( item.getString());
+                                System.out.println(" newscat : " + cat);
+                            }
+
                         }
                     }
                 } catch (FileUploadException e) {
@@ -127,6 +129,14 @@ public class processArticle extends HttpServlet {
             } else {
                 out.println("Not Multipart");
             }
+            String catDB="";
+            for(String s : cat){
+                catDB+=(s+";");
+            }
+            String[] articleDetails = {newsTitle, newsSnippet, newslink, imageLink,absoultePath,catDB};
+
+            ArticleDAO.insertArticle(articleDetails);
+            response.sendRedirect("upload.jsp");
         } finally {
             out.close();
         }
