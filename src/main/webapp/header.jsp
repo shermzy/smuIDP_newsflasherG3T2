@@ -32,14 +32,14 @@
                             </li>
                             <li><i class="fa fa-cogs fa-padding-15"></i> <span class="menu-info">Settings</span></li>
                             
-                           <li> <a href="upload.jsp"><i class="fa fa-cloud-upload fa-padding-15"></i> <span class="menu-info">Upload</span></a></li>
+                           <li id="upload"> <i class="fa fa-cloud-upload fa-padding-15"></i> <span class="menu-info">Upload</span></li>
                             <li id="sidebar-status"><i class="fa fa-sign-out fa-padding-15"></i> <span class="menu-info" id="sidebar-status-text"></span></li>
                         </ul>
                     </div><!-- /gn-scroller -->
                 </nav>
             </li>
 
-            <li id="logo"><span>NewsFlasher | Beta</span></a></li>
-            <li><a class="codrops-icon codrops-icon-drop" href="#"><span></span></a></li>
+            <li id="logo"><span>NewsFlasher | Beta</span></li>
+            
         </ul>
         <!--END GLOBAL SIDE MENU-->

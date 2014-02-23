@@ -7,9 +7,20 @@ and open the template in the editor.
     Created on : Feb 19, 2014, 1:18:32 PM
     Author     : Sherman
 */
-
+.btn.active{
+    background:#333;
+    color:#fff;
+}
+.title{
+    display:block;
+}
+.category{
+    width: 100%;
+    padding: 20px 0 20px 0;
+    display:block;
+}
 #logo{
-    width: 320px;
+    width: 250px;
     cursor: pointer;
     font-size: 1.5em;
 }
@@ -47,6 +58,7 @@ ul.gn-menu li:hover{
     font-size:1.2em;
     word-wrap: break-word; 
     bottom:0;
+    text-align: left;
     // position:absolute;
 }
 .news_img{
@@ -55,35 +67,65 @@ ul.gn-menu li:hover{
 }
 .news-btn{
     float:left;
+    height:100%;
+    font-size:1.5em;
+    width:33.33%;
+    
+    z-index:-10;
 }
-.pol{
-    background:#DF0101;
-    color:#fff;
-    font-weight:bold;
-    text-align: center;
-    padding-top:10px;
-    width:40px;
-    height:40px;
-}
-.biz{
-    background:#0080FF;
-    color:#fff;
-    font-weight:bold;
-    text-align: center;
-    padding-top:10px;
-    width:40px;
-    height:40px;
+.news-btn,
+.news-sel:hover{
+   color:white !important;
 
 }
-.tech{
+.news-sel{
+    float:left;
+    height:70px;
+    font-size:2em !important;
+    min-width:300px;
+    //padding:3.33%;
+    z-index:-10;
+    cursor:pointer;
+    margin-right: 20px;
+
+}
+.Entertainment{
+    background:#C2B30B;
+    color:#fff;
+
+    text-align: center;
+   
+}
+.All{
+    background:#F15A5A;
+    color:#fff;
+
+    text-align: center;
+    
+}
+.Pol{
+    background:#E0911A;
+    color:#fff;
+
+    text-align: center;
+   
+
+}
+.Biz{
+    background:#5BA4EC;
+    color:#fff;
+
+    text-align: center;
+   
+
+}
+.Tech{
 
     background:#31B404;
     color:#fff;
-    font-weight:bold;
     text-align: center;
-    padding-top:10px;
-    width:40px;
-    height:40px
+  
+
 }
 .straits_times{
     background:url("../images/straits_times.jpg") no-repeat;
@@ -109,7 +151,13 @@ ul.gn-menu li:hover{
     margin-bottom:15px;
     // min-height:450px;
     cursor:pointer;
+   // display:none;
 
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -moz-animation: fadein 2s; /* Firefox */
+    -ms-animation: fadein 2s; /* Internet Explorer */
+    -o-animation: fadein 2s; /* Opera */
+    animation: fadein 2s;
 }
 .welcome-text{
     margin:auto;
@@ -124,7 +172,7 @@ ul.gn-menu li:hover{
 
 .content{
     margin:auto;
-    padding-top:100px;
+    padding: 100px 20px 50px 20px;
 }
 .fb-text{
     padding-top: 5px;
@@ -2073,8 +2121,8 @@ ul.gn-menu li:hover{
 }
 
 .gn-menu-main > li:last-child {
-    float: right;
-    border-right: none;
+    //float: right;
+    border-right: 1px solid #c6d0da;
     border-left: 1px solid #c6d0da;
 }
 
@@ -2283,7 +2331,8 @@ input.gn-search:focus {
     width: 30px;
     height: 3px;
     background: #fff;
-    box-shadow:0 8px white, 0 -9px white;
+    box-shadow:0 9px white, 0 -9px white;
+    margin-bottom: 10px;
     content: '';
 }
 
@@ -2329,118 +2378,148 @@ input.gn-search:focus {
 }
 
 .btn-file {
-  position: relative;
-  overflow: hidden;
-  vertical-align: middle;
+    position: relative;
+    overflow: hidden;
+    vertical-align: middle;
 }
 
 .btn-file > input {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 0;
-  font-size: 23px;
-  cursor: pointer;
-  opacity: 0;
-  filter: alpha(opacity=0);
-  transform: translate(-300px, 0) scale(4);
-  direction: ltr;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    font-size: 23px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    transform: translate(-300px, 0) scale(4);
+    direction: ltr;
 }
 
 .fileupload {
-  margin-bottom: 9px;
+    margin-bottom: 9px;
 }
 
 .fileupload .uneditable-input {
-  display: inline-block;
-  margin-bottom: 0;
-  vertical-align: middle;
-  cursor: text;
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+    cursor: text;
 }
 
 .fileupload .thumbnail {
-  display: inline-block;
-  margin-bottom: 5px;
-  overflow: hidden;
-  text-align: center;
-  vertical-align: middle;
+    display: inline-block;
+    margin-bottom: 5px;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .fileupload .thumbnail > img {
-  display: inline-block;
-  max-height: 100%;
-  vertical-align: middle;
+    display: inline-block;
+    max-height: 100%;
+    vertical-align: middle;
 }
 
 .fileupload .btn {
-  vertical-align: middle;
+    vertical-align: middle;
 }
 
 .fileupload-exists .fileupload-new,
 .fileupload-new .fileupload-exists {
-  display: none;
+    display: none;
 }
 
 .fileupload-inline .fileupload-controls {
-  display: inline;
+    display: inline;
 }
 
 .fileupload-new .input-append .btn-file {
-  -webkit-border-radius: 0 3px 3px 0;
-     -moz-border-radius: 0 3px 3px 0;
-          border-radius: 0 3px 3px 0;
+    -webkit-border-radius: 0 3px 3px 0;
+    -moz-border-radius: 0 3px 3px 0;
+    border-radius: 0 3px 3px 0;
 }
 
 .thumbnail-borderless .thumbnail {
-  padding: 0;
-  border: none;
-  -webkit-border-radius: 0;
-     -moz-border-radius: 0;
-          border-radius: 0;
-  -webkit-box-shadow: none;
-     -moz-box-shadow: none;
-          box-shadow: none;
+    padding: 0;
+    border: none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
 }
 
 .fileupload-new.thumbnail-borderless .thumbnail {
-  border: 1px solid #ddd;
+    border: 1px solid #ddd;
 }
 
 .control-group.warning .fileupload .uneditable-input {
-  color: #a47e3c;
-  border-color: #a47e3c;
+    color: #a47e3c;
+    border-color: #a47e3c;
 }
 
 .control-group.warning .fileupload .fileupload-preview {
-  color: #a47e3c;
+    color: #a47e3c;
 }
 
 .control-group.warning .fileupload .thumbnail {
-  border-color: #a47e3c;
+    border-color: #a47e3c;
 }
 
 .control-group.error .fileupload .uneditable-input {
-  color: #b94a48;
-  border-color: #b94a48;
+    color: #b94a48;
+    border-color: #b94a48;
 }
 
 .control-group.error .fileupload .fileupload-preview {
-  color: #b94a48;
+    color: #b94a48;
 }
 
 .control-group.error .fileupload .thumbnail {
-  border-color: #b94a48;
+    border-color: #b94a48;
 }
 
 .control-group.success .fileupload .uneditable-input {
-  color: #468847;
-  border-color: #468847;
+    color: #468847;
+    border-color: #468847;
 }
 
 .control-group.success .fileupload .fileupload-preview {
-  color: #468847;
+    color: #468847;
 }
 
 .control-group.success .fileupload .thumbnail {
-  border-color: #468847;
+    border-color: #468847;
 }
+
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}​
+
+/* Opera */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}​
