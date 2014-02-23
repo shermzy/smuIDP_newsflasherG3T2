@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<web-app version="3.0"
-         xmlns="http://java.sun.com/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-         metadata-complete="false">
-
-   <servlet>
+<web-app metadata-complete="false" version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <servlet>
         <servlet-name>processArticle</servlet-name>
         <servlet-class>process.processArticle</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>getNews</servlet-name>
+        <servlet-class>process.getNews</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>processArticle</servlet-name>
         <url-pattern>/processArticle</url-pattern>
-    </servlet-mapping>       
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>processNews</servlet-name>
+        <servlet-class>process.processNews</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>processNews</servlet-name>
+        <url-pattern>/processNews</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>getNews</servlet-name>
+        <url-pattern>/getNews</url-pattern>
+    </servlet-mapping>
 </web-app>
-

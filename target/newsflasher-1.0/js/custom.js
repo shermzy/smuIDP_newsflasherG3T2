@@ -1,6 +1,10 @@
+$('#logo').click(function(){
+    $(location).attr('href', "browse.jsp");
+});
 
-
-
+$('#upload').click(function(){
+    $(location).attr('href' , "upload.jsp");
+});
 var fb_token;
 var fb_userId = null;
 var fb_email;
@@ -16,7 +20,7 @@ window.fbAsyncInit = function() {
         if (response.authResponse) {
 
             FB.api('/me', function(response) {
-                var picSrc = ("https://graph.facebook.com/" + response.id + "/picture?width=55");
+                var picSrc = ("https://graph.facebook.com/" + response.id + "/picture?width=50");
                 var parts = location.pathname.split('/');
                 // document.getElementById("profilePic").src = picSrc;                            
                 $(".fb-pic").attr('src', picSrc);

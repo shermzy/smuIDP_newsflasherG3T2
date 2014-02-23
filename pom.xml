@@ -75,6 +75,12 @@
             <version>20090211</version>
             <type>jar</type>
         </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.8.5</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
     <profiles>
         <profile>
