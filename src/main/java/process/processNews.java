@@ -43,7 +43,7 @@ public class processNews extends HttpServlet {
 
             JSONObject articles = ArticleDAO.getArticles();
             System.out.println("Articles : " + articles);
-            ObjectMapper mapper = new ObjectMapper();
+            
            
             try { 
                 JSONTokener tokener = new JSONTokener(articles.toString()); //tokenize the ugly JSON string

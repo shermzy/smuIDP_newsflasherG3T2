@@ -5,6 +5,10 @@ $('#logo').click(function(){
 $('#upload').click(function(){
     $(location).attr('href' , "upload.jsp");
 });
+
+$('#bug').click(function(){
+    $(location).attr('href' , "bug.jsp");
+});
 var fb_token;
 var fb_userId = null;
 var fb_email;

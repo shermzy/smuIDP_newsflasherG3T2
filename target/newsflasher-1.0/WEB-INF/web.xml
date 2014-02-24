@@ -8,6 +8,10 @@
         <servlet-name>getNews</servlet-name>
         <servlet-class>process.getNews</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>processBug</servlet-name>
+        <servlet-class>process.processBug</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>processArticle</servlet-name>
         <url-pattern>/processArticle</url-pattern>
@@ -23,5 +27,9 @@
     <servlet-mapping>
         <servlet-name>getNews</servlet-name>
         <url-pattern>/getNews</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>processBug</servlet-name>
+        <url-pattern>/processBug</url-pattern>
     </servlet-mapping>
 </web-app>

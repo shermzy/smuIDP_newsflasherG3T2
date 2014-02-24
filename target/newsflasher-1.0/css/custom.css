@@ -7,6 +7,50 @@ and open the template in the editor.
     Created on : Feb 19, 2014, 1:18:32 PM
     Author     : Sherman
 */
+.social-icons {
+    float:left;
+}
+
+.readmore{
+    width: 50%;
+    font-size: 2em;
+    text-align: center;
+    padding-top: 10px;
+    vertical-align: middle;
+    box-shadow: 1px 1px 1px 1px grey;
+    height: 100%;
+    -moz-box-shadow: 0 0 5px #888;
+    /* -webkit-box-shadow: 0 0 5px#888; */
+    /* box-shadow: 0 0 5px #888; */
+    -moz-box-shadow: inset 0 0 2px 2px #888;
+    -webkit-box-shadow: inset 0 0 2px 2px #888;
+    box-shadow: inset 0 0 2px 2px #888;
+}
+.fav,
+.likes{
+    width: 25%;
+    font-size: 2em;
+    text-align: center;
+    padding-top: 10px;
+    vertical-align: middle;
+    box-shadow: 1px 1px 1px 1px grey;
+    height: 100%;
+    -moz-box-shadow: 0 0 5px #888;
+    /* -webkit-box-shadow: 0 0 5px#888; */
+    /* box-shadow: 0 0 5px #888; */
+    -moz-box-shadow: inset 0 0 2px 2px #888;
+    -webkit-box-shadow: inset 0 0 2px 2px #888;
+    box-shadow: inset 0 0 2px 2px #888;
+}
+.fav:hover,
+.readmore:hover,
+.likes:hover{
+    background: #444;
+    color: #fff;
+}
+.social-info{
+    height:70px;
+}
 .btn.active{
     background:#333;
     color:#fff;
@@ -26,6 +70,17 @@ and open the template in the editor.
 }
 ul.gn-menu li:hover{
     color:#3DC543;
+    cursor:pointer;
+}
+.bugCage{
+    margin:auto;
+    text-align:center;
+}
+.bugAcro{
+    font-size:5em;
+}
+.bugTitle{
+    font-size:2.5em;
 }
 .fb-pic{
     border-radius: 50% !important;
@@ -70,12 +125,12 @@ ul.gn-menu li:hover{
     height:100%;
     font-size:1.5em;
     width:33.33%;
-    
+
     z-index:-10;
 }
 .news-btn,
 .news-sel:hover{
-   color:white !important;
+    color:white !important;
 
 }
 .news-sel{
@@ -94,21 +149,21 @@ ul.gn-menu li:hover{
     color:#fff;
 
     text-align: center;
-   
+
 }
 .All{
     background:#F15A5A;
     color:#fff;
 
     text-align: center;
-    
+
 }
 .Pol{
     background:#E0911A;
     color:#fff;
 
     text-align: center;
-   
+
 
 }
 .Biz{
@@ -116,7 +171,7 @@ ul.gn-menu li:hover{
     color:#fff;
 
     text-align: center;
-   
+
 
 }
 .Tech{
@@ -124,7 +179,7 @@ ul.gn-menu li:hover{
     background:#31B404;
     color:#fff;
     text-align: center;
-  
+
 
 }
 .straits_times{
@@ -151,7 +206,7 @@ ul.gn-menu li:hover{
     margin-bottom:15px;
     // min-height:450px;
     cursor:pointer;
-   // display:none;
+    // display:none;
 
     -webkit-animation: fadein 2s; /* Safari and Chrome */
     -moz-animation: fadein 2s; /* Firefox */

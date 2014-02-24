@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>The Daily Planet</title>
     </head>
     <body>
         <div class="content">
@@ -43,6 +43,11 @@
                             News Link:
                             <input class="form-control" type="text" name="newslink">
                         </div>
+                        <div class="row"> 
+                           Keywords:
+                            <input class="form-control" type="text" name="newslink">
+                        </div>
+                        <input name="entrant" type="hidden" id="entrant">
                         <div class="row" > 
                             <button type="submit" class="btn btn-5 btn-5a" id="addnews">Add</button>
                         </div>

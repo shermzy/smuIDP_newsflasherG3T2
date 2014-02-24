@@ -14,9 +14,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 /**
- * Handle CRUD of Student and database
  *
- * @author huiyu.yeo.2012
+ *
  */
 public class ArticleDAO {
 

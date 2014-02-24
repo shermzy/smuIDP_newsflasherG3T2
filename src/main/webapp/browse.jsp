@@ -19,6 +19,7 @@
                             Technology </label>
                         <label class="btn news-sel Biz" id="Biz">
                             Business</label>
+
                     </div>
                 </div>
             </div>
@@ -38,10 +39,8 @@
 
 <%@include file="footer.jsp" %> 
 <script>
-    $('.news_article').click(function() {
-        alert("hey");
-        $('.news').css("display","none");
-    });
+
+
     $('.news-sel').click(function() {
         var activeCats = "";
 
@@ -100,14 +99,16 @@
                     content += '</div><div class="news_caption_body">';
                     content += val.snippet;
                     content += '</div></div>';
-                    content += '<div class="social-tasks">';
-
+                    content += '<div class="social-info">';
+                    content += '<div class="social-icons likes"><i class="fa fa-thumbs-up"></i></div>';
+                    content += '<div class="social-icons fav"><i class="fa fa-star"></i></div>';
+                    content += '<div class="social-icons readmore">Read More</div>';
                     content += '</div>';
                     content += '</div></div>';
-                    if (counter % 3 == 0) {
-                        $('<div class="news_article"> ' + content + '</div>').appendTo("#colone");
+                    if (counter % 3 === 0) {
+                        $('<div class="news_article" id="' + val.link + '"> ' + content + '</div>').appendTo("#colone");
                         counter += 1;
-                    } else if (counter % 3 == 1) {
+                    } else if (counter % 3 === 1) {
                         $('<div class="news_article"> ' + content + '</div>').appendTo("#coltwo");
                         counter += 1;
                     } else {
@@ -116,12 +117,18 @@
                     }
                 }
             });
-
+            init();
 
         });
     }
     ;
-
+    function init(){
+        
+        $('.readmore').click(function() {
+            
+            $('.news').hide();
+        });
+    }
 
 
 </script>
