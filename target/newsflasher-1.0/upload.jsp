@@ -44,7 +44,7 @@
                             <input class="form-control" type="text" name="newslink">
                         </div>
                         <div class="row"> 
-                           Keywords:
+                           Keywords: Delimiter -> ";"
                             <input class="form-control" type="text" name="newslink">
                         </div>
                         <input name="entrant" type="hidden" id="entrant">

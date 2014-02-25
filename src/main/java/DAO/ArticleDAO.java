@@ -66,6 +66,52 @@ public class ArticleDAO {
 
         return reply;
     }
+    public static JSONObject getSingleArticle(String name) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String query = "";
+        Statement st =null;
+          JSONObject article =new JSONObject();
+        try {
+            //Get database connection & execute query
+            conn = ConnectionManager.getConnection();
+
+            query = "select * from articles where NewsArticle_Name = '" + name + "'";
+             st=conn.createStatement();                    
+            rs = st.executeQuery(query);            
+
+            while (rs.next()) {
+                try {   
+                    
+                    article.put("name", rs.getString("NewsArticle_Name"));
+                    article.put("snippet", rs.getString("NewsArticle_Snippet"));
+                    article.put("link", rs.getString("NewsArticle_link"));
+                    article.put("relpic" , rs.getString("NewsArticle_pic"));
+                   //article.put("abpic", rs.getString("abPath"));
+                    article.put("category" , rs.getString("category"));
+
+                   
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                } 
+                
+            }
+             
+        } catch (SQLException e) {
+            
+            System.out.println(e.getMessage());
+            
+        } catch (Exception ex) {
+            
+            ex.printStackTrace();
+        } finally {
+            //Close connection, statement and resultset
+            ConnectionManager.close(conn, ps, rs);
+        }
+
+        return article;
+    }
 
     public static JSONObject getArticles() {
         Connection conn = null;
@@ -89,7 +135,6 @@ public class ArticleDAO {
                     article.put("snippet", rs.getString("NewsArticle_Snippet"));
                     article.put("link", rs.getString("NewsArticle_link"));
                     article.put("relpic" , rs.getString("NewsArticle_pic"));
-                    article.put("abpic", rs.getString("abPath"));
                     article.put("category" , rs.getString("category"));
 
                    newspaper.put(article);

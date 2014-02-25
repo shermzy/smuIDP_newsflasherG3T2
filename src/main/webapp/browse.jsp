@@ -29,18 +29,46 @@
                 <div class="col-md-4" id="colthree"></div>
             </div>
         </div>
-        <div class="newsDetails">
 
+        <div class="newsDetails">
+            <div class="news_sum">
+                <div class="news_name">
+
+                </div>
+                <div class="news_pic">
+
+                </div>
+                <div class="news_msg">
+
+                </div>
+            </div>
+
+
+            <div id="cbp-fwslider" class="cbp-fwslider">
+                <ul id="comments">
+                    <li><a href="#"><img src="images/articles/little_india.png" alt="img01"/></a></li>
+                    <li><a href="#"><img src="images/articles/swiss-immigration.jpg" alt="img02"/></a></li>
+                    <li><a href="#"><img src="images/articles/wsx.png" alt="img03"/></a></li>
+                    <li><a href="#"><img src="images/articles/little_india.png" alt="img04"/></a></li>
+                    <li>dfabdidqil danwdihndn  asdknladniasn</li>
+                </ul>
+            </div>
         </div>
+    </div>
+</div>
 
 </body>
 
 
 
 <%@include file="footer.jsp" %> 
+
 <script>
 
+    $(function() {
+       $('#cbp-fwslider').cbpFWSlider();
 
+    });
     $('.news-sel').click(function() {
         var activeCats = "";
 
@@ -102,17 +130,17 @@
                     content += '<div class="social-info">';
                     content += '<div class="social-icons likes"><i class="fa fa-thumbs-up"></i></div>';
                     content += '<div class="social-icons fav"><i class="fa fa-star"></i></div>';
-                    content += '<div class="social-icons readmore">Read More</div>';
+                    //   content += '<div class="social-icons readmore">Read More</div>';
                     content += '</div>';
                     content += '</div></div>';
                     if (counter % 3 === 0) {
-                        $('<div class="news_article" id="' + val.link + '"> ' + content + '</div>').appendTo("#colone");
+                        $('<div class="news_article" id="' + val.name + '">  ' + content + '</div>').appendTo("#colone");
                         counter += 1;
                     } else if (counter % 3 === 1) {
-                        $('<div class="news_article"> ' + content + '</div>').appendTo("#coltwo");
+                        $('<div class="news_article" id="' + val.name + '">' + content + '</div>').appendTo("#coltwo");
                         counter += 1;
                     } else {
-                        $('<div class="news_article"> ' + content + '</div>').appendTo("#colthree");
+                        $('<div class="news_article" id="' + val.name + '"> ' + content + '</div>').appendTo("#colthree");
                         counter += 1;
                     }
                 }
@@ -122,13 +150,21 @@
         });
     }
     ;
-    function init(){
-        
-        $('.readmore').click(function() {
-            
-            $('.news').hide();
+    function init() {
+
+        $('.news_article').click(function() {
+
+            $('.news').hide("slide");
+            $('.newsDetails').show();
+            $this = $('.news_article').attr('id');
+            $('.news_sum').css('height', $( window ).height()/2);
+            $.getJSON("getNews", {type: "single", article: $this}, function(response) {
+                $('.news_name').text(response.name);
+            });
         });
     }
+    ;
+
 
 
 </script>

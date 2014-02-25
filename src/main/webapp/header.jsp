@@ -6,6 +6,7 @@
         <meta charset="utf-8" />
         <title>NewsFlasher | Beta</title>
         <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/font-awesome/css/font-awesome.min.css"
               rel="stylesheet" type="text/css" />
         <link href="css/style.css" rel="stylesheet" type="text/css" />

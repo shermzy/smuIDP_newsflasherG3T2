@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package process;
 
 import DAO.ArticleDAO;
@@ -37,18 +36,24 @@ public class getNews extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-         /* TODO output your page here. You may use following sample code. */
+            /* TODO output your page here. You may use following sample code. */
+            if (request.getParameter("type") != null) {
+                System.out.println(request.getParameter("type"));
+                  JSONObject articles = ArticleDAO.getSingleArticle((String)request.getParameter("article"));
+                  System.out.println("art: " + articles);
+                  out.print(articles);
+            } else {
+                JSONObject articles = ArticleDAO.getArticles();
+                
+                ObjectMapper mapper = new ObjectMapper();
 
-            JSONObject articles = ArticleDAO.getArticles();
-            System.out.println("Articles : " + articles);
-            ObjectMapper mapper = new ObjectMapper();
-           
-            try { 
-                JSONTokener tokener = new JSONTokener(articles.toString()); //tokenize the ugly JSON string
-            JSONObject finalResult = new JSONObject(tokener); // convert it to JSON object
-              out.print(finalResult.toString(4));
-            } catch (Exception e) {
+                try {
+                    JSONTokener tokener = new JSONTokener(articles.toString()); //tokenize the ugly JSON string
+                    JSONObject finalResult = new JSONObject(tokener); // convert it to JSON object
+                    out.print(finalResult.toString(4));
+                } catch (Exception e) {
 
+                }
             }
         } finally {
             out.close();

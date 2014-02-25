@@ -46,7 +46,7 @@ public class processNews extends HttpServlet {
             
            
             try { 
-                JSONTokener tokener = new JSONTokener(articles.toString()); //tokenize the ugly JSON string
+            JSONTokener tokener = new JSONTokener(articles.toString()); //tokenize the ugly JSON string
             JSONObject finalResult = new JSONObject(tokener); // convert it to JSON object
               out.print("<pre>" +finalResult.toString(4) + "<pre>");
             } catch (Exception e) {
