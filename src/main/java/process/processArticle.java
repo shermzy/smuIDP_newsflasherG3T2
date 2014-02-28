@@ -13,7 +13,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -91,7 +93,7 @@ public class processArticle extends HttpServlet {
                             File uploadedFile = new File(path + "/" + newsTitle + ".png");
                             imageLink = "images/articles/" + newsTitle +".png";
                             System.out.println(uploadedFile.getAbsolutePath());
-                            absoultePath =uploadedFile.getAbsolutePath();
+                            
                             if (fileName != "") {
                                 item.write(uploadedFile);
                             } else {
@@ -133,7 +135,9 @@ public class processArticle extends HttpServlet {
             for(String s : cat){
                 catDB+=(s+";");
             }
-            String[] articleDetails = {newsTitle, newsSnippet, newslink, imageLink,absoultePath,catDB};
+            SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+            String timeNow = df.format(new Date());
+            String[] articleDetails = {newsTitle, newsSnippet, newslink, imageLink,absoultePath,catDB,timeNow};
 
             ArticleDAO.insertArticle(articleDetails);
             response.sendRedirect("upload.jsp");
