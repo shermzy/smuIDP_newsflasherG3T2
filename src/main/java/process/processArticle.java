@@ -68,9 +68,10 @@ public class processArticle extends HttpServlet {
             String newslink = "";
             String absoultePath = "";
             String imageLink = "";
+            File uploadedFile = null;
             ArrayList<String> cat = new ArrayList<String>();
             boolean isMultipart = ServletFileUpload.isMultipartContent(request);
-
+            String OSDataFolder = System.getenv("OPENSHIFT_DATA_DIR");
             if (isMultipart) {
                 // Create a factory for disk-based file items  
                 FileItemFactory factory = new DiskFileItemFactory();
@@ -83,22 +84,28 @@ public class processArticle extends HttpServlet {
                     while (iterator.hasNext()) {
                         FileItem item = (FileItem) iterator.next();
                         if (!item.isFormField()) {
-                            String fileName = item.getName();
-                            String root = getServletContext().getRealPath("/");
-            
-                            File path = new File(root + "/images/articles");
-                            if (!path.exists()) {
-                                boolean status = path.mkdirs();
+                            if (OSDataFolder == null) {
+                                String root = getServletContext().getRealPath("/");
+
+                                File path = new File(root + "/images/articles");
+                                if (!path.exists()) {
+                                    boolean status = path.mkdirs();
+                                }
+                                uploadedFile = new File(path + "/" + newsTitle + ".png");
+                                imageLink = "images/articles/" + newsTitle + ".png"; 
+                            }else {
+                                String root = OSDataFolder;
+
+                                File path = new File(root + "/images/articles");
+                                if (!path.exists()) {
+                                    boolean status = path.mkdirs();
+                                }
+                                uploadedFile = new File(path + "/" + newsTitle + ".png");
+                                imageLink = uploadedFile.getAbsolutePath();
                             }
-                            File uploadedFile = new File(path + "/" + newsTitle + ".png");
-                            imageLink = "images/articles/" + newsTitle +".png";
-                            System.out.println(uploadedFile.getAbsolutePath());
-                            
-                            if (fileName != "") {
+                          
                                 item.write(uploadedFile);
-                            } else {
-                                out.println("file not found");
-                            }
+                         
                             System.out.println("<h1>File Uploaded Successfully....:-)@ " + uploadedFile.getAbsolutePath() + "</h1><br/>" + uploadedFile);
                         } else {
 
@@ -108,16 +115,16 @@ public class processArticle extends HttpServlet {
                             }
 
                             if (item.getFieldName().equalsIgnoreCase("newssnippet")) {
-                                newsSnippet = (String)  item.getString();
+                                newsSnippet = (String) item.getString();
                                 System.out.println(" newssnippet : " + newsSnippet);
                             }
 
                             if (item.getFieldName().equalsIgnoreCase("newslink")) {
-                                newslink = (String)  item.getString();
+                                newslink = (String) item.getString();
                                 System.out.println(" newslink : " + newslink);
                             }
                             if (item.getFieldName().equalsIgnoreCase("cat")) {
-                                cat.add( item.getString());
+                                cat.add(item.getString());
                                 System.out.println(" newscat : " + cat);
                             }
 
@@ -131,13 +138,13 @@ public class processArticle extends HttpServlet {
             } else {
                 out.println("Not Multipart");
             }
-            String catDB="";
-            for(String s : cat){
-                catDB+=(s+";");
+            String catDB = "";
+            for (String s : cat) {
+                catDB += (s + ";");
             }
             SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy hh:mm");
             String timeNow = df.format(new Date());
-            String[] articleDetails = {newsTitle, newsSnippet, newslink, imageLink,absoultePath,catDB,timeNow};
+            String[] articleDetails = {newsTitle, newsSnippet, newslink, imageLink, absoultePath, catDB, timeNow};
 
             ArticleDAO.insertArticle(articleDetails);
             response.sendRedirect("upload.jsp");
