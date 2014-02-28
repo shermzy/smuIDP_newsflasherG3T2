@@ -6,22 +6,29 @@
 package process;
 
 import DAO.ArticleDAO;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.json.JSONTokener;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileItemFactory;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 /**
  *
  * @author Sherman
  */
-public class getNews extends HttpServlet {
+public class processStory extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,37 +43,38 @@ public class getNews extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        String commentAgencyName = "";
+        String commentStory = "";
+        String commentLink = "";
+        String originalStory = "";
         try {
             /* TODO output your page here. You may use following sample code. */
-            //get Specific news
-            if (request.getParameter("type") != null) {
-                System.out.println(request.getParameter("type"));
-                  try{
-                  JSONObject articles = ArticleDAO.getSingleArticle((String)request.getParameter("article"));
-                  
-                  JSONArray stories = ArticleDAO.getStories((String)request.getParameter("article"));
-                  articles.put("stories",stories);
-                 
-                  System.out.println(articles);
-                  out.print(articles);
-                  }catch (Exception e){
-                      
-                  }
-            } else {
-                //get all news article for main page
-                JSONObject articles = ArticleDAO.getArticles();
-                
-                ObjectMapper mapper = new ObjectMapper();
 
-                try {
-                    JSONTokener tokener = new JSONTokener(articles.toString()); //tokenize the ugly JSON string
-                    JSONObject finalResult = new JSONObject(tokener); // convert it to JSON object
-                    out.print(finalResult.toString(4));
-                } catch (Exception e) {
-
-                }
+            if (request.getParameter("commentagencyname")!=null) {
+                commentAgencyName = (String) request.getParameter("commentagencyname");
+                System.out.println("commentAgencyName : " + commentAgencyName);
             }
-        } finally {
+
+            if (request.getParameter("commentstory")!=null) {
+                commentStory = (String) request.getParameter("commentstory");
+                System.out.println(" commentstory : " + commentStory);
+            }
+
+            if (request.getParameter("commentLink")!=null) {
+                commentLink = (String) request.getParameter("commentLink");
+                System.out.println(" commentLink : " + commentLink);
+            }
+            if (request.getParameter("originalstory")!=null) {
+                originalStory = (String) request.getParameter("originalstory");
+                System.out.println(" originalStory : " + originalStory);
+            }
+            DateFormat sf = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+            String date = sf.format(new Date());
+            String[] newsStory = {commentAgencyName, commentStory, commentLink, originalStory,date};
+            ArticleDAO.insertStory(newsStory);
+        }catch (Exception e){
+        
+        }finally {
             out.close();
         }
     }
@@ -81,7 +89,7 @@ public class getNews extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+        protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -95,7 +103,7 @@ public class getNews extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+        protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -106,7 +114,7 @@ public class getNews extends HttpServlet {
      * @return a String containing servlet description
      */
     @Override
-    public String getServletInfo() {
+        public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 

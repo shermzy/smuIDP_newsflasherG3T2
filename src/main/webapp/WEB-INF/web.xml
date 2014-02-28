@@ -12,6 +12,14 @@
         <servlet-name>processBug</servlet-name>
         <servlet-class>process.processBug</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>processStory</servlet-name>
+        <servlet-class>process.processStory</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>getNewsAgency</servlet-name>
+        <servlet-class>process.getNewsAgency</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>processArticle</servlet-name>
         <url-pattern>/processArticle</url-pattern>
@@ -31,5 +39,13 @@
     <servlet-mapping>
         <servlet-name>processBug</servlet-name>
         <url-pattern>/processBug</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>processStory</servlet-name>
+        <url-pattern>/processStory</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>getNewsAgency</servlet-name>
+        <url-pattern>/getNewsAgency</url-pattern>
     </servlet-mapping>
 </web-app>

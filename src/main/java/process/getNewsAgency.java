@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package process;
 
 import DAO.ArticleDAO;
@@ -12,16 +13,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import org.json.JSONTokener;
 
 /**
  *
  * @author Sherman
  */
-public class getNews extends HttpServlet {
+public class getNewsAgency extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,34 +36,10 @@ public class getNews extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             /* TODO output your page here. You may use following sample code. */
-            //get Specific news
-            if (request.getParameter("type") != null) {
-                System.out.println(request.getParameter("type"));
-                  try{
-                  JSONObject articles = ArticleDAO.getSingleArticle((String)request.getParameter("article"));
-                  
-                  JSONArray stories = ArticleDAO.getStories((String)request.getParameter("article"));
-                  articles.put("stories",stories);
-                 
-                  System.out.println(articles);
-                  out.print(articles);
-                  }catch (Exception e){
-                      
-                  }
-            } else {
-                //get all news article for main page
-                JSONObject articles = ArticleDAO.getArticles();
-                
-                ObjectMapper mapper = new ObjectMapper();
-
-                try {
-                    JSONTokener tokener = new JSONTokener(articles.toString()); //tokenize the ugly JSON string
-                    JSONObject finalResult = new JSONObject(tokener); // convert it to JSON object
-                    out.print(finalResult.toString(4));
-                } catch (Exception e) {
-
-                }
-            }
+            
+            JSONObject newsAgencies = ArticleDAO.getNewsAgency();
+                  System.out.println("agencies: " + newsAgencies);
+                  out.print(newsAgencies);
         } finally {
             out.close();
         }

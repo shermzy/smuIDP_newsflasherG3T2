@@ -3,25 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package process;
 
-import DAO.ArticleDAO;
+import DAO.BugDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.json.JSONTokener;
 
 /**
  *
  * @author Sherman
  */
-public class getNews extends HttpServlet {
+public class processBug extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,34 +37,21 @@ public class getNews extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             /* TODO output your page here. You may use following sample code. */
-            //get Specific news
-            if (request.getParameter("type") != null) {
-                System.out.println(request.getParameter("type"));
-                  try{
-                  JSONObject articles = ArticleDAO.getSingleArticle((String)request.getParameter("article"));
-                  
-                  JSONArray stories = ArticleDAO.getStories((String)request.getParameter("article"));
-                  articles.put("stories",stories);
-                 
-                  System.out.println(articles);
-                  out.print(articles);
-                  }catch (Exception e){
-                      
-                  }
-            } else {
-                //get all news article for main page
-                JSONObject articles = ArticleDAO.getArticles();
-                
-                ObjectMapper mapper = new ObjectMapper();
-
-                try {
-                    JSONTokener tokener = new JSONTokener(articles.toString()); //tokenize the ugly JSON string
-                    JSONObject finalResult = new JSONObject(tokener); // convert it to JSON object
-                    out.print(finalResult.toString(4));
-                } catch (Exception e) {
-
-                }
-            }
+          String bug="";
+          String plan="";
+            if(request.getParameter("bug")!=null){
+              bug=(String) request.getParameter("bug");
+          }
+            
+            if(request.getParameter("plan")!=null){
+              plan=(String) request.getParameter("plan");
+          }
+            Date now = new Date();
+            SimpleDateFormat sdf = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss");
+            String date = sdf.format(now);
+            String[] newBug = {bug,plan,date,"pending"};
+            BugDAO.insertBug(newBug);
+            response.sendRedirect("bug.jsp");
         } finally {
             out.close();
         }
