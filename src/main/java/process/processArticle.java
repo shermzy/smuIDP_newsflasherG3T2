@@ -92,20 +92,22 @@ public class processArticle extends HttpServlet {
                                     boolean status = path.mkdirs();
                                 }
                                 uploadedFile = new File(path + "/" + newsTitle + ".png");
-                                imageLink = "images/articles/" + newsTitle + ".png"; 
-                            }else {
+                                imageLink = "images/articles/" + newsTitle + ".png";
+                            } else {
                                 String root = OSDataFolder;
 
+                               
                                 File path = new File(root + "/images/articles");
                                 if (!path.exists()) {
                                     boolean status = path.mkdirs();
                                 }
                                 uploadedFile = new File(path + "/" + newsTitle + ".png");
-                                imageLink = uploadedFile.getAbsolutePath();
+                                //imageLink = uploadedFile.getAbsolutePath();
+                                imageLink = "app-root/data/images/articles/" + newsTitle + ".png";
                             }
-                          
-                                item.write(uploadedFile);
-                         
+
+                            item.write(uploadedFile);
+
                             System.out.println("<h1>File Uploaded Successfully....:-)@ " + uploadedFile.getAbsolutePath() + "</h1><br/>" + uploadedFile);
                         } else {
 
