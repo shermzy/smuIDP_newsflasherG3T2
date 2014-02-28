@@ -87,7 +87,7 @@ public class ConnectionManager {
         String message = "dbURL: " + dbURL
                 + "  , dbUser: " + dbUser
                 + "  , dbPassword: " + dbPassword;
-        return DriverManager.getConnection(dbURL, dbUser, "1234");
+        return DriverManager.getConnection(dbURL, dbUser, dbPassword);
         
     }
     
