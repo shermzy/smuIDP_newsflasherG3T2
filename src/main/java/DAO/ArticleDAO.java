@@ -20,7 +20,7 @@ import org.json.JSONObject;
 public class ArticleDAO {
 
     //Initialize query statments
-    private static final String INSERT_ARTICLE = "insert into `articles` (`NewsArticle_Name`, `NewsArticle_Snippet`, `NewsArticle_Link`, `NewsArticle_pic`,`abPath`,`category`) values (?, ?, ?, ?, ?,?);";
+    private static final String INSERT_ARTICLE = "insert into `articles` (`NewsArticle_Name`, `NewsArticle_Snippet`, `NewsArticle_Link`, `NewsArticle_pic`,`abPath`,`category`,`date`) values (?, ?, ?, ?, ?, ?, ?);";
 
     private static final String GET_ARTICLE = "select * from `articles`";
 
@@ -48,6 +48,7 @@ public class ArticleDAO {
             ps.setString(4, row[3]);
             ps.setString(5, row[4]);
             ps.setString(6, row[5]);
+            ps.setString(7, row[6]);
 
             insertedLine = ps.executeUpdate();
 
