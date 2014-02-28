@@ -103,7 +103,7 @@ public class processArticle extends HttpServlet {
                                 }
                                 uploadedFile = new File(path + "/" + newsTitle + ".png");
                                 //imageLink = uploadedFile.getAbsolutePath();
-                                imageLink = "app-root/data/images/articles/" + newsTitle + ".png";
+                                imageLink = "images/articles/" + newsTitle + ".png";
                             }
 
                             item.write(uploadedFile);
