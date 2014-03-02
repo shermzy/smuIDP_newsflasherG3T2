@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
  
-@WebServlet(name = "uploads",urlPatterns = {"/images"})
+@WebServlet(name = "uploads",urlPatterns = {"/images/articles/*"})
 @MultipartConfig
 public class uploads extends HttpServlet {
  
@@ -33,7 +33,7 @@ public class uploads extends HttpServlet {
  
     String filePath = request.getRequestURI();
  
-    File file = new File(System.getenv("OPENSHIFT_DATA_DIR") + filePath.replace("/images/",""));
+    File file = new File(System.getenv("OPENSHIFT_DATA_DIR") + filePath);
     InputStream input = new FileInputStream(file);
  
     response.setContentLength((int) file.length());
