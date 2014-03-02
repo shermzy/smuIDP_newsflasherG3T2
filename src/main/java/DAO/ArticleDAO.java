@@ -172,6 +172,8 @@ public class ArticleDAO {
                    String abPath = System.getenv("OPENSHIFT_DATA_DIR");
                    if(abPath!=null){
                        story.put("abPath", abPath + rs.getString("relPath"));
+                   }else{
+                       
                    }
                    storybook.put(story);
 
@@ -284,5 +286,7 @@ public class ArticleDAO {
 
         return data;
     }
+
+   
 
 }
