@@ -35,7 +35,7 @@ public class uploads extends HttpServlet {
  
     File file = new File(System.getenv("OPENSHIFT_DATA_DIR") + filePath);
     InputStream input = new FileInputStream(file);
- 
+    System.out.println("file: " +  file);
     response.setContentLength((int) file.length());
     response.setContentType(new MimetypesFileTypeMap().getContentType(file));
  
