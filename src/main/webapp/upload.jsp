@@ -25,7 +25,7 @@
                         <div class="row category" data-toggle="buttons"> 
                             <span class="title">News Category:</span> 
                                 <label class="btn news-btn Hot">
-                                <input type="checkbox" name="cat" value="hot" class="toggle"/> Hot </label>  
+                                <input type="checkbox" name="cat" value="Hot" class="toggle"/> Hot </label>  
                             <label class="btn news-btn Pol">
                                 <input type="checkbox" name="cat" value="Pol" class="toggle"/> Politics </label>  
                             <label class="btn news-btn Entertainment">

@@ -12,6 +12,7 @@
         <servlet-name>processBug</servlet-name>
         <servlet-class>process.processBug</servlet-class>
     </servlet>
+   
     <servlet>
         <servlet-name>processStory</servlet-name>
         <servlet-class>process.processStory</servlet-class>
@@ -48,4 +49,9 @@
         <servlet-name>getNewsAgency</servlet-name>
         <url-pattern>/getNewsAgency</url-pattern>
     </servlet-mapping>
+    
+    <context-param>
+    <param-name>/images/articles</param-name>
+    <param-value>/var/lib/openshift/53042f594382ec0e06000252/app-root/data</param-value>
+</context-param>
 </web-app>
