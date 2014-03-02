@@ -169,7 +169,10 @@ public class ArticleDAO {
                     story.put("link", rs.getString("link"));
                     story.put("time", rs.getString("time"));
                     story.put("picLink", rs.getString("relPath"));
-                   
+                   String abPath = System.getenv("OPENSHIFT_DATA_DIR");
+                   if(abPath!=null){
+                       story.put("abPath", abPath + rs.getString("relPath"));
+                   }
                    storybook.put(story);
 
                 } catch (SQLException e) {

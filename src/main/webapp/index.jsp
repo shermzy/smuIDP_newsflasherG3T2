@@ -181,7 +181,7 @@
                     content += '</div>';
                     content += '<div class="news_body">';
                     content += '<div class="news_img">';
-                    content += '<img class="center pic-overlay img-responsive" src="' + val.relpic + '" />';
+                    content += '<img class="center pic-overlay img-responsive" src="' + val.abPath + '" />';
                     content += '<div class="news_caption">';
                     content += '<div class="news_caption_title">';
                     content += val.name;
