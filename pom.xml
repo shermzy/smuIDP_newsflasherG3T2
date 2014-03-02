@@ -109,7 +109,25 @@
                         <directory>src/main/resources</directory>
                         <filtering>true</filtering>
                     </resource>
+                    <!-- For persistence.xml, and to keep src/main/java non-filtered. -->
+                    <resource>
+                        <directory>src/main/java/META-INF</directory>
+                        <targetPath>META-INF</targetPath>
+                        <filtering>true</filtering>
+                    </resource>
+                    <!-- Allow packaging the html files alongside the java sources. -->
+                    <resource>
+                        <directory>src/main/java</directory>
+                        <filtering>true</filtering>
+                        <includes>
+                            <include>**</include>
+                        </includes>
+                        <excludes>
+                            <exclude>**/*.java</exclude>
+                        </excludes>
+                    </resource>
                 </resources>
+                
             </build>
         </profile>
     </profiles>
