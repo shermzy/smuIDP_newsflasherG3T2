@@ -30,10 +30,14 @@ public class uploads extends HttpServlet {
   }
  
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
- 
+  File file = null;
     String filePath = request.getRequestURI();
- 
-    File file = new File(System.getenv("OPENSHIFT_DATA_DIR") + filePath);
+ if(System.getenv("OPENSHIFT_DATA_DIR")!=null){
+     file = new File(System.getenv("OPENSHIFT_DATA_DIR") + filePath);
+ }else{
+     file = new File(filePath);
+ }
+ System.out.println("File : " + file);
     InputStream input = new FileInputStream(file);
  
     response.setContentLength((int) file.length());

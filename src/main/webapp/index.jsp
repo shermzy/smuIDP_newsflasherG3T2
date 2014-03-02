@@ -37,21 +37,13 @@
 
     <div class="newsDetails" id="newsDetails">
         <div class="news_sum">
-            <div class="col-md-3">
+            <div class="col-md-4">
             </div>
-            <div class="col-md-6" id="middleSegment">
-                <div class="news_name">
-                </div>
-                <div class="news_pic">
-
-                    <img id="newspicture" class="center pic-overlay img-responsive" width="300px"/>
-
-                </div>
-                <div class="news_msg">
-
-                </div>
+            <div class="col-md-4" id="middleSegment">
+                <div class="newsArticle">
+                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
             </div>
         </div>
 
@@ -93,13 +85,13 @@
     $('#submitComment').click(function() {
         $.ajax({url: "processStory", type: 'POST',
             data: {commentagencyname: $('#commentagencyname').val(), commentstory: $('#commentstory').val(), commentLink: $('#commentLink').val(),
-                originalstory: $('#originalstory').val()}
+                originalstory: $('.news_caption_title').attr('id')}
         });
         var time = new Date();
 
         var content = "";
         content += '<div class="story-header">';
-        content += '<img src="http://www.placehold.it/100x100/EFEFEF/AAAAAA&amp;text=no+image" class="commentpic pull-left" width="100px" alt="" id="blah">';
+        content += '<img src="http://www.placehold.it/100x100/EFEFEF/AAAAAA&amp;text=no+image" class="commentpic pull-left" width="70px" alt="" id="blah">';
         content += '<div class="story-agency">'
         content += '<div class="story-metadata-name">' + $('#commentagencyname').val() + '</div>';
         content += '<div class="story-metadata-date">' + timeAgo(time) + '</div>';
@@ -180,28 +172,33 @@
 
                     content += '</div>';
                     content += '<div class="news_body">';
-                    content += '<div class="news_img">'; 
+                    content += '<div class="news_img">';
                     content += '<img class="center pic-overlay img-responsive" src="' + val.relpic + '" />';
                     content += '<div class="news_caption">';
-                    content += '<div class="news_caption_title">';
+                    content += '<div class="news_caption_title" id="' + val.name + '">';
                     content += val.name;
                     content += '</div><div class="news_caption_body">';
-                    content += val.snippet;
+                    var bullets = val.snippet.split(";");
+                    content += "<ul>";
+                    for (var a = 0; a < bullets.length-1; a++) {
+                        content += ("<li>" + bullets[a] + "</li>");
+                    }
+                    content += "</ul>";
                     content += '</div></div></div>';
-                    content += '<div class="social-info">';
-                    content += '<div class="social-icons likes"><i class="fa fa-thumbs-up"></i></div>';
-                    content += '<div class="social-icons fav"><i class="fa fa-star"></i></div>';
+                    // content += '<div class="social-info">';
+                    // content += '<div class="social-icons likes"><i class="fa fa-thumbs-up"></i></div>';
+                    //content += '<div class="social-icons fav"><i class="fa fa-star"></i></div>';
                     //   content += '<div class="social-icons readmore">Read More</div>';
-                    content += '</div>';
+                    //    content += '</div>';
                     content += '</div>';
                     if (counter % 3 === 0) {
-                        $('<div class="news_article" id="' + val.name + '">  ' + content + '</div>').appendTo("#colone");
+                        $('<div class="news_article" id="news_article">  ' + content + '</div>').appendTo("#colone");
                         counter += 1;
                     } else if (counter % 3 === 1) {
-                        $('<div class="news_article" id="' + val.name + '">' + content + '</div>').appendTo("#coltwo");
+                        $('<div class="news_article" id="news_article">' + content + '</div>').appendTo("#coltwo");
                         counter += 1;
                     } else {
-                        $('<div class="news_article" id="' + val.name + '"> ' + content + '</div>').appendTo("#colthree");
+                        $('<div class="news_article" id="news_article"> ' + content + '</div>').appendTo("#colthree");
                         counter += 1;
                     }
                 }
@@ -225,12 +222,13 @@
             $('#gn-menu').hide("slide");
             $('.newsDetails').show();
             $this = $(this).attr('id');
-            $('#middleSegment').css('height', $(window).height() / 2 - 15);
-            $('.news_sum').css('height', $(window).height() / 2);
+           // $('#middleSegment').css('height', $(window).height() / 2 - 15);
+            $('.news_sum').css('height', $(window).height() / 2 -10);
             $('.cbp-fwslider').css('height', $(window).height() / 2);
             $('.stories').css('height', $(window).height() / 2);
+            $('#news_article').appendTo($('.newsArticle'));
 
-            $.getJSON("getNews", {type: "single", article: $this}, function(response) {
+            $.getJSON("getNews", {type: "single", article: $('.news_caption_title').attr('id')}, function(response) {
                 $('.news_name').text(response.name);
                 $("#originalstory").val(response.name);
                 $('#newspicture').attr('src', response.relpic);
@@ -238,7 +236,7 @@
                     var storyContent = "";
                     storyContent += '<li class="stories">';
                     storyContent += ' <div class="story-header">'
-                    storyContent += '<img src="' + val.picLink + '" class="commentpic pull-left" width=70px" alt="">';
+                    storyContent += '<img src="' + val.picLink + '" class="commentpic pull-left" width="70px" alt="">';
                     storyContent += '<div class="story-agency">';
                     storyContent += '<div class="story-metadata-name">' + val.name + '</div>';
                     storyContent += '<div class="story-metadata-date">' + timeAgo(val.time) + '</div>';

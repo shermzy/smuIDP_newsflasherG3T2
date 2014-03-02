@@ -8,8 +8,8 @@ and open the template in the editor.
     Author     : Sherman
 */
 #middleSegment{
-    border-right: 1px solid #B3B3B3;
-    border-left: 1px solid #B3B3B3;
+  //  border-right: 1px solid #B3B3B3;
+    //border-left: 1px solid #B3B3B3;
 }
 .news_name{
     text-align:center;
@@ -118,7 +118,7 @@ ul.gn-menu li:hover{
 .commentpic,
 .fb-pic{
     border-radius: 50% !important;
-    width:50px;
+   // width:50px;
 }
 .news_body{
     //  position:relative;
@@ -149,7 +149,7 @@ ul.gn-menu li:hover{
     word-wrap: break-word; 
     bottom:0;
     text-align: left;
-    opacity:0.5;
+    //opacity:0.5;
 
 }
 
@@ -253,13 +253,13 @@ ul.gn-menu li:hover{
     // min-height:450px;
     cursor:pointer;
     // display:none;
-
+font-size:1.2rem;
     position:relative;
-    -webkit-animation: fadein 2s; /* Safari and Chrome */
-    -moz-animation: fadein 2s; /* Firefox */
-    -ms-animation: fadein 2s; /* Internet Explorer */
-    -o-animation: fadein 2s; /* Opera */
-    animation: fadein 2s;
+    -webkit-animation: fadein 1s; /* Safari and Chrome */
+    -moz-animation: fadein 1s; /* Firefox */
+    -ms-animation: fadein 1s; /* Internet Explorer */
+    -o-animation: fadein 1s; /* Opera */
+    animation: fadein 1s;
 }
 .welcome-text{
     margin:auto;

@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -68,6 +69,7 @@ public class processArticle extends HttpServlet {
             String newslink = "";
             String absoultePath = "";
             String imageLink = "";
+            String pictureName = "";
             File uploadedFile = null;
             ArrayList<String> cat = new ArrayList<String>();
             boolean isMultipart = ServletFileUpload.isMultipartContent(request);
@@ -86,29 +88,39 @@ public class processArticle extends HttpServlet {
                         if (!item.isFormField()) {
                             if (OSDataFolder == null) {
                                 String root = getServletContext().getRealPath("/");
+                                DateFormat sf = new SimpleDateFormat("dd-MM-yyyy hh-mm");
+                                String date = sf.format(new Date());
 
-                                File path = new File(root + "/images/articles");
+                                pictureName = item.getFieldName() + "_" + date;
+
+                                System.out.println(pictureName);
+                                pictureName = pictureName.replaceAll("\\s+", "_");
+
+                                File path = new File(root + "/local/articles");
                                 if (!path.exists()) {
                                     boolean status = path.mkdirs();
                                 }
-                                uploadedFile = new File(path + "/" + newsTitle + ".png");
-                                imageLink = "images/articles/" + newsTitle + ".png";
+                                uploadedFile = new File(path + "/" + pictureName + ".png");
+                                imageLink = "local/articles/" + pictureName + ".png";
                             } else {
                                 String root = OSDataFolder;
+                                DateFormat sf = new SimpleDateFormat("dd-MM-yyyy hh-mm");
+                                String date = sf.format(new Date());
 
-                               
+                                pictureName = item.getFieldName() + "_" + date;
+
+                                pictureName = pictureName.replaceAll("\\s+", "_");
                                 File path = new File(root + "/images/articles");
                                 if (!path.exists()) {
                                     boolean status = path.mkdirs();
                                 }
-                                uploadedFile = new File(path + "/" + newsTitle + ".png");
+                                uploadedFile = new File(path + "/" + pictureName + ".png");
                                 //imageLink = uploadedFile.getAbsolutePath();
-                                imageLink = "images/articles/" + newsTitle + ".png";
+                                imageLink = "images/articles/" + pictureName + ".png";
                             }
 
                             item.write(uploadedFile);
 
-                            System.out.println("<h1>File Uploaded Successfully....:-)@ " + uploadedFile.getAbsolutePath() + "</h1><br/>" + uploadedFile);
                         } else {
 
                             if (item.getFieldName().equalsIgnoreCase("newstitle")) {

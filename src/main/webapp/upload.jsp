@@ -51,7 +51,7 @@
                            Keywords: Delimiter -> ";"
                             <input class="form-control" type="text" name="newslink">
                         </div>
-                        <input name="entrant" type="hidden" id="entrant">
+                      
                         <div class="row" > 
                             <button type="submit" class="btn btn-5 btn-5a" id="addnews">Add</button>
                         </div>
@@ -73,7 +73,7 @@
                                         <i class="fa fa-paper-clip"></i> Select image
                                     </span>
 
-                                    <input type="file" class="default" id="picture" name="picture">
+                                    <input type="file" class="default" id="picture" name="articlePicture">
                                 </span>
 
                             </div>
@@ -101,4 +101,5 @@
             $("#picture").change(function() {
                 readURL(this);
             });
+            
         </script>

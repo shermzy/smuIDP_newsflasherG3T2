@@ -29,6 +29,7 @@ window.fbAsyncInit = function() {
                 // document.getElementById("profilePic").src = picSrc;                            
                 $(".fb-pic").attr('src', picSrc);
                 $("#user-name").append(response.name);
+                $('#entrant').val(response.name);
                 $("#sidebar-status-text").text("Sign out");
                 /*if (parts[parts.length - 1] !== 'browse.jsp' || parts[parts.length - 1] === '') {
                  location.href = 'browse.jsp';
