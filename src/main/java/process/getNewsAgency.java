@@ -36,10 +36,15 @@ public class getNewsAgency extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             /* TODO output your page here. You may use following sample code. */
-            
+            if(request.getParameter("type")==null){
             JSONObject newsAgencies = ArticleDAO.getNewsAgency();
                   System.out.println("agencies: " + newsAgencies);
                   out.print(newsAgencies);
+            }else{
+                String newsAgency = ArticleDAO.getNewsAgencySingle((String) request.getParameter("name"));
+                  System.out.println("agencies: " + newsAgency);
+                  out.print(newsAgency);
+            }
         } finally {
             out.close();
         }

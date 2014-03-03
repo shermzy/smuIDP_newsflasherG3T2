@@ -35,7 +35,7 @@ public class uploads extends HttpServlet {
  if(System.getenv("OPENSHIFT_DATA_DIR")!=null){
      file = new File(System.getenv("OPENSHIFT_DATA_DIR") + filePath);
  }else{
-     file = new File(filePath);
+     file = new File("/" + filePath);
  }
  System.out.println("File : " + file);
     InputStream input = new FileInputStream(file);

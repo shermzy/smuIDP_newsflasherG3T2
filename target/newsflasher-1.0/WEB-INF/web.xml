@@ -58,6 +58,6 @@
     </context-param>
     <servlet-mapping>
         <servlet-name>uploads</servlet-name>
-        <url-pattern>/images</url-pattern>
+        <url-pattern>/images/*</url-pattern>
     </servlet-mapping>
 </web-app>

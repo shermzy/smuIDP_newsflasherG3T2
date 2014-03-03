@@ -40,18 +40,18 @@
                         </div>
 
                         <div class="row" > 
-                            News Snippet:
+                            News Summary (Each point seperated by a semi-colon (";")):
                             <textarea type="text" class="form-control"  name="newssnippet" rows="5"></textarea>
                         </div>
-                        <div class="row" > 
+                 <!--       <div class="row" > 
                             News Link:
                             <input class="form-control" type="text" name="newslink">
-                        </div>
+                        </div>-->
                         <div class="row"> 
                            Keywords: Delimiter -> ";"
                             <input class="form-control" type="text" name="newslink">
                         </div>
-                        <input name="entrant" type="hidden" id="entrant">
+                      
                         <div class="row" > 
                             <button type="submit" class="btn btn-5 btn-5a" id="addnews">Add</button>
                         </div>
@@ -73,7 +73,7 @@
                                         <i class="fa fa-paper-clip"></i> Select image
                                     </span>
 
-                                    <input type="file" class="default" id="picture" name="picture">
+                                    <input type="file" class="default" id="picture" name="articlePicture">
                                 </span>
 
                             </div>
@@ -101,4 +101,5 @@
             $("#picture").change(function() {
                 readURL(this);
             });
+            
         </script>

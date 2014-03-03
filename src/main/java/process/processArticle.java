@@ -134,7 +134,7 @@ public class processArticle extends HttpServlet {
                             }
 
                             if (item.getFieldName().equalsIgnoreCase("newslink")) {
-                                newslink = (String) item.getString();
+                                newslink = /*(String) item.getString();*/ "";
                                 System.out.println(" newslink : " + newslink);
                             }
                             if (item.getFieldName().equalsIgnoreCase("cat")) {

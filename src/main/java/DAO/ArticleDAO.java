@@ -286,6 +286,47 @@ public class ArticleDAO {
 
         return data;
     }
+    
+    public static String getNewsAgencySingle(String name) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String newsAgency = "";
+        String query="";
+        Statement st = null;
+       
+        try {
+            //Get database connection & execute query
+            conn = ConnectionManager.getConnection();
+            query = "select relPath from newsagency where name='" + name + "'";
+            st = conn.createStatement();
+            rs = st.executeQuery(query);
+
+            while (rs.next()) {
+                try {
+                   
+                   newsAgency= rs.getString("relPath");
+
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+
+            }
+           
+        } catch (SQLException e) {
+            //insertedLine = 100;
+            System.out.println(e.getMessage());
+
+        } catch (Exception ex) {
+            //insertedLine = 101;
+            ex.printStackTrace();
+        } finally {
+            //Close connection, statement and resultset
+            ConnectionManager.close(conn, ps, rs);
+        }
+
+        return newsAgency;
+    }
 
    
 

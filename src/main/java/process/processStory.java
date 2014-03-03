@@ -47,34 +47,37 @@ public class processStory extends HttpServlet {
         String commentStory = "";
         String commentLink = "";
         String originalStory = "";
+        String pictureName = "";
+        File uploadedFile = null;
+        String imageLink = "";
         try {
             /* TODO output your page here. You may use following sample code. */
 
-            if (request.getParameter("commentagencyname")!=null) {
+            if (request.getParameter("commentagencyname") != null) {
                 commentAgencyName = (String) request.getParameter("commentagencyname");
                 System.out.println("commentAgencyName : " + commentAgencyName);
             }
 
-            if (request.getParameter("commentstory")!=null) {
+            if (request.getParameter("commentstory") != null) {
                 commentStory = (String) request.getParameter("commentstory");
                 System.out.println(" commentstory : " + commentStory);
             }
 
-            if (request.getParameter("commentLink")!=null) {
+            if (request.getParameter("commentLink") != null) {
                 commentLink = (String) request.getParameter("commentLink");
                 System.out.println(" commentLink : " + commentLink);
             }
-            if (request.getParameter("originalstory")!=null) {
+            if (request.getParameter("originalstory") != null) {
                 originalStory = (String) request.getParameter("originalstory");
                 System.out.println(" originalStory : " + originalStory);
             }
             DateFormat sf = new SimpleDateFormat("dd/MM/yyyy hh:mm");
             String date = sf.format(new Date());
-            String[] newsStory = {commentAgencyName, commentStory, commentLink, originalStory,date};
+            String[] newsStory = {commentAgencyName, commentStory, commentLink, originalStory, date};
             ArticleDAO.insertStory(newsStory);
-        }catch (Exception e){
-        
-        }finally {
+        } catch (Exception e) {
+
+        } finally {
             out.close();
         }
     }
@@ -89,7 +92,7 @@ public class processStory extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-        protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -103,7 +106,7 @@ public class processStory extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-        protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -114,7 +117,7 @@ public class processStory extends HttpServlet {
      * @return a String containing servlet description
      */
     @Override
-        public String getServletInfo() {
+    public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 

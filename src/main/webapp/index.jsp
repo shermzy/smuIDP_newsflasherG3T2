@@ -36,12 +36,13 @@
     </div>
 
     <div class="newsDetails" id="newsDetails">
+        <div class="pull-right btn default" id="close">X</div>
         <div class="news_sum">
             <div class="col-md-4">
             </div>
             <div class="col-md-4" id="middleSegment">
                 <div class="newsArticle">
-                 </div>
+                </div>
             </div>
             <div class="col-md-4">
             </div>
@@ -49,7 +50,7 @@
 
         <div id="cbp-fwslider" class="cbp-fwslider">
             <ul id="comments">
-                <li class="stories" id="commentBox">
+                <li class="commentBox" id="commentBox">
 
                     <div class="col-md-2" id="commentsinput">
                         <div class="pull-left">
@@ -57,11 +58,13 @@
                         </div>
 
                     </div>
+
                     <div class="col-md-6">
 
                         News agency: <select class="form-control" id="commentagencyname" name="commentagencyname"></select>
                         News story : <textarea class="form-control" id="commentstory" name ="commentstory"></textarea>
                         News Link : <input type="text" class="form-control" id="commentLink" name ="commentLink">
+
                         <input type="hidden" id="originalstory" name ="originalstory">
                         <button class="btn btn-default" id="submitComment"> Comment </button>  
                     </div>
@@ -82,30 +85,48 @@
 <%@include file="footer.jsp" %> 
 
 <script>
+    $("#close").click(function() {
+        $('#newsDetails').hide();
+        $('.content').show("slide");
+        $('#gn-menu').show("slide");
+    });
+
     $('#submitComment').click(function() {
+   
         $.ajax({url: "processStory", type: 'POST',
             data: {commentagencyname: $('#commentagencyname').val(), commentstory: $('#commentstory').val(), commentLink: $('#commentLink').val(),
-                originalstory: $('.news_caption_title').attr('id')}
+                originalstory: $('.news_caption_title').attr('id')},
+          
         });
+       
+        $.ajax({url: "getNewsAgency", type: 'GET',
+            data: {type:"single",name:$('#commentagencyname').val()},
+           success: function(response){
+             
+               insertStory(response);
+           }
+        });
+    });
+function insertStory(pictureRelLink){
         var time = new Date();
 
         var content = "";
         content += '<div class="story-header">';
-        content += '<img src="http://www.placehold.it/100x100/EFEFEF/AAAAAA&amp;text=no+image" class="commentpic pull-left" width="70px" alt="" id="blah">';
-        content += '<div class="story-agency">'
+        content += ('<img src="' + pictureRelLink + '" class="commentpic pull-left" width="70px" alt="" id="blah" >');
+        content += '<div class="story-agency">';
         content += '<div class="story-metadata-name">' + $('#commentagencyname').val() + '</div>';
         content += '<div class="story-metadata-date">' + timeAgo(time) + '</div>';
         content += '</div>';
         content += '</div>';
         content += '<div class="story">' + $('#commentstory').val() + '</div>';
         content += '<div class="storyLink"> <a href="' + $('#commentLink').val() + '">Full Story Here</a></div> ';
-
+  
 
         $('<li class="stories">' + content + '</li>').insertAfter($('#commentBox'));
         $('#cbp-fwslider').cbpFWSlider();
         //  $('.stories').css('width', 100/($('#comments').children('li').length + 1) + '%');
         // $('#comments').css('width',(100/3) * ($('#comments').children('li').length + 1) + '%');
-    });
+    };
     $(function() {
         $('#cbp-fwslider').cbpFWSlider();
 
@@ -180,7 +201,7 @@
                     content += '</div><div class="news_caption_body">';
                     var bullets = val.snippet.split(";");
                     content += "<ul>";
-                    for (var a = 0; a < bullets.length-1; a++) {
+                    for (var a = 0; a < bullets.length - 1; a++) {
                         content += ("<li>" + bullets[a] + "</li>");
                     }
                     content += "</ul>";
@@ -222,8 +243,8 @@
             $('#gn-menu').hide("slide");
             $('.newsDetails').show();
             $this = $(this).attr('id');
-           // $('#middleSegment').css('height', $(window).height() / 2 - 15);
-            $('.news_sum').css('height', $(window).height() / 2 -10);
+            // $('#middleSegment').css('height', $(window).height() / 2 - 15);
+            $('.news_sum').css('height', $(window).height() / 2 - 10);
             $('.cbp-fwslider').css('height', $(window).height() / 2);
             $('.stories').css('height', $(window).height() / 2);
             $('#news_article').appendTo($('.newsArticle'));
