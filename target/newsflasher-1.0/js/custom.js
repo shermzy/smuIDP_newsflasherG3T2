@@ -111,7 +111,7 @@ function fb_login() {
     });
 }
 ;
-;
+
 (function($, window, undefined) {
 
     'use strict';
@@ -185,7 +185,7 @@ function fb_login() {
                 size = 1;
             } else {
             }
-            this.$list.css('width', (100 / size) * this.itemsCount + '%');
+            this.$list.css('width', 100 / size * this.itemsCount + '%');
             // apply the transition
             if (this.support) {
                 this.$list.css('transition', this.transformName + ' ' + this.options.speed + 'ms ' + this.options.easing);
@@ -275,8 +275,8 @@ function fb_login() {
             // if the current item is the first one in the list, the left arrow is not shown
             // if the current item is the last one in the list, the right arrow is not shown
             switch (this.current) {
-                //	case 0 : this.$navNext.show(); this.$navPrev.hide(); break;
-                //	case this.itemsCount - 1 : this.$navNext.hide(); this.$navPrev.show(); break;
+                	case 0 : this.$navNext.show(); this.$navPrev.hide(); break;
+                	case this.itemsCount - 1 : this.$navNext.hide(); this.$navPrev.show(); break;
                 default :
                     this.$navNext.show();
                     this.$navPrev.show();

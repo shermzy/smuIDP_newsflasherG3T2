@@ -50,7 +50,7 @@
 
         <div id="cbp-fwslider" class="cbp-fwslider">
             <ul id="comments">
-                <li class="commentBox" id="commentBox">
+                <li class="stories" id="commentBox">
 
                     <div class="col-md-2" id="commentsinput">
                         <div class="pull-left">
@@ -87,28 +87,34 @@
 <script>
     $("#close").click(function() {
         $('#newsDetails').hide();
+        $('.newsArticle').html("")
         $('.content').show("slide");
+
         $('#gn-menu').show("slide");
     });
 
     $('#submitComment').click(function() {
-   
+        var now = new Date().toString();
+        var gmt = now.indexOf("G");
+        now = now.substring(0, gmt);
         $.ajax({url: "processStory", type: 'POST',
             data: {commentagencyname: $('#commentagencyname').val(), commentstory: $('#commentstory').val(), commentLink: $('#commentLink').val(),
-                originalstory: $('.news_caption_title').attr('id')},
-          
+                originalstory: $('.news_caption_title').attr('id'), time: now},
         });
-       
+
         $.ajax({url: "getNewsAgency", type: 'GET',
-            data: {type:"single",name:$('#commentagencyname').val()},
-           success: function(response){
-             
-               insertStory(response);
-           }
+            data: {type: "single", name: $('#commentagencyname').val()},
+            success: function(response) {
+
+                insertStory(response);
+            }
         });
     });
-function insertStory(pictureRelLink){
-        var time = new Date();
+    function insertStory(pictureRelLink) {
+        var time = new Date().toString();
+        var gmt = time.indexOf("G");
+
+        time = time.substring(0, gmt);
 
         var content = "";
         content += '<div class="story-header">';
@@ -120,13 +126,14 @@ function insertStory(pictureRelLink){
         content += '</div>';
         content += '<div class="story">' + $('#commentstory').val() + '</div>';
         content += '<div class="storyLink"> <a href="' + $('#commentLink').val() + '">Full Story Here</a></div> ';
-  
+
 
         $('<li class="stories">' + content + '</li>').insertAfter($('#commentBox'));
         $('#cbp-fwslider').cbpFWSlider();
         //  $('.stories').css('width', 100/($('#comments').children('li').length + 1) + '%');
         // $('#comments').css('width',(100/3) * ($('#comments').children('li').length + 1) + '%');
-    };
+    }
+    ;
     $(function() {
         $('#cbp-fwslider').cbpFWSlider();
 
@@ -236,52 +243,53 @@ function insertStory(pictureRelLink){
                 $('#commentagencyname').append('<option value="' + val.name + '" >' + val.name + '</option>');
             });
         });
-
         $('.news_article').click(function() {
 
             $('.content').hide("slide");
             $('#gn-menu').hide("slide");
             $('.newsDetails').show();
-            $this = $(this).attr('id');
             // $('#middleSegment').css('height', $(window).height() / 2 - 15);
-            $('.news_sum').css('height', $(window).height() / 2 - 10);
+            $('.news_sum').css('height', $(window).height() / 2 - 20);
             $('.cbp-fwslider').css('height', $(window).height() / 2);
             $('.stories').css('height', $(window).height() / 2);
-            $('#news_article').appendTo($('.newsArticle'));
-
-            $.getJSON("getNews", {type: "single", article: $('.news_caption_title').attr('id')}, function(response) {
-                $('.news_name').text(response.name);
-                $("#originalstory").val(response.name);
-                $('#newspicture').attr('src', response.relpic);
-                $.each(response.stories, function(key, val) {
-                    var storyContent = "";
-                    storyContent += '<li class="stories">';
-                    storyContent += ' <div class="story-header">'
-                    storyContent += '<img src="' + val.picLink + '" class="commentpic pull-left" width="70px" alt="">';
-                    storyContent += '<div class="story-agency">';
-                    storyContent += '<div class="story-metadata-name">' + val.name + '</div>';
-                    storyContent += '<div class="story-metadata-date">' + timeAgo(val.time) + '</div>';
-                    storyContent += '</div></div>';
-                    storyContent += '<div class="story">' + val.story + '</div>';
-                    storyContent += '<div class="storyLink"><a href="' + val.link + '">Full Story Here</a></div>  </li> ';
-                    $(storyContent).appendTo($('#comments'));
+            $('.newsArticle').append($(this).html());
+            //   $(this).html().appendTo($('.newsArticle'));
+            if (!$(this).hasClass("read")) {
+                $.getJSON("getNews", {type: "single", article: $('.news_caption_title').attr('id')}, function(response) {
+                    $('.news_name').text(response.name);
+                    $("#originalstory").val(response.name);
+                    $('#newspicture').attr('src', response.relpic);
+                    $.each(response.stories, function(key, val) {
+                        var storyContent = "";
+                        storyContent += '<li class="stories">';
+                        storyContent += ' <div class="story-header">'
+                        storyContent += '<img src="' + val.picLink + '" class="commentpic pull-left" width="70px" alt="">';
+                        storyContent += '<div class="story-agency">';
+                        storyContent += '<div class="story-metadata-name">' + val.name + '</div>';
+                        storyContent += '<div class="story-metadata-date">' + timeAgo(val.time) + '</div>';
+                        storyContent += '</div></div>';
+                        storyContent += '<div class="story">' + val.story + '</div>';
+                        storyContent += '<div class="storyLink"><a href="' + val.link + '">Full Story Here</a></div>  </li> ';
+                        $(storyContent).appendTo($('#comments'));
+                    });
+                    $('#cbp-fwslider').cbpFWSlider();
                 });
-                $('#cbp-fwslider').cbpFWSlider();
-            });
-
+            }
+            $(this).addClass("read");
         });
+
     }
     ;
-
     function timeAgo(time) {
         var now = new Date;
-        var time1 = new Date(time);
-
+        // var time1 = new Date(time);
         var nowUtc = new Date(now.getTime());
         //now=now.getTime()-(now.getTimezoneOffset()*60000);
-        // var date = new Date((time || "").replace(/-/g, "/").replace(/[TZ]/g, " ")),
-        diff = ((nowUtc.getTime() - (time1.getTime())) / 1000),
+
+        var time1 = new Date((time || "").replace(/-/g, "/").replace(/[TZ]/g, " ")),
+                diff = ((nowUtc.getTime() - (time1.getTime())) / 1000),
                 day_diff = Math.floor(diff / 86400);
+
         if (isNaN(day_diff) || day_diff < 0 || day_diff >= 31)
             return;
         return day_diff == 0 && (

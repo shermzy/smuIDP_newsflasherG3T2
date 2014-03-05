@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : Sherman
 */
 #middleSegment{
-  //  border-right: 1px solid #B3B3B3;
+    //  border-right: 1px solid #B3B3B3;
     //border-left: 1px solid #B3B3B3;
 }
 .news_name{
@@ -80,14 +80,14 @@ and open the template in the editor.
 .btn.active:hover{
     background:#333;
     color:#fff !important;
-    
+
 }
 .title{
     display:block;
 }
 .category{
     width: 100%;
-    padding: 20px 0 20px 0;
+    height:40px;
     display:block;
 }
 #logo{
@@ -100,7 +100,8 @@ ul.gn-menu li:hover{
     cursor:pointer;
 }
 .commentBox{
-    float:none !important;
+    //float:none !important;
+   // padding: 20px 20px !important;
 }
 .bugCage{
     margin:auto;
@@ -120,7 +121,7 @@ ul.gn-menu li:hover{
 }
 .commentpic{
     width:70px;
-     border-radius: 50% !important;
+    border-radius: 50% !important;
 }
 .fb-pic{
     border-radius: 50% !important;
@@ -156,6 +157,7 @@ ul.gn-menu li:hover{
     bottom:0;
     text-align: left;
     //opacity:0.5;
+    position: relative;
 
 }
 
@@ -187,20 +189,19 @@ ul.gn-menu li:hover{
     border-bottom: 6px solid #1C810F;
 
 }
-.pic-overlay{
-    margin-bottom:-50px !important;
-}
 .news-sel{
     float: left;
-    height: 50px;
-    font-size: 1.5em !important;
-    min-width:320px;
+    //  min-width:320px;
     z-index: -10;
     cursor: pointer;
     color: #444;
-    margin-right: 20px;
+    //  margin-right: 20px;
     background: #ADADAD;
 }
+.pic-overlay{
+    margin-bottom:-50px !important;
+}
+
 .Entertainment{
     // background:#C2B30B;
     //color:#fff;
@@ -245,6 +246,7 @@ ul.gn-menu li:hover{
     background:#151515;
     color:#fff;
 }
+.newsArticle,
 .news_article{
     -webkit-border-radius:3px;
     border-radius:3px;
@@ -259,13 +261,13 @@ ul.gn-menu li:hover{
     // min-height:450px;
     cursor:pointer;
     // display:none;
-font-size:1.2rem;
+    font-size:1.2rem;
     position:relative;
-    -webkit-animation: fadein 1s; /* Safari and Chrome */
-    -moz-animation: fadein 1s; /* Firefox */
-    -ms-animation: fadein 1s; /* Internet Explorer */
-    -o-animation: fadein 1s; /* Opera */
-    animation: fadein 1s;
+    //   -webkit-animation: fadein 1s; /* Safari and Chrome */
+    //  -moz-animation: fadein 1s; /* Firefox */
+    //  -ms-animation: fadein 1s; /* Internet Explorer */
+    //  -o-animation: fadein 1s; /* Opera */
+    //  animation: fadein 1s;
 }
 .welcome-text{
     margin:auto;
@@ -281,7 +283,7 @@ font-size:1.2rem;
 .content{
     margin:auto;
     padding: 70px 20px 50px 20px;
-  //  position: fixed;
+    //  position: fixed;
 }
 .fixed{
     position:fixed;
@@ -2498,7 +2500,18 @@ input.gn-search:focus {
     #middleSegment{
         border:0px solid #444;
     }
-    
+    .news-sel{
+        float: left;
+        height: 50px;
+        font-size: 1.5em !important;
+        min-width:320px;
+        z-index: -10;
+        cursor: pointer;
+        color: #444;
+        margin-right: 20px;
+        background: #ADADAD;
+    }
+
 }
 
 .btn-file {
@@ -2644,17 +2657,12 @@ input.gn-search:focus {
 
 
 
-.cbp-fwslider {
-    position: relative;
-    margin: 0 0 10px;
-    overflow: hidden;
-    padding: 40px 0 60px;
-}
+
 
 .cbp-fwslider ul {
     margin: 0;
     padding: 0;
-    //white-space: nowrap;
+    white-space: nowrap;
     list-style-type: none;
 }
 
@@ -2682,21 +2690,25 @@ input.gn-search:focus {
     line-height: 120%;
     text-align: left;
     padding-left:120px
-    
+
 }
 .stories{
     padding:20px 20px !important;
 
 }
+.stories:hover{
+    padding:20px 20px !important;
+overflow-y:auto;
+}
 .story-agency{
-   height: 120px;
-padding-top: 10px;
-margin-left: -30px;
+    height: 120px;
+    padding-top: 10px;
+    margin-left: -30px;
 }
 .story-agency,
 .story-header{
     width: 100%;
-   
+
     // margin-top: -10%;
 }
 .cbp-fwslider ul li > a,
@@ -2721,20 +2733,19 @@ margin-left: -30px;
 
 
 .cbp-fwslider nav span{
-
     position: absolute;
     top: 75%;
-    width: 60px;
-    height: 100px;
+    width: 30px;
+    height: 50px;
     background: #333435;
     color: #fff;
     font-size: 50px;
     text-align: center;
     /* margin-top: -50px; */
-    line-height: 100px;
+    line-height: 50px;
     cursor: pointer;
-    font-size: 4em !important;
-    opacity:0.5;
+    font-size: 2em !important;
+    opacity:0.2;
 }
 .cbp-fwslider nav span.cbp-fwnext {
     right: 0px;
@@ -2782,4 +2793,10 @@ margin-left: -30px;
     -webkit-transition: box-shadow 0.2s ease-in-out;
     -moz-transition: box-shadow 0.2s ease-in-out;
     transition: box-shadow 0.2s ease-in-out;
+}
+.cbp-fwslider {
+    position: relative;
+    margin: 0 0 10px;
+   // overflow: hidden;
+    padding: 40px 0 60px;
 }

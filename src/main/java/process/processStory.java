@@ -47,7 +47,7 @@ public class processStory extends HttpServlet {
         String commentStory = "";
         String commentLink = "";
         String originalStory = "";
-        String pictureName = "";
+        String date = "";
         File uploadedFile = null;
         String imageLink = "";
         try {
@@ -71,8 +71,10 @@ public class processStory extends HttpServlet {
                 originalStory = (String) request.getParameter("originalstory");
                 System.out.println(" originalStory : " + originalStory);
             }
-            DateFormat sf = new SimpleDateFormat("dd/MM/yyyy hh:mm");
-            String date = sf.format(new Date());
+             if (request.getParameter("time") != null) {
+                date = (String) request.getParameter("time");
+                System.out.println(" date : " + date);
+            }
             String[] newsStory = {commentAgencyName, commentStory, commentLink, originalStory, date};
             ArticleDAO.insertStory(newsStory);
         } catch (Exception e) {

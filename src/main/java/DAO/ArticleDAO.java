@@ -157,7 +157,7 @@ public class ArticleDAO {
             //Get database connection & execute query
             conn = ConnectionManager.getConnection();
 
-            query = "select * from newsstory a,newsagency b where a.name=b.name and a.originalStory='" + name + "'";
+            query = "select * from newsstory a,newsagency b where a.name=b.name and a.originalStory='" + name + "' order by time desc";
             st = conn.createStatement();
             rs = st.executeQuery(query);
 
