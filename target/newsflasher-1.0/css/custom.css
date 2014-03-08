@@ -11,6 +11,23 @@ and open the template in the editor.
     //  border-right: 1px solid #B3B3B3;
     //border-left: 1px solid #B3B3B3;
 }
+.newsArticle{
+    
+}
+.overlay{
+    height:inherit;
+    position: relative;
+    z-index:1000
+    
+}
+.foregroundStory{
+   // position:relative;
+    z-index:10;
+      -webkit-filter: blur(5px); -moz-filter: blur(5px); -o-filter: blur(5px); -ms-filter: blur(5px); filter: blur(5px);
+   background:black;
+  // opacity:0.5;
+   height:inherit;
+}
 .news_name{
     text-align:center;
 }
@@ -101,7 +118,7 @@ ul.gn-menu li:hover{
 }
 .commentBox{
     //float:none !important;
-   // padding: 20px 20px !important;
+    // padding: 20px 20px !important;
 }
 .bugCage{
     margin:auto;
@@ -113,8 +130,8 @@ ul.gn-menu li:hover{
 .bugTitle{
     font-size:2.5em;
 }
-#commentsinput{
-    //margin-top:-100px;
+#comments{
+    font-size:1.2rem;
 }
 .commentpic{
     vertical-align: text-top;
@@ -137,7 +154,7 @@ ul.gn-menu li:hover{
     padding: 5px 5px;
 }
 .news_caption_title{
-    font-size: 1.4em;
+    font-size: 2rem;
     z-index: 3;
     color: #fff;
     top: 0;
@@ -175,8 +192,11 @@ ul.gn-menu li:hover{
     height:100%;
     font-size:1.5em;
     width:33.33%;
-
+text-align:center;
     z-index:-10;
+}
+.newspoints{
+    
 }
 .storyLink{
     margin-top:15px;
@@ -261,13 +281,10 @@ ul.gn-menu li:hover{
     // min-height:450px;
     cursor:pointer;
     // display:none;
+    overflow:hidden;
     font-size:1.2rem;
     position:relative;
-    //   -webkit-animation: fadein 1s; /* Safari and Chrome */
-    //  -moz-animation: fadein 1s; /* Firefox */
-    //  -ms-animation: fadein 1s; /* Internet Explorer */
-    //  -o-animation: fadein 1s; /* Opera */
-    //  animation: fadein 1s;
+  
 }
 .welcome-text{
     margin:auto;
@@ -2271,7 +2288,17 @@ ul.gn-menu li:hover{
     -moz-transition: -moz-transform 0.3s, width 0.3s;
     transition: transform 0.3s, width 0.3s;
 }
-
+#middleStory{
+    text-align: center !important;
+}
+.blackOverlay{
+    margin-top: -395px;
+background: black;
+z-index: 100;
+position: relative;
+opacity: 0.5;
+height: inherit;
+}
 .gn-scroller {
     position: absolute;
     overflow-y: scroll;
@@ -2693,13 +2720,14 @@ input.gn-search:focus {
 
 }
 .stories{
-    padding:20px 20px !important;
+    // margin-right: 10px !important;
+    padding: 35px !important;
 
 }
 .stories:hover{
-    padding:20px 20px !important;
-overflow-y:auto;
+    overflow-y:auto;
 }
+
 .story-agency{
     height: 120px;
     padding-top: 10px;
@@ -2725,12 +2753,16 @@ overflow-y:auto;
     max-width: 75%;
 }
 .news_sum{
-    padding:0 5%
+    // padding:0 5%
 }
 .cbp-fwslider nav span :hover {
     opacity:1;
 }
-
+#close{
+    margin-left:-50px;
+    z-index: 10;
+    position: relative;
+}
 
 .cbp-fwslider nav span{
     position: absolute;
@@ -2744,7 +2776,7 @@ overflow-y:auto;
     /* margin-top: -50px; */
     line-height: 50px;
     cursor: pointer;
-    font-size: 2em !important;
+    font-size: 3rem !important;
     opacity:0.2;
 }
 .cbp-fwslider nav span.cbp-fwnext {
@@ -2760,8 +2792,9 @@ overflow-y:auto;
     left: 0px;
 
 }
+.cbp-fwdots:hover,
 .cbp-fwslider nav span.cbp-fwprev:hover {
-    left: 0px;
+
     opacity:1;
 }
 
@@ -2771,6 +2804,7 @@ overflow-y:auto;
     white-space: nowrap;
     text-align: center;
     width: 100%;
+    opacity:0.2;
 }
 
 .cbp-fwdots span {
@@ -2797,6 +2831,6 @@ overflow-y:auto;
 .cbp-fwslider {
     position: relative;
     margin: 0 0 10px;
-   // overflow: hidden;
-    padding: 40px 0 60px;
+    // overflow: hidden;
+   // padding: 40px 0 60px;
 }

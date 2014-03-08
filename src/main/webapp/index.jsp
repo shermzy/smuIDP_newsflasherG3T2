@@ -18,6 +18,7 @@
                         <label class="btn news-sel Entertainment" id="Entertainment">
                             Entertainment </label>
                         <label class="btn news-sel Tech" id="Tech">
+
                             Technology </label>
                         <label class="btn news-sel Biz" id="Biz">
                             Business</label>
@@ -28,53 +29,66 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4 col-xs-12" id="colone"></div>
-                <div class="col-md-4 col-xs-12" id="coltwo"></div>
-                <div class="col-md-4 col-xs-12" id="colthree"></div>
+                <div class="col-md-3 col-xs-12" id="colone"></div>
+                <div class="col-md-3 col-xs-12" id="coltwo"></div>
+                <div class="col-md-3 col-xs-12" id="colthree"></div>
+                <div class="col-md-3 col-xs-12" id="colfour"></div>
             </div>
         </div>
     </div>
 
     <div class="newsDetails" id="newsDetails">
-        <div class="pull-right btn default" id="close">X</div>
+
         <div class="news_sum">
-            <div class="col-md-4">
-            </div>
-            <div class="col-md-4" id="middleSegment">
-                <div class="newsArticle">
+            <!--      <div class="col-md-4">
+                  </div>
+                  <div class="col-md-4" id="middleSegment"> -->
+            <div class="newsArticle">
+                <div class="foregroundStory"></div>
+                <div class="blackOverlay"></div>
+                <div class="overlay">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4" id="middleStory">
+
+                    </div>
+                    <div class="col-md-4">
+                        <div class="pull-right btn default" id="close">X</div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4">
-            </div>
-        </div>
+            <!--    </div>
+                  <div class="col-md-4">
+                  </div>
+              </div>-->
 
-        <div id="cbp-fwslider" class="cbp-fwslider">
-            <ul id="comments">
-                <li class="stories" id="commentBox">
+            <div id="cbp-fwslider" class="cbp-fwslider">
+                <ul id="comments">
+                    <li class="stories" id="commentBox">
 
-                    <div class="col-md-2" id="commentsinput">
-                        <div class="pull-left">
-                            <img class="fb-pic" width="70px" alt="" id="blah">
+                        <div class="col-md-2" id="commentsinput">
+                            <div class="pull-left">
+                                <img class="fb-pic" width="70px" alt="" id="blah">
+                            </div>
+
                         </div>
 
-                    </div>
+                        <div class="col-md-6">
 
-                    <div class="col-md-6">
+                            News agency: <select class="form-control" id="commentagencyname" name="commentagencyname"></select>
+                            News story : <textarea class="form-control" id="commentstory" name ="commentstory"></textarea>
+                            News Link : <input type="text" class="form-control" id="commentLink" name ="commentLink">
 
-                        News agency: <select class="form-control" id="commentagencyname" name="commentagencyname"></select>
-                        News story : <textarea class="form-control" id="commentstory" name ="commentstory"></textarea>
-                        News Link : <input type="text" class="form-control" id="commentLink" name ="commentLink">
+                            <input type="hidden" id="originalstory" name ="originalstory">
+                            <button class="btn btn-default" id="submitComment"> Comment </button>  
+                        </div>
 
-                        <input type="hidden" id="originalstory" name ="originalstory">
-                        <button class="btn btn-default" id="submitComment"> Comment </button>  
-                    </div>
-
-                </li>
+                    </li>
 
 
-            </ul>
+                </ul>
+            </div>
         </div>
-    </div>
 
 
 
@@ -87,7 +101,7 @@
 <script>
     $("#close").click(function() {
         $('#newsDetails').hide();
-        $('.newsArticle').html("")
+        $('#middleStory').html("");
         $('.content').show("slide");
 
         $('#gn-menu').show("slide");
@@ -205,13 +219,13 @@
                     content += '<div class="news_caption">';
                     content += '<div class="news_caption_title" id="' + val.name + '">';
                     content += val.name;
-                    content += '</div><div class="news_caption_body">';
-                    var bullets = val.snippet.split(";");
-                    content += "<ul>";
-                    for (var a = 0; a < bullets.length - 1; a++) {
-                        content += ("<li>" + bullets[a] + "</li>");
-                    }
-                    content += "</ul>";
+                    //      content += '</div><div class="news_caption_body">';
+                    //         var bullets = val.snippet.split(";");
+                    //      content += "<ul>";
+                    //       for (var a = 0; a < bullets.length - 1; a++) {
+                    //            content += ("<li>" + bullets[a] + "</li>");
+                    //       }
+                    //       content += "</ul>";
                     content += '</div></div></div>';
                     // content += '<div class="social-info">';
                     // content += '<div class="social-icons likes"><i class="fa fa-thumbs-up"></i></div>';
@@ -219,14 +233,17 @@
                     //   content += '<div class="social-icons readmore">Read More</div>';
                     //    content += '</div>';
                     content += '</div>';
-                    if (counter % 3 === 0) {
-                        $('<div class="news_article" id="news_article">  ' + content + '</div>').appendTo("#colone");
+                    if (counter % 4 === 0) {
+                        $('<div class="news_article" id="' + val.name + '">  ' + content + '</div>').appendTo("#colone");
                         counter += 1;
-                    } else if (counter % 3 === 1) {
-                        $('<div class="news_article" id="news_article">' + content + '</div>').appendTo("#coltwo");
+                    } else if (counter % 4 === 1) {
+                        $('<div class="news_article" id="' + val.name + '">' + content + '</div>').appendTo("#coltwo");
+                        counter += 1;
+                    } else if (counter % 4 === 2) {
+                        $('<div class="news_article" id="' + val.name + '"> ' + content + '</div>').appendTo("#colthree");
                         counter += 1;
                     } else {
-                        $('<div class="news_article" id="news_article"> ' + content + '</div>').appendTo("#colthree");
+                        $('<div class="news_article" id="' + val.name + '"> ' + content + '</div>').appendTo("#colfour");
                         counter += 1;
                     }
                 }
@@ -244,42 +261,59 @@
             });
         });
         $('.news_article').click(function() {
+            //$('.newsArticle').append($(this).html());
+            //   $(this).html().appendTo($('.newsArticle'));
+
+
+
+            $.getJSON("getNews", {type: "single", article: $(this).attr('id')}, function(response) {
+                $('.news_name').text(response.name);
+
+                // $("#originalstory").val(response.name);
+                // $('#newspicture').attr('src', response.relpic);
+                $('.foregroundStory').css('background', 'url(' + response.relpic + ') black no-repeat center');
+                var midStory = '<div class="news_caption_title">' + response.name + '</div>';
+                var bullets = response.snippet.split(";");
+                midStory += ('<div class="list-group">');
+              
+                for (var i = 0; i < bullets.length - 1; i++) {
+                    midStory += ('<a href="#" class="list-group-item"><p>' + bullets[i] + '</p></a> ');
+                }
+                midStory += "</div>";
+                $(midStory).appendTo('#middleStory');
+                $.each(response.stories, function(key, val) {
+                    var storyContent = "";
+                    storyContent += '<li class="stories">';
+                    storyContent += ' <div class="story-header">'
+                    storyContent += '<img src="' + val.picLink + '" class="commentpic pull-left" width="70px" alt="">';
+                    storyContent += '<div class="story-agency">';
+                    storyContent += '<div class="story-metadata-name">' + val.name + '</div>';
+                    storyContent += '<div class="story-metadata-date">' + timeAgo(val.time) + '</div>';
+                    storyContent += '</div></div>';
+                    storyContent += '<div class="story">' + val.story + '</div>';
+                    storyContent += '<div class="storyLink"><a href="' + val.link + '">Full Story Here</a></div>  </li> ';
+                    $(storyContent).appendTo($('#comments'));
+                    $('.stories').css('height', $(window).height() / 2);
+                });
+                $('#cbp-fwslider').cbpFWSlider();
+
+            });
 
             $('.content').hide("slide");
             $('#gn-menu').hide("slide");
             $('.newsDetails').show();
+            $('.newsDetails').css('height', $(window).height());
             // $('#middleSegment').css('height', $(window).height() / 2 - 15);
-            $('.news_sum').css('height', $(window).height() / 2 - 20);
+            $('.newsArticle').css('height', $(window).height() / 2);
             $('.cbp-fwslider').css('height', $(window).height() / 2);
-            $('.stories').css('height', $(window).height() / 2);
-            $('.newsArticle').append($(this).html());
-            //   $(this).html().appendTo($('.newsArticle'));
-            if (!$(this).hasClass("read")) {
-                $.getJSON("getNews", {type: "single", article: $('.news_caption_title').attr('id')}, function(response) {
-                    $('.news_name').text(response.name);
-                    $("#originalstory").val(response.name);
-                    $('#newspicture').attr('src', response.relpic);
-                    $.each(response.stories, function(key, val) {
-                        var storyContent = "";
-                        storyContent += '<li class="stories">';
-                        storyContent += ' <div class="story-header">'
-                        storyContent += '<img src="' + val.picLink + '" class="commentpic pull-left" width="70px" alt="">';
-                        storyContent += '<div class="story-agency">';
-                        storyContent += '<div class="story-metadata-name">' + val.name + '</div>';
-                        storyContent += '<div class="story-metadata-date">' + timeAgo(val.time) + '</div>';
-                        storyContent += '</div></div>';
-                        storyContent += '<div class="story">' + val.story + '</div>';
-                        storyContent += '<div class="storyLink"><a href="' + val.link + '">Full Story Here</a></div>  </li> ';
-                        $(storyContent).appendTo($('#comments'));
-                    });
-                    $('#cbp-fwslider').cbpFWSlider();
-                });
-            }
+            $('.overlay').css("margin-top", -$(window).height() / 2);
+            $('.blackOverlay').css("margin-top", -$(window).height() / 2);
             $(this).addClass("read");
         });
 
     }
     ;
+
     function timeAgo(time) {
         var now = new Date;
         // var time1 = new Date(time);

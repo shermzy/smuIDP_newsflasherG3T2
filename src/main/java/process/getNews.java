@@ -43,7 +43,7 @@ public class getNews extends HttpServlet {
                 System.out.println(request.getParameter("type"));
                   try{
                   JSONObject articles = ArticleDAO.getSingleArticle((String)request.getParameter("article"));
-                  
+                  System.out.println("hi: " + (String)request.getParameter("article"));
                   JSONArray stories = ArticleDAO.getStories((String)request.getParameter("article"));
                   articles.put("stories",stories);
                  
