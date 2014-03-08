@@ -29,10 +29,10 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3 col-xs-12" id="colone"></div>
-                <div class="col-md-3 col-xs-12" id="coltwo"></div>
-                <div class="col-md-3 col-xs-12" id="colthree"></div>
-                <div class="col-md-3 col-xs-12" id="colfour"></div>
+                <div class="col-md-4 col-xs-12" id="colone"></div>
+                <div class="col-md-4 col-xs-12" id="coltwo"></div>
+                <div class="col-md-4 col-xs-12" id="colthree"></div>
+                
             </div>
         </div>
     </div>
@@ -233,19 +233,16 @@
                     //   content += '<div class="social-icons readmore">Read More</div>';
                     //    content += '</div>';
                     content += '</div>';
-                    if (counter % 4 === 0) {
+                    if (counter % 3 === 0) {
                         $('<div class="news_article" id="' + val.name + '">  ' + content + '</div>').appendTo("#colone");
                         counter += 1;
-                    } else if (counter % 4 === 1) {
+                    } else if (counter % 3 === 1) {
                         $('<div class="news_article" id="' + val.name + '">' + content + '</div>').appendTo("#coltwo");
                         counter += 1;
-                    } else if (counter % 4 === 2) {
+                    } else if (counter % 3 === 2) {
                         $('<div class="news_article" id="' + val.name + '"> ' + content + '</div>').appendTo("#colthree");
                         counter += 1;
-                    } else {
-                        $('<div class="news_article" id="' + val.name + '"> ' + content + '</div>').appendTo("#colfour");
-                        counter += 1;
-                    }
+                    } 
                 }
             });
             init();
