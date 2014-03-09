@@ -46,25 +46,7 @@ and open the template in the editor.
     text-align: center;
     color:brown;
 }
-.social-icons {
-    float:left;
-}
 
-.readmore{
-    width: 50%;
-    font-size: 2em;
-    text-align: center;
-    padding-top: 10px;
-    vertical-align: middle;
-    box-shadow: 1px 1px 1px 1px grey;
-    height: 100%;
-    -moz-box-shadow: 0 0 5px #888;
-    /* -webkit-box-shadow: 0 0 5px#888; */
-    /* box-shadow: 0 0 5px #888; */
-    -moz-box-shadow: inset 0 0 2px 2px #888;
-    -webkit-box-shadow: inset 0 0 2px 2px #888;
-    box-shadow: inset 0 0 2px 2px #888;
-}
 .fav,
 .likes{
     width: 25%;
@@ -2288,8 +2270,35 @@ text-align:center;
     -moz-transition: -moz-transform 0.3s, width 0.3s;
     transition: transform 0.3s, width 0.3s;
 }
+.score{
+    width:50%;
+    float:left;
+    font-size:5rem;
+    color:#A5A4A4;
+}
+.positive-rating{
+    color:#20FF29;
+    
+}
+.socialIcons{
+    color:#fff;
+    font-size:4rem;
+    padding-right:15px;
+    
+}
+.social-icons{
+    margin-top:20px;
+}
+.socialIcons:hover{
+    text-shadow: 0.5px 0.5px 5px #fff;
+}
+
+.negative-rating{  color:#FF0000;}
+    
+
 #middleStory{
     text-align: center !important;
+    height:inherit;
 }
 .blackOverlay{
     margin-top: -395px;
@@ -2538,7 +2547,9 @@ input.gn-search:focus {
         margin-right: 20px;
         background: #ADADAD;
     }
-
+    .score{
+        font-size:2rem;
+    }
 }
 
 .btn-file {
@@ -2721,7 +2732,7 @@ input.gn-search:focus {
 }
 .stories{
     // margin-right: 10px !important;
-    padding: 35px !important;
+   // padding: 35px !important;
 
 }
 .stories:hover{

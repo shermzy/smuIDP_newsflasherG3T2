@@ -32,7 +32,7 @@
                 <div class="col-md-4 col-xs-12" id="colone"></div>
                 <div class="col-md-4 col-xs-12" id="coltwo"></div>
                 <div class="col-md-4 col-xs-12" id="colthree"></div>
-                
+
             </div>
         </div>
     </div>
@@ -40,28 +40,37 @@
     <div class="newsDetails" id="newsDetails">
 
         <div class="news_sum">
-            <!--      <div class="col-md-4">
-                  </div>
-                  <div class="col-md-4" id="middleSegment"> -->
             <div class="newsArticle">
                 <div class="foregroundStory"></div>
                 <div class="blackOverlay"></div>
+                <!--Issue-->
                 <div class="overlay">
                     <div class="col-md-4">
+                        <!-- Add other related news here-->
                     </div>
                     <div class="col-md-4" id="middleStory">
-
+                        <div class="Social">
+                            <div class="positive-rating score">70%</div>
+                            <div class="negative-rating score">30%</div>
+                            <div class="summary">
+                                <!--insert 3 points here -->
+                            </div>
+                            <div class="social-icons">
+                                <i class="fa fa-facebook-square socialIcons"></i>
+                                <i class="fa fa-twitter-square socialIcons"></i>
+                                <i class="fa fa-google-plus-square socialIcons"></i>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-4">
                         <div class="pull-right btn default" id="close">X</div>
                     </div>
                 </div>
-            </div>
-            <!--    </div>
-                  <div class="col-md-4">
-                  </div>
-              </div>-->
 
+                <!--End Issue-->
+            </div>
+
+            <!--News slider-->
             <div id="cbp-fwslider" class="cbp-fwslider">
                 <ul id="comments">
                     <li class="stories" id="commentBox">
@@ -70,9 +79,7 @@
                             <div class="pull-left">
                                 <img class="fb-pic" width="70px" alt="" id="blah">
                             </div>
-
                         </div>
-
                         <div class="col-md-6">
 
                             News agency: <select class="form-control" id="commentagencyname" name="commentagencyname"></select>
@@ -88,6 +95,8 @@
 
                 </ul>
             </div>
+
+            <!--End News Slider-->
         </div>
 
 
@@ -101,7 +110,7 @@
 <script>
     $("#close").click(function() {
         $('#newsDetails').hide();
-        $('#middleStory').html("");
+        $('.summary').html("");
         $('.content').show("slide");
 
         $('#gn-menu').show("slide");
@@ -242,7 +251,7 @@
                     } else if (counter % 3 === 2) {
                         $('<div class="news_article" id="' + val.name + '"> ' + content + '</div>').appendTo("#colthree");
                         counter += 1;
-                    } 
+                    }
                 }
             });
             init();
@@ -272,12 +281,12 @@
                 var midStory = '<div class="news_caption_title">' + response.name + '</div>';
                 var bullets = response.snippet.split(";");
                 midStory += ('<div class="list-group">');
-              
+
                 for (var i = 0; i < bullets.length - 1; i++) {
                     midStory += ('<a href="#" class="list-group-item"><p>' + bullets[i] + '</p></a> ');
                 }
                 midStory += "</div>";
-                $(midStory).appendTo('#middleStory');
+                $(midStory).appendTo('.summary');
                 $.each(response.stories, function(key, val) {
                     var storyContent = "";
                     storyContent += '<li class="stories">';
@@ -334,5 +343,5 @@
                 day_diff < 31 && Math.ceil(day_diff / 7) + " weeks ago";
     }
 
-
+  
 </script>
