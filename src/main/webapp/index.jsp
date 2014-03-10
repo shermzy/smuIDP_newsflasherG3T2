@@ -82,12 +82,12 @@
                         </div>
                         <div class="col-md-6">
 
-                            News agency: <select class="form-control" id="commentagencyname" name="commentagencyname"></select>
-                            News story : <textarea class="form-control" id="commentstory" name ="commentstory"></textarea>
-                            News Link : <input type="text" class="form-control" id="commentLink" name ="commentLink">
+                        <!--    News agency: <select class="form-control" id="commentagencyname" name="commentagencyname"></select>-->
+                            <textarea class="form-control" id="commentstory" name ="commentstory" placeholder="Comments" rows="6"></textarea>
+                        <!--    News Link : <input type="text" class="form-control" id="commentLink" name ="commentLink">-->
 
                             <input type="hidden" id="originalstory" name ="originalstory">
-                            <button class="btn btn-default" id="submitComment"> Comment </button>  
+                            <button class="btn btn-default commentbtn" id="submitComment"> Comment </button>  
                         </div>
 
                     </li>

@@ -2730,6 +2730,9 @@ input.gn-search:focus {
     padding-left:120px
 
 }
+.commentbtn{
+    margin-top:25px !important;
+}
 .stories{
     // margin-right: 10px !important;
    // padding: 35px !important;

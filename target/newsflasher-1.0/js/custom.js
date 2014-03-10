@@ -80,25 +80,7 @@ function fb_login() {
             FB.api("/me", function(rsp) {
                 if (rsp && !rsp.error) {
                     $(location).attr("href", "index.jsp");
-                    //$('.fb-button').hide();
-                    /*         $.ajax({url: "/sports/processSignUp", type: 'POST',
-                     data: {email: rsp.email},
-                     success: function(suc) {
-                     
-                     if ($.trim(suc) === "available") {
-                     $.ajax({url: "/sports/fbSignUp", type: 'POST',
-                     data: {type: "fb", mSignup: "fb", email: rsp.email, name: rsp.first_name, gender: rsp.gender, dob: rsp.birthday}
-                     });
-                     $.cookie("user",rsp.email, { path: '/' });  
-                     window.location.href = "../Admin/main.jsp";
-                     } else {
-                     $.cookie("user",rsp.email, { path: '/' }); 
-                     
-                     window.location.href = "../Admin/main.jsp";
-                     }
-                     ;
-                     }
-                     });*/
+                 
                 }
                 ;
             });
