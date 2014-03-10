@@ -79,7 +79,7 @@ function fb_login() {
             //  check if user has an account in it. If email is available (have not signed up),create a new user
             FB.api("/me", function(rsp) {
                 if (rsp && !rsp.error) {
-                    $(location).attr("href", "browse.jsp");
+                    $(location).attr("href", "index.jsp");
                     //$('.fb-button').hide();
                     /*         $.ajax({url: "/sports/processSignUp", type: 'POST',
                      data: {email: rsp.email},

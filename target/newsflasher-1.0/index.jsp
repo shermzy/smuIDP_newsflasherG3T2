@@ -50,8 +50,8 @@
                     </div>
                     <div class="col-md-4" id="middleStory">
                         <div class="Social">
-                            <div class="positive-rating score">70%</div>
-                            <div class="negative-rating score">30%</div>
+                   <!--         <div class="positive-rating score">70%</div>
+                            <div class="negative-rating score">30%</div>-->
                             <div class="summary">
                                 <!--insert 3 points here -->
                             </div>
@@ -120,9 +120,10 @@
         var now = new Date().toString();
         var gmt = now.indexOf("G");
         now = now.substring(0, gmt);
+        
         $.ajax({url: "processStory", type: 'POST',
             data: {commentagencyname: $('#commentagencyname').val(), commentstory: $('#commentstory').val(), commentLink: $('#commentLink').val(),
-                originalstory: $('.news_caption_title').attr('id'), time: now},
+                originalstory: $('#originalStory').text(), time: now}
         });
 
         $.ajax({url: "getNewsAgency", type: 'GET',
@@ -278,7 +279,7 @@
                 // $("#originalstory").val(response.name);
                 // $('#newspicture').attr('src', response.relpic);
                 $('.foregroundStory').css('background', 'url(' + response.relpic + ') black no-repeat center');
-                var midStory = '<div class="news_caption_title">' + response.name + '</div>';
+                var midStory = '<div class="news_caption_title" id="originalStory">' + response.name + '</div>';
                 var bullets = response.snippet.split(";");
                 midStory += ('<div class="list-group">');
 
