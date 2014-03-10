@@ -50,8 +50,8 @@
                     </div>
                     <div class="col-md-4" id="middleStory">
                         <div class="Social">
-                   <!--         <div class="positive-rating score">70%</div>
-                            <div class="negative-rating score">30%</div>-->
+                            <!--         <div class="positive-rating score">70%</div>
+                                     <div class="negative-rating score">30%</div>-->
                             <div class="summary">
                                 <!--insert 3 points here -->
                             </div>
@@ -75,16 +75,16 @@
                 <ul id="comments">
                     <li class="stories" id="commentBox">
 
-                        <div class="col-md-2" id="commentsinput">
+                        <div class="col-md-2 col-3-xs" id="commentsinput">
                             <div class="pull-left">
                                 <img class="fb-pic" width="70px" alt="" id="blah">
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 col-9-xs">
 
-                        <!--    News agency: <select class="form-control" id="commentagencyname" name="commentagencyname"></select>-->
-                            <textarea class="form-control" id="commentstory" name ="commentstory" placeholder="Comments" rows="6"></textarea>
-                        <!--    News Link : <input type="text" class="form-control" id="commentLink" name ="commentLink">-->
+                              News agency: <select class="form-control" id="commentagencyname" name="commentagencyname"></select>
+                       News Story:     <textarea class="form-control" id="commentstory" name ="commentstory" placeholder="Comments" rows="6"></textarea>
+                              News Link : <input type="text" class="form-control" id="commentLink" name ="commentLink">
 
                             <input type="hidden" id="originalstory" name ="originalstory">
                             <button class="btn btn-default commentbtn" id="submitComment"> Comment </button>  
@@ -120,7 +120,7 @@
         var now = new Date().toString();
         var gmt = now.indexOf("G");
         now = now.substring(0, gmt);
-        
+
         $.ajax({url: "processStory", type: 'POST',
             data: {commentagencyname: $('#commentagencyname').val(), commentstory: $('#commentstory').val(), commentLink: $('#commentLink').val(),
                 originalstory: $('#originalStory').text(), time: now}
@@ -344,5 +344,5 @@
                 day_diff < 31 && Math.ceil(day_diff / 7) + " weeks ago";
     }
 
-  
+
 </script>
