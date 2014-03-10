@@ -2523,7 +2523,7 @@ input.gn-search:focus {
         width: 100%;
     }
     .cbp-fwslider nav span {
-        display:none !important;
+      //  display:none !important;
     }
     .gn-menu-wrapper.gn-open-all .gn-scroller {
         width: 130%
@@ -2549,6 +2549,12 @@ input.gn-search:focus {
     }
     .score{
         font-size:2rem;
+    }
+    .cbp-fwdots{
+        display:none;
+    }
+    #newsflasherTitle{
+        font-size:1.5rem;
     }
 }
 

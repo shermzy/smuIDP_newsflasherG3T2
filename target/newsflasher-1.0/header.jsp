@@ -41,7 +41,7 @@
                 </nav>
             </li>
 
-            <li id="logo"><span>NewsFlasher | Beta</span></li>
+            <li id="logo"><span id="newsflasherTitle">NewsFlasher | Beta</span></li>
             
         </ul>
         <!--END GLOBAL SIDE MENU-->
