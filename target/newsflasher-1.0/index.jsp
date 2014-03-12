@@ -194,7 +194,13 @@
         shownews(activeCats);
 
     });
+    $(window).load(function(){
+        shownews("All");
+        $("#All").addClass('active');
+        
+    });
     function shownews(activeCats) {
+        
         $.getJSON("getNews", function(response) {
             var counter = 0;
             var categories = $(this).attr("id");
