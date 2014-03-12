@@ -56,9 +56,9 @@
                                 <!--insert 3 points here -->
                             </div>
                             <div class="social-icons">
-                                <i class="fa fa-facebook-square socialIcons"></i>
+                          <!--      <i class="fa fa-facebook-square socialIcons"></i>
                                 <i class="fa fa-twitter-square socialIcons"></i>
-                                <i class="fa fa-google-plus-square socialIcons"></i>
+                                <i class="fa fa-google-plus-square socialIcons"></i>-->
                             </div>
                         </div>
                     </div>
