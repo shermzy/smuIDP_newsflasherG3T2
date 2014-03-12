@@ -106,16 +106,25 @@
 
 
 <%@include file="footer.jsp" %> 
-
+	<script type="text/javascript" src="js/backfix.min.js"></script>
 <script>
+    bajb_backdetect.OnBack = function()
+	{
+		close();
+	};
+    $(window).unload( function () {
+        close();
+        alert("back");
+    });
     $("#close").click(function() {
-        $('#newsDetails').hide();
+       close();
+    });
+    function close(){
+         $('#newsDetails').hide();
         $('.summary').html("");
         $('.content').show("slide");
-
         $('#gn-menu').show("slide");
-    });
-
+    }
     $('#submitComment').click(function() {
         var now = new Date().toString();
         var gmt = now.indexOf("G");
