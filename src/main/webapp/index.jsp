@@ -306,7 +306,11 @@
                 $(midStory).appendTo('.summary');
                 $.each(response.stories, function(key, val) {
                     var storyContent = "";
-                    storyContent += '<li class="stories">';
+                    if(val.sentiment == 1){
+                        storyContent += '<li class="stories positiveNews">';
+                    }else{
+                        storyContent += '<li class="stories negativeNews">';
+                    }
                     storyContent += ' <div class="story-header">'
                     storyContent += '<img src="' + val.picLink + '" class="commentpic pull-left" width="70px" alt="">';
                     storyContent += '<div class="story-agency">';
@@ -328,7 +332,7 @@
             $('.newsDetails').css('height', $(window).height());
             // $('#middleSegment').css('height', $(window).height() / 2 - 15);
             $('.newsArticle').css('height', $(window).height() / 2);
-            $('.cbp-fwslider').css('height', $(window).height() / 2);
+            $('.cbp-fwslider').css('height', $(window).height() / 2 + 20);
             $('.overlay').css("margin-top", -$(window).height() / 2);
             $('.blackOverlay').css("margin-top", -$(window).height() / 2);
             $(this).addClass("read");

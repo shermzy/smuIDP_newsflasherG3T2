@@ -11,8 +11,8 @@ and open the template in the editor.
     //  border-right: 1px solid #B3B3B3;
     //border-left: 1px solid #B3B3B3;
 }
-.newsArticle{
-
+.news_article{
+    margin:10px 10px;
 }
 .overlay{
     height:inherit;
@@ -260,7 +260,7 @@ ul.gn-menu li:hover{
     border-bottom-width:2px;
     border-top-width:0;
     vertical-align:top;
-    margin:10px 10px;
+    
     cursor:pointer;
     // display:none;
     overflow:hidden;
@@ -2748,6 +2748,18 @@ input.gn-search:focus {
     cursor:pointer;
     // padding: 35px !important;
 
+}
+.positiveNews{
+    border-top:4px solid #44B618;
+}
+.positiveNews:hover{
+     box-shadow: 0 10px 50px 10px #44B618;
+}
+.negativeNews{
+        border-top:4px solid #B61818;
+}
+.negativeNews:hover{
+        box-shadow: 0 10px 50px 10px #B61818;
 }
 .stories:hover{
     // border-top:5px solid #444 inset;
