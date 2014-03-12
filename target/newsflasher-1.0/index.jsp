@@ -80,7 +80,7 @@
                                 <img class="fb-pic" width="70px" alt="" id="blah">
                             </div>
                         </div>
-                        <div class="col-md-6 col-xs-8">
+                        <div class="col-md-9 col-xs-8">
 
                             News agency: <select class="form-control" id="commentagencyname" name="commentagencyname"></select>
                             News Story:     <textarea class="form-control" id="commentstory" name ="commentstory" placeholder="Comments" rows="6"></textarea>
