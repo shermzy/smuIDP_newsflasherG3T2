@@ -255,7 +255,7 @@ public class ArticleDAO {
         try {
             //Get database connection & execute query
             conn = ConnectionManager.getConnection();
-            query = "select * from newsagency";
+            query = "select * from newsagency order by name";
             st = conn.createStatement();
             rs = st.executeQuery(query);
 

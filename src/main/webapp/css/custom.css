@@ -2745,7 +2745,7 @@ input.gn-search:focus {
 
 }
 .stories:hover{
-    overflow-y:auto;
+    overflow:hidden;
 }
 
 .story-agency{
