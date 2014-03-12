@@ -82,9 +82,9 @@
                         </div>
                         <div class="col-md-6 col-xs-8">
 
-                              News agency: <select class="form-control" id="commentagencyname" name="commentagencyname"></select>
-                       News Story:     <textarea class="form-control" id="commentstory" name ="commentstory" placeholder="Comments" rows="6"></textarea>
-                              News Link : <input type="text" class="form-control" id="commentLink" name ="commentLink">
+                            News agency: <select class="form-control" id="commentagencyname" name="commentagencyname"></select>
+                            News Story:     <textarea class="form-control" id="commentstory" name ="commentstory" placeholder="Comments" rows="6"></textarea>
+                            News Link : <input type="text" class="form-control" id="commentLink" name ="commentLink">
 
                             <input type="hidden" id="originalstory" name ="originalstory">
                             <button class="btn btn-default commentbtn" id="submitComment"> Comment </button>  
@@ -106,25 +106,25 @@
 
 
 <%@include file="footer.jsp" %> 
-	<script type="text/javascript" src="js/backfix.min.js"></script>
+<script type="text/javascript" src="js/backfix.min.js"></script>
 <script>
     bajb_backdetect.OnBack = function()
-	{
-		close();
-	};
-    $(window).unload( function () {
+    {
+        close();
+    };
+    $(window).unload(function() {
         close();
         alert("back");
     });
     $("#close").click(function() {
-       close();
+        close();
     });
-    function close(){
-         $('#newsDetails').hide();
+    function close() {
+        $('#newsDetails').hide();
         $('.summary').html("");
         $('.content').show("slide");
         $('#gn-menu').show("slide");
-       
+
     }
     $('#submitComment').click(function() {
         var now = new Date().toString();
@@ -204,13 +204,13 @@
         shownews(activeCats);
 
     });
-    $(window).load(function(){
+    $(window).load(function() {
         shownews("All");
         $("#All").addClass('active');
-        
+
     });
     function shownews(activeCats) {
-        
+
         $.getJSON("getNews", function(response) {
             var counter = 0;
             var categories = $(this).attr("id");
