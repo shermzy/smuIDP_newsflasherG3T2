@@ -116,12 +116,12 @@ ul.gn-menu li:hover{
 #comments{
     font-size:1.2rem;
 }
-.commentpic{
-    vertical-align: text-top;
-}
+
 .commentpic{
     width:70px;
     border-radius: 50% !important;
+     vertical-align: text-top;
+    border: 1px solid #C7C7C7;
 }
 .fb-pic{
     border-radius: 50% !important;

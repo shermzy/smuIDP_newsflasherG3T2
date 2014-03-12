@@ -73,7 +73,7 @@
             <!--News slider-->
             <div id="cbp-fwslider" class="cbp-fwslider">
                 <ul id="comments">
-                    <li class="stories" id="commentBox">
+                   <!-- <li class="stories" id="commentBox">
 
                         <div class="col-md-2 col-xs-2" id="commentsinput">
                             <div class="pull-left">
@@ -90,7 +90,7 @@
                             <button class="btn btn-default commentbtn" id="submitComment"> Comment </button>  
                         </div>
 
-                    </li>
+                    </li>-->
 
 
                 </ul>
