@@ -101,6 +101,7 @@ ul.gn-menu li:hover{
 .commentBox{
     //float:none !important;
     // padding: 20px 20px !important;
+    z-index:10000;
 }
 .bugCage{
     margin:auto;
@@ -2745,11 +2746,12 @@ input.gn-search:focus {
 }
 .stories{
    padding-top: 10px !important;
+   cursor:pointer;
    // padding: 35px !important;
 
 }
 .stories:hover{
-    border-top:5px solid #444;
+    border-top:5px solid #444 inset;
 }
 
 .story-agency{
