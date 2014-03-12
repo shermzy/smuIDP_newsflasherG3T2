@@ -243,8 +243,8 @@ text-align:center;
     height: 40px;
 }
 .news_category{
-    height:40px;
-    min-height:40px;
+    height:25px;
+    //min-height:40px;
     background:#151515;
     color:#fff;
 }
