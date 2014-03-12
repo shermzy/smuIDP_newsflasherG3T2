@@ -124,6 +124,7 @@
         $('.summary').html("");
         $('.content').show("slide");
         $('#gn-menu').show("slide");
+       
     }
     $('#submitComment').click(function() {
         var now = new Date().toString();
