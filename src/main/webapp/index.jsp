@@ -56,6 +56,8 @@
                                 <!--insert 3 points here -->
                             </div>
                             <div class="social-icons">
+                                <button id="pos" class ="btn default">Positive</button>
+                                <button id="neg" class ="btn default">Negative</button>
                           <!--      <i class="fa fa-facebook-square socialIcons"></i>
                                 <i class="fa fa-twitter-square socialIcons"></i>
                                 <i class="fa fa-google-plus-square socialIcons"></i>-->
@@ -108,6 +110,15 @@
 <%@include file="footer.jsp" %> 
 <script type="text/javascript" src="js/backfix.min.js"></script>
 <script>
+    $('#pos').click(function(){
+        alert("positive");
+       $('li.stories.negativeNews').hide("slide"); 
+       $('li.stories.positiveNews').show();
+    });
+    $('#neg').click(function(){
+       $('li.stories.positiveNews').hide("slide"); 
+       $('li.stories.negativeNews').show(); 
+    });
     bajb_backdetect.OnBack = function()
     {
         close();
@@ -122,6 +133,7 @@
     function close() {
         $('#newsDetails').hide();
         $('.summary').html("");
+        $('#comments').html("");
         $('.content').show("slide");
         $('#gn-menu').show("slide");
 

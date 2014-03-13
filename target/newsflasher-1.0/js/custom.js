@@ -80,7 +80,7 @@ function fb_login() {
             FB.api("/me", function(rsp) {
                 if (rsp && !rsp.error) {
                     $(location).attr("href", "index.jsp");
-                 
+
                 }
                 ;
             });
@@ -129,7 +129,7 @@ function fb_login() {
             this.$list = this.$el.children('ul');
             // the items (li elements)
             this.$items = this.$list.children('li');
-           
+
             // total number of items
             this.itemsCount = this.$items.length;
             // support for CSS Transitions & transforms
@@ -176,7 +176,7 @@ function fb_login() {
             this.$items.css('width', 100 / this.itemsCount + '%');
             // add navigation arrows and the navigation dots if there is more than 1 item
             if (this.itemsCount > 1) {
-
+                $('nav').remove();
                 // add navigation arrows (the previous arrow is not shown initially):
                 this.$navPrev = $('<span class="cbp-fwprev">&lt;</span>');
                 this.$navNext = $('<span class="cbp-fwnext">&gt;</span>');
@@ -184,6 +184,7 @@ function fb_login() {
                 // add navigation dots
                 var dots = '';
                 $('div.cbp-fwdots').remove();
+
                 for (var i = 0; i < this.itemsCount; ++i) {
                     // current dot will have the class cbp-fwcurrent
                     var dot = i === this.current ? '<span class="cbp-fwcurrent"></span>' : '<span></span>';
@@ -257,8 +258,14 @@ function fb_login() {
             // if the current item is the first one in the list, the left arrow is not shown
             // if the current item is the last one in the list, the right arrow is not shown
             switch (this.current) {
-                	case 0 : this.$navNext.show(); this.$navPrev.hide(); break;
-                	case this.itemsCount - 1 : this.$navNext.hide(); this.$navPrev.show(); break;
+                case 0 :
+                    this.$navNext.show();
+                    this.$navPrev.hide();
+                    break;
+                case this.itemsCount - 1 :
+                    this.$navNext.hide();
+                    this.$navPrev.show();
+                    break;
                 default :
                     this.$navNext.show();
                     this.$navPrev.show();
