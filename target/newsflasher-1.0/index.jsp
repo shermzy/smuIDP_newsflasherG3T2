@@ -57,6 +57,7 @@
                             </div>
                             <div class="social-icons">
                                 <button id="pos" class ="btn default">Positive</button>
+                                <button id="alltypes" class ="btn default">All</button>
                                 <button id="neg" class ="btn default">Negative</button>
                           <!--      <i class="fa fa-facebook-square socialIcons"></i>
                                 <i class="fa fa-twitter-square socialIcons"></i>
@@ -111,13 +112,21 @@
 <script type="text/javascript" src="js/backfix.min.js"></script>
 <script>
     $('#pos').click(function(){
-        alert("positive");
-       $('li.stories.negativeNews').hide("slide"); 
-       $('li.stories.positiveNews').show();
+        
+       $('li.stories.negativeNews').hide("slide",function(){
+           $('li.stories.positiveNews').show("slide");
+       });
+       
     });
     $('#neg').click(function(){
-       $('li.stories.positiveNews').hide("slide"); 
-       $('li.stories.negativeNews').show(); 
+       $('li.stories.positiveNews').hide("slide", function(){
+           $('li.stories.negativeNews').show("slide"); 
+       }); 
+       
+    });
+    $('#alltypes').click(function(){
+       $('li.stories.positiveNews').show("slide"); 
+       $('li.stories.negativeNews').show("slide"); 
     });
     bajb_backdetect.OnBack = function()
     {
