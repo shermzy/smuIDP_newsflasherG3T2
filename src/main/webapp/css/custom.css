@@ -115,11 +115,12 @@ ul.gn-menu li:hover{
 }
 #comments{
     font-size:1.2rem;
-    margin-left:-35px;
+    margin-left:-33px;
+    position:fixed;
 }
 
 .commentpic{
-    width:70px;
+    width:55px;
     border-radius: 50% !important;
     vertical-align: text-top;
     border: 1px solid #C7C7C7;
@@ -2532,7 +2533,7 @@ input.gn-search:focus {
         width: 100%;
     }
     .cbp-fwslider nav span {
-        //  display:none !important;
+          display:none !important;
     }
     .gn-menu-wrapper.gn-open-all .gn-scroller {
         width: 130%
@@ -2808,7 +2809,7 @@ input.gn-search:focus {
 }
 
 .cbp-fwslider nav span{
-    /*     position: absolute;
+        position: absolute;
         top: 75%;
         width: 30px;
         height: 50px;
@@ -2816,11 +2817,11 @@ input.gn-search:focus {
         color: #fff;
         font-size: 50px;
         text-align: center;
-        margin-top: -50px;
+   /*      margin-top: -50px;*/
         line-height: 50px;
         cursor: pointer;
         font-size: 3rem !important;
-        opacity:0.2; */
+        opacity:0.2; 
 }
 .cbp-fwslider nav span.cbp-fwnext {
     right: 0px;

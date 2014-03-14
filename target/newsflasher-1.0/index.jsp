@@ -341,6 +341,7 @@
             // $('#middleSegment').css('height', $(window).height() / 2 - 15);
             $('.newsArticle').css('height', $(window).height() / 2);
             $('.cbp-fwslider').css('height', $(window).height() / 2 + 20);
+            $('.cbp-fwslider').css('padding-top', $(window).height() / 2);
             $('.overlay').css("margin-top", -$(window).height() / 2);
             $('.blackOverlay').css("margin-top", -$(window).height() / 2);
             $(this).addClass("read");
