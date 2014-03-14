@@ -39,68 +39,47 @@
 
     <div class="newsDetails" id="newsDetails">
 
-        <div class="news_sum">
-            <div class="newsArticle">
-                <div class="foregroundStory"></div>
-                <div class="blackOverlay"></div>
-                <!--Issue-->
-                <div class="overlay">
-                    <div class="col-md-4">
-                        <!-- Add other related news here-->
-                    </div>
-                    <div class="col-md-4" id="middleStory">
-                        <div class="Social">
-                            <!--         <div class="positive-rating score">70%</div>
-                                     <div class="negative-rating score">30%</div>-->
-                            <div class="summary">
-                                <!--insert 3 points here -->
-                            </div>
-                            <div class="social-icons">
-                                <button id="pos" class ="btn default">Positive</button>
-                                <button id="alltypes" class ="btn default">All</button>
-                                <button id="neg" class ="btn default">Negative</button>
-                          <!--      <i class="fa fa-facebook-square socialIcons"></i>
-                                <i class="fa fa-twitter-square socialIcons"></i>
-                                <i class="fa fa-google-plus-square socialIcons"></i>-->
-                            </div>
+
+        <div class="newsArticle">
+            <div class="foregroundStory"></div>
+            <div class="blackOverlay"></div>
+            <!--Issue-->
+            <div class="overlay">
+                <div class="col-md-4">
+                    <!-- Add other related news here-->
+                </div>
+                <div class="col-md-4" id="middleStory">
+                    <div class="Social">
+                        <!--         <div class="positive-rating score">70%</div>
+                                 <div class="negative-rating score">30%</div>-->
+                        <div class="summary">
+                            <!--insert 3 points here -->
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="pull-right btn default" id="close">X</div>
+                        <div class="social-icons">
+                            <button id="pos" class ="btn default">Positive</button>
+                            <button id="alltypes" class ="btn default">All</button>
+                            <button id="neg" class ="btn default">Negative</button>
+                            <!--      <i class="fa fa-facebook-square socialIcons"></i>
+                                  <i class="fa fa-twitter-square socialIcons"></i>
+                                  <i class="fa fa-google-plus-square socialIcons"></i>-->
+                        </div>
                     </div>
                 </div>
-
-                <!--End Issue-->
+                <div class="col-md-4">
+                    <div class="pull-right btn default" id="close">X</div>
+                </div>
             </div>
 
-            <!--News slider-->
-            <div id="cbp-fwslider" class="cbp-fwslider">
-                <ul id="comments">
-                   <!-- <li class="stories" id="commentBox">
-
-                        <div class="col-md-2 col-xs-2" id="commentsinput">
-                            <div class="pull-left">
-                                <img class="fb-pic" width="70px" alt="" id="blah">
-                            </div>
-                        </div>
-                        <div class="col-md-9 col-xs-8">
-
-                            News agency: <select class="form-control" id="commentagencyname" name="commentagencyname"></select>
-                            News Story:     <textarea class="form-control" id="commentstory" name ="commentstory" placeholder="Comments" rows="6"></textarea>
-                            News Link : <input type="text" class="form-control" id="commentLink" name ="commentLink">
-
-                            <input type="hidden" id="originalstory" name ="originalstory">
-                            <button class="btn btn-default commentbtn" id="submitComment"> Comment </button>  
-                        </div>
-
-                    </li>-->
-
-
-                </ul>
-            </div>
-
-            <!--End News Slider-->
+            <!--End Issue-->
         </div>
+
+        <!--News slider-->
+        <div id="cbp-fwslider" class="cbp-fwslider">
+
+        </div>
+
+        <!--End News Slider-->
+    </div>
 
 
 
@@ -110,23 +89,26 @@
 
 <%@include file="footer.jsp" %> 
 <script type="text/javascript" src="js/backfix.min.js"></script>
+
 <script>
-    $('#pos').click(function(){
-        
-       $('li.stories.negativeNews').hide("slide",function(){
-           $('li.stories.positiveNews').show("slide");
-       });
-       
+ 
+
+    $('#pos').click(function() {
+
+        $('li.stories.negativeNews').hide("slide", function() {
+            $('li.stories.positiveNews').show("slide");
+        });
+
     });
-    $('#neg').click(function(){
-       $('li.stories.positiveNews').hide("slide", function(){
-           $('li.stories.negativeNews').show("slide"); 
-       }); 
-       
+    $('#neg').click(function() {
+        $('li.stories.positiveNews').hide("slide", function() {
+            $('li.stories.negativeNews').show("slide");
+        });
+
     });
-    $('#alltypes').click(function(){
-       $('li.stories.positiveNews').show("slide"); 
-       $('li.stories.negativeNews').show("slide"); 
+    $('#alltypes').click(function() {
+        $('li.stories.positiveNews').show("slide");
+        $('li.stories.negativeNews').show("slide");
     });
     bajb_backdetect.OnBack = function()
     {
@@ -140,7 +122,7 @@
         close();
     });
     function close() {
-        $('#newsDetails').hide();
+        $('#newsDetails').hide("slide");
         $('.summary').html("");
         $('#comments').html("");
         $('.content').show("slide");
@@ -313,8 +295,7 @@
             $.getJSON("getNews", {type: "single", article: $(this).attr('id')}, function(response) {
                 $('.news_name').text(response.name);
 
-                // $("#originalstory").val(response.name);
-                // $('#newspicture').attr('src', response.relpic);
+
                 $('.foregroundStory').css('background', 'url(' + response.relpic + ') black no-repeat center');
                 var midStory = '<div class="news_caption_title" id="originalStory">' + response.name + '</div>';
                 var bullets = response.snippet.split(";");
@@ -325,11 +306,15 @@
                 }
                 midStory += "</div>";
                 $(midStory).appendTo('.summary');
+
+                $('<ul id="comments"></ul>').appendTo('#cbp-fwslider');
+
                 $.each(response.stories, function(key, val) {
+
                     var storyContent = "";
-                    if(val.sentiment == 1){
+                    if (val.sentiment == 1) {
                         storyContent += '<li class="stories positiveNews">';
-                    }else{
+                    } else {
                         storyContent += '<li class="stories negativeNews">';
                     }
                     storyContent += ' <div class="story-header">'
@@ -342,14 +327,16 @@
                     storyContent += '<div class="storyLink"><a href="' + val.link + '">Full Story Here</a></div>  </li> ';
                     $(storyContent).appendTo($('#comments'));
                     $('.stories').css('height', $(window).height() / 2);
+
                 });
+
                 $('#cbp-fwslider').cbpFWSlider();
 
             });
 
             $('.content').hide("slide");
             $('#gn-menu').hide("slide");
-            $('.newsDetails').show();
+            $('.newsDetails').show("slide");
             $('.newsDetails').css('height', $(window).height());
             // $('#middleSegment').css('height', $(window).height() / 2 - 15);
             $('.newsArticle').css('height', $(window).height() / 2);
@@ -374,7 +361,7 @@
 
         if (isNaN(day_diff) || day_diff < 0 || day_diff >= 31)
             return;
-        
+
         return day_diff == 0 && (
                 diff < 60 && "just now" ||
                 diff < 120 && "1 minute ago" ||
@@ -386,5 +373,5 @@
                 day_diff < 31 && Math.ceil(day_diff / 7) + " weeks ago";
     }
 
-
+    new gnMenu(document.getElementById('gn-menu'));
 </script>

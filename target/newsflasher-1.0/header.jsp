@@ -13,6 +13,7 @@
         <link href="css/custom.css" rel="stylesheet" type="text/css" />
         <!-- END THEME STYLES -->
         <link rel="shortcut icon" href="favicon.ico" />
+        
         <link href='http://fonts.googleapis.com/css?family=Lato:400' rel='stylesheet' type='text/css'>
         <link href="css/bootstrap/css/bootstrap.min.css"
               rel="stylesheet" type="text/css" />

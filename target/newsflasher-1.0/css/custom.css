@@ -115,6 +115,7 @@ ul.gn-menu li:hover{
 }
 #comments{
     font-size:1.2rem;
+    margin-left:-35px;
 }
 
 .commentpic{
@@ -2843,6 +2844,7 @@ input.gn-search:focus {
     text-align: center;
     width: 100%;
     opacity:0.2;
+    z-index: -1000;
 }
 
 .cbp-fwdots span {
@@ -2867,8 +2869,9 @@ input.gn-search:focus {
     transition: box-shadow 0.2s ease-in-out;
 }
 .cbp-fwslider {
-    position: relative;
-    margin: 0 0 10px;
+   // position: relative;
+  //  margin: 0 0 10px;
+    font-size: 1.2rem;
     // overflow: hidden;
     // padding: 40px 0 60px;
 }
