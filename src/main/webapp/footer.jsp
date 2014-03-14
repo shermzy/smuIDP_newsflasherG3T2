@@ -8,7 +8,6 @@
 <script src="js/modernizr.custom.js"></script>
 <script src="js/custom.js"></script>
 
-<script src="js/jquery.mobile-1.4.2.min.js"  type="text/javascript"></script>
 <script>
    
 </script>

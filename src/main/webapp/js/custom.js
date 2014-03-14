@@ -201,12 +201,9 @@ function fb_login() {
             var self = this;
             if (this.itemsCount > 1) {
 
-               $("#cbp-fwslider").on("swipeleft", function() {
-                    alert("You swiped left!");
-                });
-                 $("#cbp-fwslider").on("swiperight", function() {
-                    alert("You swiped right!");
-                });
+               $("#cbp-fwslider").on("swipeleft", $.proxy(this._navigate, this, 'previous'));
+               
+                
                 this.$navPrev.on('click.cbpFWSlider', $.proxy(this._navigate, this, 'previous'));
                 this.$navNext.on('click.cbpFWSlider', $.proxy(this._navigate, this, 'next'));
                 this.$navDots.on('click.cbpFWSlider', function() {
