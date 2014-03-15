@@ -36,7 +36,8 @@ and open the template in the editor.
 }
 .newsDetails{
     display:none;
-    position:fixed;
+    //position:fixed;
+    overflow: hidden;
 }
 #onfire{
     height:auto;
@@ -115,7 +116,7 @@ ul.gn-menu li:hover{
 }
 #comments{
     font-size:1.2rem;
-    margin-left:-33px;
+    margin-left:-40px;
     position:fixed;
 }
 
@@ -252,7 +253,7 @@ ul.gn-menu li:hover{
     color:#fff;
 }
 .newsArticle{
-    position: fixed !important;
+   //position: fixed !important;
     width: 100%;
 }
 .newsArticle,
@@ -2537,7 +2538,7 @@ input.gn-search:focus {
         position:relative;
     }
     .cbp-fwslider nav span {
-        display:none !important;
+        //display:none !important;
     }
     .gn-menu-wrapper.gn-open-all .gn-scroller {
         width: 130%
@@ -2881,7 +2882,7 @@ input.gn-search:focus {
     // position: relative;
     //  margin: 0 0 10px;
     font-size: 1.2rem;
-    padding-top: 25.5%;
+   // padding-top: 25.5%;
     // overflow: hidden;
     // padding: 40px 0 60px;
 }

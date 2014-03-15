@@ -91,12 +91,13 @@
 <script type="text/javascript" src="js/backfix.min.js"></script>
 
 <script>
- 
+
 
     $('#pos').click(function() {
 
         $('li.stories.negativeNews').hide("slide", function() {
             $('li.stories.positiveNews').show("slide");
+
         });
 
     });
@@ -290,7 +291,7 @@
             //$('.newsArticle').append($(this).html());
             //   $(this).html().appendTo($('.newsArticle'));
 
-
+            var count = 0;
 
             $.getJSON("getNews", {type: "single", article: $(this).attr('id')}, function(response) {
                 $('.news_name').text(response.name);
@@ -327,7 +328,10 @@
                     storyContent += '<div class="storyLink"><a href="' + val.link + '">Full Story Here</a></div>  </li> ';
                     $(storyContent).appendTo($('#comments'));
                     $('.stories').css('height', $(window).height() / 2);
-
+                    if($(window).width() < 422){
+                        $('.stories').css('min-width', $(window).width() + 15);
+                    }
+                    count += 1;
                 });
 
                 $('#cbp-fwslider').cbpFWSlider();
@@ -336,12 +340,12 @@
 
             $('.content').hide("slide");
             $('#gn-menu').hide("slide");
+             $('#newsDetails').css('height', $(window).height());
             $('.newsDetails').show("slide");
-            $('.newsDetails').css('height', $(window).height());
-            // $('#middleSegment').css('height', $(window).height() / 2 - 15);
             $('.newsArticle').css('height', $(window).height() / 2);
+
             $('.cbp-fwslider').css('height', $(window).height() / 2 + 20);
-            $('.cbp-fwslider').css('padding-top', $(window).height() / 2);
+            // $('.cbp-fwslider').css('padding-top', $(window).height() / 2);
             $('.overlay').css("margin-top", -$(window).height() / 2);
             $('.blackOverlay').css("margin-top", -$(window).height() / 2);
             $(this).addClass("read");
@@ -376,3 +380,4 @@
 
     new gnMenu(document.getElementById('gn-menu'));
 </script>
+
