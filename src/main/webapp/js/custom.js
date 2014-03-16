@@ -2,6 +2,9 @@ $('#logo').click(function() {
     $(location).attr('href', "index.jsp");
 });
 
+$('#faq').click(function() {
+    $(location).attr('href', "faq.html");
+});
 $('#upload').click(function() {
     $(location).attr('href', "upload.jsp");
 });
@@ -167,13 +170,14 @@ function fb_login() {
                 size = 1;
             } else {
             }
-            this.$list.css('width', 100 / size * this.itemsCount + '%');
+            this.$list.css('width', ($(window).width() + 100) / size * this.itemsCount + 'px');
             // apply the transition
             if (this.support) {
                 this.$list.css('transition', this.transformName + ' ' + this.options.speed + 'ms ' + this.options.easing);
             }
             // each item will have a width of 100 / itemsCount
-            this.$items.css('width', 100 / this.itemsCount + '%');
+            //this.$items.css('width', 100 / this.itemsCount + '%');
+            this.$items.css('width', ($(window).width() + 15) / size + 'px');
             // add navigation arrows and the navigation dots if there is more than 1 item
             if (this.itemsCount > 1) {
                 $('nav').remove();
@@ -237,12 +241,18 @@ function fb_login() {
             // check which navigation arrows should be shown
             this._toggleNavControls();
             // translate value
-            var translateVal = -1 * this.current * 100 / this.itemsCount;
-            if (this.support) {
-                this.$list.css('transform', this.support3d ? 'translate3d(' + translateVal + '%,0,0)' : 'translate(' + translateVal + '%)');
+            //var translateVal = -1 * this.current * 100 / this.itemsCount;
+            var size= 3;
+            if($(window).width() < 422){
+                size = 1;
             }
-            else {
-                this.$list.css('margin-left', -1 * this.current * 100 + '%');
+            var translateVal = -1 *  this.current * ($(window).width() + 15) / size;
+            if (this.support) {
+                this.$list.css('transform', this.support3d ? 'translate3d(' + translateVal + 'px,0,0)' : 'translate(' + translateVal + 'px)');
+            }
+            else {                                                                        
+                //this.$list.css('margin-left', -1 * this.current * 100 + '%');
+                this.$list.css('margin-left', -1 * this.current * ($(window).width() + 15) + 'px');
             }
 
             var transitionendfn = $.proxy(function() {

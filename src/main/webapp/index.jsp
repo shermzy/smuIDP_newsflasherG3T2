@@ -37,7 +37,7 @@
         </div>
     </div>
     <div class="filterMenu">
-        
+
     </div>
     <div class="newsDetails" id="newsDetails">
 
@@ -56,10 +56,10 @@
                             <!--insert 3 points here -->
                         </div>
                         <div class="social-icons">
-                            <button id="pos" class ="btn default">Positive</button>
-                            <button id="alltypes" class ="btn default">All</button>
-                            <button id="neg" class ="btn default">Negative</button>
-                            <button id="menu" class ="btn default">Go Down</button>
+                            <!--         <button id="pos" class ="btn default">Positive</button>
+                                     <button id="alltypes" class ="btn default">All</button>
+                                     <button id="neg" class ="btn default">Negative</button>
+                                     <button id="menu" class ="btn default">Go Down</button>-->
                             <!--      <i class="fa fa-facebook-square socialIcons"></i>
                                   <i class="fa fa-twitter-square socialIcons"></i>
                                   <i class="fa fa-google-plus-square socialIcons"></i>-->
@@ -78,7 +78,11 @@
         <div id="cbp-fwslider" class="cbp-fwslider">
 
         </div>
-
+        <div class="menu">
+            <div class="menuClass">     <i class="fa fa-facebook-square socialIcons"></i></div>
+            <div class="menuClass">   <i class="fa fa-twitter-square socialIcons"></i></div>
+            <div class="menuClass">        <i class="fa fa-google-plus-square socialIcons"></i></div>
+        </div>
         <!--End News Slider-->
     </div>
 
@@ -93,7 +97,7 @@
 
 <script>
 
-  
+
     $('#pos').click(function() {
 
         $('li.stories.negativeNews').hide("slide", function() {
@@ -341,16 +345,16 @@
 
             });
 
-            $('.content').hide("slide");
-            $('#gn-menu').hide("slide");
+            $('.content').hide(500);
+            $('#gn-menu').hide(500);
             $('#newsDetails').css('height', $(window).height());
-            $('.newsDetails').show("slide");
-            $('.newsArticle').css('height', $(window).height() / 2);
+            $('.newsDetails').show(700);
+            $('.newsArticle').css('height', $(window).height() / 2 - 25);
 
-            $('.cbp-fwslider').css('height', $(window).height() / 2 + 20);
+            $('.cbp-fwslider').css('height', $(window).height() / 2 - 25);
             // $('.cbp-fwslider').css('padding-top', $(window).height() / 2);
-            $('.overlay').css("margin-top", -$(window).height() / 2);
-            $('.blackOverlay').css("margin-top", -$(window).height() / 2);
+            $('.overlay').css("margin-top", -$(window).height() / 2 + 25);
+            $('.blackOverlay').css("margin-top", -$(window).height() / 2 + 25);
             $(this).addClass("read");
         });
 

@@ -36,6 +36,7 @@
                             <!--    <li id="bug"><i class="fa fa-bug fa-padding-15"></i> <span class="menu-info">Extermination</span></li>-->
 
                             <li id="upload"> <i class="fa fa-cloud-upload fa-padding-15"></i> <span class="menu-info">Upload</span></li>
+                            <li id="faq"> <i class="fa fa-cloud-upload fa-padding-15"></i> <span class="menu-info">FAQ</span></li>
                             <li id="sidebar-status"><i class="fa fa-sign-out fa-padding-15"></i> <span class="menu-info" id="sidebar-status-text"></span></li>
                         </ul>
                     </div><!-- /gn-scroller -->
