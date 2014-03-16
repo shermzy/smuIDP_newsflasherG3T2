@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>News Flasher FAQ</title>
+        <link rel="shortcut icon" href="../favicon.ico">
+
+        <link href="css/custom.css" rel="stylesheet" type="text/css" />
+        <script src="js/modernizr.custom.js"></script>
+        <style type="text/css">
+            body {
+                background: #2980b9;
+                color: #fff;
+                font-family: 'Lato', Arial, sans-serif;
+            }
+
+            .container {
+                overflow: hidden;
+                /* we don't want the pseudo-elements sticking out */
+            }
+
+            .container svg {
+                display: block;
+            }
+
+            section {
+                position: relative;
+                padding: 10em 10%;
+                background: #2980b9;
+                color: #fff;
+                text-align: center;
+            }
+
+            section h2 {
+                margin: 0;
+                padding: 0;
+                font-size: 2.8em;
+                font-weight: 400;
+            }
+
+            section p {
+                color: rgba(0,0,0,.3);
+                font-size: 1.3em;
+                line-height: 1.5;
+            }
+
+            .text:first-child {
+                text-align: right;
+            }
+
+            .text:nth-child(2) {
+                text-align: left;
+            }
+
+            .col-2 .column {
+                width: 49%;
+            }
+
+            .col-3 .column {
+                padding: 0 1%;
+                width: 33%;
+                text-align: center;
+            }
+
+            .col-3 .column p {
+                padding: 1.4em;
+            }
+
+            .column {
+                display: inline-block;
+                vertical-align: top;
+            }
+
+            .icon {
+                display: block;
+                width: 2em;
+                height: 2em;
+                border-radius: 50%;
+                background: rgba(0,0,0,0.1);
+                color: #fff;
+                text-align: center;
+                font-size: 8em;
+                line-height: 2em;
+                margin: 0 auto;
+            }
+
+            section.color h2 {
+                color: #fff;
+            }
+
+            .color {
+                background: #3498db;
+            }
+
+            /*** Individual section styles and separators ***/
+
+            /* Common style for pseudo-elements */
+            section::before,
+            section::after {
+                position: absolute;
+                content: '';
+                pointer-events: none;
+            }
+
+            #tfheader{
+                background-color:#c3dfef;
+            }
+            #tfnewsearch{
+                float:right;
+                padding:20px;
+            }
+            .tftextinput{
+                margin: 0;
+                padding: 5px 15px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size:14px;
+                border:1px solid #0076a3; border-right:0px;
+                border-top-left-radius: 5px 5px;
+                border-bottom-left-radius: 5px 5px;
+            }
+            .tfbutton {
+                margin: 0;
+                padding: 5px 15px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size:14px;
+                outline: none;
+                cursor: pointer;
+                text-align: center;
+                text-decoration: none;
+                color: #ffffff;
+                border: solid 1px #0076a3; border-right:0px;
+                background: #0095cd;
+                background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+                background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+                border-top-right-radius: 5px 5px;
+                border-bottom-right-radius: 5px 5px;
+            }
+            .tfbutton:hover {
+                text-decoration: none;
+                background: #007ead;
+                background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+                background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+            }
+            /* Fixes submit button height problem in Firefox */
+            .tfbutton::-moz-focus-inner {
+                border: 0;
+            }
+            .tfclear{
+                clear:both;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <!-- Top Navigation -->
+
+            <header>
+
+                <!-- HTML for SEARCH BAR -->
+                <div id="tfheader">
+                    <h1 > FAQ for Flashers</h1>	
+                    <form id="tfnewsearch" method="get" action="http://www.google.com">
+                        Search for solutions here
+                        <input type="text" class="tftextinput" name="q" size="40" maxlength="100"><input type="submit" value="search" class="tfbutton">
+                    </form>
+
+                    <div class="tfclear"></div>
+                </div>
+            </header>
+            <section class="col-3 ss-style-invertedrounded">
+                <div class="column">
+                    <span class="icon icon-compass"></span>
+                    <h1>Commonly asked questions</h1>
+                    <p><a href="#CAQ1" style="color:#FAFAFA">How to navigate in newsflasher website </a><br><br>	
+                        <a href="http://www.google.com" style="color:#FAFAFA">how to bookmark my favourite issue</a><br><br>
+                        <a href="http://www.google.com" style="color:#FAFAFA"> how to customise my view in newsflasher</a>
+                    </p>
+                </div>
+                <div class="column">
+                    <span class="icon icon-alarm"></span>
+                    <h1>Getting started</h1>
+                    <p style="color:#FAFAFA"><br>Taking the first step to navigate is a giant step for everyone and our tutorial will take you through! click on the link below for a very fun time</p>
+                    <a href="http://www.google.com" style="color:#FAFAFA"> tutorial for first timer in 3 easy steps</a>
+                </div>
+                <div class="column">
+                    <span class="icon icon-screen"></span>
+                    <h1>Troubleshooting help</h1>
+                    <p style="color:#FAFAFA"> 
+                        <a href="#th1" style="color:#FAFAFA">How do I find issues that are not displayed? </a><br><br>	
+                        <a href="http://www.google.com" style="color:#FAFAFA">How to reset my account password</a><br><br>
+                        <a href="http://www.google.com" style="color:#FAFAFA">How to navigate in newsflasher website</a><br><br>
+                        <a href="http://www.google.com" style="color:#FAFAFA">How to bookmark issues when I do not have an account</a><br><br>
+                        <a href="http://www.google.com" style="color:#FAFAFA"> complete list of help</a></p>
+                </div>
+            </section>
+
+            <section class="col-2 ss-style-curvedown">
+                <div class="column text">
+                    <a name="th1"></a>
+                    <h2>How do I find issues that are not displayed?</h2>
+                    <p>Sometimes you got to take life easier.If you really cannot find then too bad! else do click the button on the right to search your interested issue with the closest relevance to what you are intending to find. </p>
+                </div>
+                <div class="column">
+                    <span class="icon icon-home"></span>
+                </div>
+            </section>
+            <svg id="curveUpColor" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0 100 C 20 0 50 0 100 100 Z"/>
+            </svg>
+            <section class="color ss-style-bigtriangle">
+
+
+                <svg id="curveDownColor" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0 0 C 50 100 80 100 100 0 Z"/>
+                </svg>
+                <section class="col-2 color ss-style-curvedown">
+                    <h2>How to reset my password</h2>
+                    <br>
+                    <span class="icon icon-home"></span>
+
+                    <p style="color:#000000"> Forgotten password: if you cannot log in to your flasher account, please visit www.flasher.com/forgot_password. Enter the email address you use for Flasher, and you will be emailed a link to reset your password. If you forgot your password and you are already logged in to Flasher, first log out of your account, then click on the link.</P>
+
+                    <p style="color:#000000">Change password: you can change your password from your Account > Settings. In order to change your password to a new password, you need to know your current password.</P>
+
+                    <p style="color:#000000">Facebook login: if you created a Flasher account by connecting to Facebook, you were not required to create a password. You can continue to log in via Facebook. If you would like to create a Flasher password, first log out of your Flasher account, then follow the steps as if you forgot your password. Once you create a flasher password, you will no longer be able to sign in using Facebook (but you will still be connected to Facebook in your Flasher account). Instead, you can simply use your email address and newly-created password.</p>
+
+                </section>
+
+                <svg id="curveDownColor" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0 0 C 50 100 80 100 100 0 Z"/>
+                </svg>	
+                <section class= "col-2 ss-style-curvedown">
+                    <h2>How to bookmark issues when I do not have an account </h2>
+                    <p> If you look at the bookmark shape button your top right hand corner of Flasher application, you can use it to add or remove bookmarks. Just click on the golden star to add the current site as a bookmark. Click again on the star to choose one or more labels.</p>
+
+                </section>
+                <svg id="curveUpColor" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0 100 C 20 0 50 0 100 100 Z"/>
+                </svg>
+                <section class="col-2 color ss-style-multitriangles">
+                    <div class="column text">
+                        <h2>How does Flashers protect my privacy and keep my information secure?</h2>
+                        <p>We know security and privacy are important to you. and they are important to us, too. We make it a priority to provide strong security and give you confidence that your information is safe and accessible when you need it.We are constantly working to ensure strong security, protect your privacy, and make Flasher even more effective and efficient for you. We spend hundreds of millions of dollars every year on security, and employ world-renowned experts in data security to keep your information safe.So when it comes to the information you share with Flashers, you are in control.You can learn more about safety and security online, including how to protect yourself and your family online on our Good to Know site.  </p>
+                    </div>
+                    <div class="column">
+                        <span class="icon icon-stack"></span>
+                    </div>
+                </section>
+                <section class="col-2">
+                    <h2>how to customise my view in newsflasher</h2>
+                    <p>In our latest version (v 1.1.1) we have used data analytics and machine learning based on your total number of clicks to customise your views. On choosing 'issues' column from column chooser, the issues that you may customise for future use  is displayed.</p>
+
+                </section>
+                <section class="col-2 color ss-style-roundedsplit">
+                    <div class="column">
+                        <span class="icon icon-location"></span>
+                    </div>
+                    <div class="column text">
+                        <h2>Why do I not see my interested issue in top issue?</h2>
+                        <p>Top issues are issues that lots of people are interacting with and sharing via repost, replies, and more. If issues you love aren't showing up as Top issues, it means those issues may not be part of the widespread conversation. Toggle to 'All' results to see more issues matching your query</p>
+                    </div>
+                </section>
+
+                <section class="col-2 color ss-style-boxes">
+                    <div class="column text">
+                        <h2>how are the issues summarised?</h2>
+                        <p>We've built an algorithm that finds the facts that have summarises the issue into 3 sentences. issues will refresh automatically and are represented in 3 sentences based on this algorithm. We will have a moderator to ensure that the summary is unbiased and accurate from time to time.</p>
+
+                    </div>
+                    <div class="column">
+                        <span class="icon icon-bullhorn"></span>
+                    </div>
+                </section>
+                <section>
+                    <h2> are algorithms reliable in putting top issues in my homepage? </h2>
+                    <p>Some older results may be highlighted at the top because they have been determined to be of high value for your query. Our search engines have found those Issues to be particularly relevant to the subject you are looking for, even though they may not be the most recently posted by news sources. Toggle to 'All' to view the rest of your search results in real-time order.</p>
+
+                </section>
+                <section class="col-3 color ss-style-zigzag">
+                </section>
+                <section class="col-2">
+                    <div class="column text">
+                        <h2>I have searched for something and didn't see any Top results. Why?</h2>
+                        <p>This is probably because the query is too specific, or too general, and we might not have enough data to determine any popular results yet. You will still see all relevant real-time issues in your results.</p>
+
+                    </div>
+                    <div class="column">
+                        <span class="icon icon-upload"></span>
+                    </div>
+                </section>
+                <section class="color ss-style-roundedges">
+                    <h2> Does issues reappear on homepage? </h2>
+                    <p>Yes it does! For some issues may resurface after awhile due to new insights and new biases that arise. We as flashers aim to provide the best and most balanced viewpoint of issues from all social perspective for our valued users like yourself.Give us a hug or donate to Flashers organisation to support our cause of free media :)</p>
+                </section>
+
+                <svg id="bigHalfCircle" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0 100 C40 0 60 0 100 100 Z"/>
+                </svg>
+
+                <section class="col-2 ss-style-roundedges" >
+                    <div class="column text">
+
+                        <h2> how long does the issues stay in the system?</h2>
+                        <p>Galaxies a still more glorious dawn awaits shores of the cosmic ocean bits of moving fluff the only home we've ever known finite but unbounded colonies astonishment laws of physics a very small stage in a vast cosmic arena brain is the seed of intelligence realm of the galaxies Apollonius of Perga rogue intelligent beings courage of our questions made in the interiors</p>
+                    </div>
+                    <div class="column">
+                        <span class="icon icon-blog"></span>
+                    </div>
+                </section>
+                <svg id="bigTriangleShadow" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path id="trianglePath1" d="M0 0 L50 100 L100 0 Z" />
+                <path id="trianglePath2" d="M50 100 L100 40 L100 0 Z" />
+                </svg>
+                <section>
+                    <h2> How does the social media tab for twitter posts work? </h2>
+                    <p>Galaxies a still more glorious dawn awaits shores of the cosmic ocean bits of moving fluff the only home we've ever known finite but unbounded colonies astonishment laws of physics a very small stage in a vast cosmic arena brain is the seed of intelligence realm of the galaxies Apollonius of Perga rogue intelligent beings courage of our questions made in the interiors of collapsing stars laws of physics how far away, rings of Uranus the carbon in our apple pies rings of Uranus a very small stage in a vast cosmic arena brain is the seed of intelligence preserve and cherish that pale blue dot muse about, globular star cluster ship of the imagination shores of the cosmic ocean, as a patch of light? Ship of the imagination, with pretty stories for which there's little good evidence across the centuries, brain is the seed of intelligence muse about, Vangelis hydrogen atoms?</p>
+                </section>
+                <section class="col-1 color">
+                    <div class="column text">
+                        <h2>How accurate is your news sources</h2>
+                        <p>Galaxies a still more glorious dawn awaits shores of the cosmic ocean bits of moving fluff the only home we've ever known finite but unbounded colonies astonishment laws of physics a very small stage in a vast cosmic arena brain is the seed of intelligence realm of the galaxies Apollonius of Perga rogue intelligent beings courage of our questions made in the interiors</p>
+                    </div>
+
+                    <div class="column">
+                        <span class="icon icon-compass"></span>
+                    </div>
+                </section>
+                <section class="col-2">
+                    <h2> Will I be traced down by the government bodies for reading news that I am not supposed to read? </h2>
+                    <p>Galaxies a still more glorious dawn awaits shores of the cosmic ocean bits of moving fluff the only home we've ever known finite but unbounded colonies astonishment laws of physics a very small stage in a vast cosmic arena brain is the seed of intelligence realm of the galaxies Apollonius of Perga rogue intelligent beings courage of our questions made in the interiors of collapsing stars laws of physics how far away, rings of Uranus the carbon in our apple pies rings of Uranus a very small stage in a vast cosmic arena brain is the seed of intelligence preserve and cherish that pale blue dot muse about, globular star cluster ship of the imagination shores of the cosmic ocean, as a patch of light? Ship of the imagination, with pretty stories for which there's little good evidence across the centuries, brain is the seed of intelligence muse about, Vangelis hydrogen atoms?</p>
+                </section>
+                <section class="color">
+                    <div class="column text">
+                        <h2>Is double sign up possible for different purposes?</h2>
+                        <p>Galaxies a still more glorious dawn awaits shores of the cosmic ocean bits of moving fluff the only home we've ever known finite but unbounded colonies astonishment laws of physics a very small stage in a vast cosmic arena brain is the seed of intelligence realm of the galaxies Apollonius of Perga rogue intelligent beings courage of our questions made in the interiors</p>
+                    </div>
+                    <div class="column">
+                        <span class="icon icon-home"></span>
+                    </div>
+                </section>
+                <section class= "curevdown">
+                    <h2>How to share issues with friends</h2>
+                    <p>Galaxies a still more glorious dawn awaits shores of the cosmic ocean bits of moving fluff the only home we've ever known finite but unbounded colonies astonishment laws of physics a very small stage in a vast cosmic arena brain is the seed of intelligence realm of the galaxies Apollonius of Perga rogue intelligent beings courage of our questions made in the interiors of collapsing stars laws of physics how far away, rings of Uranus the carbon in our apple pies rings of Uranus a very small stage in a vast cosmic arena brain is the seed of intelligence preserve and cherish that pale blue dot muse about, globular star cluster ship of the imagination shores of the cosmic ocean, as a patch of light? Ship of the imagination, with pretty stories for which there's little good evidence across the centuries, brain is the seed of intelligence muse about, Vangelis hydrogen atoms?</p>
+                </section>
+
+                <section class="color ss-style-castle">
+                    <div class="column text">
+                        <h2>How to recover lost issues in bookmark</h2>
+                        <p>Galaxies a still more glorious dawn awaits shores of the cosmic ocean bits of moving fluff the only home we've ever known finite but unbounded colonies astonishment laws of physics a very small stage in a vast cosmic arena brain is the seed of intelligence realm of the galaxies Apollonius of Perga rogue intelligent beings courage of our questions made in the interiors</p>
+                    </div>
+                    <div class="column">
+                        <span class="icon icon-home"></span>
+                    </div>
+                </section>
+                <svg id="clouds" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M-5 100 Q 0 20 5 100 Z
+                      M0 100 Q 5 0 10 100
+                      M5 100 Q 10 30 15 100
+                      M10 100 Q 15 10 20 100
+                      M15 100 Q 20 30 25 100
+                      M20 100 Q 25 -10 30 100
+                      M25 100 Q 30 10 35 100
+                      M30 100 Q 35 30 40 100
+                      M35 100 Q 40 10 45 100
+                      M40 100 Q 45 50 50 100
+                      M45 100 Q 50 20 55 100
+                      M50 100 Q 55 40 60 100
+                      M55 100 Q 60 60 65 100
+                      M60 100 Q 65 50 70 100
+                      M65 100 Q 70 20 75 100
+                      M70 100 Q 75 45 80 100
+                      M75 100 Q 80 30 85 100
+                      M80 100 Q 85 20 90 100
+                      M85 100 Q 90 50 95 100
+                      M90 100 Q 95 25 100 100
+                      M95 100 Q 100 15 105 100 Z">
+                </path>
+                </svg>
+
+        </div><!-- /container -->
+    </body>
+</html>
