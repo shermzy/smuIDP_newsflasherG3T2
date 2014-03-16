@@ -2793,6 +2793,7 @@ input.gn-search:focus {
     display: block;
     // text-align: center;
     outline: none;
+    max-height: 70px;
 }
 
 .cbp-fwslider ul li > a img {

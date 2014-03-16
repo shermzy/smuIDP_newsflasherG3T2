@@ -36,7 +36,9 @@
             </div>
         </div>
     </div>
-
+    <div class="filterMenu">
+        
+    </div>
     <div class="newsDetails" id="newsDetails">
 
 
@@ -50,8 +52,6 @@
                 </div>
                 <div class="col-md-4" id="middleStory">
                     <div class="Social">
-                        <!--         <div class="positive-rating score">70%</div>
-                                 <div class="negative-rating score">30%</div>-->
                         <div class="summary">
                             <!--insert 3 points here -->
                         </div>
@@ -59,6 +59,7 @@
                             <button id="pos" class ="btn default">Positive</button>
                             <button id="alltypes" class ="btn default">All</button>
                             <button id="neg" class ="btn default">Negative</button>
+                            <button id="menu" class ="btn default">Go Down</button>
                             <!--      <i class="fa fa-facebook-square socialIcons"></i>
                                   <i class="fa fa-twitter-square socialIcons"></i>
                                   <i class="fa fa-google-plus-square socialIcons"></i>-->
@@ -92,11 +93,12 @@
 
 <script>
 
-
+  
     $('#pos').click(function() {
 
         $('li.stories.negativeNews').hide("slide", function() {
             $('li.stories.positiveNews').show("slide");
+            $('#comments').css("-webkit-transform", "translate3d(0%, 0px, 0px)");
 
         });
 
@@ -104,6 +106,7 @@
     $('#neg').click(function() {
         $('li.stories.positiveNews').hide("slide", function() {
             $('li.stories.negativeNews').show("slide");
+            $('#comments').css("-webkit-transform", "translate3d(0%, 0px, 0px)");
         });
 
     });
@@ -328,7 +331,7 @@
                     storyContent += '<div class="storyLink"><a href="' + val.link + '">Full Story Here</a></div>  </li> ';
                     $(storyContent).appendTo($('#comments'));
                     $('.stories').css('height', $(window).height() / 2);
-                    if($(window).width() < 422){
+                    if ($(window).width() < 422) {
                         $('.stories').css('min-width', $(window).width() + 15);
                     }
                     count += 1;
@@ -340,7 +343,7 @@
 
             $('.content').hide("slide");
             $('#gn-menu').hide("slide");
-             $('#newsDetails').css('height', $(window).height());
+            $('#newsDetails').css('height', $(window).height());
             $('.newsDetails').show("slide");
             $('.newsArticle').css('height', $(window).height() / 2);
 
