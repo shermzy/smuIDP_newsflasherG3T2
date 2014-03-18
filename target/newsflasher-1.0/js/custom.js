@@ -166,7 +166,7 @@ function fb_login() {
             this.isAnimating = false;
             // the list (ul) will have a width of 100% x itemsCount
             var size = 3;
-            if ($(window).width() < 380) {
+            if ($(window).width() < 422) {
                 size = 1;
             } else {
             }
