@@ -204,12 +204,12 @@ function fb_login() {
 
             var self = this;
             if (this.itemsCount > 1) {
-                $("#comments").on("swipeleft", function() {
+                $("li.stories").on("swipeleft", function() {
                   self._navigate('next');
                   console.log("swipe left");
                    
                 });
-                   $("#comments").on("swiperight", function() {
+                   $("li.stories").on("swiperight", function() {
                   self._navigate('previous');
                   console.log("swipe right");
                    

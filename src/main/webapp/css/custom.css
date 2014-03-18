@@ -10,18 +10,29 @@ and open the template in the editor.
 .save{
     text-align: center;
     margin-top:20px;
+
+}
+#save{
+    border-radius: 3px !important;
+    width: 300px;
 }
 .menuClass{
     float: left;
-    padding: 10px 10px;
-   // border-right: 1px solid #8D8B8B;
-    height: 50px;
-    width:50px;
+    padding: 10px 23px;
+    // border-right: 1px solid #8D8B8B;
+    height: 55px;
+    width:65px;
+    cursor: pointer;
 }
+.menuClass:hover{
+background:#444;
+}    
+    
 .menu{
-    height: 50px;
+    height: 55px;
     position: fixed;
-    min-width: 320px;width:inherit;
+    min-width: 320px;
+    width:inherit;
     bottom: 0;
     background:#f3f3f3;
     z-index: 100;
@@ -2323,7 +2334,7 @@ ul.gn-menu li:hover{
 .menuIcons{
     color:#B9B9B9;
     font-size:2.5rem;
-  
+
 }
 .social-icons{
     margin-top:20px;
@@ -2586,8 +2597,8 @@ input.gn-search:focus {
     }
     .news-sel{
         float: left;
-        height: 50px;
-        font-size: 1.5em !important;
+        height: 40px;
+        font-size: 1em !important;
         min-width:320px;
         z-index: -10;
         cursor: pointer;
@@ -2940,16 +2951,16 @@ input.gn-search:focus {
     line-height: 50px;
     text-align:center;
     border-bottom:2px solid #444;
-    
+
     cursor:pointer;
-    
+
 }
 .title{
     font-size:3rem;
 
 }
 .green{
-    
+
     color: #117A08;
 }
 .white{
@@ -2977,6 +2988,10 @@ input.gn-search:focus {
 #neg.selected{
     background:#C00F0F;
     color:#CCC;
+}
+#neu.selected{
+    background:#FFF;
+    color:#444;
 }
 #alltypes.selected{
     background:#FFF;

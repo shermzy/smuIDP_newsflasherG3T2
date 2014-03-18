@@ -4,29 +4,31 @@
     <div class="content" id="content">
 
         <!-- preferences here -->
-        <div class="news">
+        <div class="news"> <div class="center">
             <div class="row">
-                <div class="category"> 
-                    <div class="container">
-                    <div class="col-md-12">
+               
+                    <div class="category"> 
 
-                        <label class="btn news-sel All" id="All">
-                            All </label>
-                        <label class="btn news-sel Hot" id="Hot">
-                            Hot News </label>
-                        <label class="btn news-sel Pol" id="Pol">
-                            Politics </label>
-                        <label class="btn news-sel Entertainment" id="Entertainment">
-                            Entertainment </label>
-                        <label class="btn news-sel Tech" id="Tech">
+                        <div class="col-md-12">
 
-                            Technology </label>
-                        <label class="btn news-sel Biz" id="Biz">
-                            Business</label>
-                        <label class="btn news-sel Sports" id="Sports">
-                            Sports</label>
+                            <label class="btn news-sel All" id="All">
+                                All </label>
+                            <label class="btn news-sel Hot" id="Hot">
+                                Hot News </label>
+                            <label class="btn news-sel Pol" id="Pol">
+                                Politics </label>
+                            <label class="btn news-sel Entertainment" id="Entertainment">
+                                Entertainment </label>
+                            <label class="btn news-sel Tech" id="Tech">
 
-                    </div></div>
+                                Technology </label>
+                            <label class="btn news-sel Biz" id="Biz">
+                                Business</label>
+                            <label class="btn news-sel Sports" id="Sports">
+                                Sports</label>
+
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -74,7 +76,7 @@
             </div>
 
         </div>   
-        <div class="save"><button class="btn dark" id="save">Save</button></div>
+        <div class="save"><button class="btn green" id="save">Save</button></div>
     </div>
     <div class="newsDetails" id="newsDetails">
 
@@ -139,7 +141,7 @@
 <script type="text/javascript" src="js/backfix.min.js"></script>
 
 <script>
-$.mobile.loading().hide();
+    $.mobile.loading().hide();
     $('#save').click(function() {
         alert("clicked");
         if ($('#pos').hasClass("selected")) {
@@ -427,7 +429,7 @@ $.mobile.loading().hide();
             $('#newsDetails').css('height', $(window).height());
 
             $('.newsArticle').css('height', $(window).height() / 2 - 25);
-            $('.menu').css("width",$(window).width() + 15);
+            $('.menu').css("width", $(window).width() + 15);
             $('.cbp-fwslider').css('height', $(window).height() / 2 - 25);
             // $('.cbp-fwslider').css('padding-top', $(window).height() / 2);
             $('.overlay').css("margin-top", -$(window).height() / 2 + 25);
