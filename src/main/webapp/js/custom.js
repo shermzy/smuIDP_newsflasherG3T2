@@ -170,7 +170,7 @@ function fb_login() {
                 size = 1;
             } else {
             }
-            this.$list.css('width', ($(window).width() + 20) / size * this.itemsCount + 'px');
+            this.$list.css('width', ($(window).width() + 80) / size * this.itemsCount + 'px');
             // apply the transition
             if (this.support) {
                 this.$list.css('transition', this.transformName + ' ' + this.options.speed + 'ms ' + this.options.easing);

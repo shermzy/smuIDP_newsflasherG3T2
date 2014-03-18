@@ -139,7 +139,7 @@
 <script type="text/javascript" src="js/backfix.min.js"></script>
 
 <script>
-
+$.mobile.loading().hide();
     $('#save').click(function() {
         alert("clicked");
         if ($('#pos').hasClass("selected")) {
