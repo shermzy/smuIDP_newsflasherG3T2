@@ -170,6 +170,7 @@ public class ArticleDAO {
                     story.put("time", rs.getString("time"));
                     story.put("picLink", rs.getString("relPath"));
                     story.put("sentiment", rs.getString("sentiment"));
+                    story.put("type", rs.getString("type"));
                    String abPath = System.getenv("OPENSHIFT_DATA_DIR");
                    if(abPath!=null){
                        story.put("abPath", abPath + rs.getString("relPath"));

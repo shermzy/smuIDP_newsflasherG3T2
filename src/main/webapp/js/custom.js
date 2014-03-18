@@ -170,7 +170,7 @@ function fb_login() {
                 size = 1;
             } else {
             }
-            this.$list.css('width', ($(window).width() + 100) / size * this.itemsCount + 'px');
+            this.$list.css('width', ($(window).width() + 20) / size * this.itemsCount + 'px');
             // apply the transition
             if (this.support) {
                 this.$list.css('transition', this.transformName + ' ' + this.options.speed + 'ms ' + this.options.easing);
@@ -204,10 +204,16 @@ function fb_login() {
 
             var self = this;
             if (this.itemsCount > 1) {
-
-               $("#cbp-fwslider").on("swipeleft", $.proxy(this._navigate, this, 'previous'));
-               
-                
+                $(".cbp-fwslider").on("swipeleft", function() {
+                  this._navigate('next');
+                  console.log("swipe left");
+                   
+                });
+                   $(".cbp-fwslider").on("swiperight", function() {
+                  this._navigate('previous');
+                  console.log("swipe right");
+                   
+                });
                 this.$navPrev.on('click.cbpFWSlider', $.proxy(this._navigate, this, 'previous'));
                 this.$navNext.on('click.cbpFWSlider', $.proxy(this._navigate, this, 'next'));
                 this.$navDots.on('click.cbpFWSlider', function() {
@@ -242,17 +248,17 @@ function fb_login() {
             this._toggleNavControls();
             // translate value
             //var translateVal = -1 * this.current * 100 / this.itemsCount;
-            var size= 3;
-            if($(window).width() < 422){
+            var size = 3;
+            if ($(window).width() < 422) {
                 size = 1;
             }
-            var translateVal = -1 *  this.current * ($(window).width() + 15) / size;
+            var translateVal = -1 * this.current * ($(window).width()) / size;
             if (this.support) {
                 this.$list.css('transform', this.support3d ? 'translate3d(' + translateVal + 'px,0,0)' : 'translate(' + translateVal + 'px)');
             }
-            else {                                                                        
+            else {
                 //this.$list.css('margin-left', -1 * this.current * 100 + '%');
-                this.$list.css('margin-left', -1 * this.current * ($(window).width() + 15) + 'px');
+                this.$list.css('margin-left', -1 * this.current * ($(window).width()) + 'px');
             }
 
             var transitionendfn = $.proxy(function() {
@@ -356,3 +362,4 @@ function fb_login() {
     };
 
 })(jQuery, window);
+

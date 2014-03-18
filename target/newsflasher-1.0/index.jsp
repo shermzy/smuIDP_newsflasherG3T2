@@ -36,8 +36,44 @@
             </div>
         </div>
     </div>
-    <div class="filterMenu">
 
+    <div class="sentimentsFilter ">
+
+        <div id="neu" class ="sentimentSel">     Neutral</div>
+        <div id="pos" class ="sentimentSel"><i class="fa fa-circle green font7"></i>     Positive</div>  
+        <div id="neg" class ="sentimentSel"><i class="fa fa-circle red font7"></i>        Negative</div>
+
+        <div class="newsSource">
+            <div class="icon-btn">
+                <i class="fa fa-group"></i>
+                <div>
+                    Social Media
+                </div>
+                <span class="badge badge-success" id="socialMediaCount">
+
+                </span>
+            </div>
+            <div href="#" class="icon-btn">
+                <i class="fa fa-video-camera"></i>
+                <div>
+                    News Agency
+                </div>
+                <span class="badge badge-success" id="newsAgencyCount">
+
+                </span>
+            </div>
+            <div href="#" class="icon-btn">
+                <i class="fa fa-globe"></i>
+                <div>
+                    Others
+                </div>
+                <span class="badge badge-success" id="othersCount">
+
+                </span>
+            </div>
+
+        </div>   
+        <div class="save"><button class="btn dark" id="save">Save</button></div>
     </div>
     <div class="newsDetails" id="newsDetails">
 
@@ -64,28 +100,34 @@
                                   <i class="fa fa-twitter-square socialIcons"></i>
                                   <i class="fa fa-google-plus-square socialIcons"></i>-->
                         </div>
+
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="pull-right btn default" id="close">X</div>
+
                 </div>
             </div>
-
-            <!--End Issue-->
         </div>
-
+        <!--End Issue-->
         <!--News slider-->
         <div id="cbp-fwslider" class="cbp-fwslider">
 
         </div>
-        <div class="menu">
-            <div class="menuClass">     <i class="fa fa-facebook-square socialIcons"></i></div>
-            <div class="menuClass">   <i class="fa fa-twitter-square socialIcons"></i></div>
-            <div class="menuClass">        <i class="fa fa-google-plus-square socialIcons"></i></div>
+        <div class="menu visible-xs">
+            <div class="menuClass" id="backButton"> <i class="fa fa-long-arrow-left menuIcons"></i><div class="font12 lightGrey"> Back</div></div>
+
+            <div class="menuClass">  
+                <i class="fa fa-filter filter menuIcons"></i><div class="font12 lightGrey"> Filter</div>
+
+            </div>
+
+
         </div>
-        <!--End News Slider-->
     </div>
 
+    <!--End News Slider-->
+</div>
 
 
 </body>
@@ -97,26 +139,52 @@
 
 <script>
 
+    $('#save').click(function() {
+        alert("clicked");
+        if ($('#pos').hasClass("selected")) {
+            $('li.stories.positiveNews').show();
+        } else {
+            $('li.stories.positiveNews').hide();
+        }
+        if ($('#neg').hasClass("selected")) {
+            $('li.stories.negativeNews').show();
+        } else {
+            $('li.stories.negativeNews').hide();
+        }
+        if ($('#neu').hasClass("selected")) {
+            $('li.stories.neutralNews').show();
+        } else {
+            $('li.stories.neutralNews').hide();
+        }
 
+
+    });
+    $('.filter').click(function() {
+        $('.sentimentsFilter').slideToggle();
+    });
+    $('#backButton').click(function() {
+        close();
+    });
     $('#pos').click(function() {
-
-        $('li.stories.negativeNews').hide("slide", function() {
-            $('li.stories.positiveNews').show("slide");
-            $('#comments').css("-webkit-transform", "translate3d(0%, 0px, 0px)");
-
-        });
+        $(this).toggleClass('selected');
+        /*   $('li.stories.negativeNews').hide("slide", function() {
+         $('li.stories.positiveNews').show("slide");
+         $('#comments').css("-webkit-transform", "translate3d(0%, 0px, 0px)");*/
 
     });
+
+
     $('#neg').click(function() {
-        $('li.stories.positiveNews').hide("slide", function() {
-            $('li.stories.negativeNews').show("slide");
-            $('#comments').css("-webkit-transform", "translate3d(0%, 0px, 0px)");
-        });
+        $(this).toggleClass('selected');
+        /*   $('li.stories.positiveNews').hide("slide", function() {
+         $('li.stories.negativeNews').show("slide");
+         $('#comments').css("-webkit-transform", "translate3d(0%, 0px, 0px)");
+         });*/
 
     });
-    $('#alltypes').click(function() {
-        $('li.stories.positiveNews').show("slide");
-        $('li.stories.negativeNews').show("slide");
+    $('#neu').click(function() {
+        $(this).toggleClass('selected');
+
     });
     bajb_backdetect.OnBack = function()
     {
@@ -130,11 +198,13 @@
         close();
     });
     function close() {
-        $('#newsDetails').hide("slide");
+        $('#newsDetails').hide(500, function() {
+            $('.content').show(500);
+            $('#gn-menu').show(500);
+        });
         $('.summary').html("");
         $('#comments').html("");
-        $('.content').show("slide");
-        $('#gn-menu').show("slide");
+
 
     }
     $('#submitComment').click(function() {
@@ -294,6 +364,8 @@
                 $('#commentagencyname').append('<option value="' + val.name + '" >' + val.name + '</option>');
             });
         });
+        $('.sentimentsFilter').height($(window).height() - 35);
+        $('.sentimentsFilter').width($(window).width() + 15);
         $('.news_article').click(function() {
             //$('.newsArticle').append($(this).html());
             //   $(this).html().appendTo($('.newsArticle'));
@@ -321,9 +393,11 @@
 
                     var storyContent = "";
                     if (val.sentiment == 1) {
-                        storyContent += '<li class="stories positiveNews">';
+                        storyContent += '<li class="stories positiveNews ' + val.type + '">';
+                    } else if (val.sentiment == 0) {
+                        storyContent += '<li class="stories negativeNews ' + val.type + '">';
                     } else {
-                        storyContent += '<li class="stories negativeNews">';
+                        storyContent += '<li class="stories neutralNews ' + val.type + '">';
                     }
                     storyContent += ' <div class="story-header">'
                     storyContent += '<img src="' + val.picLink + '" class="commentpic pull-left" width="70px" alt="">';
@@ -346,16 +420,23 @@
             });
 
             $('.content').hide(500);
-            $('#gn-menu').hide(500);
+            $('#gn-menu').hide(500, function() {
+                $('.newsDetails').show(500);
+            });
             $('#newsDetails').css('height', $(window).height());
-            $('.newsDetails').show(700);
+
             $('.newsArticle').css('height', $(window).height() / 2 - 25);
 
             $('.cbp-fwslider').css('height', $(window).height() / 2 - 25);
             // $('.cbp-fwslider').css('padding-top', $(window).height() / 2);
             $('.overlay').css("margin-top", -$(window).height() / 2 + 25);
             $('.blackOverlay').css("margin-top", -$(window).height() / 2 + 25);
-            $(this).addClass("read");
+            var newsLength = $('.news').length;
+            $('#newsAgencyCount').text(newsLength);
+            var socialLength = $('.social').length;
+            $('#socialMediaCount').text(newsLength);
+            var othersLength = $('.others').length;
+            $('#othersCount').text(newsLength);
         });
 
     }
