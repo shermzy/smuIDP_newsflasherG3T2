@@ -198,6 +198,7 @@ function fb_login() {
                 this.$navDots = navDots.children('span');
 
             }
+           
 
         },
         _initEvents: function() {
@@ -210,8 +211,10 @@ function fb_login() {
                     swipe: function(event, direction, distance, duration, fingerCount) {
                         if (direction == "right") {
                             self._navigate('previous');
+
                         } else {
                             self._navigate('next');
+
                         }
                     },
                     //Default is 75px, set to 0 for demo so any distance triggers swipe
@@ -219,6 +222,7 @@ function fb_login() {
                 });
                 this.$navPrev.on('click.cbpFWSlider', $.proxy(this._navigate, this, 'previous'));
                 this.$navNext.on('click.cbpFWSlider', $.proxy(this._navigate, this, 'next'));
+
                 this.$navDots.on('click.cbpFWSlider', function() {
                     self._jump($(this).index());
                 });
@@ -231,7 +235,7 @@ function fb_login() {
             if (this.isAnimating) {
                 return false;
             }
-
+            console.log('NAVIGATE');
             this.isAnimating = true;
             // update old and current values
             this.old = this.current;
@@ -240,13 +244,13 @@ function fb_login() {
             }
             else if (direction === 'previous' && this.current > 0) {
                 --this.current;
-            }else{
-                this.current = this.itemsCount - 1;
             }
-            console.log(this.current);
-            // slide
-            this._slide();
 
+            // slide
+            if (this.current != (this.itemCount - 1)) {
+                this._slide();
+
+            }
         },
         _slide: function() {
 
@@ -259,6 +263,7 @@ function fb_login() {
                 size = 1;
             }
             var translateVal = -1 * this.current * ($(window).width()) / size;
+            console.log("slide val" + translateVal);
             if (this.support) {
                 this.$list.css('transform', this.support3d ? 'translate3d(' + translateVal + 'px,0,0)' : 'translate(' + translateVal + 'px)');
             }
