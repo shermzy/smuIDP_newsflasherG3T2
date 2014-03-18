@@ -204,12 +204,12 @@ function fb_login() {
 
             var self = this;
             if (this.itemsCount > 1) {
-                $(".cbp-fwslider").on("swipeleft", function() {
+                $("#comments").on("swipeleft", function() {
                   self._navigate('next');
                   console.log("swipe left");
                    
                 });
-                   $(".cbp-fwslider").on("swiperight", function() {
+                   $("#comments").on("swiperight", function() {
                   self._navigate('previous');
                   console.log("swipe right");
                    
