@@ -7,6 +7,7 @@
         <div class="news">
             <div class="row">
                 <div class="category"> 
+                    <div class="container">
                     <div class="col-md-12">
 
                         <label class="btn news-sel All" id="All">
@@ -25,7 +26,7 @@
                         <label class="btn news-sel Sports" id="Sports">
                             Sports</label>
 
-                    </div>
+                    </div></div>
                 </div>
             </div>
             <div class="row">
@@ -426,7 +427,7 @@
             $('#newsDetails').css('height', $(window).height());
 
             $('.newsArticle').css('height', $(window).height() / 2 - 25);
-
+            $('.menu').css("width",$(window).width() + 15);
             $('.cbp-fwslider').css('height', $(window).height() / 2 - 25);
             // $('.cbp-fwslider').css('padding-top', $(window).height() / 2);
             $('.overlay').css("margin-top", -$(window).height() / 2 + 25);

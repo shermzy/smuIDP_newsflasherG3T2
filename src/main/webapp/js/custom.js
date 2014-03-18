@@ -205,12 +205,12 @@ function fb_login() {
             var self = this;
             if (this.itemsCount > 1) {
                 $(".cbp-fwslider").on("swipeleft", function() {
-                  this._navigate('next');
+                  self._navigate('next');
                   console.log("swipe left");
                    
                 });
                    $(".cbp-fwslider").on("swiperight", function() {
-                  this._navigate('previous');
+                  self._navigate('previous');
                   console.log("swipe right");
                    
                 });
