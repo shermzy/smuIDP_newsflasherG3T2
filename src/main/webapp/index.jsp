@@ -120,7 +120,7 @@
         <div class="menu visible-xs">
             <div class="menuClass" id="backButton"> <i class="fa fa-long-arrow-left menuIcons"></i><div class="font12 lightGrey"> Back</div></div>
 
-            <div class="menuClass">  
+            <div class="menuClass" id="filter">  
                 <i class="fa fa-filter filter menuIcons"></i><div class="font12 lightGrey"> Filter</div>
 
             </div>
@@ -162,7 +162,7 @@
 
 
     });
-    $('.filter').click(function() {
+    $('#filter').click(function() {
         $('.sentimentsFilter').slideToggle();
     });
     $('#backButton').click(function() {
