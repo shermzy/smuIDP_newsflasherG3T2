@@ -1635,7 +1635,7 @@ Custom icon buttons
   margin: 5px 5px 0 0;
   border: 1px solid #ddd;
   padding: 12px 0px 0px 0px;
-  background-color: #fafafa !important;
+  background-color: rgba(250, 250, 250, 0.54) !important;
   background-image: none !important;
   filter:none !important;
   -webkit-box-shadow: none !important;

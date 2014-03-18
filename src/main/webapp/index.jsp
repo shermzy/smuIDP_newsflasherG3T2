@@ -5,32 +5,32 @@
 
         <!-- preferences here -->
         <div class="news"> <div class="center">
-                <div class="row">
 
-                    <div class="category"> 
 
-                        <div class="col-md-12">
+                <div class="category"> 
 
-                            <label class="btn news-sel All" id="All">
-                                All </label>
-                            <label class="btn news-sel Hot" id="Hot">
-                                Hot News </label>
-                            <label class="btn news-sel Pol" id="Pol">
-                                Politics </label>
-                            <label class="btn news-sel Entertainment" id="Entertainment">
-                                Entertainment </label>
-                            <label class="btn news-sel Tech" id="Tech">
+                    <div class="col-md-12">
 
-                                Technology </label>
-                            <label class="btn news-sel Biz" id="Biz">
-                                Business</label>
-                            <label class="btn news-sel Sports" id="Sports">
-                                Sports</label>
+                        <label class="btn news-sel All" id="All">
+                            All </label>
+                        <label class="btn news-sel Hot" id="Hot">
+                            Hot News </label>
+                        <label class="btn news-sel Pol" id="Pol">
+                            Politics </label>
+                        <label class="btn news-sel Entertainment" id="Entertainment">
+                            Entertainment </label>
+                        <label class="btn news-sel Tech" id="Tech">
 
-                        </div>
+                            Technology </label>
+                        <label class="btn news-sel Biz" id="Biz">
+                            Business</label>
+                        <label class="btn news-sel Sports" id="Sports">
+                            Sports</label>
+
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-md-4 col-xs-12" id="colone"></div>
                 <div class="col-md-4 col-xs-12" id="coltwo"></div>
@@ -43,8 +43,8 @@
     <div class="sentimentsFilter ">
 
         <div id="neu" class ="sentimentSel">     Neutral</div>
-        <div id="pos" class ="sentimentSel"><i class="fa fa-circle green font7"></i>     Positive</div>  
-        <div id="neg" class ="sentimentSel"><i class="fa fa-circle red font7"></i>        Negative</div>
+        <div id="pos" class ="sentimentSel">    Positive</div>  
+        <div id="neg" class ="sentimentSel">       Negative</div>
 
         <div class="newsSource">
             <div class="icon-btn">
@@ -76,7 +76,7 @@
             </div>
 
         </div>   
-        <div class="save"><button class="btn green" id="save">Save</button></div>
+        <!-- <div class="save"><button class="btn green" id="save">Save</button></div>-->
     </div>
     <div class="newsDetails" id="newsDetails">
 
@@ -118,14 +118,14 @@
 
         </div>
         <div class="menu visible-xs">
-            <div class="menuClass" id="backButton"> <i class="fa fa-long-arrow-left menuIcons"></i><div class="font12 lightGrey"> Back</div></div>
+
 
             <div class="menuClass" id="filter">  
                 <i class="fa fa-filter filter menuIcons"></i><div class="font12 lightGrey"> Filter</div>
 
             </div>
 
-
+            <div class="menuClass" id="backButton"> <i class="fa fa-home menuIcons"></i><div class="font12 lightGrey"> Home</div></div>
         </div>
     </div>
 
@@ -143,8 +143,39 @@
 <script>
 
 
-        //Enable swiping...
-    
+    //Enable swiping...
+    $(".newsDetails").swipe({
+        //Generic swipe handler for all directions
+        swipe: function(event, direction, distance, duration, fingerCount) {
+            if (direction == "down") {
+                $('.sentimentsFilter').slideToggle();
+                if ($('#filter').hasClass('active')) {
+                    $('#filter').removeClass('active');
+                } else {
+                    $('#filter').addClass('active');
+                }
+
+            }
+        },
+        //Default is 75px, set to 0 for demo so any distance triggers swipe
+        threshold: 20
+    });
+    $(".sentimentsFilter").swipe({
+        //Generic swipe handler for all directions
+        swipe: function(event, direction, distance, duration, fingerCount) {
+            if (direction == "up") {
+                $('.sentimentsFilter').slideToggle();
+                if ($('#filter').hasClass('active')) {
+                    $('#filter').removeClass('active');
+                } else {
+                    $('#filter').addClass('active');
+                }
+
+            }
+        },
+        //Default is 75px, set to 0 for demo so any distance triggers swipe
+        threshold: 20
+    });
 
 
     $('#save').click(function() {
@@ -169,31 +200,62 @@
     });
     $('#filter').click(function() {
         $('.sentimentsFilter').slideToggle();
+        $('#filter').toggleClass('active');
+        /*   if ($('#filter').hasClass('active')) {
+         $('#filter').removeClass('active');
+         } else {
+         $('#filter').addClass('active');
+         }*/
     });
     $('#backButton').click(function() {
         close();
     });
-    $('#pos').click(function() {
-        $(this).toggleClass('selected');
-        /*   $('li.stories.negativeNews').hide("slide", function() {
-         $('li.stories.positiveNews').show("slide");
-         $('#comments').css("-webkit-transform", "translate3d(0%, 0px, 0px)");*/
+    $(".icon-btn").swipe({
+        tap: function() {
+          
+            $(this).toggleClass("chosen");
+        },
+       
+        threshold: 0
+    });
+    $("#pos").swipe({
+        tap: function() {
+            $(this).toggleClass('selected');
+            $('li.stories.negativeNews').hide("slide", function() {
+                $('li.stories.positiveNews').show("slide");
+                $('#comments').css("-webkit-transform", "translate3d(0%, 0px, 0px)");
 
+            });
+        },
+       
+        threshold: 0
+    });
+    $("#neg").swipe({
+        tap: function() {
+            $(this).toggleClass('selected');
+            $('li.stories.positiveNews').hide("slide", function() {
+                $('li.stories.negativeNews').show("slide");
+                $('#comments').css("-webkit-transform", "translate3d(0%, 0px, 0px)");
+            });
+        },
+       
+        threshold: 0
+    });
+    $("#neu").swipe({
+        tap: function() {
+            $(this).toggleClass('selected');
+            $('li.stories.positiveNews').hide("slide", function() {
+                $('li.stories.neutralNews').show("slide");
+                $('#comments').css("-webkit-transform", "translate3d(0%, 0px, 0px)");
+            });
+        },
+        
+        threshold: 0
     });
 
 
-    $('#neg').click(function() {
-        $(this).toggleClass('selected');
-        /*   $('li.stories.positiveNews').hide("slide", function() {
-         $('li.stories.negativeNews').show("slide");
-         $('#comments').css("-webkit-transform", "translate3d(0%, 0px, 0px)");
-         });*/
 
-    });
-    $('#neu').click(function() {
-        $(this).toggleClass('selected');
 
-    });
     bajb_backdetect.OnBack = function()
     {
         close();

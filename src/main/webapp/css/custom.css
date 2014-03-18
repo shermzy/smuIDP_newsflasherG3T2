@@ -7,10 +7,16 @@ and open the template in the editor.
     Created on : Feb 19, 2014, 1:18:32 PM
     Author     : Sherman
 */
+.active{
+    background:#444
+}
 .save{
     text-align: center;
     margin-top:20px;
 
+}
+.chosen{
+    background:rgba(250, 250, 250, 1) !important;
 }
 #save{
     border-radius: 3px !important;
@@ -18,16 +24,16 @@ and open the template in the editor.
 }
 .menuClass{
     float: left;
-    padding: 10px 23px;
-    // border-right: 1px solid #8D8B8B;
+    padding: 10px 55px;
     height: 55px;
-    width:65px;
+    width: 33%;
     cursor: pointer;
+    margin: auto;
 }
 .menuClass:hover{
-background:#444;
+    background:#444;
 }    
-    
+
 .menu{
     height: 55px;
     position: fixed;
@@ -2582,7 +2588,7 @@ input.gn-search:focus {
         position:relative;
     }
     .cbp-fwslider nav span {
-       display:none !important;
+        display:none !important;
     }
     .gn-menu-wrapper.gn-open-all .gn-scroller {
         width: 130%
@@ -2599,7 +2605,7 @@ input.gn-search:focus {
         float: left;
         height: 40px;
         font-size: 1em !important;
-        min-width:320px;
+        width:100%;
         z-index: -10;
         cursor: pointer;
         color: #444;
@@ -2939,22 +2945,33 @@ input.gn-search:focus {
     // overflow: hidden;
     // padding: 40px 0 60px;
 }
+.hDiv{
+    border-bottom:1px solid #E6E1E1;
+    width: 300px;
+}
 .sentimentsFilter{
     display:none;
     position:fixed;
     z-index:10001;
-    background: #E0DCDC;
+    // background-image: url("../images/incog_2.jpg");
+    background: url("../uploads/incog_2.jpg")  no-repeat;
 }
 .sentimentSel{
-    width:inherit;
-    height:50px;
-    line-height: 50px;
-    text-align:center;
-    border-bottom:2px solid #444;
-
-    cursor:pointer;
-
+    width: inherit;
+    height: 85px;
+    line-height: 85px;
+    text-align: center;
+    //border-bottom: 2px solid #A2A2A2;
+    cursor: pointer;
+    float: inherit;
+    vertical-align: middle;
+    margin: auto;
+    color: #D3D0D0;
+    background: rgba(0, 0, 0, 0.25);
+    font-size: 2rem;
+    margin-bottom:1px;
 }
+
 .title{
     font-size:3rem;
 
@@ -2982,16 +2999,16 @@ input.gn-search:focus {
 
 }
 #pos.selected{
-    background:#117A08;
+    background:rgba(57, 206, 29, 0.25);
     color:#CCC;
 }
 #neg.selected{
-    background:#C00F0F;
+    background:rgba(206, 29, 29, 0.25);
     color:#CCC;
 }
 #neu.selected{
-    background:#FFF;
-    color:#444;
+    background:rgba(255, 255, 255, 0.25);;
+    color:#CCC;
 }
 #alltypes.selected{
     background:#FFF;
