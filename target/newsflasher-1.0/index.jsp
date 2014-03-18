@@ -5,8 +5,8 @@
 
         <!-- preferences here -->
         <div class="news"> <div class="center">
-            <div class="row">
-               
+                <div class="row">
+
                     <div class="category"> 
 
                         <div class="col-md-12">
@@ -120,7 +120,7 @@
         <div class="menu visible-xs">
             <div class="menuClass" id="backButton"> <i class="fa fa-long-arrow-left menuIcons"></i><div class="font12 lightGrey"> Back</div></div>
 
-            <div class="menuClass">  
+            <div class="menuClass" id="filter">  
                 <i class="fa fa-filter filter menuIcons"></i><div class="font12 lightGrey"> Filter</div>
 
             </div>
@@ -141,7 +141,12 @@
 <script type="text/javascript" src="js/backfix.min.js"></script>
 
 <script>
-    $.mobile.loading().hide();
+
+
+        //Enable swiping...
+    
+
+
     $('#save').click(function() {
         alert("clicked");
         if ($('#pos').hasClass("selected")) {
@@ -162,7 +167,7 @@
 
 
     });
-    $('.filter').click(function() {
+    $('#filter').click(function() {
         $('.sentimentsFilter').slideToggle();
     });
     $('#backButton').click(function() {

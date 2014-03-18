@@ -35,7 +35,7 @@ background:#444;
     width:inherit;
     bottom: 0;
     background:#f3f3f3;
-    z-index: 100;
+    z-index: 15000;
 }
 #middleSegment{
     //  border-right: 1px solid #B3B3B3;
@@ -2582,7 +2582,7 @@ input.gn-search:focus {
         position:relative;
     }
     .cbp-fwslider nav span {
-        //display:none !important;
+       display:none !important;
     }
     .gn-menu-wrapper.gn-open-all .gn-scroller {
         width: 130%

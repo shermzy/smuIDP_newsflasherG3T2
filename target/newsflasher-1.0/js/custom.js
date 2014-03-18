@@ -204,15 +204,18 @@ function fb_login() {
 
             var self = this;
             if (this.itemsCount > 1) {
-                $("li.stories").on("swipeleft", function() {
-                  self._navigate('next');
-                  console.log("swipe left");
-                   
-                });
-                   $("li.stories").on("swiperight", function() {
-                  self._navigate('previous');
-                  console.log("swipe right");
-                   
+
+                $(".cbp-fwslider").swipe({
+                    //Generic swipe handler for all directions
+                    swipe: function(event, direction, distance, duration, fingerCount) {
+                        if (direction == "right") {
+                            self._navigate('previous');
+                        } else {
+                            self._navigate('next');
+                        }
+                    },
+                    //Default is 75px, set to 0 for demo so any distance triggers swipe
+                    threshold: 0
                 });
                 this.$navPrev.on('click.cbpFWSlider', $.proxy(this._navigate, this, 'previous'));
                 this.$navNext.on('click.cbpFWSlider', $.proxy(this._navigate, this, 'next'));
@@ -237,7 +240,10 @@ function fb_login() {
             }
             else if (direction === 'previous' && this.current > 0) {
                 --this.current;
+            }else{
+                this.current = this.itemsCount - 1;
             }
+            console.log(this.current);
             // slide
             this._slide();
 

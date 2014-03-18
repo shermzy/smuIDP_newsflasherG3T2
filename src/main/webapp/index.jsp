@@ -5,8 +5,8 @@
 
         <!-- preferences here -->
         <div class="news"> <div class="center">
-            <div class="row">
-               
+                <div class="row">
+
                     <div class="category"> 
 
                         <div class="col-md-12">
@@ -141,7 +141,12 @@
 <script type="text/javascript" src="js/backfix.min.js"></script>
 
 <script>
-    $.mobile.loading().hide();
+
+
+        //Enable swiping...
+    
+
+
     $('#save').click(function() {
         alert("clicked");
         if ($('#pos').hasClass("selected")) {

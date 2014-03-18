@@ -2582,7 +2582,7 @@ input.gn-search:focus {
         position:relative;
     }
     .cbp-fwslider nav span {
-        //display:none !important;
+       display:none !important;
     }
     .gn-menu-wrapper.gn-open-all .gn-scroller {
         width: 130%
