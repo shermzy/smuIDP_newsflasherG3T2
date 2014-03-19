@@ -42,8 +42,8 @@
 
     <div class="sentimentsFilter ">
 
-        <div id="neue" class ="sentimentSel">     Neutral</div>
-        <div id="pose" class ="sentimentSel">    Positive</div>  
+        <div id="neu" class ="sentimentSel">     Neutral</div>
+        <div id="pos" class ="sentimentSel">    Positive</div>  
         <div id="neg" class ="sentimentSel">       Negative</div>
 
         <div class="newsSource">
@@ -86,28 +86,42 @@
             <div class="blackOverlay"></div>
             <!--Issue-->
             <div class="overlay">
-                <div class="col-md-4">
+                <div class="col-md-4 hidden-xs">
                     <!-- Add other related news here-->
+                    <ul class="bmenu">
+                        <li class="home"><div>Home</div></li>
+                        <div id="sentiments">              <li><div>Sentiments</div>
+                            </li>
+                            <div class="sentsOption">
+                                <div class="sents"  id="neuL">Neutral</div>
+                                <div class="sents"  id="posL">Positive</div>
+                                <div class="sents" id="negL">Negative</div> </div>
+                        </div>
+                        <li>
+                            <div>News Type</div>
+                        </li>
+
+                    </ul>
                 </div>
-                <div class="col-md-4" id="middleStory">
+                <div class="col-md-4 col-xs-12" id="middleStory">
                     <div class="Social">
                         <div class="summary">
                             <!--insert 3 points here -->
                         </div>
-                        <div class="social-icons">
-                            <button id="pos_large" class ="btn default">Positive</button>
-                            <button id="neu_large" class ="btn default">Neutral</button>
-                            <button id="neg_large" class ="btn default">Negative</button>
-
-
-                        </div>
-                        <div class="social-icons">              <i class="fa fa-facebook-square socialIcons"></i>
-                            <i class="fa fa-twitter-square socialIcons"></i>
-                            <i class="fa fa-google-plus-square socialIcons"></i></div>
+                        <!--         <div class="social-icons">
+                                <button id="pos_large" class ="btn default">Positive</button>
+                                <button id="neu_large" class ="btn default">Neutral</button>
+                                <button id="neg_large" class ="btn default">Negative</button>
+    
+    
+                            </div>
+                            <div class="social-icons">         <i class="fa fa-facebook-square socialIcons"></i>
+                                <i class="fa fa-twitter-square socialIcons"></i>
+                                <i class="fa fa-google-plus-square socialIcons"></i></div>-->
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="pull-right btn default" id="close">X</div>
+
 
                 </div>
             </div>
@@ -125,7 +139,7 @@
 
             </div>
 
-            <div class="menuClass" id="backButton"> <i class="fa fa-home menuIcons"></i><div class="font12 lightGrey"> Home</div></div>
+            <div class="menuClass home" id="backButton"> <i class="fa fa-home menuIcons"></i><div class="font12 lightGrey"> Home</div></div>
         </div>
     </div>
 
@@ -141,14 +155,27 @@
 <script type="text/javascript" src="js/backfix.min.js"></script>
 
 <script>
+ this.$storiesPositive =  $('li.stories.positiveNews');
+ this.$sentimentsFilter = $('.sentimentsFilter');
+ this.$sents = $('.sents');
+ this.$slider = $('.cbp-fwslider');
+this.$comments_section =  $('#comments');
 
-
+ 
+ $sents.click(function(e){
+     $(this).toggleClass('selected');
+ });
+    $("#sentiments").hover(function() {
+        $('.sentsOption').slideToggle();
+    });
     //Enable swiping...
     $(".newsDetails").swipe({
         //Generic swipe handler for all directions
         swipe: function(event, direction, distance, duration, fingerCount) {
             if (direction == "down") {
-                $('.sentimentsFilter').slideToggle();
+                $('.newsArticle').css("-webkit-filter", "blur(5px)");
+               $slider.css("-webkit-filter", "blur(5px)");
+                $sentimentsFilter.slideToggle();
                 if ($('#filter').hasClass('active')) {
                     $('#filter').removeClass('active');
                 } else {
@@ -164,7 +191,9 @@
         //Generic swipe handler for all directions
         swipe: function(event, direction, distance, duration, fingerCount) {
             if (direction == "up") {
-                $('.sentimentsFilter').slideToggle();
+                $sentimentsFilter.slideToggle();
+                $('.newsArticle').css("-webkit-filter", "blur(0px)");
+                $slider.css("-webkit-filter", "blur(0px)");
                 if ($('#filter').hasClass('active')) {
                     $('#filter').removeClass('active');
                 } else {
@@ -177,62 +206,43 @@
         threshold: 20
     });
 
-
-    $('#save').click(function() {
-        alert("clicked");
-        if ($('#pos').hasClass("selected")) {
-            $('li.stories.positiveNews').show();
-        } else {
-            $('li.stories.positiveNews').hide();
-        }
-        if ($('#neg').hasClass("selected")) {
-            $('li.stories.negativeNews').show();
-        } else {
-            $('li.stories.negativeNews').hide();
-        }
-        if ($('#neu').hasClass("selected")) {
-            $('li.stories.neutralNews').show();
-        } else {
-            $('li.stories.neutralNews').hide();
-        }
-
-
-    });
     $('#pos_large').click(function() {
         $(this).toggleClass('selected');
         $('li.stories.negativeNews').hide("slide", function() {
-            $('li.stories.positiveNews').show("slide");
-            $('#comments').css("-webkit-transform", "translate3d(0%, 0px, 0px)");
+            $storiesPositive.show("slide");
+           $comments_section.css("-webkit-transform", "translate3d(0%, 0px, 0px)");
 
         });
     });
     $('#neg_large').click(function() {
         $(this).toggleClass('selected');
-        $(this).toggleClass('selected');
-        $('li.stories.positiveNews').hide("slide", function() {
+
+       $storiesPositive.hide("slide", function() {
             $('li.stories.negativeNews').show("slide");
-            $('#comments').css("-webkit-transform", "translate3d(0%, 0px, 0px)");
+            $comments_section.css("-webkit-transform", "translate3d(0%, 0px, 0px)");
         });
     });
     $('#neu_large').click(function() {
         $(this).toggleClass('selected');
-        $(this).toggleClass('selected');
+
         $('li.stories.neutralNews').hide("slide", function() {
             $('li.stories.negativeNews').show("slide");
-            $('#comments').css("-webkit-transform", "translate3d(0%, 0px, 0px)");
+            $comments_section.css("-webkit-transform", "translate3d(0%, 0px, 0px)");
         });
     });
 
     $('#filter').click(function() {
-        $('.sentimentsFilter').slideToggle();
+        $sentimentsFilter.slideToggle();
         $('#filter').toggleClass('active');
-        /*   if ($('#filter').hasClass('active')) {
-         $('#filter').removeClass('active');
-         } else {
-         $('#filter').addClass('active');
-         }*/
+        if ($('#filter').hasClass('active')) {
+            $('.newsArticle').css("-webkit-filter", "blur(0px)");
+            $slider.css("-webkit-filter", "blur(0px)");
+        } else {
+            $('.newsArticle').css("-webkit-filter", "blur(5px)");
+            $slider.css("-webkit-filter", "blur(5px)");
+        }
     });
-    $('#backButton').click(function() {
+    $('.home').click(function() {
         close();
     });
     $(".icon-btn").swipe({
@@ -240,35 +250,35 @@
 
             $(this).toggleClass("chosen");
         },
-        threshold: 0
+        threshold: 10
     });
     $("#pos").swipe({
         tap: function() {
             $(this).toggleClass('selected');
             $('li.stories.negativeNews').hide("slide", function() {
-                $('li.stories.positiveNews').show("slide");
-                $('#comments').css("-webkit-transform", "translate3d(0%, 0px, 0px)");
+                $storiesPositive.show("slide");
+                $comments_section.css("-webkit-transform", "translate3d(0%, 0px, 0px)");
 
             });
         },
-        threshold: 0
+        threshold: 10
     });
     $("#neg").swipe({
         tap: function() {
             $(this).toggleClass('selected');
-            $('li.stories.positiveNews').hide("slide", function() {
+            $storiesPositive.hide("slide", function() {
                 $('li.stories.negativeNews').show("slide");
-                $('#comments').css("-webkit-transform", "translate3d(0%, 0px, 0px)");
+                $comments_section.css("-webkit-transform", "translate3d(0%, 0px, 0px)");
             });
         },
-        threshold: 0
+        threshold: 10
     });
     $("#neu").swipe({
         tap: function() {
             $(this).toggleClass('selected');
-            $('li.stories.positiveNews').hide("slide", function() {
+            $storiesPositive.hide("slide", function() {
                 $('li.stories.neutralNews').show("slide");
-                $('#comments').css("-webkit-transform", "translate3d(0%, 0px, 0px)");
+                $comments_section.css("-webkit-transform", "translate3d(0%, 0px, 0px)");
             });
         },
         threshold: 0
@@ -294,7 +304,7 @@
             $('#gn-menu').show(500);
         });
         $('.summary').html("");
-        $('#comments').html("");
+        $comments_section.html("");
 
 
     }
@@ -336,8 +346,7 @@
 
         $('<li class="stories">' + content + '</li>').insertAfter($('#commentBox'));
         $('#cbp-fwslider').cbpFWSlider();
-        //  $('.stories').css('width', 100/($('#comments').children('li').length + 1) + '%');
-        // $('#comments').css('width',(100/3) * ($('#comments').children('li').length + 1) + '%');
+      
     }
     ;
     $(function() {
@@ -381,7 +390,7 @@
         $("#All").addClass('active');
 
     });
-    function shownews(activeCats) {
+    function shownews(activeCats, type) {
 
         $.getJSON("getNews", function(response) {
             var counter = 0;
@@ -417,19 +426,7 @@
                     content += '<div class="news_caption">';
                     content += '<div class="news_caption_title" id="' + val.name + '">';
                     content += val.name;
-                    //      content += '</div><div class="news_caption_body">';
-                    //         var bullets = val.snippet.split(";");
-                    //      content += "<ul>";
-                    //       for (var a = 0; a < bullets.length - 1; a++) {
-                    //            content += ("<li>" + bullets[a] + "</li>");
-                    //       }
-                    //       content += "</ul>";
-                    content += '</div></div></div>';
-                    // content += '<div class="social-info">';
-                    // content += '<div class="social-icons likes"><i class="fa fa-thumbs-up"></i></div>';
-                    //content += '<div class="social-icons fav"><i class="fa fa-star"></i></div>';
-                    //   content += '<div class="social-icons readmore">Read More</div>';
-                    //    content += '</div>';
+                    content += '</div></div></div>';            
                     content += '</div>';
                     if (counter % 3 === 0) {
                         $('<div class="news_article" id="' + val.name + '">  ' + content + '</div>').appendTo("#colone");
@@ -451,8 +448,8 @@
 
     function init() {
 
-        $('.sentimentsFilter').height($(window).height() - 35);
-        $('.sentimentsFilter').width($(window).width() + 15);
+        $sentimentsFilter.height($(window).height() - 35);
+        $sentimentsFilter.width($(window).width() + 15);
         $('.news_article').click(function() {
             //$('.newsArticle').append($(this).html());
             //   $(this).html().appendTo($('.newsArticle'));
@@ -465,7 +462,7 @@
                 $('.news_name').text(response.name);
 
 
-                $('.foregroundStory').css('background', 'url(' + response.relpic + ') black no-repeat center');
+                $('.foregroundStory').css('background', 'url(' + response.relpic + ') #444 no-repeat center');
                 var midStory = '<div class="news_caption_title" id="originalStory">' + response.name + '</div>';
                 var bullets = response.snippet.split(";");
                 midStory += ('<div class="list-group">');
@@ -516,8 +513,8 @@
 
             $('.newsArticle').css('height', $(window).height() / 2 - 25);
             $('.menu').css("width", $(window).width() + 15);
-            $('.cbp-fwslider').css('height', $(window).height() / 2 - 25);
-            // $('.cbp-fwslider').css('padding-top', $(window).height() / 2);
+            $slider.css('height', $(window).height() / 2 - 25);
+            // $slider.css('padding-top', $(window).height() / 2);
             $('.overlay').css("margin-top", -$(window).height() / 2 + 25);
             $('.blackOverlay').css("margin-top", -$(window).height() / 2 + 25);
             var newsLength = $('.news').length;

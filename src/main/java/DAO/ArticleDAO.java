@@ -22,7 +22,7 @@ public class ArticleDAO {
     //Initialize query statments
     private static final String INSERT_ARTICLE = "insert into `articles` (`NewsArticle_Name`, `NewsArticle_Snippet`, `NewsArticle_Link`, `NewsArticle_pic`,`abPath`,`category`,`date`) values (?, ?, ?, ?, ?, ?, ?);";
 
-    private static final String GET_ARTICLE = "select * from `articles`";
+    private static final String GET_ARTICLE = "select * from `articles` order by date desc";
 
     /**
      * Insert a new user record into database

@@ -177,7 +177,7 @@ function fb_login() {
             }
             // each item will have a width of 100 / itemsCount
             //this.$items.css('width', 100 / this.itemsCount + '%');
-            this.$items.css('width', ($(window).width() + 15) / size + 'px');
+            this.$items.css('width', ($(window).width()) / size + 'px');
             // add navigation arrows and the navigation dots if there is more than 1 item
             if (this.itemsCount > 1) {
                 $('nav').remove();
@@ -263,6 +263,7 @@ function fb_login() {
                 size = 1;
             }
             var translateVal = -1 * this.current * ($(window).width()) / size;
+            console.log($(window).width());
             console.log("slide val" + translateVal);
             if (this.support) {
                 this.$list.css('transform', this.support3d ? 'translate3d(' + translateVal + 'px,0,0)' : 'translate(' + translateVal + 'px)');
