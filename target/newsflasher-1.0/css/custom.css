@@ -15,7 +15,9 @@ and open the template in the editor.
 .bmenu li{
     font-size: 2.5rem;
     display: block;
+    border-left:10px solid #808080;
 }
+
 .bmenu li div{
     display: block;
     text-transform: uppercase;
@@ -31,9 +33,12 @@ and open the template in the editor.
     -ms-transition: all 0.2s linear;
     transition: all 0.2s linear;
 }
+.newsSourceOptions,
 .sentsOption{
     display:none;
 }
+
+.nSource,
 .sents{
     
     padding-left:50px;
@@ -87,7 +92,9 @@ and open the template in the editor.
 .menuClass:hover{
     background:#444;
 }    
-
+.nSource.selected{
+    background:rgba(80, 80, 80, 0.7);
+}
 .menu{
     height: 55px;
     position: fixed;

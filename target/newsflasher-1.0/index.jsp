@@ -86,24 +86,39 @@
             <div class="blackOverlay"></div>
             <!--Issue-->
             <div class="overlay">
-                <div class="col-md-4 hidden-xs">
+                <div class="col-md-3 hidden-xs">
                     <!-- Add other related news here-->
                     <ul class="bmenu">
-                        <li class="home"><div>Home</div></li>
-                        <div id="sentiments">              <li><div>Sentiments</div>
+                        <li class="home"><div><i class="fa fa-home"></i>Home</div></li>
+                        <div id="sentiments">            
+                            <li>
+                                <div>
+                                    <i class="fa fa-thumbs-up fa-spin"></i>Sentiments
+                                </div>
                             </li>
                             <div class="sentsOption">
                                 <div class="sents"  id="neuL">Neutral</div>
                                 <div class="sents"  id="posL">Positive</div>
-                                <div class="sents" id="negL">Negative</div> </div>
+                                <div class="sents" id="negL">Negative</div>
+                            </div>
                         </div>
-                        <li>
-                            <div>News Type</div>
-                        </li>
+
+                        <div id="newsSource"> 
+                            <li>
+                                <div>
+                                    <i class="fa fa-flash"></i>News Source
+                                </div>
+                            </li>
+                            <div class="newsSourceOptions">
+                                <div class="nSource"  id="social">Social media</div>
+                                <div class="nSource"  id="news">News Agency</div>
+                                <div class="nSource" id="others">Others</div>
+                            </div>
+                        </div>
 
                     </ul>
                 </div>
-                <div class="col-md-4 col-xs-12" id="middleStory">
+                <div class="col-md-offset-1 col-md-4 col-xs-12" id="middleStory">
                     <div class="Social">
                         <div class="summary">
                             <!--insert 3 points here -->
@@ -165,10 +180,21 @@
     this.$posLarge = $('#posL');
     this.$negLarge = $('#negL');
     this.$neuLarge = $('#neuL');
+    $isAnimating = false;
 
+    $("#newsSource").hover(function() {
 
+        $('.newsSourceOptions').slideToggle();
+    });
     $("#sentiments").hover(function() {
-        $('.sentsOption').slideToggle();
+        if ($isAnimating) {
+            return false;
+        }
+        $isAnimating = true;
+
+        $('.sentsOption').slideToggle(function() {
+            $isAnimating = false;
+        });
     });
     //Enable swiping...
     $(".newsDetails").swipe({
@@ -207,7 +233,10 @@
         //Default is 75px, set to 0 for demo so any distance triggers swipe
         threshold: 20
     });
-
+    $('.nSource').click(function() {
+        $(this).toggleClass('selected');
+        filterStories();
+    })
     $posLarge.click(function() {
         $(this).toggleClass('selected');
         filterStories();
@@ -545,22 +574,108 @@
 
     new gnMenu(document.getElementById('gn-menu'));
 
-    function filterStories() {
+    function checkSource() {
+        var selectedSource = new Array();
+        if ($('#news').hasClass('selected')) {
+            selectedSource.push('.news');
+        }
+        if ($('#social').hasClass('selected')) {
+            selectedSource.push('.social');
+        }
+        if ($('#others').hasClass('selected')) {
+            selectedSource.push('.others');
+        }
+        console.log(selectedSource);
+        return selectedSource;
+    }
+    function checkSentiments() {
+        var selectedSentiments = new Array();
         if ($posLarge.hasClass('selected')) {
-
-            $('li.stories.positiveNews').show("slide");
+            selectedSentiments.push('.positiveNews');
+        }
+        if ($negLarge.hasClass('selected')) {
+            selectedSentiments.push('.negativeNews');
+        }
+        if ($neuLarge.hasClass('selected')) {
+            selectedSentiments.push('.neutralNews');
+        }
+        return selectedSentiments;
+    }
+    function filterStories() {
+        var sources = checkSource();
+        var sentiments = checkSentiments();
+        if ($posLarge.hasClass('selected')) {
+            if (sources.length > 0) {
+                for (var i = 0; i < sources.length - 1; i++) {
+                    $('li.stories.positiveNews' + source[i]).show("slide");
+                }
+            } else {
+                $('li.stories.positiveNews').show("slide");
+            }
         } else {
             $('li.stories.positiveNews').hide("slide");
         }
+
         if ($negLarge.hasClass('selected')) {
-            $('li.stories.negativeNews').show("slide");
+            if (sources.length > 0) {
+                for (var i = 0; i < sources.length - 1; i++) {
+                    $('li.stories.negativeNews' + source[i]).show("slide");
+                }
+            } else {
+                $('li.stories.negativeNews').show("slide");
+            }
         } else {
             $('li.stories.negativeNews').hide("slide");
         }
         if ($neuLarge.hasClass('selected')) {
-            $('li.stories.neutralNews').show("slide");
+            if (sources.length > 0) {
+                for (var i = 0; i < sources.length - 1; i++) {
+                    $('li.stories.negativeNews' + source[i]).show("slide");
+                }
+            } else {
+                $('li.stories.neutralNews').show("slide");
+            }
         } else {
             $('li.stories.neutralNews').hide("slide");
+        }
+
+        if ($('#social').hasClass('selected')) {
+            if (sentiments.length > 0) {
+                for (var i = 0; i < sentiments.length - 1; i++) {
+                    $('li.stories' + sentiments[i] + '.social').show("slide");
+                }
+            } else {
+                $('li.stories.social').show("slide");
+            }
+
+        } else {
+            $('li.stories.social').hide("slide");
+        }
+
+
+        if ($('#news').hasClass('selected')) {
+            if (sentiments.length > 0) {
+                for (var i = 0; i < sentiments.length - 1; i++) {
+                    $('li.stories' + sentiments[i] + '.news').show("slide");
+                }
+            } else {
+                $('li.stories.news').show("slide");
+            }
+        } else {
+            $('li.stories.news').hide("slide");
+        }
+
+
+        if ($('#others').hasClass('selected')) {
+            if (sentiments.length > 0) {
+                for (var i = 0; i < sentiments.length - 1; i++) {
+                    $('li.stories' + sentiments[i] + '.others').show("slide");
+                }
+            } else {
+                $('li.stories.others').show("slide");
+            }
+        } else {
+            $('li.stories.others').hide("slide");
         }
     }
     ;
