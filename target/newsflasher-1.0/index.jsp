@@ -42,8 +42,8 @@
 
     <div class="sentimentsFilter ">
 
-        <div id="neu" class ="sentimentSel">     Neutral</div>
-        <div id="pos" class ="sentimentSel">    Positive</div>  
+        <div id="neue" class ="sentimentSel">     Neutral</div>
+        <div id="pose" class ="sentimentSel">    Positive</div>  
         <div id="neg" class ="sentimentSel">       Negative</div>
 
         <div class="newsSource">
@@ -95,10 +95,10 @@
                             <!--insert 3 points here -->
                         </div>
                         <div class="social-icons">
-                                    <button id="pos" class ="btn default">Positive</button>
-                                     <button id="alltypes" class ="btn default">All</button>
-                                     <button id="neg" class ="btn default">Negative</button>
-                                     
+                            <button id="pos_large" class ="btn default">Positive</button>
+                            <button id="neu_large" class ="btn default">Neutral</button>
+                            <button id="neg_large" class ="btn default">Negative</button>
+
                             <!--      <i class="fa fa-facebook-square socialIcons"></i>
                                   <i class="fa fa-twitter-square socialIcons"></i>
                                   <i class="fa fa-google-plus-square socialIcons"></i>-->
@@ -198,6 +198,31 @@
 
 
     });
+    $('#pos_large').click (function(){
+         $(this).toggleClass('selected');
+            $('li.stories.negativeNews').hide("slide", function() {
+                $('li.stories.positiveNews').show("slide");
+                $('#comments').css("-webkit-transform", "translate3d(0%, 0px, 0px)");
+
+            });
+    });
+        $('#neg_large').click (function(){
+         $(this).toggleClass('selected');
+             $(this).toggleClass('selected');
+            $('li.stories.positiveNews').hide("slide", function() {
+                $('li.stories.negativeNews').show("slide");
+                $('#comments').css("-webkit-transform", "translate3d(0%, 0px, 0px)");
+            });
+    });
+            $('#neu_large').click (function(){
+         $(this).toggleClass('selected');
+             $(this).toggleClass('selected');
+            $('li.stories.neutralNews').hide("slide", function() {
+                $('li.stories.negativeNews').show("slide");
+                $('#comments').css("-webkit-transform", "translate3d(0%, 0px, 0px)");
+            });
+    });
+    
     $('#filter').click(function() {
         $('.sentimentsFilter').slideToggle();
         $('#filter').toggleClass('active');
@@ -212,10 +237,9 @@
     });
     $(".icon-btn").swipe({
         tap: function() {
-          
+
             $(this).toggleClass("chosen");
         },
-       
         threshold: 0
     });
     $("#pos").swipe({
@@ -227,7 +251,6 @@
 
             });
         },
-       
         threshold: 0
     });
     $("#neg").swipe({
@@ -238,7 +261,6 @@
                 $('#comments').css("-webkit-transform", "translate3d(0%, 0px, 0px)");
             });
         },
-       
         threshold: 0
     });
     $("#neu").swipe({
@@ -249,7 +271,6 @@
                 $('#comments').css("-webkit-transform", "translate3d(0%, 0px, 0px)");
             });
         },
-        
         threshold: 0
     });
 
@@ -429,85 +450,84 @@
     ;
 
     function init() {
-        $.getJSON("getNewsAgency", function(response) {
-            $.each(response.data, function(key, val) {
-                $('#commentagencyname').append('<option value="' + val.name + '" >' + val.name + '</option>');
-            });
-        });
+
         $('.sentimentsFilter').height($(window).height() - 35);
         $('.sentimentsFilter').width($(window).width() + 15);
         $('.news_article').click(function() {
             //$('.newsArticle').append($(this).html());
             //   $(this).html().appendTo($('.newsArticle'));
-
-            var count = 0;
-
-            $.getJSON("getNews", {type: "single", article: $(this).attr('id')}, function(response) {
-                $('.news_name').text(response.name);
-
-
-                $('.foregroundStory').css('background', 'url(' + response.relpic + ') black no-repeat center');
-                var midStory = '<div class="news_caption_title" id="originalStory">' + response.name + '</div>';
-                var bullets = response.snippet.split(";");
-                midStory += ('<div class="list-group">');
-
-                for (var i = 0; i < bullets.length - 1; i++) {
-                    midStory += ('<a href="#" class="list-group-item"><p>' + bullets[i] + '</p></a> ');
-                }
-                midStory += "</div>";
-                $(midStory).appendTo('.summary');
-
-                $('<ul id="comments"></ul>').appendTo('#cbp-fwslider');
-
-                $.each(response.stories, function(key, val) {
-
-                    var storyContent = "";
-                    if (val.sentiment == 1) {
-                        storyContent += '<li class="stories positiveNews ' + val.type + '">';
-                    } else if (val.sentiment == 0) {
-                        storyContent += '<li class="stories negativeNews ' + val.type + '">';
-                    } else {
-                        storyContent += '<li class="stories neutralNews ' + val.type + '">';
-                    }
-                    storyContent += ' <div class="story-header">'
-                    storyContent += '<img src="' + val.picLink + '" class="commentpic pull-left" width="70px" alt="">';
-                    storyContent += '<div class="story-agency">';
-                    storyContent += '<div class="story-metadata-name">' + val.name + '</div>';
-                    storyContent += '<div class="story-metadata-date">' + timeAgo(val.time) + '</div>';
-                    storyContent += '</div></div>';
-                    storyContent += '<div class="story">' + val.story + '</div>';
-                    storyContent += '<div class="storyLink"><a href="' + val.link + '">Full Story Here</a></div>  </li> ';
-                    $(storyContent).appendTo($('#comments'));
-                    $('.stories').css('height', $(window).height() / 2);
-                    if ($(window).width() < 422) {
-                        $('.stories').css('min-width', $(window).width() + 15);
-                    }
-                    count += 1;
-                });
-
-                $('#cbp-fwslider').cbpFWSlider();
-
-            });
-
-            $('.content').hide(500);
+          /*  $('.content').hide(500);
             $('#gn-menu').hide(500, function() {
-                $('.newsDetails').show(500);
-            });
-            $('#newsDetails').css('height', $(window).height());
+                $('.newsDetails').show(500, function() {*/
+                    var count = 0;
 
-            $('.newsArticle').css('height', $(window).height() / 2 - 25);
-            $('.menu').css("width", $(window).width() + 15);
-            $('.cbp-fwslider').css('height', $(window).height() / 2 - 25);
-            // $('.cbp-fwslider').css('padding-top', $(window).height() / 2);
-            $('.overlay').css("margin-top", -$(window).height() / 2 + 25);
-            $('.blackOverlay').css("margin-top", -$(window).height() / 2 + 25);
-            var newsLength = $('.news').length;
-            $('#newsAgencyCount').text(newsLength);
-            var socialLength = $('.social').length;
-            $('#socialMediaCount').text(newsLength);
-            var othersLength = $('.others').length;
-            $('#othersCount').text(newsLength);
-        });
+                    $.getJSON("getNews", {type: "single", article: $(this).attr('id')}, function(response) {
+                        $('.news_name').text(response.name);
+
+
+                        $('.foregroundStory').css('background', 'url(' + response.relpic + ') black no-repeat center');
+                        var midStory = '<div class="news_caption_title" id="originalStory">' + response.name + '</div>';
+                        var bullets = response.snippet.split(";");
+                        midStory += ('<div class="list-group">');
+
+                        for (var i = 0; i < bullets.length - 1; i++) {
+                            midStory += ('<a href="#" class="list-group-item"><p>' + bullets[i] + '</p></a> ');
+                        }
+                        midStory += "</div>";
+                        $(midStory).appendTo('.summary');
+
+                        $('<ul id="comments"></ul>').appendTo('#cbp-fwslider');
+
+                        $.each(response.stories, function(key, val) {
+
+                            var storyContent = "";
+                            if (val.sentiment == 1) {
+                                storyContent += '<li class="stories positiveNews ' + val.type + '">';
+                            } else if (val.sentiment == 0) {
+                                storyContent += '<li class="stories negativeNews ' + val.type + '">';
+                            } else {
+                                storyContent += '<li class="stories neutralNews ' + val.type + '">';
+                            }
+                            storyContent += ' <div class="story-header">'
+                            storyContent += '<img src="' + val.picLink + '" class="commentpic pull-left" width="70px" alt="">';
+                            storyContent += '<div class="story-agency">';
+                            storyContent += '<div class="story-metadata-name">' + val.name + '</div>';
+                            storyContent += '<div class="story-metadata-date">' + timeAgo(val.time) + '</div>';
+                            storyContent += '</div></div>';
+                            storyContent += '<div class="story">' + val.story + '</div>';
+                            storyContent += '<div class="storyLink"><a href="' + val.link + '">Full Story Here</a></div>  </li> ';
+                            $(storyContent).appendTo($('#comments'));
+                            $('.stories').css('height', $(window).height() / 2);
+                            if ($(window).width() < 422) {
+                                $('.stories').css('min-width', $(window).width() + 15);
+                            }
+                            count += 1;
+                        });
+
+                        $('#cbp-fwslider').cbpFWSlider();
+
+                    });
+
+                    $('.content').hide(500);
+                     $('#gn-menu').hide(500, function() {
+                     $('.newsDetails').show(500);
+                     });
+                    $('#newsDetails').css('height', $(window).height());
+
+                    $('.newsArticle').css('height', $(window).height() / 2 - 25);
+                    $('.menu').css("width", $(window).width() + 15);
+                    $('.cbp-fwslider').css('height', $(window).height() / 2 - 25);
+                    // $('.cbp-fwslider').css('padding-top', $(window).height() / 2);
+                    $('.overlay').css("margin-top", -$(window).height() / 2 + 25);
+                    $('.blackOverlay').css("margin-top", -$(window).height() / 2 + 25);
+                    var newsLength = $('.news').length;
+                    $('#newsAgencyCount').text(newsLength);
+                    var socialLength = $('.social').length;
+                    $('#socialMediaCount').text(newsLength);
+                    var othersLength = $('.others').length;
+                    $('#othersCount').text(newsLength);
+                });
+    
 
     }
     ;
