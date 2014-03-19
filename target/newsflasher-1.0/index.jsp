@@ -95,10 +95,10 @@
                             <!--insert 3 points here -->
                         </div>
                         <div class="social-icons">
-                            <!--         <button id="pos" class ="btn default">Positive</button>
+                                    <button id="pos" class ="btn default">Positive</button>
                                      <button id="alltypes" class ="btn default">All</button>
                                      <button id="neg" class ="btn default">Negative</button>
-                                     <button id="menu" class ="btn default">Go Down</button>-->
+                                     
                             <!--      <i class="fa fa-facebook-square socialIcons"></i>
                                   <i class="fa fa-twitter-square socialIcons"></i>
                                   <i class="fa fa-google-plus-square socialIcons"></i>-->
