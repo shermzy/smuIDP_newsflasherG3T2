@@ -155,16 +155,18 @@
 <script type="text/javascript" src="js/backfix.min.js"></script>
 
 <script>
- this.$storiesPositive =  $('li.stories.positiveNews');
- this.$sentimentsFilter = $('.sentimentsFilter');
- this.$sents = $('.sents');
- this.$slider = $('.cbp-fwslider');
-this.$comments_section =  $('#comments');
+    $storiesPositive = $('li.stories.positiveNews');
+    $storiesNegative = $('li.stories.negativeNews');
+    $storiesneutral = $('li.stories.neutralNews');
+    this.$sentimentsFilter = $('.sentimentsFilter');
+    this.$sents = $('.sents');
+    this.$slider = $('.cbp-fwslider');
+    this.$comments_section = $('#comments');
+    this.$posLarge = $('#posL');
+    this.$negLarge = $('#negL');
+    this.$neuLarge = $('#neuL');
 
- 
- $sents.click(function(e){
-     $(this).toggleClass('selected');
- });
+
     $("#sentiments").hover(function() {
         $('.sentsOption').slideToggle();
     });
@@ -174,7 +176,7 @@ this.$comments_section =  $('#comments');
         swipe: function(event, direction, distance, duration, fingerCount) {
             if (direction == "down") {
                 $('.newsArticle').css("-webkit-filter", "blur(5px)");
-               $slider.css("-webkit-filter", "blur(5px)");
+                $slider.css("-webkit-filter", "blur(5px)");
                 $sentimentsFilter.slideToggle();
                 if ($('#filter').hasClass('active')) {
                     $('#filter').removeClass('active');
@@ -206,29 +208,17 @@ this.$comments_section =  $('#comments');
         threshold: 20
     });
 
-    $('#pos_large').click(function() {
+    $posLarge.click(function() {
         $(this).toggleClass('selected');
-        $('li.stories.negativeNews').hide("slide", function() {
-            $storiesPositive.show("slide");
-           $comments_section.css("-webkit-transform", "translate3d(0%, 0px, 0px)");
-
-        });
+        filterStories();
     });
-    $('#neg_large').click(function() {
+    $negLarge.click(function() {
         $(this).toggleClass('selected');
-
-       $storiesPositive.hide("slide", function() {
-            $('li.stories.negativeNews').show("slide");
-            $comments_section.css("-webkit-transform", "translate3d(0%, 0px, 0px)");
-        });
+        filterStories();
     });
-    $('#neu_large').click(function() {
+    $('#neuL').click(function() {
         $(this).toggleClass('selected');
-
-        $('li.stories.neutralNews').hide("slide", function() {
-            $('li.stories.negativeNews').show("slide");
-            $comments_section.css("-webkit-transform", "translate3d(0%, 0px, 0px)");
-        });
+        filterStories();
     });
 
     $('#filter').click(function() {
@@ -255,7 +245,7 @@ this.$comments_section =  $('#comments');
     $("#pos").swipe({
         tap: function() {
             $(this).toggleClass('selected');
-            $('li.stories.negativeNews').hide("slide", function() {
+            $storiesNegative.hide("slide", function() {
                 $storiesPositive.show("slide");
                 $comments_section.css("-webkit-transform", "translate3d(0%, 0px, 0px)");
 
@@ -267,7 +257,7 @@ this.$comments_section =  $('#comments');
         tap: function() {
             $(this).toggleClass('selected');
             $storiesPositive.hide("slide", function() {
-                $('li.stories.negativeNews').show("slide");
+                $storiesNegative.show("slide");
                 $comments_section.css("-webkit-transform", "translate3d(0%, 0px, 0px)");
             });
         },
@@ -346,7 +336,7 @@ this.$comments_section =  $('#comments');
 
         $('<li class="stories">' + content + '</li>').insertAfter($('#commentBox'));
         $('#cbp-fwslider').cbpFWSlider();
-      
+
     }
     ;
     $(function() {
@@ -426,7 +416,7 @@ this.$comments_section =  $('#comments');
                     content += '<div class="news_caption">';
                     content += '<div class="news_caption_title" id="' + val.name + '">';
                     content += val.name;
-                    content += '</div></div></div>';            
+                    content += '</div></div></div>';
                     content += '</div>';
                     if (counter % 3 === 0) {
                         $('<div class="news_article" id="' + val.name + '">  ' + content + '</div>').appendTo("#colone");
@@ -554,5 +544,25 @@ this.$comments_section =  $('#comments');
     }
 
     new gnMenu(document.getElementById('gn-menu'));
+
+    function filterStories() {
+        if ($posLarge.hasClass('selected')) {
+
+            $('li.stories.positiveNews').show("slide");
+        } else {
+            $('li.stories.positiveNews').hide("slide");
+        }
+        if ($negLarge.hasClass('selected')) {
+            $('li.stories.negativeNews').show("slide");
+        } else {
+            $('li.stories.negativeNews').hide("slide");
+        }
+        if ($neuLarge.hasClass('selected')) {
+            $('li.stories.neutralNews').show("slide");
+        } else {
+            $('li.stories.neutralNews').hide("slide");
+        }
+    }
+    ;
 </script>
 
