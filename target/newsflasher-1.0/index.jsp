@@ -134,7 +134,7 @@
                     </ul>
                 </div>
                 <div class="col-md-offset-1 col-md-4 col-xs-12" id="middleStory">
-                    
+
                 </div>
                 <div class="col-md-4">
 
@@ -613,6 +613,7 @@
     function filterStories() {
         var sources = checkSource();
         var sentiments = checkSentiments();
+
         console.log(sources);
         console.log(sentiments);
         if ($posLarge.hasClass('selected')) {
@@ -688,7 +689,11 @@
         } else {
             $('li.stories.others').hide("slide");
         }
+        if (sources.length == 0 && sentiments.length == 0) {
+            $('li.stories').show("slide");
+        }
     }
+
     ;
 </script>
 
