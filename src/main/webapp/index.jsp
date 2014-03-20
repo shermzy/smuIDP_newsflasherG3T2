@@ -331,7 +331,7 @@
             $('.content').show(500);
             $('#gn-menu').show(500);
         });
-        $('.summary').html("");
+        $('#middleStory').html("");
         $comments_section.html("");
 
 
@@ -499,7 +499,7 @@
                     midStory += ('<a href="#" class="list-group-item"><p>' + bullets[i] + '</p></a> ');
                 }
                 midStory += "</div>";
-                $(midStory).appendTo('.summary');
+                $(midStory).appendTo('#middleStory');
 
                 $('<ul id="comments"></ul>').appendTo('#cbp-fwslider');
 
