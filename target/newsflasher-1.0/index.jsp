@@ -93,7 +93,7 @@
                         <div id="sentiments">            
                             <li>
                                 <div>
-                                    <i class="fa fa-thumbs-up fa-spin"></i>Sentiments
+                                    <i class="fa fa-thumbs-up"></i>Sentiments
                                 </div>
                             </li>
                             <div class="sentsOption">
@@ -115,25 +115,26 @@
                                 <div class="nSource" id="others">Others</div>
                             </div>
                         </div>
+                        <div id="socialSource"> 
+                            <li>
+                                <div>
+                                    <i class="fa fa-retweet"></i>Share
+                                </div>
+                            </li>
+                            <div class="socialOptions">
+
+                                <div class="socialIcons pull-left" id="facebook">      <i class="fa fa-facebook"></i></div>
+                                <div class="socialIcons pull-left">    <i class="fa fa-twitter "></i></div>
+                                <div class="socialIcons pull-left">    <i class="fa fa-google-plus "></i></div>
+
+
+                            </div>
+                        </div>
 
                     </ul>
                 </div>
                 <div class="col-md-offset-1 col-md-4 col-xs-12" id="middleStory">
-                    <div class="Social">
-                        <div class="summary">
-                            <!--insert 3 points here -->
-                        </div>
-                        <!--         <div class="social-icons">
-                                <button id="pos_large" class ="btn default">Positive</button>
-                                <button id="neu_large" class ="btn default">Neutral</button>
-                                <button id="neg_large" class ="btn default">Negative</button>
-    
-    
-                            </div>
-                            <div class="social-icons">         <i class="fa fa-facebook-square socialIcons"></i>
-                                <i class="fa fa-twitter-square socialIcons"></i>
-                                <i class="fa fa-google-plus-square socialIcons"></i></div>-->
-                    </div>
+                    
                 </div>
                 <div class="col-md-4">
 
@@ -182,19 +183,27 @@
     this.$neuLarge = $('#neuL');
     $isAnimating = false;
 
-    $("#newsSource").hover(function() {
+    $("#socialSource").mouseenter(function() {
 
+        $('.socialOptions').slideToggle();
+    }).mouseleave(function() {
+        $('.socialOptions').slideToggle();
+    });
+
+    $("#newsSource").mouseenter(function() {
+        $('.newsSourceOptions').slideToggle();
+    }).mouseleave(function() {
+
+        $isAnimating = true;
         $('.newsSourceOptions').slideToggle();
     });
-    $("#sentiments").hover(function() {
-        if ($isAnimating) {
-            return false;
-        }
-        $isAnimating = true;
+    $("#sentiments").mouseenter(function() {
 
-        $('.sentsOption').slideToggle(function() {
-            $isAnimating = false;
-        });
+
+        $('.sentsOption').slideToggle();
+    }).mouseleave(function() {
+
+        $('.sentsOption').slideToggle();
     });
     //Enable swiping...
     $(".newsDetails").swipe({
@@ -604,10 +613,12 @@
     function filterStories() {
         var sources = checkSource();
         var sentiments = checkSentiments();
+        console.log(sources);
+        console.log(sentiments);
         if ($posLarge.hasClass('selected')) {
             if (sources.length > 0) {
                 for (var i = 0; i < sources.length - 1; i++) {
-                    $('li.stories.positiveNews' + source[i]).show("slide");
+                    $('li.stories.positiveNews' + sources[i]).show("slide");
                 }
             } else {
                 $('li.stories.positiveNews').show("slide");
@@ -619,7 +630,7 @@
         if ($negLarge.hasClass('selected')) {
             if (sources.length > 0) {
                 for (var i = 0; i < sources.length - 1; i++) {
-                    $('li.stories.negativeNews' + source[i]).show("slide");
+                    $('li.stories.negativeNews' + sources[i]).show("slide");
                 }
             } else {
                 $('li.stories.negativeNews').show("slide");
@@ -630,7 +641,7 @@
         if ($neuLarge.hasClass('selected')) {
             if (sources.length > 0) {
                 for (var i = 0; i < sources.length - 1; i++) {
-                    $('li.stories.negativeNews' + source[i]).show("slide");
+                    $('li.stories.negativeNews' + sources[i]).show("slide");
                 }
             } else {
                 $('li.stories.neutralNews').show("slide");
