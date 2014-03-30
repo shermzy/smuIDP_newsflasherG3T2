@@ -92,9 +92,19 @@
             $('#test').hide(function() {
                 $('#thanks').show();
             });
+            var result = JSON.stringify(answers);
+            /*    console.log(result);
+             var reverse = jQuery.parseJSON( result );
+             console.log(reverse);*/
+            $.ajax({
+                type: 'post',
+                url: '/webexp',
+                data: result
+            }).success(function(response) {
+            });
 
         }
-        if(count==5){
+        if (count == 5) {
             $('#next').text("End");
         }
         if ($('#next').text() == "Begin") {
@@ -119,8 +129,8 @@
                 else if (count == 5) {
                     $('.question').html(endNote);
                 }
-              
-            
+
+
                 $('input[type="radio"]').click(function() {
                     if ($(this).is(':checked'))
                     {
