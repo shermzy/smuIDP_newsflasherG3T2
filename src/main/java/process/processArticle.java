@@ -26,7 +26,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.activation.MimetypesFileTypeMap;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -44,7 +43,6 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
  *
  * @author Sherman
  */
-@WebServlet(name = "processArticle", urlPatterns = {"/processArticle"})
 public class processArticle extends HttpServlet {
 
     int BUFFER_LENGTH = 4096;

@@ -97,6 +97,37 @@ public class ArticleDAO {
         }
 
     }
+    public static void insertAns(String ans) {
+        Connection conn = null;
+        Statement st = null;
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        String query = "";
+        int insertedLine = 0;
+        try {
+            //Get database connection & execute query
+            conn = ConnectionManager.getConnection();
+
+            query += "insert into `experiments` (`experiment`) ";
+            query += "values ('" + ans + "')";
+            
+            st = conn.createStatement();
+            st.executeUpdate(query);
+
+        } catch (SQLException e) {
+            //insertedLine = 100;
+            System.out.println(e.getMessage());
+
+        } catch (Exception ex) {
+            //insertedLine = 101;
+            ex.printStackTrace();
+        } finally {
+            //Close connection, statement and resultset
+            ConnectionManager.close(conn, ps, rs);
+        }
+
+    }
+    
     public static JSONObject getSingleArticle(String name) {
         Connection conn = null;
         PreparedStatement ps = null;

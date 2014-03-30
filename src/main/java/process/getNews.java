@@ -56,7 +56,7 @@ public class getNews extends HttpServlet {
                 //get all news article for main page
                 JSONObject articles = ArticleDAO.getArticles();
                 
-                ObjectMapper mapper = new ObjectMapper();
+                
 
                 try {
                     JSONTokener tokener = new JSONTokener(articles.toString()); //tokenize the ugly JSON string

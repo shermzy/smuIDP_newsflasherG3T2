@@ -96,12 +96,7 @@
             /*    console.log(result);
              var reverse = jQuery.parseJSON( result );
              console.log(reverse);*/
-            $.ajax({
-                type: 'post',
-                url: '/webexp',
-                data: result
-            }).success(function(response) {
-            });
+            $.post("processResults", {ans: result});
 
         }
         if (count == 5) {
@@ -110,6 +105,7 @@
         if ($('#next').text() == "Begin") {
             $(qn1).appendTo($('.question'));
             $('#next').text("Next");
+            count++;
         } else {
             var qn = "";
             if (!($("input[type='radio']").is(':checked')) && count < 6) {
@@ -131,18 +127,18 @@
                 }
 
 
-                $('input[type="radio"]').click(function() {
-                    if ($(this).is(':checked'))
-                    {
-                        var qns = 'qn' + count;
-                        answers[qns] = $(this).val();
-                    }
-                });
                 count++;
             }
 
-
         }
+        $('input[type="radio"]').click(function() {
+            if ($(this).is(':checked'))
+            {
+                var qns = 'qn' + count;
+                answers[qns] = $(this).val();
+                console.log(answers);
+            }
+        });
     }
     );
 
