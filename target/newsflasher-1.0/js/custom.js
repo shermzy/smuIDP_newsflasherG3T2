@@ -165,19 +165,25 @@ function fb_login() {
             // check if the list is currently moving
             this.isAnimating = false;
             // the list (ul) will have a width of 100% x itemsCount
-            var size = 3;
-            if ($(window).width() < 422) {
+            var size = 2.5;
+            if ($(window).width() < 422 && $(window).width()>0) {
                 size = 1;
             } else {
             }
-            this.$list.css('width', ($(window).width() + 80) / size * this.itemsCount + 'px');
+     /*       if ($(window).width() != 0) {
+                this.$list.css('width', ($(window).width() + 80) / size * this.itemsCount + 'px');
+            }else {
+                this.$list.css('width', 1680 / size * this.itemsCount + 'px');
+            }*/
+            
+             this.$list.css('width', 100 / size * this.itemsCount + '%');
             // apply the transition
             if (this.support) {
                 this.$list.css('transition', this.transformName + ' ' + this.options.speed + 'ms ' + this.options.easing);
             }
             // each item will have a width of 100 / itemsCount
-            //this.$items.css('width', 100 / this.itemsCount + '%');
-            this.$items.css('width', ($(window).width()) / size + 'px');
+            this.$items.css('width', 100 / this.itemsCount + '%');
+      
             // add navigation arrows and the navigation dots if there is more than 1 item
             if (this.itemsCount > 1) {
                 $('nav').remove();
@@ -198,7 +204,7 @@ function fb_login() {
                 this.$navDots = navDots.children('span');
 
             }
-           
+
 
         },
         _initEvents: function() {
@@ -258,7 +264,7 @@ function fb_login() {
             this._toggleNavControls();
             // translate value
             //var translateVal = -1 * this.current * 100 / this.itemsCount;
-            var size = 3;
+            var size = 2.5;
             if ($(window).width() < 422) {
                 size = 1;
             }
@@ -294,7 +300,7 @@ function fb_login() {
                     this.$navNext.show();
                     this.$navPrev.hide();
                     break;
-                case this.itemsCount - 1 :
+                case this.itemsCount - 2 :
                     this.$navNext.hide();
                     this.$navPrev.show();
                     break;

@@ -40,7 +40,7 @@
         </div>
     </div>
 
-    <div class="sentimentsFilter ">
+   <!-- <div class="sentimentsFilter ">
 
         <div id="neu" class ="sentimentSel">     Neutral</div>
         <div id="pos" class ="sentimentSel">    Positive</div>  
@@ -86,13 +86,13 @@
             <div class="blackOverlay"></div>
             <!--Issue-->
             <div class="overlay">
-                <div class="col-md-3 hidden-xs">
+              <div class="col-md-3 hidden-xs">
                     <!-- Add other related news here-->
-                    <ul class="bmenu">
-                        <li class="home"><div><i class="fa fa-home"></i>Home</div></li>
+              <!--        <ul class="bmenu">
+                         <li class="home"><div><i class="fa fa-home"></i>Home</div></li>
                         <div id="sentiments">            
                             <li>
-                                <div>
+                                <div id="sentimentsHead">
                                     <i class="fa fa-thumbs-up"></i>Sentiments
                                 </div>
                             </li>
@@ -105,7 +105,7 @@
 
                         <div id="newsSource"> 
                             <li>
-                                <div>
+                                <div id="newsSourceHead">
                                     <i class="fa fa-flash"></i>News Source
                                 </div>
                             </li>
@@ -114,52 +114,52 @@
                                 <div class="nSource"  id="news">News Agency</div>
                                 <div class="nSource" id="others">Others</div>
                             </div>
-                        </div>
-                        <div id="socialSource"> 
-                            <li>
-                                <div>
-                                    <i class="fa fa-retweet"></i>Share
-                                </div>
-                            </li>
-                            <div class="socialOptions">
-
-                                <div class="socialIcons pull-left" id="facebook">      <i class="fa fa-facebook"></i></div>
-                                <div class="socialIcons pull-left">    <i class="fa fa-twitter "></i></div>
-                                <div class="socialIcons pull-left">    <i class="fa fa-google-plus "></i></div>
-
-
-                            </div>
-                        </div>
-
-                    </ul>
+                        </div> -->
+                        <!--     <div id="socialSource"> 
+                                  <li>
+                                      <div id="socialSourceHead">
+                                          <i class="fa fa-retweet"></i>Share
+                                      </div>
+                                  </li>
+                                  <div class="socialOptions">
+      
+                                      <div class="socialIcons pull-left" id="facebook">      <i class="fa fa-facebook"></i></div>
+                                      <div class="socialIcons pull-left">    <i class="fa fa-twitter "></i></div>
+                                      <div class="socialIcons pull-left">    <i class="fa fa-google-plus "></i></div>
+      
+      
+                                  </div>-->
                 </div>
-                <div class="col-md-offset-1 col-md-4 col-xs-12" id="middleStory">
 
-                </div>
-                <div class="col-md-4">
-
-
-                </div>
+                </ul>
             </div>
-        </div>
-        <!--End Issue-->
-        <!--News slider-->
-        <div id="cbp-fwslider" class="cbp-fwslider">
-
-        </div>
-        <div class="menu visible-xs">
-
-
-            <div class="menuClass" id="filter">  
-                <i class="fa fa-filter filter menuIcons"></i><div class="font12 lightGrey"> Filter</div>
+            <div class="col-md-offset-1 col-md-4 col-xs-12" id="middleStory">
 
             </div>
+            <div class="col-md-4">
 
-            <div class="menuClass home" id="backButton"> <i class="fa fa-home menuIcons"></i><div class="font12 lightGrey"> Home</div></div>
+
+            </div>
         </div>
     </div>
+    <!--End Issue-->
+    <!--News slider-->
+    <div id="cbp-fwslider" class="cbp-fwslider">
 
-    <!--End News Slider-->
+    </div>
+    <div class="menu visible-xs">
+
+
+        <div class="menuClass" id="filter">  
+            <i class="fa fa-filter filter menuIcons"></i><div class="font12 lightGrey"> Filter</div>
+
+        </div>
+
+        <div class="menuClass home" id="backButton"> <i class="fa fa-home menuIcons"></i><div class="font12 lightGrey"> Home</div></div>
+    </div>
+</div>
+
+<!--End News Slider-->
 </div>
 
 
@@ -183,28 +183,19 @@
     this.$neuLarge = $('#neuL');
     $isAnimating = false;
 
-    $("#socialSource").mouseenter(function() {
+    $("#socialSourceHead").click(function() {
 
         $('.socialOptions').slideToggle();
-    }).mouseleave(function() {
-        $('.socialOptions').slideToggle();
-    });
+    })
 
-    $("#newsSource").mouseenter(function() {
+    $("#newsSourceHead").click(function() {
         $('.newsSourceOptions').slideToggle();
-    }).mouseleave(function() {
-
-        $isAnimating = true;
-        $('.newsSourceOptions').slideToggle();
-    });
-    $("#sentiments").mouseenter(function() {
+    })
+    $("#sentimentsHead").click(function() {
 
 
         $('.sentsOption').slideToggle();
-    }).mouseleave(function() {
-
-        $('.sentsOption').slideToggle();
-    });
+    })
     //Enable swiping...
     $(".newsDetails").swipe({
         //Generic swipe handler for all directions
@@ -537,7 +528,7 @@
             $('#gn-menu').hide(500, function() {
                 $('.newsDetails').show(500);
             });
-            $('#newsDetails').css('height', $(window).height());
+            $('#newsDetails').css('height', $(window).height() / 2);
 
             $('.newsArticle').css('height', $(window).height() / 2 - 25);
             $('.menu').css("width", $(window).width() + 15);
