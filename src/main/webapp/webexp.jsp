@@ -53,6 +53,9 @@
         <div id='end'></div>
         <div><btn class='btn default' id='next'></button></div>
     </div>
+    <div id="aar" style="display:none">
+
+    </div>
     <div class='center' id="thanks" style="display:none">
         <h1> Thank you for your participation.</h1>
     </div>
@@ -62,16 +65,17 @@
     var count = 0;
     var answers = {};
     var withCat = false;
-    var cat_one="http://newsflasher-smuidp21.rhcloud.com/cat_one.jsp";
-    var cat_two="http://newsflasher-smuidp21.rhcloud.com/cat_two.jsp";
-    
+    var cat_one = "http://newsflasher-smuidp21.rhcloud.com/cat_one.jsp";
+    var cat_two = "http://newsflasher-smuidp21.rhcloud.com/cat_two.jsp";
+
     var dec = Math.random();
-    if(dec>0.5){
-        $('iframe').attr("src",cat_one);
-        answers.filter = true;
-    }else{
-        $('iframe').attr("src",cat_two);
-        answers.filter = false;
+    if (dec > 0.5) {
+        $('iframe').attr("src", cat_one);
+        withCat = true;
+        answers.filter = "true";
+    } else {
+        $('iframe').attr("src", cat_two);
+        answers.filter = "false";
     }
     if (count == 0) {
         $('#next').text("Begin");
@@ -96,22 +100,6 @@
             var now = d.getTime();
 
             answers.timeStart = now;
-        } else if (count == 6) {
-            var e = new Date();
-            var end = e.getTime();
-            answers.timeEnd = end;
-            $('#test').hide(function() {
-                $('#thanks').show();
-            });
-            var result = JSON.stringify(answers);
-            /*    console.log(result);
-             var reverse = jQuery.parseJSON( result );
-             console.log(reverse);*/
-            $.post("processResults", {ans: result});
-
-        }
-        if (count == 5) {
-            $('#next').text("End");
         }
         if ($('#next').text() == "Begin") {
             $(qn1).appendTo($('.question'));
@@ -132,9 +120,27 @@
                     $('.question').html(qn4);
                 } else if (count == 4) {
                     $('.question').html(qn5);
-                }
-                else if (count == 5) {
+                } else if (count == 5) {
+                    $('.instructions').html('<div class="red">Now that you have done the test, please answer the following questions. 1 being strongly disagree and 5 being strongly agree</div>');
+                    $('.question').html(qn6);
+                } else if (count == 6) {
+                    var e = new Date();
+                    var end = e.getTime();
+                    answers.timeEnd = end;
+                    if (withCat) {
+                        $('.question').html(qn8);
+                    } else {
+                        $('.question').html(qn7);
+                    }
+                } else if (count == 7) {
                     $('.question').html(endNote);
+                    $('#next').text("End");
+                } else if (count == 8) {
+                    $('#test').hide(function() {
+                        $('#thanks').show();
+                    });
+                    var result = JSON.stringify(answers);
+                    $.post("processResults", {ans: result});
                 }
 
 
@@ -200,5 +206,44 @@
                      <label><div class="ops">  <input  type="radio" name="qn" value="3"> \n\
                      6</label></div> \n\
                </div>';
-    var endNote = '<div class="endNote"> You have come to the end of the web experiment. Thank you for your participation!</div>';
+    var qn6 = '<div class="qn"> Question 6: <br/>It was easy for me to navigate between articles</div>\n\
+                    <div class="choices">\n\
+                      <label><div class="ops"><input  type="radio" name="qn" value="1"> \n\
+                        1</label></div>\n\
+                     <label> <div class="ops"> <input type="radio" name="qn" value="2"> \n\
+                        2</label></div> \n\
+                     <label><div class="ops">  <input  type="radio" name="qn" value="3"> \n\
+                     3</label></div> \n\
+                      <label><div class="ops">  <input  type="radio" name="qn" value="4"> \n\
+                     4</label></div> \n\
+                      <label><div class="ops">  <input  type="radio" name="qn" value="5"> \n\
+                     5</label></div> \n\
+               </div>';
+    var qn7 = '<div class="qn"> Question 7: <br/> It would be easier if there is a function to categorize the news\' sources.</div>\n\
+                    <div class="choices">\n\
+                      <label><div class="ops"><input  type="radio" name="qn" value="1"> \n\
+                        1</label></div>\n\
+                     <label> <div class="ops"> <input type="radio" name="qn" value="2"> \n\
+                        2</label></div> \n\
+                     <label><div class="ops">  <input  type="radio" name="qn" value="3"> \n\
+                     3</label></div> \n\
+                      <label><div class="ops">  <input  type="radio" name="qn" value="4"> \n\
+                     4</label></div> \n\
+                      <label><div class="ops">  <input  type="radio" name="qn" value="5"> \n\
+                     5</label></div>\n\
+</div>';
+    var qn8 = '<div class="qn"> Question 7: <br/> The filtering function aids in speeding up the process of reading</div>\n\
+                    <div class="choices">\n\
+                      <label><div class="ops"><input  type="radio" name="qn" value="1"> \n\
+                        1</label></div>\n\
+                     <label> <div class="ops"> <input type="radio" name="qn" value="2"> \n\
+                        2</label></div> \n\
+                     <label><div class="ops">  <input  type="radio" name="qn" value="3"> \n\
+                     3</label></div> \n\
+                      <label><div class="ops">  <input  type="radio" name="qn" value="4"> \n\
+                     4</label></div> \n\
+                      <label><div class="ops">  <input  type="radio" name="qn" value="5"> \n\
+                     5</label></div>\n\
+</div>';
+    var endNote = '<div class="endNote"> You have come to the end of the web experiment.</div>';
 </script>    
