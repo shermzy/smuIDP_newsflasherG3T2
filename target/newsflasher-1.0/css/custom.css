@@ -13,6 +13,9 @@ and open the template in the editor.
 #socialSource{
     //    height:200px;
 }
+.invis{
+    display:none;
+}
 .bmenu{
     padding: 0px;
     margin: 0 0 10px 0;

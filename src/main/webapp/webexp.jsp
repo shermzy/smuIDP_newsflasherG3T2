@@ -36,7 +36,7 @@
             <tr>
                 <td>
                     <div id="iframe-container">
-                        <iframe src="http://localhost:8080/newsflasher/cat_one.jsp" width="1027" height="770" frameborder="0"></iframe>
+                        <iframe  width="1027" height="770" frameborder="0"></iframe>
                     </div>
                 </td>
 
@@ -61,7 +61,18 @@
 <script>
     var count = 0;
     var answers = {};
-
+    var withCat = false;
+    var cat_one="http://newsflasher-smuidp21.rhcloud.com/cat_one.jsp";
+    var cat_two="http://newsflasher-smuidp21.rhcloud.com/cat_two.jsp";
+    
+    var dec = Math.random();
+    if(dec>0.5){
+        $('iframe').attr("src",cat_one);
+        answers.filter = true;
+    }else{
+        $('iframe').attr("src",cat_two);
+        answers.filter = false;
+    }
     if (count == 0) {
         $('#next').text("Begin");
     }
