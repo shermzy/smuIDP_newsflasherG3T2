@@ -184,7 +184,7 @@
                    <label>   <div class="ops"><input  type="radio" name="qn" value="1"> \n\
                         Neutral</div></label>\n\
                     <label>  <div class="ops"> <input type="radio" name="qn" value="2"> \n\
-                        Majority think Kim Yuna don’t deserve the gold</div></label> \n\
+                        Majority think Kim Yuna deserves the gold</div></label> \n\
                     <label> <div class="ops">  <input  type="radio" name="qn" value="3"> \n\
                         Majority think that Adelina Sotnikova deserves the gold medal</div></label> \n\
                </div>';
