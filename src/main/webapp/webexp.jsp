@@ -21,10 +21,20 @@
         <div class="center">
             <h1> NEWSFLASHER Web Experiment</h1> </div>
         <ul>
-            <li>We would like to thank you for your participation in this web experiment. The entire web experiment will take no longer than 10 minutes.</li>
-            <li>Please do note that this experiment is solely testing on the user interface of the application. The results of the experiment do not serve to
-                evaluate participant's proficiencies in any aspect.</li>
-            <li> Please key in your name before starting the experiment.</li>
+            <li><p>  <b>DESCRIPTION:</b>  You are invited to participate in a research study on using NewsFlasher, a news summary platform.
+                    NewsFlasher aims to summarise all news content on the Internet from various news sources to provide users a quick and convenient way
+                    to read news on the go.  You will be tasked to answer a series of questions with respect to a single component of the NewsFlasher application</p></li>
+
+            <li><p>  <b>TIME INVOLVEMENT:</b>  Your participation will take approximately 10 minutes.</p></li>
+
+            <li><p>  <b>RISKS AND BENEFITS:</b>  There are no known risks associated with this study. There are no expected benefits from this experiment.</p></li>
+
+            <li><p>  <b>  PAYMENTS:</b>  There will be no reimbursement for your participation in this study.</p></li>
+
+            <li><p>  <b> PARTICIPANT'S RIGHTS: </b> If you have read this form and have decided to participate in this project, please understand your participation 
+                    is voluntary and you have the right to withdraw your consent or discontinue participation at any time without penalty or loss of benefits
+                    to which you are otherwise entitled.  The alternative is not to participate.  You have the right to refuse to answer any questions. </p></li>
+            <li><p>  <b> If you agree to the above, please key in your name and click on the proceed button</b></p></li>           
             <p style='margin-top:25px'>Name: <input type='text' id='name'/></p>
             <button id='proceed' class='btn green'>Proceed</button>
         </ul>
