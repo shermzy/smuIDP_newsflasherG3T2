@@ -212,7 +212,7 @@ function fb_login() {
             var self = this;
             if (this.itemsCount > 1) {
 
-                $(".cbp-fwslider").swipe({
+           /*     $(".cbp-fwslider").swipe({
                     //Generic swipe handler for all directions
                     swipe: function(event, direction, distance, duration, fingerCount) {
                         if (direction == "right") {
@@ -225,7 +225,7 @@ function fb_login() {
                     },
                     //Default is 75px, set to 0 for demo so any distance triggers swipe
                     threshold: 0
-                });
+                });*/
                 this.$navPrev.on('click.cbpFWSlider', $.proxy(this._navigate, this, 'previous'));
                 this.$navNext.on('click.cbpFWSlider', $.proxy(this._navigate, this, 'next'));
 
@@ -269,8 +269,7 @@ function fb_login() {
                 size = 1;
             }
             var translateVal = -1 * this.current * ($(window).width()) / size;
-            console.log($(window).width());
-            console.log("slide val" + translateVal);
+           
             if (this.support) {
                 this.$list.css('transform', this.support3d ? 'translate3d(' + translateVal + 'px,0,0)' : 'translate(' + translateVal + 'px)');
             }
