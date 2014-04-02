@@ -1,0 +1,1242 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 17, 2014, 2:48:47 PM
+    Author     : Sherman
+*/
+.active{
+    background: rgba(11, 100, 11, 0.83) !important;
+    color: #E7E7DD;
+    box-shadow: 2px 0px 15px #FFF;
+}
+.team_player{
+    font-size:1.7rem;
+}
+#team_playerName{
+    width:80%;
+}
+.saberChange{
+    font-size:1.5rem;
+}
+.players2,
+.players1{
+    width: 24%;
+    float: left;
+    padding: 10px;
+    height: 50px;
+    background-image: url("../uploads/team_playerborder.jpg");
+    opacity: 0.8;
+    margin-top: 2px;
+    margin-left: 2px;
+    cursor: pointer;
+}
+.players:hover{
+    opacity: 1;
+}
+.sabermetrics{
+    margin-top: 20px;
+    height: 120px;
+}
+.metricTitle{
+    font-size:1rem;
+}
+.metricGroup{
+    float: left;
+    height: 90px;
+    width: 19%;
+    text-align: center;
+    font-size: 2rem;
+    background: rgba(150, 150, 150, 0.54);
+    margin-left: 2px;
+    padding: 20px;
+    margin-right: 2px;
+}
+.toolTip:hover{ /* NEW */
+    display: block;
+}
+
+
+.toolTip {
+    display: none;  /* NEW */
+    background: #C8C8C8;
+    margin-left: 28px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1000;
+    width:200px;
+    height:100px;
+}
+
+.toolTip {
+    margin:100px;
+}
+.green{
+    color:#07A700 !important;
+}
+.red{
+    color:#E90D0D !important;
+}
+.diff{
+
+}
+.resultsHolder{
+    height: 90px;
+    background-image:url("../uploads/playersBorder.jpg");
+    padding: 10px;
+}
+.sankey{
+    display:none;
+}
+#sankey:hover{
+
+    background-image: linear-gradient(to bottom,#4279DB 0,#1A4A7E 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffb2db42',endColorstr='#ff88bd32',GradientType=0);
+    background-color: #767F66;
+}
+#sankey{
+    width: 100%;
+    text-align: center;
+    background-image: linear-gradient(to bottom,#b2db42 0,#88bd32 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffb2db42',endColorstr='#ff88bd32',GradientType=0);
+    background-color: #88bd32;
+    color: #FFF;
+    height: 50px;
+    margin-top: 10px;
+    border-radius: 5px;
+    line-height: 50px;
+    font-size: 2rem;
+    display:none;
+}
+.resultsHolder.select,
+.resultsHolder:hover{
+    height: 90px;
+    background-image:url("../uploads/playersBorderHover.jpg");
+    padding: 10px;
+    text-shadow: 0px 0px 10px #FFF;
+}
+.resultsPlayerName{
+    width: 80%;
+    float: left;
+    font-size: 3rem;
+}
+.resultsPos{
+    width: 20%;
+    float: right;
+    font-size: 3rem;
+    vertical-align: middle;
+    text-align: center;
+    height: 80px;
+    line-height: 80px;
+}
+.resultsTeamName{
+    line-height: 40px;
+}
+.pStats{
+    width: 100%;
+    display: inline-block;
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+select.statsFilter{
+    height:40px;
+    width: 80%;
+}
+select.seachSelect{
+    width:100%;
+    height:46px;
+    text-align: center;
+}
+.preferedStats{
+    margin-top: 20px;
+}
+.middle{
+    text-align: center;
+}
+.searchVal{
+    height: 40px;
+    float: right;
+    width: 50px;
+    border-radius: 5px;
+    line-height: 40px;
+}
+.searchBtn{
+    width: 100%;
+    background: rgba(78, 10, 10, 0.67);
+    text-align: center;
+    color: #BEB708;
+    font-size: 3rem;
+    border-radius: 5px;
+    border: 1px solid #501608;
+}
+select.team_select,
+select.players{
+    background: rgba(0,0,0,1);
+    height: 46px;
+    width: 100%;
+    color: #fff;
+    font-size: 2rem !important;
+    cursor: pointer;
+}
+.searchResults{
+    display:none;
+    height: 600px;
+    overflow-x: auto;
+}
+.searchParameters{
+    height: 600px;
+    display:none;
+}
+
+.col-md-4{
+    padding: 10px !important;
+}
+.leagueGraph{
+    margin-top:20px;
+    padding:10px
+
+}
+.stats{
+    display: inline-block;
+    font-size: 5rem;
+    margin-right: 150px;
+    margin-left: 150px;
+
+}
+.teamTrade,
+.comparePlayers{
+    display:none;
+    margin-top: 70px;
+}
+.compare,
+.navHeads{
+    cursor:pointer;
+    font-size:1.5rem;
+
+}
+.cbp-hrmenu ul li:hover{
+    background:#444;
+    color:#fff;
+}
+.cbp-hrmenu {
+    width: 100%;
+    height: 55px;
+    border-bottom: 4px solid #444;
+    // line-height: 55px;
+    position: fixed;
+    z-index:10;
+    color:#ababab;
+    background: #2c2c2d;
+    left: 0;
+    top: 0;
+
+
+}
+.menuIcons{
+    display:block !important;
+
+}
+.navName{
+    //margin-top:-15px;
+}
+/* general ul style */
+.cbp-hrmenu ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+/* first level ul style */
+.cbp-hrmenu > ul,
+.cbp-hrmenu .cbp-hrsub-inner {
+    width: 90%;
+    max-width: 70em;
+    margin: 0 auto;
+    padding: 0 1.875em;
+}
+
+.cbp-hrmenu > ul > li {
+    display: inline-block;
+    padding: 10px ;
+    overflow: hidden;
+    width: 100px;
+    text-align: center;
+
+}
+.noOfPlayers{
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+.teamHolder.selected,
+.teamHolder:hover{
+    background: #444;
+    color:#FFB800
+}
+
+.teamHolder{
+    background: rgba(201, 107, 6, 0.94);
+    cursor: pointer;
+    display: inline-block;
+    width: 55px;
+    text-align: center;
+    margin: 0 2px 2px 2px;
+
+}
+.cbp-hrmenu > ul > li > a {
+    font-weight: 700;
+    padding: 1em 2em;
+    color: #999;
+    display: inline-block;
+}
+
+.cbp-hrmenu > ul > li > a:hover {
+    color: #47a3da;
+}
+
+.cbp-hrmenu > ul > li.cbp-hropen a,
+.cbp-hrmenu > ul > li.cbp-hropen > a:hover {
+    color: #fff;
+    background: #47a3da;
+}
+
+/* sub-menu */
+.cbp-hrmenu .cbp-hrsub {
+    display: none;
+    position: absolute;
+    background: #444;
+    width: 100%;
+    left: 0;
+}
+
+.cbp-hropen .cbp-hrsub {
+    display: block;
+    padding-bottom: 3em;
+}
+
+.cbp-hrmenu .cbp-hrsub-inner > div {
+    width: 10%;
+    float: left;
+    padding: 0 2em 0;
+    margin-right: 3px;
+    margin-top: 3px;
+
+}
+
+.cbp-hrmenu .cbp-hrsub-inner:before,
+.cbp-hrmenu .cbp-hrsub-inner:after {
+    content: " ";
+    display: table;
+}
+
+.cbp-hrmenu .cbp-hrsub-inner:after {
+    clear: both;
+}
+
+.cbp-hrmenu .cbp-hrsub-inner > div a {
+    line-height: 2em;
+}
+
+.cbp-hrsub h4 {
+    color: #afdefa;
+    padding: 2em 0 0.6em;
+    margin: 0;
+    font-size: 160%;
+    font-weight: 300;
+}
+
+/* Examples for media queries */
+
+@media screen and (max-width: 52.75em) { 
+
+    .cbp-hrmenu {
+        font-size: 80%;
+    }
+
+}
+
+@media screen and (max-width: 43em) { 
+
+    .cbp-hrmenu {
+        font-size: 120%;
+        border: none;
+    }
+
+    .cbp-hrmenu > ul,
+    .cbp-hrmenu .cbp-hrsub-inner {
+        width: 100%;
+        padding: 0;
+    }
+
+    .cbp-hrmenu .cbp-hrsub-inner {
+        padding: 0 2em;
+        font-size: 75%;
+    }
+
+    .cbp-hrmenu > ul > li {
+        display: block;
+        border-bottom: 4px solid #47a3da;
+    }
+
+    .cbp-hrmenu > ul > li > a { 
+        display: block;
+        padding: 1em 3em;
+    }
+
+    .cbp-hrmenu .cbp-hrsub { 
+        position: relative;
+    }
+
+    .cbp-hrsub h4 {
+        padding-top: 0.6em;
+    }
+
+}
+
+@media screen and (max-width: 36em) { 
+    .cbp-hrmenu .cbp-hrsub-inner > div {
+        width: 100%;
+        float: none;
+        padding: 0 2em;
+    }
+}
+.statsTitle{
+    font-size:2rem !important;
+
+}
+
+.overall{
+
+    margin-top: 100px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+
+}
+.dataTable{
+    //display:none;*/
+    font-size: 0.7em;
+    margin-top: 50px;
+
+}
+.main_frame{
+    padding-left: 80px;
+}
+#adminPanel{
+    margin-left:20px;
+}
+.menu-info{
+    padding-left:5%;
+    cursor:pointer;
+}
+.menuIcon{
+    margin-left:20px;
+}
+body {
+    margin:0;
+    background:url("../uploads/bg.jpg") black;
+    color:#fff !important;
+
+}
+#playersStatistics_length{
+    float:left;   
+}
+.teamFilter{
+    float: right;
+    width: 300px;
+    z-index: 2;
+    position: fixed;
+    right: 0;
+}
+.teamTitle{
+    text-align: center;
+    font-size: 4rem;
+}
+
+#graph{
+    margin-top: -100px;
+    z-index:-1;
+}
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.bar {
+    fill: orange;
+}
+
+.bar:hover {
+    fill: orangered ;
+}
+
+.x.axis path {
+    display: none;
+}
+
+.d3-tip {
+    line-height: 1;
+    font-weight: bold;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.8);
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
+}
+.component {
+    line-height: 1.5em;
+    margin: 0 auto;
+    padding: 2em 0 3em;
+    width: 90%;
+    max-width: 1000px;
+    overflow: hidden;
+}
+.component .filler {
+    font-family: "Blokk", Arial, sans-serif;
+    color: #d3d3d3;
+}
+.teamTrade,
+.playersCom{
+    margin-top:70px !important;
+}
+.databody{
+    margin: 0px 15px 15px 15px;
+}
+.playersStatistics_filter{
+    float: right !important
+}
+.choose{
+    text-align:center;
+    position: relative;
+    z-index: 0;
+}
+table {
+    border-collapse: collapse;
+    margin-bottom: 3em;
+    width: 100%;
+    background: #fff;
+}
+td, th {
+    padding: 0.75em 0.5em;
+    text-align: left;
+}
+td.err {
+    background-color: #e992b9;
+    color: #fff;
+    font-size: 0.75em;
+    text-align: center;
+    line-height: 1;
+}
+th {
+    background-color: rgba(209, 136, 7, 0.32);
+    font-weight: normal;
+    color: #fff;
+    white-space: nowrap;
+}
+.dataTables_filter{
+    float:right !important;
+}
+tr{
+    background:rgba(12, 12, 12, 0.6) !important;
+}
+tbody th {
+    background-color: #2ea879;
+}
+tbody tr:nth-child(2n-1) {
+    background-color: rgba(0, 0, 0, 0.56);
+    color:#fff;
+    transition: all .125s ease-in-out;
+}
+
+tbody tr:hover {
+    background-color: rgba(209, 136, 7, 0.68)
+
+        /* For appearance */
+        .sticky-wrap {
+        overflow-x: auto;
+        overflow-y: hidden;
+        position: relative;
+        margin: 3em 0;
+        width: 100%;
+    }
+    .sticky-wrap .sticky-thead,
+    .sticky-wrap .sticky-col,
+    .sticky-wrap .sticky-intersect {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all .125s ease-in-out;
+        z-index: 50;
+        width: auto; /* Prevent table from stretching to full size */
+    }
+    .sticky-wrap .sticky-thead {
+        box-shadow: 0 0.25em 0.1em -0.1em rgba(0,0,0,.125);
+        z-index: 100;
+        width: 100%; /* Force stretch */
+    }
+    .sticky-wrap .sticky-intersect {
+        opacity: 1;
+        z-index: 150;
+
+    }
+    .sticky-wrap .sticky-intersect th {
+        background-color: #666;
+        color: #eee;
+    }
+    .sticky-wrap td,
+    .sticky-wrap th {
+        box-sizing: border-box;
+    }
+
+    /* Not needed for sticky header/column functionality */
+    td.user-name {
+        text-transform: capitalize;
+    }
+    .sticky-wrap.overflow-y {
+        overflow-y: auto;
+        max-height: 50vh;
+    }
+}
+
+
+.gn-menu-main,
+.gn-menu-main ul {
+    margin: 0;
+    padding: 0;
+    background: #444;
+    color: #fff;
+    list-style: none;
+    text-transform: none;
+
+    line-height: 60px;
+}
+
+.gn-menu-main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    font-size: 13px;
+}
+
+.gn-menu-main a {
+    display: block;
+    height: 100%;
+    color: #5f6f81;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.no-touch .gn-menu-main a:hover,
+.no-touch .gn-menu li.gn-search-item:hover,
+.no-touch .gn-menu li.gn-search-item:hover a {
+    background: #5f6f81;
+    color: white;
+}
+
+.gn-menu-main > li {
+    display: block;
+    float: left;
+    height: 100%;
+    border-right: 1px solid #c6d0da;
+    text-align: center;
+}
+
+/* icon-only trigger (menu item) */
+
+.gn-menu-main li.gn-trigger {
+    position: relative;
+    width: 60px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.gn-menu-main > li:last-child {
+    float: left;
+    border-right: none;
+    border-left: 1px solid #c6d0da;
+}
+
+.gn-menu-main > li > a {
+    padding: 0 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.gn-menu-main:after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+.gn-menu-wrapper {
+    position: fixed;
+    top: 60px;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    width: 60px;
+    border-top: 1px solid #c6d0da;
+    background: #444;
+    -webkit-transform: translateX(-60px);
+    -moz-transform: translateX(-60px);
+    transform: translateX(-60px);
+    -webkit-transition: -webkit-transform 0.3s, width 0.3s;
+    -moz-transition: -moz-transform 0.3s, width 0.3s;
+    transition: transform 0.3s, width 0.3s;
+}
+
+.gn-scroller {
+    position: absolute;
+    overflow-y: scroll;
+    width: 370px;
+    height: 100%;
+}
+
+.gn-menu {
+    border-bottom: 1px solid #c6d0da;
+    text-align: left;
+    font-size: 18px;
+}
+
+.gn-menu li:not(:first-child),
+.gn-menu li li {
+    box-shadow: inset 0 1px #c6d0da
+}
+
+.gn-submenu li {
+    overflow: hidden;
+    height: 0;
+    -webkit-transition: height 0.3s;
+    -moz-transition: height 0.3s;
+    transition: height 0.3s;
+}
+
+.gn-submenu li a {
+    color: #c1c9d1
+}
+
+input.gn-search {
+    position: relative;
+    z-index: 10;
+    padding-left: 60px;
+    outline: none;
+    border: none;
+    background: transparent;
+    color: #5f6f81;
+    font-weight: 300;
+    font-family: 'Lato', Arial, sans-serif;
+    cursor: pointer;
+}
+
+/* placeholder */
+
+.gn-search::-webkit-input-placeholder {
+    color: #5f6f81
+}
+
+.gn-search:-moz-placeholder {
+    color: #5f6f81
+}
+
+.gn-search::-moz-placeholder {
+    color: #5f6f81
+}
+
+.gn-search:-ms-input-placeholder {
+    color: #5f6f81
+}
+
+/* hide placeholder when active in Chrome */
+
+.gn-search:focus::-webkit-input-placeholder,
+.no-touch .gn-menu li.gn-search-item:hover .gn-search:focus::-webkit-input-placeholder {
+    color: transparent
+}
+
+input.gn-search:focus {
+    cursor: text
+}
+
+.no-touch .gn-menu li.gn-search-item:hover input.gn-search {
+    color: white
+}
+
+/* placeholder */
+
+.no-touch .gn-menu li.gn-search-item:hover .gn-search::-webkit-input-placeholder {
+    color: white
+}
+
+.no-touch .gn-menu li.gn-search-item:hover .gn-search:-moz-placeholder {
+    color: white
+}
+
+.no-touch .gn-menu li.gn-search-item:hover .gn-search::-moz-placeholder {
+    color: white
+}
+
+.no-touch .gn-menu li.gn-search-item:hover .gn-search:-ms-input-placeholder {
+    color: white
+}
+
+.gn-menu-main a.gn-icon-search {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 60px;
+}
+
+.gn-icon::before {
+    display: inline-block;
+    width: 60px;
+    text-align: center;
+    text-transform: none;
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-family: 'ecoicons';
+    line-height: 1;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+.gn-icon-help::before {
+    content: "\e000"
+}
+
+.gn-icon-earth::before {
+    content: "\e004"
+}
+
+.gn-icon-cog::before {
+    content: "\e006"
+}
+
+.gn-icon-search::before {
+    content: "\e005"
+}
+
+.gn-icon-download::before {
+    content: "\e007"
+}
+
+.gn-icon-photoshop::before {
+    content: "\e001"
+}
+
+.gn-icon-illustrator::before {
+    content: "\e002"
+}
+
+.gn-icon-archive::before {
+    content: "\e00d"
+}
+
+.gn-icon-article::before {
+    content: "\e003"
+}
+
+.gn-icon-pictures::before {
+    content: "\e008"
+}
+
+.gn-icon-videos::before {
+    content: "\e009"
+}
+
+/* if an icon anchor has a span, hide the span */
+
+.gn-icon span {
+    width: 0;
+    height: 0;
+    display: block;
+    overflow: hidden;
+}
+
+.gn-icon-menu::before {
+    margin-left: -15px;
+    vertical-align: -2px;
+    width: 30px;
+    height: 3px;
+    //background: #5f6f81;
+    box-shadow: 0 3px white, 0 -6px white, 0 -15px white;
+    content: '';
+}
+
+.no-touch .gn-icon-menu:hover::before,
+.no-touch .gn-icon-menu.gn-selected:hover::before {
+    background: white;
+    box-shadow: 0 3px #5f6f81, 0 -6px white, 0 -9px #5f6f81, 0 -12px white;
+}
+
+
+.gn-icon-menu.gn-selected::before {
+    background: #3DC543;
+    box-shadow:0 8px #3DC543, 0 -9px #3DC543
+}
+
+
+/* styles for opening menu */
+
+.gn-menu-wrapper.gn-open-all,
+.gn-menu-wrapper.gn-open-part {
+    -webkit-transform: translateX(0px);
+    -moz-transform: translateX(0px);
+    transform: translateX(0px);
+}
+
+.gn-menu-wrapper.gn-open-all {
+    width: 340px
+}
+
+.gn-menu-wrapper.gn-open-all .gn-submenu li {
+    height: 60px
+}
+
+@media screen and (max-width: 422px) { 
+    .gn-menu-wrapper.gn-open-all {
+        -webkit-transform: translateX(0px);
+        -moz-transform: translateX(0px);
+        transform: translateX(0px);
+        width: 100%;
+    }
+
+    .gn-menu-wrapper.gn-open-all .gn-scroller {
+        width: 130%
+    }
+}
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.bar {
+    fill: steelblue;
+}
+
+.x.axis path {
+    display: none;
+}
+
+#player_2,
+.holder{
+    margin-top: 20px;
+    height: 600px;
+    background:rgba(0, 0, 0, 0.43);
+    padding: 10px;
+    color:#fff;
+}
+.navigate{
+    margin:auto;
+}
+.position{
+    color: #888 !important
+}
+.playerName{
+    font-size:4rem;
+}
+.attrholder{
+
+    padding: 20px;
+}
+.tog{
+    display:inline-block;
+    margin-left: 20px;
+    cursor: pointer;
+}
+.grey{
+    color:#A3A3A3;
+}
+.divider{
+    border-bottom:2px solid #DDD;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.change{
+    float:right;
+}
+.value{
+    color:#C5C4C4;
+    width: 130px;
+}
+.key{
+    margin-right:30px;
+    color:#0091ff
+}
+.attr{
+    height: 21px;
+    -webkit-animation: fadeIn 0.5s;
+    -moz-animation: fadeIn 0.5s;
+    -ms-animation: fadeIn 0.5s;
+}
+.priAttr{
+    font-size: 2rem;
+}
+@-webkit-keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@-moz-keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.demo-3 body { 
+    background-image: url(../images/dark_wall.jpg);
+    background-color: #222;
+}
+
+.demo-3 body:after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: -webkit-radial-gradient(center center, circle cover, rgba(0,0,0,0), rgba(0,0,0,0.75));
+    background: -moz-radial-gradient(center center, circle cover, rgba(0,0,0,0), rgba(0,0,0,0.75));
+    background: -ms-radial-gradient(center center, circle cover, rgba(0,0,0,0), rgba(0,0,0,0.75));
+    background: -o-radial-gradient(center center, circle cover, rgba(0,0,0,0), rgba(0,0,0,0.75));
+    background: radial-gradient(center center, circle cover, rgba(0,0,0,0), rgba(0,0,0,0.75));
+}
+
+.demo-3 .bokeh {
+    font-size: 100px;
+    width: 1em;
+    height: 1em;
+    position: relative;
+    margin: 100px auto;
+    border-radius: 50%;
+    border: .01em solid rgba(150,150,150,0.1);
+    list-style: none;
+}
+
+.demo-3 .bokeh li {
+    position: absolute;
+    width: .2em;
+    height: .2em;
+    border-radius: 50%;
+}
+
+.demo-3 .bokeh li:nth-child(1) {
+    left: 50%;
+    top: 0;
+    margin: 0 0 0 -.1em;
+    background: #00C176;
+    -webkit-transform-origin: 50% 250%;
+    -moz-transform-origin: 50% 250%;
+    -ms-transform-origin: 50% 250%;
+    -o-transform-origin: 50% 250%;
+    transform-origin: 50% 250%;
+    -webkit-animation: 
+        rota 1.13s linear infinite,
+        opa 3.67s ease-in-out infinite alternate;
+    -moz-animation: 
+        rota 1.13s linear infinite,
+        opa 3.67s ease-in-out infinite alternate;
+    -ms-animation: 
+        rota 1.13s linear infinite,
+        opa 3.67s ease-in-out infinite alternate;
+    -o-animation: 
+        rota 1.13s linear infinite,
+        opa 3.67s ease-in-out infinite alternate;
+    animation: 
+        rota 1.13s linear infinite,
+        opa 3.67s ease-in-out infinite alternate;
+}
+
+.demo-3 .bokeh li:nth-child(2) {
+    top: 50%; 
+    right: 0;
+    margin: -.1em 0 0 0;
+    background: #FF003C;
+    -webkit-transform-origin: -150% 50%;
+    -moz-transform-origin: -150% 50%;
+    -ms-transform-origin: -150% 50%;
+    -o-transform-origin: -150% 50%;
+    transform-origin: -150% 50%;
+    -webkit-animation: 
+        rota 1.86s linear infinite,
+        opa 4.29s ease-in-out infinite alternate;
+    -moz-animation: 
+        rota 1.86s linear infinite,
+        opa 4.29s ease-in-out infinite alternate;
+    -ms-animation: 
+        rota 1.86s linear infinite,
+        opa 4.29s ease-in-out infinite alternate;
+    -o-animation: 
+        rota 1.86s linear infinite,
+        opa 4.29s ease-in-out infinite alternate;
+    animation: 
+        rota 1.86s linear infinite,
+        opa 4.29s ease-in-out infinite alternate;
+}
+
+.demo-3 .bokeh li:nth-child(3) {
+    left: 50%; 
+    bottom: 0;
+    margin: 0 0 0 -.1em;
+    background: #FABE28;
+    -webkit-transform-origin: 50% -150%;
+    -moz-transform-origin: 50% -150%;
+    -ms-transform-origin: 50% -150%;
+    -o-transform-origin: 50% -150%;
+    transform-origin: 50% -150%;
+    -webkit-animation: 
+        rota 1.45s linear infinite,
+        opa 5.12s ease-in-out infinite alternate;
+    -moz-animation: 
+        rota 1.45s linear infinite,
+        opa 5.12s ease-in-out infinite alternate;
+    -ms-animation: 
+        rota 1.45s linear infinite,
+        opa 5.12s ease-in-out infinite alternate;
+    -o-animation: 
+        rota 1.45s linear infinite,
+        opa 5.12s ease-in-out infinite alternate;
+    animation: 
+        rota 1.45s linear infinite,
+        opa 5.12s ease-in-out infinite alternate;
+}
+
+
+
+@-webkit-keyframes rota {
+    to { -webkit-transform: rotate(360deg); }
+}
+
+@-moz-keyframes rota {
+    to { -moz-transform: rotate(360deg); }
+}
+
+@-ms-keyframes rota {
+    to { -ms-transform: rotate(360deg); }
+}
+
+@-o-keyframes rota {
+    to { -o-transform: rotate(360deg); }
+}
+
+@keyframes rota {
+    to { transform: rotate(360deg); }
+}
+
+@-webkit-keyframes opa {
+    12.0% { opacity: 0.80; }
+    19.5% { opacity: 0.88; }
+    37.2% { opacity: 0.64; }
+    40.5% { opacity: 0.52; }
+    52.7% { opacity: 0.69; }
+    60.2% { opacity: 0.60; }
+    66.6% { opacity: 0.52; }
+    70.0% { opacity: 0.63; }
+    79.9% { opacity: 0.60; }
+    84.2% { opacity: 0.75; }
+    91.0% { opacity: 0.87; }
+}
+
+@-moz-keyframes opa {
+    12.0% { opacity: 0.80; }
+    19.5% { opacity: 0.88; }
+    37.2% { opacity: 0.64; }
+    40.5% { opacity: 0.52; }
+    52.7% { opacity: 0.69; }
+    60.2% { opacity: 0.60; }
+    66.6% { opacity: 0.52; }
+    70.0% { opacity: 0.63; }
+    79.9% { opacity: 0.60; }
+    84.2% { opacity: 0.75; }
+    91.0% { opacity: 0.87; }
+}
+
+@-ms-keyframes opa {
+    12.0% { opacity: 0.80; }
+    19.5% { opacity: 0.88; }
+    37.2% { opacity: 0.64; }
+    40.5% { opacity: 0.52; }
+    52.7% { opacity: 0.69; }
+    60.2% { opacity: 0.60; }
+    66.6% { opacity: 0.52; }
+    70.0% { opacity: 0.63; }
+    79.9% { opacity: 0.60; }
+    84.2% { opacity: 0.75; }
+    91.0% { opacity: 0.87; }
+}
+
+@-o-keyframes opa {
+    12.0% { opacity: 0.80; }
+    19.5% { opacity: 0.88; }
+    37.2% { opacity: 0.64; }
+    40.5% { opacity: 0.52; }
+    52.7% { opacity: 0.69; }
+    60.2% { opacity: 0.60; }
+    66.6% { opacity: 0.52; }
+    70.0% { opacity: 0.63; }
+    79.9% { opacity: 0.60; }
+    84.2% { opacity: 0.75; }
+    91.0% { opacity: 0.87; }
+}
+
+@keyframes opa {
+    12.0% { opacity: 0.80; }
+    19.5% { opacity: 0.88; }
+    37.2% { opacity: 0.64; }
+    40.5% { opacity: 0.52; }
+    52.7% { opacity: 0.69; }
+    60.2% { opacity: 0.60; }
+    66.6% { opacity: 0.52; }
+    70.0% { opacity: 0.63; }
+    79.9% { opacity: 0.60; }
+    84.2% { opacity: 0.75; }
+    91.0% { opacity: 0.87; }
+}
