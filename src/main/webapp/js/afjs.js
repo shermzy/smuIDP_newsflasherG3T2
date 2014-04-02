@@ -333,7 +333,7 @@ function simulate() {
         }
         $('#Defenseplayer1').html(Math.round(saberScoresOne.Defense * 100) / 100);
 
-        var saberScoresTwo = {Playmaking: 0, Shooting: 0, Offense: 0, All_Around: 0,Defense:0};
+        var saberScoresTwo = {Playmaking: 0, Shooting: 0, Offense: 0, All_Around: 0, Defense: 0};
         tempTwo.forEach(function(player) {
             saberScoresTwo.Playmaking += num(player.Playmaking);
             saberScoresTwo.Shooting += num(player.Shooting);
@@ -404,7 +404,7 @@ function simulate() {
             $('#player_2playMaking_change').html("0.00");
         }
         $('#PlayMaking_player2').html(Math.round(saberScoresTwo.Playmaking * 100) / 100);
-        
+
         var diffDefTwo = Math.round((num(saberScoresTwo.Defense) - num(teamTwoOriginal.Defense)) * 100) / 100;
         if (diffDefTwo < 0) {
             $('#player_2Defense_change').html(diffDefTwo);
@@ -488,35 +488,65 @@ function initResults(results) {
             }
         });
     });
-    
-     $('.resultsHolder').click(function() {
-         $(this).toggleClass('select');
-     });
-     
-   $('#sankey').click(function(){
-       var displayPlayers=[];
-       $('.compare').slideUp(function(){
-           $('.sankey').slideDown();
-       });
-       var players = [];
-       $.each($('div.resultsHolder.select'),function(d){
-         players.push($(this).find($('div.resultsPlayerName')).text())  
-       })
-       //players.push($('div.resultsHolder.select').find($('div.resultsPlayerName')).text());
-       results.forEach(function(data){
-          players.forEach(function(playerChosen){
-              if(data.Player_Name == playerChosen){
-                  displayPlayers.push(data);
-              }
-          }) 
-       });
-        var playmax = Math.max.apply(Math,results.map(function(o){return o.Playmaking;}));
-         console.log("playmax: " + playmax);
-        var playmin = Math.min.apply(Math,results.map(function(o){return o.Playmaking;}));
-         console.log("playmin: " + playmin);
-       
-   });
-    
+
+    $('.resultsHolder').click(function() {
+        $(this).toggleClass('select');
+    });
+
+    $('#sankey').click(function() {
+        var displayPlayers = [];
+        $('.compare').slideUp(function() {
+            $('.sankey').slideDown();
+        });
+        var players = [];
+        $.each($('div.resultsHolder.select'), function(d) {
+            players.push($(this).find($('div.resultsPlayerName')).text())
+        })
+        //players.push($('div.resultsHolder.select').find($('div.resultsPlayerName')).text());
+        var attributestack = ["Playmaking","Shooting","Offense","All Around","Defense"]; 
+        var playerStack =[];
+        results.forEach(function(data) {
+            players.forEach(function(playerChosen) {
+                if (data.Player_Name == playerChosen) {
+                    displayPlayers.push(data);
+                    playerStack.push(playerChosen);
+                }
+            })
+        });
+        
+         var attributestack = ["Playmaking","Shooting","Offense","All Around","Defense"]; 
+        var playRangePlayMaking = Math.max.apply(Math, results.map(function(o) {
+            return o.Playmaking;
+        })) - Math.min.apply(Math, results.map(function(o) {
+            return o.Playmaking;
+        }));
+        var playRangeOffense = Math.max.apply(Math, results.map(function(o) {
+            return o.Offense;
+        })) - Math.min.apply(Math, results.map(function(o) {
+            return o.Offense;
+        }));
+        var playRangeDefense = Math.max.apply(Math, results.map(function(o) {
+            return o.Defense;
+        })) - Math.min.apply(Math, results.map(function(o) {
+            return o.Defense;
+        }));
+         var playRangeShooting = Math.max.apply(Math, results.map(function(o) {
+            return o.Shooting;
+        })) - Math.min.apply(Math, results.map(function(o) {
+            return o.Shooting;
+        }));
+            var playRangeAllRound = Math.max.apply(Math, results.map(function(o) {
+            return o.All_Around;
+        })) - Math.min.apply(Math, results.map(function(o) {
+            return o.All_Around;
+        }));
+        
+        console.log(playRangePlayMaking + " " + playRangeOffense + " " + playRangeDefense + " " + playRangeShooting + " " + playRangeAllRound + " ")
+
+
+
+    });
+
 }
 function showResults(results) {
     $('.searchResults').html("");

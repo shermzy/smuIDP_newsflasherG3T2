@@ -98,7 +98,8 @@
                             <option>Point Guard</option>
                         </select>
                         <div class="preferedStats">
-                            <div class="searchTitle">Preferred Attributes</div>
+                            <div class="searchTitle pull-left">Preferred Attributes</div>
+                            <div class="searchMin pull-right">Min Value</div>
                             <div class="pStats">
                                 <select class="statsFilter" id="stat1">
 
