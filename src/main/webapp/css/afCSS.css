@@ -18,6 +18,9 @@ and open the template in the editor.
 #team_playerName{
     width:80%;
 }
+.playersContainer{
+    height:300px;
+}
 .saberChange{
     font-size:1.5rem;
 }
@@ -52,6 +55,7 @@ and open the template in the editor.
     background: rgba(150, 150, 150, 0.54);
     margin-left: 2px;
     padding: 20px;
+    cursor:pointer;
     margin-right: 2px;
 }
 .toolTip:hover{ /* NEW */
@@ -90,14 +94,14 @@ and open the template in the editor.
 .sankey{
     display:none;
 }
-#sankey:hover{
+#sankeyGraph:hover{
 
     background-image: linear-gradient(to bottom,#4279DB 0,#1A4A7E 100%);
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffb2db42',endColorstr='#ff88bd32',GradientType=0);
     background-color: #767F66;
 }
-#sankey{
+#sankeyGraph{
     width: 100%;
     text-align: center;
     background-image: linear-gradient(to bottom,#b2db42 0,#88bd32 100%);
@@ -225,7 +229,7 @@ select.players{
 .cbp-hrmenu {
     width: 100%;
     height: 55px;
-    border-bottom: 4px solid #444;
+    //border-bottom: 4px solid #444;
     // line-height: 55px;
     position: fixed;
     z-index:10;
@@ -470,13 +474,7 @@ body {
     shape-rendering: crispEdges;
 }
 
-.bar {
-    fill: orange;
-}
 
-.bar:hover {
-    fill: orangered ;
-}
 
 .x.axis path {
     display: none;
@@ -522,6 +520,10 @@ body {
     font-family: "Blokk", Arial, sans-serif;
     color: #d3d3d3;
 }
+.sankeyGraph{
+    display:none;
+}
+.sankeyGraph,
 .teamTrade,
 .playersCom{
     margin-top:70px !important;
@@ -947,15 +949,18 @@ input.gn-search:focus {
     shape-rendering: crispEdges;
 }
 
-.bar {
-    fill: steelblue;
-}
-
 .x.axis path {
     display: none;
 }
 
-#player_2,
+#player_2{
+
+    height: 600px;
+    background:rgba(0, 0, 0, 0.43);
+    padding: 10px;
+    margin-top: 66px;
+    color:#fff;
+}
 .holder{
     margin-top: 20px;
     height: 600px;
@@ -1239,4 +1244,50 @@ input.gn-search:focus {
     79.9% { opacity: 0.60; }
     84.2% { opacity: 0.75; }
     91.0% { opacity: 0.87; }
+}
+.chart rect {
+    stroke: white;
+    fill-opacity: .6;
+    fill: steelblue !important;
+
+}
+.axis1,
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+.d3-tip {
+    line-height: 1;
+    font-weight: bold;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.8);
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
+}
+.saberTitle{
+    text-align: center;
+    font-size:3rem;
+    display:none;
 }

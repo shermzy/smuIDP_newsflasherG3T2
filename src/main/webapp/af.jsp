@@ -28,7 +28,7 @@
                     </div>
                 </li>
                 <li>
-                    <div class="navHeads" id="compare"><i class="fa fa-dribbble menuIcons"></i>PVP</div>
+                    <div class="navHeads" id="compare"><i class="fa fa-gavel menuIcons"></i>PVP</div>
                 </li>
                 <li>
                     <div class="navHeads" id="teamTrade"><i class="fa fa-dribbble menuIcons"></i>Teams</div>
@@ -121,7 +121,7 @@
                         <div class="searchBtn">Search</div>
                     </div>
                     <div class="searchResults"></div>
-                    <div id="sankey">Compare</div>
+                  <!--  <div id="sankeyGraph">Compare</div>-->
                 </div>
                 <div class="col-md-4">
                     <div id="player_2">
@@ -130,11 +130,11 @@
                 </div>
             </div>
         </div>
-        <div class="sankey">
-            <div id='sankeyGraph' style="width:1000px;height:1000px">
+      <!--  <div class="sankeyGraph">
+            <div id='sankey' style="background:#fff;width:1000px;height:1000px">
                 &nbsp;
             </div>
-        </div>
+        </div>-->
 
         <!--END PLAYER VS PLAYER -->
         <div class="teamTrade databody">
@@ -145,6 +145,8 @@
                     <div class="teamContainer" id="teamContainer_one">
 
                     </div>
+                    <div class="saberTitle" id="saberGraphTypeOne">All Around</div>
+                    <div id="player1_barChart"></div>
                 </div>
 
                 <!-- TEAM 2 -->
@@ -153,6 +155,8 @@
                     <div class="teamContainer" id="teamContainer_two">
 
                     </div>
+                    <div class="saberTitle" id="saberGraphTypeTwo">All Around</div>
+                    <div id="player2_barChart"></div>
                 </div>
             </div>
         </div>
@@ -161,13 +165,11 @@
 </html>
 
 <script src="js/d3.js"></script>
-
+<script src="js/d3_tip.js"></script>
 <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
 <script src="js/classie.js"></script>
 <script src="js/jquery.dataTables.min.js"></script>
 <script src="js/afjs.js"></script>
 <script src="js/radar.js"></script>
-    <script src="js/sankey.js" type="text/javascript"></script>  
-<script>
+ <script type="text/javascript" src="js/column-chart.js"></script>
 
-</script>
