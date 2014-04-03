@@ -5,6 +5,7 @@
  */
 //new gnMenu(document.getElementById('gn-menu'));
 var data, dataset;
+var teamPos = [];
 var teams = [];
 var teamOne = [];
 var teamTwo = [];
@@ -382,7 +383,7 @@ function graphinit2(teamPlayers, saber) {
     teamPlayers.forEach(function(d) {
         graphData.push({player: d.Player_Name, Score: d[saberType]});
     })
-     graphData.sort(function(a, b) {
+    graphData.sort(function(a, b) {
         return b.Score - a.Score;
     })
     var margin = {top: 40, right: 10, bottom: 10, left: 0},
@@ -527,14 +528,14 @@ function simulate() {
         saberScoresOne.All_Around = saberScoresOne.All_Around / tempOne.length;
         saberScoresOne.Defense = saberScoresOne.Defense / tempOne.length;
         // console.log(saberScoresOne)
-        var diffAAOne = Math.round((num(saberScoresOne.All_Around) - num(teamOneOriginal.All_Around)) * 100) / 100;
+        var diffAAOne = Math.round(((num(saberScoresOne.All_Around) - num(teamOneOriginal.All_Around)) / (num(teamOneOriginal.All_Around)) * 100) * 100) / 100;
         if (diffAAOne < 0) {
 
-            $('#player_1allRound_change').html(  diffAAOne +'<i class="fa fa-caret-down"></i>');
+            $('#player_1allRound_change').html(diffAAOne + '%<i class="fa fa-caret-down"></i>');
             $('#AllRound_player1').parent().css("background", "#BD1010");
         } else if (diffAAOne > 0) {
 
-            $('#player_1allRound_change').html(diffAAOne +'<i class="fa fa-caret-up"></i>');
+            $('#player_1allRound_change').html(diffAAOne + '%<i class="fa fa-caret-up"></i>');
             $('#AllRound_player1').parent().css("background", "#27B305");
         } else {
             $('#player_1allRound_change').html("0.00");
@@ -542,48 +543,48 @@ function simulate() {
         }
 
         $('#AllRound_player1').html(Math.round(saberScoresOne.All_Around * 100) / 100);
-        var diffShootOne = Math.round((num(saberScoresOne.Shooting) - num(teamOneOriginal.Shooting)) * 100) / 100
+        var diffShootOne = Math.round(((num(saberScoresOne.Shooting) - num(teamOneOriginal.Shooting)) / (num(teamOneOriginal.Shooting)) * 100) * 100) / 100;
         if (diffShootOne < 0) {
-            $('#player_1shooting_change').html(diffShootOne +'<i class="fa fa-caret-down"></i>');
+            $('#player_1shooting_change').html(diffShootOne + '%<i class="fa fa-caret-down"></i>');
             $('#Shooting_player1').parent().css("background", "#BD1010");
         } else if (diffShootOne > 0) {
-            $('#player_1shooting_change').html(diffShootOne +'<i class="fa fa-caret-up"></i>');
+            $('#player_1shooting_change').html(diffShootOne + '%<i class="fa fa-caret-up"></i>');
             $('#Shooting_player1').parent().css("background", "#27B305");
         } else {
             $('#player_1shooting_change').html("0.00");
             $('#Shooting_player1').parent().css("background", "rgba(150, 150, 150, 0.54)");
         }
         $('#Shooting_player1').html(Math.round(saberScoresOne.Shooting * 100) / 100);
-        var diffOffOne = Math.round((num(saberScoresOne.Offense) - num(teamOneOriginal.Offense)) * 100) / 100;
+        var diffOffOne = Math.round(((num(saberScoresOne.Offense) - num(teamOneOriginal.Offense)) / (num(teamOneOriginal.Offense)) * 100) * 100) / 100;
         if (diffOffOne < 0) {
-            $('#player_1offense_change').html(diffOffOne +'<i class="fa fa-caret-down"></i>');
+            $('#player_1offense_change').html(diffOffOne + '%<i class="fa fa-caret-down"></i>');
             $('#Offense_player1').parent().css("background", "#BD1010");
         } else if (diffOffOne > 0) {
-            $('#player_1offense_change').html(diffOffOne +'<i class="fa fa-caret-up"></i>');
+            $('#player_1offense_change').html(diffOffOne + '%<i class="fa fa-caret-up"></i>');
             $('#Offense_player1').parent().css("background", "#27B305");
         } else {
             $('#player_1offense_change').html("0.00");
             $('#Offense_player1').parent().css("background", "rgba(150, 150, 150, 0.54)");
         }
         $('#Offense_player1').html(Math.round(saberScoresOne.Offense * 100) / 100);
-        var diffPMOne = Math.round((num(saberScoresOne.Playmaking) - num(teamOneOriginal.Playmaking)) * 100) / 100;
+        var diffPMOne = Math.round(((num(saberScoresOne.Playmaking) - num(teamOneOriginal.Playmaking)) / (num(teamOneOriginal.Playmaking)) * 100) * 100) / 100;
         if (diffPMOne < 0) {
-            $('#player_1playMaking_change').html(diffPMOne +'<i class="fa fa-caret-down"></i>');
+            $('#player_1playMaking_change').html(diffPMOne + '%<i class="fa fa-caret-down"></i>');
             $('#PlayMaking_player1').parent().css("background", "#BD1010");
         } else if (diffPMOne > 0) {
-            $('#player_1playMaking_change').html(diffPMOne +'<i class="fa fa-caret-up"></i>');
+            $('#player_1playMaking_change').html(diffPMOne + '%<i class="fa fa-caret-up"></i>');
             $('#PlayMaking_player1').parent().css("background", "#27B305");
         } else {
             $('#PlayMaking_player1').parent().css("background", "rgba(150, 150, 150, 0.54)");
             $('#player_1playMaking_change').html("0.00");
         }
         $('#PlayMaking_player1').html(Math.round(saberScoresOne.Playmaking * 100) / 100);
-        var diffDefOne = Math.round((num(saberScoresOne.Defense) - num(teamOneOriginal.Defense)) * 100) / 100;
+        var diffDefOne = Math.round(((num(saberScoresOne.Defense) - num(teamOneOriginal.Defense)) / (num(teamOneOriginal.Defense)) * 100) * 100) / 100;
         if (diffDefOne < 0) {
-            $('#player_1Defense_change').html(diffDefOne + '<i class="fa fa-caret-down"></i>');
+            $('#player_1Defense_change').html(diffDefOne + '%<i class="fa fa-caret-down"></i>');
             $('#Defense_player1').parent().css("background", "#BD1010");
         } else if (diffDefOne > 0) {
-            $('#player_1Defense_change').html(diffDefOne +'<i class="fa fa-caret-up"></i>');
+            $('#player_1Defense_change').html(diffDefOne + '%<i class="fa fa-caret-up"></i>');
             $('#Defense_player1').parent().css("background", "#27B305");
         } else {
             $('#Defenseplayer1').parent().css("background", "rgba(150, 150, 150, 0.54)");
@@ -605,12 +606,12 @@ function simulate() {
         saberScoresTwo.Offense = saberScoresTwo.Offense / tempTwo.length;
         saberScoresTwo.All_Around = saberScoresTwo.All_Around / tempTwo.length;
         saberScoresTwo.Defense = saberScoresTwo.Defense / tempTwo.length;
-        var diffAATwo = Math.round((num(saberScoresTwo.All_Around) - num(teamTwoOriginal.All_Around)) * 100) / 100;
+        var diffAATwo = Math.round(((num(saberScoresTwo.All_Around) - num(teamTwoOriginal.All_Around)) / (num(teamTwoOriginal.All_Around)) * 100) * 100) / 100;
         if (diffAATwo < 0) {
-            $('#player_2allRound_change').html(diffAATwo + '<i class="fa fa-caret-down"></i>');
+            $('#player_2allRound_change').html(diffAATwo + '%<i class="fa fa-caret-down"></i>');
             $('#AllRound_player2').parent().css("background", "#BD1010");
         } else if (diffAATwo > 0) {
-            $('#player_2allRound_change').html(diffAATwo + '<i class="fa fa-caret-up"></i>');
+            $('#player_2allRound_change').html(diffAATwo + '%<i class="fa fa-caret-up"></i>');
             $('#AllRound_player2').parent().css("background", "#27B305");
         } else {
             $('#player_2allRound_change').html("0.00");
@@ -618,22 +619,22 @@ function simulate() {
         }
 
         $('#AllRound_player2').html(Math.round(saberScoresTwo.All_Around * 100) / 100);
-        
-        var diffShootTwo = Math.round((num(saberScoresTwo.Shooting) - num(teamTwoOriginal.Shooting)) * 100) / 100;
+
+        var diffShootTwo = Math.round(((num(saberScoresTwo.Shooting) - num(teamTwoOriginal.Shooting)) / (num(teamTwoOriginal.Shooting)) * 100) * 100) / 100;
         if (diffShootTwo < 0) {
-            $('#player_2shooting_change').html(diffShootTwo + '<i class="fa fa-caret-down"></i>');
+            $('#player_2shooting_change').html(diffShootTwo + '%<i class="fa fa-caret-down"></i>');
             $('#Shooting_player2').parent().css("background", "#BD1010");
         } else if (diffShootTwo > 0) {
-            $('#player_2shooting_change').html(diffShootTwo + '<i class="fa fa-caret-up"></i>');
+            $('#player_2shooting_change').html(diffShootTwo + '%<i class="fa fa-caret-up"></i>');
             $('#Shooting_player2').parent().css("background", "#27B305");
         } else {
             $('#player_2shooting_change').html("0.00");
             $('#Shooting_player2').parent().css("background", "rgba(150, 150, 150, 0.54)");
         }
         $('#Shooting_player2').html(Math.round(saberScoresTwo.Shooting * 100) / 100);
-        
-        
-        var diffOffTwo = Math.round((num(saberScoresTwo.Offense) - num(teamTwoOriginal.Offense)) * 100) / 100;
+
+
+        var diffOffTwo = Math.round(((num(saberScoresTwo.Offense) - num(teamTwoOriginal.Offense)) / (num(teamTwoOriginal.Offense)) * 100) * 100) / 100;
         if (diffOffTwo < 0) {
             $('#player_2offense_change').html(diffOffTwo + '<i class="fa fa-caret-down"></i>');
             $('#Offense_player2').parent().css("background", "#BD1010");
@@ -645,7 +646,7 @@ function simulate() {
             $('#Offense_player2').parent().css("background", "rgba(150, 150, 150, 0.54)");
         }
         $('#Offense_player2').html(Math.round(saberScoresTwo.Offense * 100) / 100);
-        var diffPMTwo = Math.round((num(saberScoresTwo.Playmaking) - num(teamTwoOriginal.Playmaking)) * 100) / 100;
+        var diffPMTwo = Math.round(((num(saberScoresTwo.Playmaking) - num(teamTwoOriginal.Playmaking)) / (num(teamTwoOriginal.Playmaking)) * 100) * 100) / 100;
         if (diffPMTwo < 0) {
             $('#player_2playMaking_change').html(diffPMTwo + '<i class="fa fa-caret-down"></i>');
             $('#PlayMaking_player2').parent().css("background", "#BD1010");
@@ -657,7 +658,7 @@ function simulate() {
             $('#player_2playMaking_change').html("0.00");
         }
         $('#PlayMaking_player2').html(Math.round(saberScoresTwo.Playmaking * 100) / 100);
-        var diffDefTwo = Math.round((num(saberScoresTwo.Defense) - num(teamTwoOriginal.Defense)) * 100) / 100;
+        var diffDefTwo = Math.round(((num(saberScoresTwo.Defense) - num(teamTwoOriginal.Defense)) / (num(teamTwoOriginal.Defense)) * 100) * 100) / 100;
         if (diffDefTwo < 0) {
             $('#player_2Defense_change').html(diffDefTwo + '<i class="fa fa-caret-down"></i>');
             $('#Defense_player2').parent().css("background", "#BD1010");
@@ -915,7 +916,7 @@ function getSearchResult() {
         results = tempArr.slice(0);
     }
     console.log("before" + posSearch);
-console.log(results);
+    console.log(results);
     var tempPos = [];
     var posF = false;
     if (posSearch != "All") {
@@ -1521,6 +1522,16 @@ function createDataTable() {
         var hasTeam = checkTeam(data.Team);
         if (!hasTeam) {
             teams.push(data.Team);
+            teamPos[data.Team] = {length: 1, playmaking: data.PlayMaking, offense: data.Offense, defense: data.Defense, shooting: data.Shooting, allaround: data.All_Around};
+
+        } else {
+            teamPos[data.Team].length += 1;
+            teamPos[data.Team].playmaking += data.PlayMaking;
+            teamPos[data.Team].offense += data.Offense;
+            teamPos[data.Team].defense += data.Defense;
+            teamPos[data.Team].shooting += data.Shooting;
+            teamPos[data.Team].allaround += data.All_Around;
+
         }
         contents += "<td>" + position(data.Position) + "</td>";
         contents += "<td>" + Number(data.Minutes) + "</td>";
@@ -1538,6 +1549,10 @@ function createDataTable() {
         teams[data.tm] += data.PTS;
         contents += "</tr>";
     });
+    console.log(teamPos);
+    //  teamPos.forEach(function(data) {
+  
+    console.log(teamPos);
     contents += '</tbody>';
     $('#teams').html(teams.length + "<div class='statsTitle'>Teams</div>");
     $('#players').html(players.length + "<div class='statsTitle'>Players</div>");
