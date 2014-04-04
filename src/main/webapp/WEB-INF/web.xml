@@ -28,6 +28,10 @@
         <servlet-name>processResults</servlet-name>
         <servlet-class>process.processResults</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>getResults</servlet-name>
+        <servlet-class>getResults</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>processArticle</servlet-name>
         <url-pattern>/processArticle</url-pattern>
@@ -67,5 +71,9 @@
     <servlet-mapping>
         <servlet-name>processResults</servlet-name>
         <url-pattern>/processResults</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>getResults</servlet-name>
+        <url-pattern>/getResults</url-pattern>
     </servlet-mapping>
 </web-app>
