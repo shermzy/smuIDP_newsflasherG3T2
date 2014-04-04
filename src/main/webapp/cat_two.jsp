@@ -1,5 +1,3 @@
-
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <head>
@@ -60,9 +58,10 @@
                 </div>
 
             </div>   
-            <!-- <div class="save"><button class="btn green" id="save">Save</button></div>-->
+
         </div>
-        <div class="newsDetails" id="newsDetails" style="height: 753px; display: block;">
+ 
+        <div class="newsDetails" id="newsDetails" style="height: 351px; display: block;">
 
 
             <div class="newsArticle" style="height: 351.5px;">
@@ -70,11 +69,43 @@
                 <div class="blackOverlay" style="margin-top: -351.5px;"></div>
                 <!--Issue-->
                 <div class="overlay" style="margin-top: -351.5px;">
-                    <div class="col-md-3 hidden-xs">
+                    <div class="col-md-3 col-sm-3 col-xs-3">
                         <!-- Add other related news here-->
-                     
+                        <ul class="bmenu">
+                            <!--<li class="home"><div><i class="fa fa-home"></i>Home</div></li>-->
+                            <div id="sentiments">            
+                                <li>
+                                    <div class='filter' id="sentimentsHead">
+                                        <i class="fa fa-thumbs-up"></i>Sentiments
+                                    </div>
+                                </li>
+                                <div class="sentsOption">
+                                    <div class="sents" id="neuL">Neutral
+                                        <span class="white pull-right" id="neuCount"></span></div>
+                                    <div class="sents" id="posL">Positive
+                                        <span class="white pull-right" id="posCount"></span></div>
+                                    <div class="sents" id="negL">Negative
+                                        <span class="white pull-right" id="negCount"></span></div>
+                                </div>
+                            </div>
+
+                            <div id="newsSource"> 
+                                <li>
+                                    <div class='filter' id="newsSourceHead">
+                                        <i class="fa fa-flash"></i>News Source
+                                    </div>
+                                </li>
+                                <div class="newsSourceOptions">
+                                    <div class="nSource" id="social">Social media
+                                        <span class="white pull-right" id="socialCount"></span></div>
+                                    <div class="nSource" id="news">News Agency
+                                        <span class="white pull-right" id="newsCount"></span>
+                                    </div>                                   
+                                </div>
+                            </div>
+                        </ul>
                     </div>
-                    <div class="col-md-offset-1 col-md-4 col-xs-12" id="middleStory">
+                    <div class="col-md-offset-1 col-md-4 col-sm-offset-1 col-sm-4" id="middleStory">
 
                         <div class="news_caption_title" id="originalStory">Is controversial silver at Sochi winter Olympics valid? </div><div class="list-group"><a href="#" class="list-group-item"><p>Hot favourite Kim Yuna controversial silver at Sochi Winter Olympics </p></a> <a href="#" class="list-group-item"><p>
                                     Fans and professionals believe that she deserved better and that judges are bias to Russia's athlete</p></a> <a href="#" class="list-group-item"><p>
@@ -445,25 +476,7 @@
                     //Default is 75px, set to 0 for demo so any distance triggers swipe
                     threshold: 20
                 });
-                $(".sentimentsFilter").swipe({
-                    //Generic swipe handler for all directions
-                    swipe: function(event, direction, distance, duration, fingerCount) {
-                        if (direction == "up") {
-                            $sentimentsFilter.slideToggle();
-                            $('.newsArticle').css("-webkit-filter", "blur(0px)");
-                            $slider.css("-webkit-filter", "blur(0px)");
-                            if ($('#filter').hasClass('active')) {
-                                $('#filter').removeClass('active');
-                            } else {
-                                $('#filter').addClass('active');
-                            }
-
-                        }
-                    },
-                    //Default is 75px, set to 0 for demo so any distance triggers swipe
-                    threshold: 20
-                });
-
+     
                 $posLarge.click(function() {
                     $(this).toggleClass('selected');
                     filterStoriesBySentiments();
@@ -537,82 +550,9 @@
 
                 function init() {
 
-                    $sentimentsFilter.height($(window).height() - 35);
+                    $sentimentsFilter.height($(window).height() / 2 - 35);
                     $sentimentsFilter.width($(window).width() + 15);
-                    $('.news_article').click(function() {
-                        //$('.newsArticle').append($(this).html());
-                        //   $(this).html().appendTo($('.newsArticle'));
-                        /*  $('.content').hide(500);
-                         $('#gn-menu').hide(500, function() {
-                         $('.newsDetails').show(500, function() {*/
-                        var count = 0;
-
-                        $.getJSON("getNews", {type: "single", article: $(this).attr('id')}, function(response) {
-                            $('.news_name').text(response.name);
-
-
-                            $('.foregroundStory').css('background', 'url(' + response.relpic + ') #444 no-repeat center');
-                            var midStory = '<div class="news_caption_title" id="originalStory">' + response.name + '</div>';
-                            var bullets = response.snippet.split(";");
-                            midStory += ('<div class="list-group">');
-
-                            for (var i = 0; i < bullets.length - 1; i++) {
-                                midStory += ('<a href="#" class="list-group-item"><p>' + bullets[i] + '</p></a> ');
-                            }
-                            midStory += "</div>";
-                            $(midStory).appendTo('#middleStory');
-
-                            $('<ul id="comments"></ul>').appendTo('#cbp-fwslider');
-
-                            $.each(response.stories, function(key, val) {
-
-                                var storyContent = "";
-                                if (val.sentiment == 1) {
-                                    storyContent += '<li class="stories positiveNews ' + val.type + '">';
-                                } else if (val.sentiment == 0) {
-                                    storyContent += '<li class="stories negativeNews ' + val.type + '">';
-                                } else {
-                                    storyContent += '<li class="stories neutralNews ' + val.type + '">';
-                                }
-                                storyContent += ' <div class="story-header">'
-                                storyContent += '<img src="' + val.picLink + '" class="commentpic pull-left" width="70px" alt="">';
-                                storyContent += '<div class="story-agency">';
-                                storyContent += '<div class="story-metadata-name">' + val.name + '</div>';
-                                storyContent += '<div class="story-metadata-date">' + timeAgo(val.time) + '</div>';
-                                storyContent += '</div></div>';
-                                storyContent += '<div class="story">' + val.story + '</div>';
-                                storyContent += '<div class="storyLink"><a href="' + val.link + '">Full Story Here</a></div>  </li> ';
-                                $(storyContent).appendTo($('#comments'));
-                                $('.stories').css('height', $(window).height() / 2);
-                                if ($(window).width() < 422) {
-                                    $('.stories').css('min-width', $(window).width() + 15);
-                                }
-                                count += 1;
-                            });
-
-                            $('#cbp-fwslider').cbpFWSlider();
-
-                        });
-
-                        $('.content').hide(500);
-                        $('#gn-menu').hide(500, function() {
-                            $('.newsDetails').show(500);
-                        });
-                        $('#newsDetails').css('height', $(window).height() / 2);
-
-                        $('.newsArticle').css('height', $(window).height() / 2 - 25);
-                        $('.menu').css("width", $(window).width() + 15);
-                        $slider.css('height', $(window).height() / 2 - 25);
-                        // $slider.css('padding-top', $(window).height() / 2);
-                        $('.overlay').css("margin-top", -$(window).height() / 2 + 25);
-                        $('.blackOverlay').css("margin-top", -$(window).height() / 2 + 25);
-                        var newsLength = $('.news').length;
-                        $('#newsAgencyCount').text(newsLength);
-                        var socialLength = $('.social').length;
-                        $('#socialMediaCount').text(newsLength);
-                        var othersLength = $('.others').length;
-                        $('#othersCount').text(newsLength);
-                    });
+            
 
 
                 }
@@ -642,7 +582,7 @@
                             day_diff < 31 && Math.ceil(day_diff / 7) + " weeks ago";
                 }
 
-                new gnMenu(document.getElementById('gn-menu'));
+
 
                 function checkSource() {
                     var selectedSource = new Array();
