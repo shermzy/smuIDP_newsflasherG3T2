@@ -62,7 +62,7 @@
             </div>   
             <!-- <div class="save"><button class="btn green" id="save">Save</button></div>-->
         </div>
-        <div class="newsDetails" id="newsDetails" style="height: 753px; display: block;">
+        <div class="newsDetails" id="newsDetails" style="height: 351px; display: block;">
 
 
             <div class="newsArticle" style="height: 351.5px;">
@@ -70,7 +70,7 @@
                 <div class="blackOverlay" style="margin-top: -351.5px;"></div>
                 <!--Issue-->
                 <div class="overlay" style="margin-top: -351.5px;">
-                    <div class="col-md-3 hidden-xs">
+                    <div class="col-md-3 col-sm-3 col-xs-3">
                         <!-- Add other related news here-->
                         <ul class="bmenu">
                             <!--<li class="home"><div><i class="fa fa-home"></i>Home</div></li>-->
@@ -106,7 +106,7 @@
                             </div>
                         </ul>
                     </div>
-                    <div class="col-md-offset-1 col-md-4 col-xs-12" id="middleStory">
+                    <div class="col-md-offset-1 col-md-4 col-sm-offset-1 col-sm-4" id="middleStory">
 
                         <div class="news_caption_title" id="originalStory">Is controversial silver at Sochi winter Olympics valid? </div><div class="list-group"><a href="#" class="list-group-item"><p>Hot favourite Kim Yuna controversial silver at Sochi Winter Olympics </p></a> <a href="#" class="list-group-item"><p>
                                     Fans and professionals believe that she deserved better and that judges are bias to Russia's athlete</p></a> <a href="#" class="list-group-item"><p>
@@ -569,7 +569,7 @@
 
                 function init() {
 
-                    $sentimentsFilter.height($(window).height() - 35);
+                    $sentimentsFilter.height($(window).height()/2 - 35);
                     $sentimentsFilter.width($(window).width() + 15);
                     $('.news_article').click(function() {
                         //$('.newsArticle').append($(this).html());

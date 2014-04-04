@@ -7,6 +7,12 @@ and open the template in the editor.
     Created on : Feb 19, 2014, 1:18:32 PM
     Author     : Sherman
 */
+.info-pack{
+    position: fixed;
+    width: 30%;
+    /* float: right; */
+    right: 0;
+}
 #test{
     display:none;
 }
@@ -22,7 +28,7 @@ and open the template in the editor.
     position: relative;
 }
 .bmenu li{
-    font-size: 2rem;
+    font-size: 1.8rem;
     display: block;
     border-left:10px solid #808080;
 }
@@ -3131,13 +3137,15 @@ input.gn-search:focus {
 }
 #table-wrapper {
     text-align: center;
-    width: 1280px;
-    height: 900px;
+    width: 70%;
+    height: 880px;
     background-image: url('../uploads/ipad.png');
     background-position: center center;
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
     margin-left: -20px;
-    float:left;
+    float: left;
+    background-size: 1100px 880px;
+
 }
 
 #iframe-container {

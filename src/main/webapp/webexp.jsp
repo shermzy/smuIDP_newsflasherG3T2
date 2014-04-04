@@ -35,33 +35,36 @@
                     is voluntary and you have the right to withdraw your consent or discontinue participation at any time without penalty or loss of benefits
                     to which you are otherwise entitled.  The alternative is not to participate.  You have the right to refuse to answer any questions. </p></li>
             <li><p>  <b> If you agree to the above, please key in your name and click on the proceed button</b></p></li>           
-            <p style='margin-top:25px'>Name: <input type='text' id='name'/></p>
+            <!--<p style='margin-top:25px'>Name: <input type='text' id='name'/></p>-->
             <button id='proceed' class='btn green'>Proceed</button>
         </ul>
 
 
     </div>
     <div id='test'>
+
         <table id="table-wrapper">
             <tr>
                 <td>
                     <div id="iframe-container">
-                        <iframe  width="1027" height="770" frameborder="0"></iframe>
+                        <iframe  width="900" height="700" frameborder="0"></iframe>
                     </div>
                 </td>
 
             </tr>
         </table>
-
-        <div class="info">
-            <div class='instructions'>
-                <p>Please review the application on the left and answer the following questions. There will be a total of 5 questions.</p>
-                <p>You may want to familiarize yourself with the application before proceeding with the experiment</p>
+        <div class="info-pack">
+            <div class="info">
+                <div class='instructions'>
+                    <p>Please review the application on the left and answer the following questions. There will be a total of 5 questions.</p>
+                    <p>You may want to familiarize yourself with the application before proceeding with the experiment</p>
+                </div>
+                <div class='question'></div>
             </div>
-            <div class='question'></div>
+
+            <div id='end'></div>
+            <div><btn class='btn default' id='next'></button></div> 
         </div>
-        <div id='end'></div>
-        <div><btn class='btn default' id='next'></button></div>
     </div>
     <div id="aar" style="display:none">
 
@@ -75,8 +78,10 @@
     var count = 0;
     var answers = {};
     var withCat = false;
-    var cat_one = "http://newsflasher-smuidp21.rhcloud.com/cat_one.jsp";
-    var cat_two = "http://newsflasher-smuidp21.rhcloud.com/cat_two.jsp";
+    // var cat_one = "http://newsflasher-smuidp21.rhcloud.com/cat_one.jsp";
+    //var cat_two = "http://newsflasher-smuidp21.rhcloud.com/cat_two.jsp";
+    var cat_one = "/newsflasher/cat_one.jsp";
+    var cat_two = "/newsflasher/cat_one.jsp";
 
     var dec = Math.random();
     if (dec > 0.5) {
@@ -96,7 +101,7 @@
         } else {
             $('#intro').hide(function() {
                 $('#test').show("slide");
-                answers.name = $('#name').val();
+                answers.name = "User";
             });
         }
     });

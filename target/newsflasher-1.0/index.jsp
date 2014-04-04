@@ -40,99 +40,21 @@
         </div>
     </div>
 
-   <!-- <div class="sentimentsFilter ">
+</div>
+<div class="newsDetails" id="newsDetails">
 
-        <div id="neu" class ="sentimentSel">     Neutral</div>
-        <div id="pos" class ="sentimentSel">    Positive</div>  
-        <div id="neg" class ="sentimentSel">       Negative</div>
 
-        <div class="newsSource">
-            <div class="icon-btn">
-                <i class="fa fa-group"></i>
-                <div>
-                    Social Media
-                </div>
-                <span class="badge badge-success" id="socialMediaCount">
+    <div class="newsArticle">
+        <div class="foregroundStory"></div>
 
-                </span>
-            </div>
-            <div href="#" class="icon-btn">
-                <i class="fa fa-video-camera"></i>
-                <div>
-                    News Agency
-                </div>
-                <span class="badge badge-success" id="newsAgencyCount">
+        <!--Issue-->
+        <div class="overlay">
+            <div class="col-md-3 hidden-xs">
 
-                </span>
-            </div>
-            <div href="#" class="icon-btn">
-                <i class="fa fa-globe"></i>
-                <div>
-                    Others
-                </div>
-                <span class="badge badge-success" id="othersCount">
-
-                </span>
             </div>
 
-        </div>   
-        <!-- <div class="save"><button class="btn green" id="save">Save</button></div>-->
-    </div>
-    <div class="newsDetails" id="newsDetails">
+            </ul>
 
-
-        <div class="newsArticle">
-            <div class="foregroundStory"></div>
-            <div class="blackOverlay"></div>
-            <!--Issue-->
-            <div class="overlay">
-              <div class="col-md-3 hidden-xs">
-                    <!-- Add other related news here-->
-              <!--        <ul class="bmenu">
-                         <li class="home"><div><i class="fa fa-home"></i>Home</div></li>
-                        <div id="sentiments">            
-                            <li>
-                                <div id="sentimentsHead">
-                                    <i class="fa fa-thumbs-up"></i>Sentiments
-                                </div>
-                            </li>
-                            <div class="sentsOption">
-                                <div class="sents"  id="neuL">Neutral</div>
-                                <div class="sents"  id="posL">Positive</div>
-                                <div class="sents" id="negL">Negative</div>
-                            </div>
-                        </div>
-
-                        <div id="newsSource"> 
-                            <li>
-                                <div id="newsSourceHead">
-                                    <i class="fa fa-flash"></i>News Source
-                                </div>
-                            </li>
-                            <div class="newsSourceOptions">
-                                <div class="nSource"  id="social">Social media</div>
-                                <div class="nSource"  id="news">News Agency</div>
-                                <div class="nSource" id="others">Others</div>
-                            </div>
-                        </div> -->
-                        <!--     <div id="socialSource"> 
-                                  <li>
-                                      <div id="socialSourceHead">
-                                          <i class="fa fa-retweet"></i>Share
-                                      </div>
-                                  </li>
-                                  <div class="socialOptions">
-      
-                                      <div class="socialIcons pull-left" id="facebook">      <i class="fa fa-facebook"></i></div>
-                                      <div class="socialIcons pull-left">    <i class="fa fa-twitter "></i></div>
-                                      <div class="socialIcons pull-left">    <i class="fa fa-google-plus "></i></div>
-      
-      
-                                  </div>-->
-                </div>
-
-                </ul>
-            </div>
             <div class="col-md-offset-1 col-md-4 col-xs-12" id="middleStory">
 
             </div>
