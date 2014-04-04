@@ -80,6 +80,8 @@
     var withCat = false;
     var cat_one = "http://newsflasher-smuidp21.rhcloud.com/cat_one.jsp";
     var cat_two = "http://newsflasher-smuidp21.rhcloud.com/cat_two.jsp";
+   /* var cat_one = "http://localhost:8080/newsflasher/cat_one.jsp";
+    var cat_two = "http://localhost:8080/newsflasher/cat_two.jsp";*/
     var prac = "http://newsflasher-smuidp21.rhcloud.com/prac.jsp";
     function initTest() {
         var dec = Math.random();

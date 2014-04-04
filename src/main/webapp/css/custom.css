@@ -121,7 +121,9 @@ and open the template in the editor.
     margin-bottom:30px;
 }
 .nSource.selected{
-    background:rgba(80, 80, 80, 0.7) !important;
+    background:black !important;
+    color:#fff;
+    border-right:3px solid #fff;
 }
 .menu{
     height: 55px;
@@ -3118,18 +3120,21 @@ input.gn-search:focus {
 }
 #posL.selected,
 #pos.selected{
-    background:rgba(57, 206, 29, 0.25);
+    background:rgba(57, 206, 29, 0.5);
     color:#CCC;
+    border-right:4px solid rgba(57, 206, 29, 1);
 }
 #negL.selected,
 #neg.selected{
-    background:rgba(206, 29, 29, 0.25);
+    background:rgba(206, 29, 29, 0.5);
     color:#CCC;
+    border-right:4px solid rgba(206, 29, 29, 1);
 }
 #neuL.selected,
 #neu.selected{
-    background:rgba(255, 255, 255, 0.25);;
+    background:rgba(255, 255, 255, 0.5);
     color:#CCC;
+    border-right:4px solid rgba(255, 255, 255, 1);
 }
 #alltypes.selected{
     background:#FFF;

@@ -60,7 +60,7 @@
             </div>   
 
         </div>
- 
+
         <div class="newsDetails" id="newsDetails" style="height: 351px; display: block;">
 
 
@@ -438,6 +438,12 @@
 
                 var numNeu = $('.neutralNews').length;
                 $('#neuCount').text(numNeu);
+                $('li.stories').click(function() {
+                    $('#myModal').modal('show');
+                    $('#myModalLabel').html($(this).find('.story-metadata-name').text());
+                    $('.modal-body').text($(this).find('.story').html());
+                    $('<br/><br/><b>This news snippet is to illustrate the functionality of the actual news source showing on clicking of a particular story.</b>').appendTo($('.modal-body'));
+                })
 
 
 
@@ -453,10 +459,21 @@
                     $('.sentsOption').slideToggle();
                     $('.nSource').removeClass('selected');
                 });
+                $('.sents').click(function() {
+                    $('.nSource').removeClass('selected');
+                });
                 $('.nSource').click(function() {
+                    $('.sents').removeClass('selected');
                     $(this).toggleClass('selected');
                     filterStoriesBySource();
+                    checkAll();
                 })
+                function checkAll() {
+                    if ($('.sents.selected').length == 0 && $('.nSource.selected').length == 0) {
+
+                        $('li.stories').show("slide");
+                    }
+                }
                 //Enable swiping...
                 $(".newsDetails").swipe({
                     //Generic swipe handler for all directions
@@ -476,20 +493,23 @@
                     //Default is 75px, set to 0 for demo so any distance triggers swipe
                     threshold: 20
                 });
-     
                 $posLarge.click(function() {
                     $(this).toggleClass('selected');
                     filterStoriesBySentiments();
+                    checkAll();
                 });
                 $negLarge.click(function() {
+
                     $(this).toggleClass('selected');
                     filterStoriesBySentiments();
+                    checkAll();
                 });
                 $('#neuL').click(function() {
+
                     $(this).toggleClass('selected');
                     filterStoriesBySentiments();
+                    checkAll();
                 });
-
                 $('#filter').click(function() {
                     $sentimentsFilter.slideToggle();
                     $('#filter').toggleClass('active');
@@ -511,53 +531,15 @@
                     },
                     threshold: 10
                 });
-                $("#pos").swipe({
-                    tap: function() {
-                        $(this).toggleClass('selected');
-                        $storiesNegative.hide("slide", function() {
-                            $storiesPositive.show("slide");
-                            $comments_section.css("-webkit-transform", "translate3d(0%, 0px, 0px)");
-
-                        });
-                    },
-                    threshold: 10
-                });
-                $("#neg").swipe({
-                    tap: function() {
-                        $(this).toggleClass('selected');
-                        $storiesPositive.hide("slide", function() {
-                            $storiesNegative.show("slide");
-                            $comments_section.css("-webkit-transform", "translate3d(0%, 0px, 0px)");
-                        });
-                    },
-                    threshold: 10
-                });
-                $("#neu").swipe({
-                    tap: function() {
-                        $(this).toggleClass('selected');
-                        $storiesPositive.hide("slide", function() {
-                            $('li.stories.neutralNews').show("slide");
-                            $comments_section.css("-webkit-transform", "translate3d(0%, 0px, 0px)");
-                        });
-                    },
-                    threshold: 0
-                });
-
                 $(function() {
                     $('#cbp-fwslider').cbpFWSlider();
-
                 });
-
                 function init() {
 
                     $sentimentsFilter.height($(window).height() / 2 - 35);
                     $sentimentsFilter.width($(window).width() + 15);
-            
-
-
                 }
                 ;
-
                 function timeAgo(time) {
                     var now = new Date;
                     // var time1 = new Date(time);
@@ -567,10 +549,8 @@
                     var time1 = new Date((time || "").replace(/-/g, "/").replace(/[TZ]/g, " ")),
                             diff = ((nowUtc.getTime() - (time1.getTime())) / 1000),
                             day_diff = Math.floor(diff / 86400);
-
                     if (isNaN(day_diff) || day_diff < 0 || day_diff >= 31)
                         return;
-
                     return day_diff == 0 && (
                             diff < 60 && "just now" ||
                             diff < 120 && "1 minute ago" ||
@@ -615,7 +595,6 @@
                     if ($posLarge.hasClass('selected')) {
                         $('li.stories.positiveNews.news').show("slide");
                         $('li.stories.positiveNews.social').show("slide");
-
                     } else {
                         $('li.stories.positiveNews.news').hide("slide");
                         $('li.stories.positiveNews.social').hide("slide");
@@ -625,7 +604,6 @@
 
                         $('li.stories.negativeNews.news').show("slide");
                         $('li.stories.negativeNews.social').show("slide");
-
                     } else {
 
                         $('li.stories.negativeNews.news').hide("slide");
@@ -635,7 +613,6 @@
 
                         $('li.stories.neutralNews.news').show("slide");
                         $('li.stories.neutralNews.social').show("slide");
-
                     } else {
 
                         $('li.stories.neutralNews.news').hide("slide");
@@ -648,7 +625,6 @@
                         $('li.stories.negativeNews.social').show("slide");
                         $('li.stories.positiveNews.social').show("slide");
                         $('li.stories.neutralNews.social').show("slide");
-
                     } else {
                         $('li.stories.negativeNews.social').hide("slide");
                         $('li.stories.positiveNews.social').hide("slide");
