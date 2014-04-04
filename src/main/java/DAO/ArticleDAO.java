@@ -320,6 +320,49 @@ public class ArticleDAO {
         return data;
     }
     
+     public static JSONObject getResults() {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String query = "";
+        Statement st = null;
+        JSONArray newsStand = new JSONArray();
+        JSONObject data = new JSONObject();
+        try {
+            //Get database connection & execute query
+            conn = ConnectionManager.getConnection();
+            query = "select * from experiments order by name";
+            st = conn.createStatement();
+            rs = st.executeQuery(query);
+
+            while (rs.next()) {
+                try {
+                    JSONObject agency = new JSONObject();
+                    agency.put("name", rs.getString("name"));
+                    agency.put("pic", rs.getString("relPath"));
+
+                    newsStand.put(agency);
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+
+            }
+            data.put("data", newsStand);
+        } catch (SQLException e) {
+            //insertedLine = 100;
+            System.out.println(e.getMessage());
+
+        } catch (Exception ex) {
+            //insertedLine = 101;
+            ex.printStackTrace();
+        } finally {
+            //Close connection, statement and resultset
+            ConnectionManager.close(conn, ps, rs);
+        }
+
+        return data;
+    }
+     
     public static String getNewsAgencySingle(String name) {
         Connection conn = null;
         PreparedStatement ps = null;

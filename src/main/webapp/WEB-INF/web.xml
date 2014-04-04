@@ -30,7 +30,7 @@
     </servlet>
     <servlet>
         <servlet-name>getResults</servlet-name>
-        <servlet-class>getResults</servlet-class>
+        <servlet-class>process.getResults</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>processArticle</servlet-name>
