@@ -82,7 +82,7 @@
 
             
 
-            <div class="col-md-offset-1 col-sm-offset-1 col-md-4 col-sm-4" id="middleStory">
+            <div class="col-md-offset-1 col-sm-offset-4 col-md-4 col-sm-4" id="middleStory">
 
             <div class="news_caption_title" id="originalStory">Should you buy bitcoin?</div><div class="list-group"><a href="#" class="list-group-item"><p>Bitcoin is the currency of the Internet: a distributed, worldwide, decentralized digital money. Unlike traditional currencies such as dollars, bitcoins are issued and managed without any central authority</p></a> <a href="#" class="list-group-item"><p>
 To some, Bitcoin today is considered "better" than other stores of value because of reasons like easy to hide, impossible to steal and not controlled by central authority. </p></a> </div></div>
