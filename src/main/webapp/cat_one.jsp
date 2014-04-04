@@ -60,8 +60,57 @@
                 </div>
 
             </div>   
-            <!-- <div class="save"><button class="btn green" id="save">Save</button></div>-->
+
         </div>
+        <div class="newsDetails" id="newsDetails" style="height: 447px; display: block;">
+
+
+            <div class="newsArticle" style="height: 422px;">
+                <div class="foregroundStory" style="background-image: url(http://newsflasher-smuidp21.rhcloud.com/images/articles/articlePicture_05-03-2014_01-44.png); background-color: rgb(68, 68, 68); background-position: 50% 50%; background-repeat: no-repeat no-repeat;"></div>
+
+                <!--Issue-->
+                <div class="overlay" style="margin-top: -422px;">
+                    <div class="col-md-3 hidden-xs">
+
+                    </div>
+
+
+
+                    <div class="col-md-offset-1 col-md-4 col-xs-12" id="middleStory">
+
+                        <div class="news_caption_title" id="originalStory">Should you buy bitcoin?</div><div class="list-group"><a href="#" class="list-group-item"><p>Bitcoin is the currency of the Internet: a distributed, worldwide, decentralized digital money. Unlike traditional currencies such as dollars, bitcoins are issued and managed without any central authority</p></a> <a href="#" class="list-group-item"><p>
+                                    To some, Bitcoin today is considered "better" than other stores of value because of reasons like easy to hide, impossible to steal and not controlled by central authority. </p></a> </div></div>
+                    <div class="col-md-4">
+
+
+                    </div>
+                </div>
+            </div>
+            <!--End Issue-->
+            <!--News slider-->
+            <div id="cbp-fwslider" class="cbp-fwslider" style="height: 422px;">
+
+                <ul id="comments" style="width: 320%; transition: -webkit-transform 500ms ease; -webkit-transition: -webkit-transform 500ms ease;"><li class="stories positiveNews " style="height: 447px; width: 12.5%;"> <div class="story-header"><img src="uploads/newsAgency/techcrunch.jpg" class="commentpic pull-left" width="70px" alt=""><div class="story-agency"><div class="story-metadata-name">TechCrunch</div><div class="story-metadata-date">4 weeks ago</div></div></div><div class="story">Since Overstock.com started to accept Bitcoin as a purchase currency, the company has received a good press for its efforts to support the nascent cryptocurrency. Working with Coinbase to process Bitcoin, Overstock.com announced that it crossed the million-dollar sale mark in the currency earlier this month. Bitcoin has settled in the “$20k to $30k” range, and is “gradually increasing from there."</div><div class="storyLink"><a href="http://techcrunch.com/2014/03/12/overstocks-bitcoin-purchases-account-for-less-than-1-of-revenue-but-its-growing/">Full Story Here</a></div>  </li><li class="stories negativeNews " style="height: 447px; width: 12.5%;"> <div class="story-header"><img src="uploads/newsAgency/yahoo.jpg" class="commentpic pull-left" width="70px" alt=""><div class="story-agency"><div class="story-metadata-name">Yahoo</div><div class="story-metadata-date">4 weeks ago</div></div></div><div class="story">Goldman Sachs (GS) Group Inc. analysts see Bitcoin as an innovative payments technology while doubting that it will evolve into a true alternative currency. It is only a matter of time before major incumbents develop a digital currency strategy</div><div class="storyLink"><a href="http://www.bloomberg.com/news/2014-03-12/goldman-sachs-sees-bitcoin-s-promise-in-payments-over-currency.html">Full Story Here</a></div>  </li><li class="stories positiveNews " style="height: 447px; width: 12.5%;"> <div class="story-header"><img src="/uploads/newsAgency/CNBC.jpg" class="commentpic pull-left" width="70px" alt=""><div class="story-agency"><div class="story-metadata-name">CNBC</div><div class="story-metadata-date">4 weeks ago</div></div></div><div class="story">Bitcoin is valuable as a currency because of the economic efficiencies the bitcoin network is already creating as transactions flow over it. As with the Internet, more applications will flourish which will make the bitcoin network, and thus bitcoin as a currency, valuable.</div><div class="storyLink"><a href="http://www.boston.com/blogs/news/opinion/bostoncomment/2014/02/south_stations_bitcoin_atm_sign_of_things_to_come.html">Full Story Here</a></div>  </li><li class="stories negativeNews " style="height: 447px; width: 12.5%;"> <div class="story-header"><img src="uploads/newsAgency/venturebeat.png" class="commentpic pull-left" width="70px" alt=""><div class="story-agency"><div class="story-metadata-name">Venturebeat</div><div class="story-metadata-date">4 weeks ago</div></div></div><div class="story">While bitcoin represents a significant step in the evolution toward an Internet-based digital money ecosystem, it’s not clear that bitcoin itself will be one of surviving digital currencies. I also don’t see bitcoin, or any other digital currency, gaining full acceptance while escaping government regulation.                 </div><div class="storyLink"><a href="http://blogs.wsj.com/cio/2014/02/12/bitcoin-and-the-internet-of-money/">Full Story Here</a></div>  </li><li class="stories positiveNews " style="height: 447px; width: 12.5%;"> <div class="story-header"><img src="uploads/newsAgency/facebook.jpg" class="commentpic pull-left" width="70px" alt=""><div class="story-agency"><div class="story-metadata-name">Facebook</div><div class="story-metadata-date">4 weeks ago</div></div></div><div class="story">A life on bitcoin.For 100+ days from late July to the end of October, 2013, this intrepid couple place themselves in a social experiment where they are compelled to evangelize the controversial and fascinating bitcoin to survive. It can make life effective.</div><div class="storyLink"><a href="https://www.facebook.com/LifeOnBitcoin">Full Story Here</a></div>  </li><li class="stories negativeNews " style="height: 447px; width: 12.5%;"> <div class="story-header"><img src="uploads/newsAgency/twitter.jpg" class="commentpic pull-left" width="70px" alt=""><div class="story-agency"><div class="story-metadata-name">Twitter</div><div class="story-metadata-date">4 weeks ago</div></div></div><div class="story">@Michael Snyder: End of our economy #bitcoinsucks</div><div class="storyLink"><a href="www.twitter.com">Full Story Here</a></div>  </li><li class="stories negativeNews " style="height: 447px; width: 12.5%;"> <div class="story-header"><img src="uploads/newsAgency/twitter.jpg" class="commentpic pull-left" width="70px" alt=""><div class="story-agency"><div class="story-metadata-name">Twitter</div><div class="story-metadata-date">4 weeks ago</div></div></div><div class="story">@Parker Boyack You need to go mom and pops, much better chance of getting someone to take it. Big box stores will never allow it</div><div class="storyLink"><a href="www.twitter.com">Full Story Here</a></div>  </li><li class="stories positiveNews " style="height: 447px; width: 12.5%;"> <div class="story-header"><img src="uploads/newsAgency/twitter.jpg" class="commentpic pull-left" width="70px" alt=""><div class="story-agency"><div class="story-metadata-name">Twitter</div><div class="story-metadata-date">4 weeks ago</div></div></div><div class="story">@Leo Wandersleb Well, my first thought was, why advertise the shop if they don't take bitcoin but then, hey why not also name all the places that in July 2013 refused to take the money # bitcoinsneutral</div><div class="storyLink"><a href="www.twitter.com">Full Story Here</a></div>  </li></ul><nav><span class="cbp-fwprev">&lt;</span><span class="cbp-fwnext">&gt;</span></nav><div class="cbp-fwdots"><span class="cbp-fwcurrent"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+            <div class="menu visible-xs" style="width: 1776px;">
+
+
+                <div class="menuClass" id="filter">  
+                    <i class="fa fa-filter filter menuIcons"></i><div class="font12 lightGrey"> Filter</div>
+
+                </div>
+
+                <div class="menuClass home" id="backButton"> <i class="fa fa-home menuIcons"></i><div class="font12 lightGrey"> Home</div></div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
         <div class="newsDetails" id="newsDetails" style="height: 351px; display: block;">
 
 
@@ -82,11 +131,11 @@
                                 </li>
                                 <div class="sentsOption">
                                     <div class="sents" id="neuL">Neutral
-                                    <span class="white pull-right" id="neuCount"></span></div>
+                                        <span class="white pull-right" id="neuCount"></span></div>
                                     <div class="sents" id="posL">Positive
-                                    <span class="white pull-right" id="posCount"></span></div>
+                                        <span class="white pull-right" id="posCount"></span></div>
                                     <div class="sents" id="negL">Negative
-                                    <span class="white pull-right" id="negCount"></span></div>
+                                        <span class="white pull-right" id="negCount"></span></div>
                                 </div>
                             </div>
 
@@ -101,7 +150,7 @@
                                         <span class="white pull-right" id="socialCount"></span></div>
                                     <div class="nSource" id="news">News Agency
                                         <span class="white pull-right" id="newsCount"></span>
-                                        </div>                                   
+                                    </div>                                   
                                 </div>
                             </div>
                         </ul>
@@ -134,7 +183,7 @@
                             A majority – 55% —  said her overall performance and gracious response provided the best moments of the Olympics. Nearly half – 46% —- agreed the Games were not a success, as reported by Yonhap, the South Korean news agency, and most of those polled – 88% –  believed the judging was not fair.
                         </div>
                         <div class="storyLink">
-                             <!--    <a href="http://www.forbes.com/sites/donaldkirk/2014/02/26/kim-yu-nasilver-at-sochi-wins-gold-in-korean-hearts/ ">Full Story Here</a>-->
+                            <!--    <a href="http://www.forbes.com/sites/donaldkirk/2014/02/26/kim-yu-nasilver-at-sochi-wins-gold-in-korean-hearts/ ">Full Story Here</a>-->
                         </div> 
                     </li>
                     <!-- STORY 2 -->
@@ -151,251 +200,251 @@
                             It didn't help that one of the judges had been suspended for a year for trying to fix an event at the Winter Olympics 16 years ago. Or that another is married to the head of the Russian figure skating federation.
                         </div>
                         <div class="storyLink">
-                             <!--    <a href="http://edition.cnn.com/2014/02/21/sport/kim-sotnikova-skating-controversy/ ">Full Story Here</a>
-                        </div>  </li>
-                    <!-- STORY 3 -->
-                    <li class="stories negativeNews news"> 
-                        <div class="story-header">
-                            <img src="uploads/newsAgency/wanBao.jpg" class="commentpic pull-left" width="70px" alt="">
-                            <div class="story-agency">
-                                <div class="story-metadata-name">News - 联合晚报</div>
-                                <div class="story-metadata-date">3 weeks ago</div>
-                            </div>
-                        </div>
-                        <div class="story">Deal with it, South Korea: Adelina Sotnikova beat Yuna Kim fair and square.
-                            SOCHI, Russia – Give it up, South Korea.
-                            The International Olympic Committee said Saturday it received a "protest letter" from South Korea over the scoring in the ladies individual 
-                            figure skating competition. Russia's Adelina Sotnikova beat out South Korea's Yuna Kim for gold on Thursday.
-                            At issue is the scoring in the free skate where Sotnikova received an extremely high mark – 149.95 – more than enough to beat Kim's 144.19.
-                            The score was the best of any skater in a free program this year (Kim's is the second-best) and was more than 18 points higher than Sotnikova's season's best.
-                        </div>
-                        <div class="storyLink">
-                             <!--    <a href="http://sports.yahoo.com/news/deal-with-it--south-korea--adelina-sotnikova-beat-yuna-kim-fair-and-square-152619212.html ">Full Story Here</a>-->
-                        </div>
-                    </li>
-                    <!-- STORY 4 -->
-                    <li class="stories positiveNews social">
-                        <div class="story-header">
-                            <img src="uploads/newsAgency/twitter.jpg" class="commentpic pull-left" width="70px" alt="">
-                            <div class="story-agency"><div class="story-metadata-name">Social - Twitter</div>
-                                <div class="story-metadata-date">3 weeks ago</div>                                   
-                            </div>                              
-                        </div>
-                        <div class="story">John Carruthers ‏@Jonny_BeGood  Feb 21
-                            It does seem that #Kim Yuna was robbed..Her performance was perfection as usual.
-                        </div>
-                        <div class="storyLink">
-                         <!--   <a href="www.twitter.com">Full Story Here</a>-->
-                        </div> 
-                    </li>
-                    <!-- STORY 5 -->
-                    <li class="stories positiveNews social">
-                        <div class="story-header">
-                            <img src="uploads/newsAgency/twitter.jpg" class="commentpic pull-left" width="70px" alt="">
-                            <div class="story-agency">
-                                <div class="story-metadata-name">Social - Twitter</div>
-                                <div class="story-metadata-date">3 weeks ago</div>
-                                    
-                            </div>
-                                
-                        </div>
-                        <div class="story">Olivia Won ‏@Olivia_Won  Feb 22
-                            Brennan: Official says judges slanted toward Adelina Sotnikova http://usat.ly/1f3td0H  #Olympics #figureskating #Sochi2014 #Kim #Sotnikova
-                        </div>
-                        <div class="storyLink">
-                     <!--       <a href="www.twitter.com">Full Story Here</a>-->
-                        </div> 
-                    </li>
-                    <!-- STORY 6 -->
-                    <li class="stories negativeNews social"> 
-                        <div class="story-header">
-                            <img src="uploads/newsAgency/twitter.jpg" class="commentpic pull-left" width="70px" alt="">
-                            <div class="story-agency"><div class="story-metadata-name">Twitter</div>
-                                <div class="story-metadata-date">3 weeks ago</div>                                    
-                            </div>                                
-                        </div>
-                        <div class="story">maakopla ‏@maakopla87  Feb 24
-                            #YunaKim’s Silver medal: Koreans lost but are too arrogant to admit anything 
-                        </div>
-                        <div class="storyLink">
-                        <!--    <a href="www.twitter.com">Full Story Here</a>-->
-                        </div>  
-                    </li>
-                    <!-- STORY 7 -->
-                    <li class="stories positiveNews social"> 
-                        <div class="story-header">
-                            <img src="uploads/newsAgency/BrianNicholas.jpg" class="commentpic pull-left" width="70px" alt="">
-                            <div class="story-agency">
-                                <div class="story-metadata-name">Social - BrianNicholas</div>
-                                <div class="story-metadata-date">3 weeks ago</div>                                    
-                            </div>
-                        </div>
-                        <div class="story">The results show that the judges gave questionably high scores to Sotnikova and questionably low scores to Kim.
-                            Even though I am not a figure skating judge, the scoring does seem odd. Kim Yuna is a proven athlete, and she has broken multiple 
-                            world records throughout her career. She has received consistently high scores, being the first one to break the 140 and 150 mark 
-                            for the free skate and the 200 mark for overall score. She has won the gold medal in the 2010 Vancouver Winter Olympics, smashing
-                            the world record. Kim was the overwhelming favorite, and most were sure of her second gold after her stunning performances in Sochi.
-                            Sotnikova, meanwhile, is an athlete no one expected to be on the podium. She has barely moved to seniors from the juniors. Did Sotnikova 
-                            really out perform Kim, and more so with a large margin of 5.48?
-                        </div>
-                        <div class="storyLink">
-                             <!--    <a href="www.blogger.com">Full Story Here</a>-->
-                        </div> 
-                    </li>
-                    <!-- Story 8 -->
-                    <li class="stories negativeNews news"> 
-                        <div class="story-header">
-                            <img src="uploads/newsAgency/guardian.jpg" class="commentpic pull-left" width="70px" alt="">
-                            <div class="story-agency">
-                                <div class="story-metadata-name">News - The Guardian</div>
-                                <div class="story-metadata-date">3 weeks ago</div>
-                            </div>
-                        </div>
-                        <div class="story">As of Friday, more than 1.5 million of them had signed an online petition demanding an inquiry into Kim's shock defeat.
-                            The petition could end up breaking change.org recordsKim had been denied the chance to join Germany's Katarina Witt and Norway's Sonja 
-                            Henie as the only women to win successive Olympic figure skating golds by partisan judging and an "extra judge" in the form of Putin.
-                            Rage among South Korean skating fans may not be enough to force an official inquiry, though. The International Olympic Committee said on
-                            Friday that it would not investigate Sotnikova's win unless a formal complaint was lodged.
+                            <!--    <a href="http://edition.cnn.com/2014/02/21/sport/kim-sotnikova-skating-controversy/ ">Full Story Here</a>
+                       </div>  </li>
+                            <!-- STORY 3 -->
+                            <li class="stories negativeNews news"> 
+                                <div class="story-header">
+                                    <img src="uploads/newsAgency/wanBao.jpg" class="commentpic pull-left" width="70px" alt="">
+                                    <div class="story-agency">
+                                        <div class="story-metadata-name">News - 联合晚报</div>
+                                        <div class="story-metadata-date">3 weeks ago</div>
+                                    </div>
+                                </div>
+                                <div class="story">Deal with it, South Korea: Adelina Sotnikova beat Yuna Kim fair and square.
+                                    SOCHI, Russia – Give it up, South Korea.
+                                    The International Olympic Committee said Saturday it received a "protest letter" from South Korea over the scoring in the ladies individual 
+                                    figure skating competition. Russia's Adelina Sotnikova beat out South Korea's Yuna Kim for gold on Thursday.
+                                    At issue is the scoring in the free skate where Sotnikova received an extremely high mark – 149.95 – more than enough to beat Kim's 144.19.
+                                    The score was the best of any skater in a free program this year (Kim's is the second-best) and was more than 18 points higher than Sotnikova's season's best.
+                                </div>
+                                <div class="storyLink">
+                                    <!--    <a href="http://sports.yahoo.com/news/deal-with-it--south-korea--adelina-sotnikova-beat-yuna-kim-fair-and-square-152619212.html ">Full Story Here</a>-->
+                                </div>
+                            </li>
+                            <!-- STORY 4 -->
+                            <li class="stories positiveNews social">
+                                <div class="story-header">
+                                    <img src="uploads/newsAgency/twitter.jpg" class="commentpic pull-left" width="70px" alt="">
+                                    <div class="story-agency"><div class="story-metadata-name">Social - Twitter</div>
+                                        <div class="story-metadata-date">3 weeks ago</div>                                   
+                                    </div>                              
+                                </div>
+                                <div class="story">John Carruthers ‏@Jonny_BeGood  Feb 21
+                                    It does seem that #Kim Yuna was robbed..Her performance was perfection as usual.
+                                </div>
+                                <div class="storyLink">
+                                    <!--   <a href="www.twitter.com">Full Story Here</a>-->
+                                </div> 
+                            </li>
+                            <!-- STORY 5 -->
+                            <li class="stories positiveNews social">
+                                <div class="story-header">
+                                    <img src="uploads/newsAgency/twitter.jpg" class="commentpic pull-left" width="70px" alt="">
+                                    <div class="story-agency">
+                                        <div class="story-metadata-name">Social - Twitter</div>
+                                        <div class="story-metadata-date">3 weeks ago</div>
 
-                        </div>
-                        <div class="storyLink">
-                             <!--    <a href="http://www.theguardian.com/sport/2014/feb/21/sochi-2014-south-korea-russia-figure-skating-gold-sotnikova-kim-yuna ">Full Story Here</a>-->
-                        </div>
-                    </li>
-                    <!-- Story 9 -->
-                    <li class="stories negativeNews news"> 
-                        <div class="story-header">
-                            <img src="uploads/newsAgency/ESPN.jpg" class="commentpic pull-left" width="70px" alt="">
-                            <div class="story-agency">
-                                <div class="story-metadata-name">News - ESPN</div>
-                                <div class="story-metadata-date">3 weeks ago</div>
-                            </div>
-                        </div>
-                        <div class="story">KSU officials said they are gathering necessary documents and materials. Cinquanta did say any protests would have to be backed up by hard evidence.
-                            "Opinion and criticism is one thing," Cinquanta said. "But when there is criticism based on wrongdoing, it needs to be presented with evidence."
-                            "The judges are experts, they take part in seminars, they know a lot and we have given them a video replay system," Cinquanta said. "We are working very hard to give the skaters 
-                            the number of points they deserve but we are not perfect and mistakes are possible, just as with the skaters mistakes are possible because we are human beings. 
-                            But the best human beings we can use are those seated at the events."
+                                    </div>
 
+                                </div>
+                                <div class="story">Olivia Won ‏@Olivia_Won  Feb 22
+                                    Brennan: Official says judges slanted toward Adelina Sotnikova http://usat.ly/1f3td0H  #Olympics #figureskating #Sochi2014 #Kim #Sotnikova
+                                </div>
+                                <div class="storyLink">
+                                    <!--       <a href="www.twitter.com">Full Story Here</a>-->
+                                </div> 
+                            </li>
+                            <!-- STORY 6 -->
+                            <li class="stories negativeNews social"> 
+                                <div class="story-header">
+                                    <img src="uploads/newsAgency/twitter.jpg" class="commentpic pull-left" width="70px" alt="">
+                                    <div class="story-agency"><div class="story-metadata-name">Twitter</div>
+                                        <div class="story-metadata-date">3 weeks ago</div>                                    
+                                    </div>                                
+                                </div>
+                                <div class="story">maakopla ‏@maakopla87  Feb 24
+                                    #YunaKim’s Silver medal: Koreans lost but are too arrogant to admit anything 
+                                </div>
+                                <div class="storyLink">
+                                    <!--    <a href="www.twitter.com">Full Story Here</a>-->
+                                </div>  
+                            </li>
+                            <!-- STORY 7 -->
+                            <li class="stories positiveNews social"> 
+                                <div class="story-header">
+                                    <img src="uploads/newsAgency/BrianNicholas.jpg" class="commentpic pull-left" width="70px" alt="">
+                                    <div class="story-agency">
+                                        <div class="story-metadata-name">Social - BrianNicholas</div>
+                                        <div class="story-metadata-date">3 weeks ago</div>                                    
+                                    </div>
+                                </div>
+                                <div class="story">The results show that the judges gave questionably high scores to Sotnikova and questionably low scores to Kim.
+                                    Even though I am not a figure skating judge, the scoring does seem odd. Kim Yuna is a proven athlete, and she has broken multiple 
+                                    world records throughout her career. She has received consistently high scores, being the first one to break the 140 and 150 mark 
+                                    for the free skate and the 200 mark for overall score. She has won the gold medal in the 2010 Vancouver Winter Olympics, smashing
+                                    the world record. Kim was the overwhelming favorite, and most were sure of her second gold after her stunning performances in Sochi.
+                                    Sotnikova, meanwhile, is an athlete no one expected to be on the podium. She has barely moved to seniors from the juniors. Did Sotnikova 
+                                    really out perform Kim, and more so with a large margin of 5.48?
+                                </div>
+                                <div class="storyLink">
+                                    <!--    <a href="www.blogger.com">Full Story Here</a>-->
+                                </div> 
+                            </li>
+                            <!-- Story 8 -->
+                            <li class="stories negativeNews news"> 
+                                <div class="story-header">
+                                    <img src="uploads/newsAgency/guardian.jpg" class="commentpic pull-left" width="70px" alt="">
+                                    <div class="story-agency">
+                                        <div class="story-metadata-name">News - The Guardian</div>
+                                        <div class="story-metadata-date">3 weeks ago</div>
+                                    </div>
+                                </div>
+                                <div class="story">As of Friday, more than 1.5 million of them had signed an online petition demanding an inquiry into Kim's shock defeat.
+                                    The petition could end up breaking change.org recordsKim had been denied the chance to join Germany's Katarina Witt and Norway's Sonja 
+                                    Henie as the only women to win successive Olympic figure skating golds by partisan judging and an "extra judge" in the form of Putin.
+                                    Rage among South Korean skating fans may not be enough to force an official inquiry, though. The International Olympic Committee said on
+                                    Friday that it would not investigate Sotnikova's win unless a formal complaint was lodged.
 
-                        </div>
-                        <div class="storyLink">
-                            <!--   <a href="http://www.theguardian.com/sport/2014/feb/21/sochi-2014-south-korea-russia-figure-skating-gold-sotnikova-kim-yuna ">Full Story Here</a>-->
-                        </div>
-                    </li>
-                    <!-- Story 10 -->
-                    <li class="stories neutralNews news"> 
-                        <div class="story-header">
-                            <img src="http://placehold.it/350&text=No+Image" class="commentpic pull-left" width="70px" alt="">
-                            <div class="story-agency">
-                                <div class="story-metadata-name">News - The Wire</div>
-                                <div class="story-metadata-date">3 weeks ago</div>
-                            </div>
-                        </div>
-                        <div class="story">
-                            Some are claiming that Sotnikova benefitted from Russian judges and a hometown crowd
-                            Alla Shekhovtseva, the wife of Valentin Piseev, the long time president and general director of the Russian Skating Federation was one of the judges.
-                            Sotnikova's scores look like an anomaly compared to her peers, they put Sotnikova's performance up there with some of the very best scores in history.
-
-                        </div>
-                        <div class="storyLink">
-                              <!--   <a href="http://www.thewire.com/culture/2014/02/why-people-think-adelina-sotnikovas-figure-skating-gold-medal-was-rigged/358344/">Full Story Here</a>-->
-                        </div>
-                    </li>
-                    <!-- Story 12 -->
-                    <li class="stories positiveNews news"> 
-                        <div class="story-header">
-                            <img src="uploads/newsAgency/guardian.jpg" class="commentpic pull-left" width="70px" alt="">
-                            <div class="story-agency">
-                                <div class="story-metadata-name">News - The Guardian</div>
-                                <div class="story-metadata-date">3 weeks ago</div>
-                            </div>
-                        </div>
-                        <div class="story">
-                            At the end of a flawless performance, it seemed that nothing could come between Yuna Kim and her bid to become only the third woman to win back-to-back 
-                            Olympic gold medals in figure skating. But Kim, the undisputed darling of South Korean sport, and the millions of her compatriots who had stayed up into
-                            to the early hours to watch her decisive long programme at the Sochi Winter Olympics on Thursday, had not reckoned with the sport's opaque and controversial scoring system.
+                                </div>
+                                <div class="storyLink">
+                                    <!--    <a href="http://www.theguardian.com/sport/2014/feb/21/sochi-2014-south-korea-russia-figure-skating-gold-sotnikova-kim-yuna ">Full Story Here</a>-->
+                                </div>
+                            </li>
+                            <!-- Story 9 -->
+                            <li class="stories negativeNews news"> 
+                                <div class="story-header">
+                                    <img src="uploads/newsAgency/ESPN.jpg" class="commentpic pull-left" width="70px" alt="">
+                                    <div class="story-agency">
+                                        <div class="story-metadata-name">News - ESPN</div>
+                                        <div class="story-metadata-date">3 weeks ago</div>
+                                    </div>
+                                </div>
+                                <div class="story">KSU officials said they are gathering necessary documents and materials. Cinquanta did say any protests would have to be backed up by hard evidence.
+                                    "Opinion and criticism is one thing," Cinquanta said. "But when there is criticism based on wrongdoing, it needs to be presented with evidence."
+                                    "The judges are experts, they take part in seminars, they know a lot and we have given them a video replay system," Cinquanta said. "We are working very hard to give the skaters 
+                                    the number of points they deserve but we are not perfect and mistakes are possible, just as with the skaters mistakes are possible because we are human beings. 
+                                    But the best human beings we can use are those seated at the events."
 
 
-                        </div>
-                        <div class="storyLink">
-                             <!--    <a href="http://www.theguardian.com/sport/2014/feb/21/sochi-2014-south-korea-russia-figure-skating-gold-sotnikova-kim-yuna ">Full Story Here</a>-->
-                        </div>
-                    </li>
-                    <!-- Story 13 -->
-                    <li class="stories positiveNews news"> 
-                        <div class="story-header">
-                            <img src="uploads/newsAgency/forbes.jpg" class="commentpic pull-left" width="70px" alt="">
-                            <div class="story-agency">
-                                <div class="story-metadata-name">News - Forbes</div>
-                                <div class="story-metadata-date">3 weeks ago</div>
-                            </div>
-                        </div>
-                        <div class="story">
-                            If there were a gold medal for good sportsmanship, Korean figure skater Kim Yu-na would surely have been the winner at the Sochi Winter Olympics.
-                            While the protests flowed fast and furiously over her loss to the Russian Adelina Sotnikova, Yu-na showed she was as flawless off ice as on. From
-                            her vantage as the silver medalist, she betrayed no sign of chagrin, congratulating the winner, saying she was “glad it’s over” and announcing her 
-                            retirement from competitive skating.
+                                </div>
+                                <div class="storyLink">
+                                    <!--   <a href="http://www.theguardian.com/sport/2014/feb/21/sochi-2014-south-korea-russia-figure-skating-gold-sotnikova-kim-yuna ">Full Story Here</a>-->
+                                </div>
+                            </li>
+                            <!-- Story 10 -->
+                            <li class="stories neutralNews news"> 
+                                <div class="story-header">
+                                    <img src="http://placehold.it/350&text=No+Image" class="commentpic pull-left" width="70px" alt="">
+                                    <div class="story-agency">
+                                        <div class="story-metadata-name">News - The Wire</div>
+                                        <div class="story-metadata-date">3 weeks ago</div>
+                                    </div>
+                                </div>
+                                <div class="story">
+                                    Some are claiming that Sotnikova benefitted from Russian judges and a hometown crowd
+                                    Alla Shekhovtseva, the wife of Valentin Piseev, the long time president and general director of the Russian Skating Federation was one of the judges.
+                                    Sotnikova's scores look like an anomaly compared to her peers, they put Sotnikova's performance up there with some of the very best scores in history.
 
-                        </div>
-                        <div class="storyLink">
-                             <!--    <a href="http://www.forbes.com/sites/donaldkirk/2014/02/26/kim-yu-nasilver-at-sochi-wins-gold-in-korean-hearts/">Full Story Here</a>-->
-                        </div>
-                    </li>
-                    <!-- Story 14 -->
-                    <li class="stories negativeNews news"> 
-                        <div class="story-header">
-                            <img src="uploads/newsAgency/reuters.jpg" class="commentpic pull-left" width="70px" alt="">
-                            <div class="story-agency">
-                                <div class="story-metadata-name">News - Reuters</div>
-                                <div class="story-metadata-date">3 weeks ago</div>
-                            </div>
-                        </div>
-                        <div class="story">(Reuters) - The International Skating Union (ISU) has defended the under-fire figure skating judging system used at the Sochi Winter Olympics that deemed
-                            Kim Yuna's routine worthy only of a silver medal.
-
-                        </div>
-                        <div class="storyLink">
-                            <!--     <a href="http://www.forbes.com/sites/donaldkirk/2014/02/26/kim-yu-nasilver-at-sochi-wins-gold-in-korean-hearts/">Full Story Here</a>-->
-                        </div>
-                    </li>
-                    <!-- Story 15 -->
-                    <li class="stories neutralNews news"> 
-                        <div class="story-header">
-                            <img src="uploads/newsAgency/br.jpg" class="commentpic pull-left" width="70px" alt="">
-                            <div class="story-agency">
-                                <div class="story-metadata-name">News - Bleach Report</div>
-                                <div class="story-metadata-date">3 weeks ago</div>
-                            </div>
-                        </div>
-                        <div class="story">Experts, including figure skaters, admit they can’t explain the marks at all, which leaves little hope for the rest of us. 
-                            A petition that was started on the Change.org website calling for an investigation into the controversy had already registered 1.6 million signatures by
-                            Friday afternoon, one of the biggest petitions the site has ever seen. 
-
-                        </div>
-                        <div class="storyLink">
-                         <!--        <a href="http://bleacherreport.com/articles/1969257-olympic-figure-skating-controversy-judging-system-is-most-to-blame-for-uproar">Full Story Here</a>-->
-                        </div>
-                    </li>
-                    <!-- Story 16 -->
-                    <li class="stories neutralNews news"> 
-                        <div class="story-header">
-                            <img src="uploads/newsAgency/br.jpg" class="commentpic pull-left" width="70px" alt="">
-                            <div class="story-agency">
-                                <div class="story-metadata-name">News - VanityFair.com</div>
-                                <div class="story-metadata-date">3 weeks ago</div>
-                            </div>
-                        </div>
-                        <div class="story">Some of Adelina’s moves defied “bone logic,” and was a great show.
-                            I didn’t see really any mistakes in her performance, but it was known to the public as “the stumble heard round the world”
-                            Both girls did unbelievable jobs, and are soon to be household names thanks to the controversy.
+                                </div>
+                                <div class="storyLink">
+                                    <!--   <a href="http://www.thewire.com/culture/2014/02/why-people-think-adelina-sotnikovas-figure-skating-gold-medal-was-rigged/358344/">Full Story Here</a>-->
+                                </div>
+                            </li>
+                            <!-- Story 12 -->
+                            <li class="stories positiveNews news"> 
+                                <div class="story-header">
+                                    <img src="uploads/newsAgency/guardian.jpg" class="commentpic pull-left" width="70px" alt="">
+                                    <div class="story-agency">
+                                        <div class="story-metadata-name">News - The Guardian</div>
+                                        <div class="story-metadata-date">3 weeks ago</div>
+                                    </div>
+                                </div>
+                                <div class="story">
+                                    At the end of a flawless performance, it seemed that nothing could come between Yuna Kim and her bid to become only the third woman to win back-to-back 
+                                    Olympic gold medals in figure skating. But Kim, the undisputed darling of South Korean sport, and the millions of her compatriots who had stayed up into
+                                    to the early hours to watch her decisive long programme at the Sochi Winter Olympics on Thursday, had not reckoned with the sport's opaque and controversial scoring system.
 
 
-                        </div>
-                        <div class="storyLink">
-                   <!--         <a href="http://bleacherreport.com/articles/1969257-olympic-figure-skating-controversy-judging-system-is-most-to-blame-for-uproar">Full Story Here</a>-->
-                        </div>
-                    </li>
+                                </div>
+                                <div class="storyLink">
+                                    <!--    <a href="http://www.theguardian.com/sport/2014/feb/21/sochi-2014-south-korea-russia-figure-skating-gold-sotnikova-kim-yuna ">Full Story Here</a>-->
+                                </div>
+                            </li>
+                            <!-- Story 13 -->
+                            <li class="stories positiveNews news"> 
+                                <div class="story-header">
+                                    <img src="uploads/newsAgency/forbes.jpg" class="commentpic pull-left" width="70px" alt="">
+                                    <div class="story-agency">
+                                        <div class="story-metadata-name">News - Forbes</div>
+                                        <div class="story-metadata-date">3 weeks ago</div>
+                                    </div>
+                                </div>
+                                <div class="story">
+                                    If there were a gold medal for good sportsmanship, Korean figure skater Kim Yu-na would surely have been the winner at the Sochi Winter Olympics.
+                                    While the protests flowed fast and furiously over her loss to the Russian Adelina Sotnikova, Yu-na showed she was as flawless off ice as on. From
+                                    her vantage as the silver medalist, she betrayed no sign of chagrin, congratulating the winner, saying she was “glad it’s over” and announcing her 
+                                    retirement from competitive skating.
+
+                                </div>
+                                <div class="storyLink">
+                                    <!--    <a href="http://www.forbes.com/sites/donaldkirk/2014/02/26/kim-yu-nasilver-at-sochi-wins-gold-in-korean-hearts/">Full Story Here</a>-->
+                                </div>
+                            </li>
+                            <!-- Story 14 -->
+                            <li class="stories negativeNews news"> 
+                                <div class="story-header">
+                                    <img src="uploads/newsAgency/reuters.jpg" class="commentpic pull-left" width="70px" alt="">
+                                    <div class="story-agency">
+                                        <div class="story-metadata-name">News - Reuters</div>
+                                        <div class="story-metadata-date">3 weeks ago</div>
+                                    </div>
+                                </div>
+                                <div class="story">(Reuters) - The International Skating Union (ISU) has defended the under-fire figure skating judging system used at the Sochi Winter Olympics that deemed
+                                    Kim Yuna's routine worthy only of a silver medal.
+
+                                </div>
+                                <div class="storyLink">
+                                    <!--     <a href="http://www.forbes.com/sites/donaldkirk/2014/02/26/kim-yu-nasilver-at-sochi-wins-gold-in-korean-hearts/">Full Story Here</a>-->
+                                </div>
+                            </li>
+                            <!-- Story 15 -->
+                            <li class="stories neutralNews news"> 
+                                <div class="story-header">
+                                    <img src="uploads/newsAgency/br.jpg" class="commentpic pull-left" width="70px" alt="">
+                                    <div class="story-agency">
+                                        <div class="story-metadata-name">News - Bleach Report</div>
+                                        <div class="story-metadata-date">3 weeks ago</div>
+                                    </div>
+                                </div>
+                                <div class="story">Experts, including figure skaters, admit they can’t explain the marks at all, which leaves little hope for the rest of us. 
+                                    A petition that was started on the Change.org website calling for an investigation into the controversy had already registered 1.6 million signatures by
+                                    Friday afternoon, one of the biggest petitions the site has ever seen. 
+
+                                </div>
+                                <div class="storyLink">
+                                    <!--        <a href="http://bleacherreport.com/articles/1969257-olympic-figure-skating-controversy-judging-system-is-most-to-blame-for-uproar">Full Story Here</a>-->
+                                </div>
+                            </li>
+                            <!-- Story 16 -->
+                            <li class="stories neutralNews news"> 
+                                <div class="story-header">
+                                    <img src="uploads/newsAgency/br.jpg" class="commentpic pull-left" width="70px" alt="">
+                                    <div class="story-agency">
+                                        <div class="story-metadata-name">News - VanityFair.com</div>
+                                        <div class="story-metadata-date">3 weeks ago</div>
+                                    </div>
+                                </div>
+                                <div class="story">Some of Adelina’s moves defied “bone logic,” and was a great show.
+                                    I didn’t see really any mistakes in her performance, but it was known to the public as “the stumble heard round the world”
+                                    Both girls did unbelievable jobs, and are soon to be household names thanks to the controversy.
+
+
+                                </div>
+                                <div class="storyLink">
+                                    <!--         <a href="http://bleacherreport.com/articles/1969257-olympic-figure-skating-controversy-judging-system-is-most-to-blame-for-uproar">Full Story Here</a>-->
+                                </div>
+                            </li>
                 </ul>
 
                 <div class="menu visible-xs" style="width: 1600px;">
@@ -414,9 +463,9 @@
             <script type="text/javascript" src="js/backfix.min.js"></script>
 
             <script>
-         
-               
-            
+
+
+
                 $storiesPositive = $('li.stories.positiveNews');
                 $storiesNegative = $('li.stories.negativeNews');
                 $storiesneutral = $('li.stories.neutralNews');
@@ -430,19 +479,19 @@
                 $isAnimating = false;
                 var numSocial = $('.social').length;
                 $('#socialCount').text(numSocial);
-                 var numNews = $('.news').length;
+                var numNews = $('.news').length;
                 $('#newsCount').text(numNews);
-                 var numPos = $('.positiveNews').length;
+                var numPos = $('.positiveNews').length;
                 $('#posCount').text(numPos);
-                  var numNeg = $('.negativeNews').length;
+                var numNeg = $('.negativeNews').length;
                 $('#negCount').text(numNeg);
-                
-                  var numNeu = $('.neutralNews').length;
+
+                var numNeu = $('.neutralNews').length;
                 $('#neuCount').text(numNeu);
-                
-                
-                
-                
+
+
+
+
                 $('.filter').click(function() {
                     $(this).toggleClass('activeOp');
                 })
@@ -569,7 +618,7 @@
 
                 function init() {
 
-                    $sentimentsFilter.height($(window).height()/2 - 35);
+                    $sentimentsFilter.height($(window).height() / 2 - 35);
                     $sentimentsFilter.width($(window).width() + 15);
                     $('.news_article').click(function() {
                         //$('.newsArticle').append($(this).html());

@@ -78,19 +78,19 @@
     var count = 0;
     var answers = {};
     var withCat = false;
-    // var cat_one = "http://newsflasher-smuidp21.rhcloud.com/cat_one.jsp";
-    //var cat_two = "http://newsflasher-smuidp21.rhcloud.com/cat_two.jsp";
-    var cat_one = "/newsflasher/cat_one.jsp";
-    var cat_two = "/newsflasher/cat_one.jsp";
-
-    var dec = Math.random();
-    if (dec > 0.5) {
-        $('iframe').attr("src", cat_one);
-        withCat = true;
-        answers.filter = "true";
-    } else {
-        $('iframe').attr("src", cat_two);
-        answers.filter = "false";
+    var cat_one = "http://newsflasher-smuidp21.rhcloud.com/cat_one.jsp";
+    var cat_two = "http://newsflasher-smuidp21.rhcloud.com/cat_two.jsp";
+    var prac = "http://newsflasher-smuidp21.rhcloud.com/cat_two.jsp"
+    function initTest() {
+        var dec = Math.random();
+        if (dec > 0.5) {
+            $('iframe').attr("src", cat_one);
+            withCat = true;
+            answers.filter = "true";
+        } else {
+            $('iframe').attr("src", cat_two);
+            answers.filter = "false";
+        }
     }
     if (count == 0) {
         $('#next').text("Begin");
@@ -101,6 +101,7 @@
         } else {
             $('#intro').hide(function() {
                 $('#test').show("slide");
+                $('iframe').attr("src", prac);
                 answers.name = "User";
             });
         }
@@ -117,6 +118,7 @@
             answers.timeStart = now;
         }
         if ($('#next').text() == "Begin") {
+            initTest();
             $(qn1).appendTo($('.question'));
             $('#next').text("Next");
             count++;
