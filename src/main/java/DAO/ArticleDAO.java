@@ -97,6 +97,7 @@ public class ArticleDAO {
         }
 
     }
+
     public static void insertAns(String ans) {
         Connection conn = null;
         Statement st = null;
@@ -110,7 +111,7 @@ public class ArticleDAO {
 
             query += "insert into `experiments` (`experiment`) ";
             query += "values ('" + ans + "')";
-            
+
             st = conn.createStatement();
             st.executeUpdate(query);
 
@@ -127,7 +128,7 @@ public class ArticleDAO {
         }
 
     }
-    
+
     public static JSONObject getSingleArticle(String name) {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -173,9 +174,7 @@ public class ArticleDAO {
 
         return article;
     }
-    
-    
-    
+
     public static JSONArray getStories(String name) {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -183,7 +182,7 @@ public class ArticleDAO {
         String query = "";
         Statement st = null;
         JSONArray storybook = new JSONArray();
-         JSONObject data = new JSONObject();
+        JSONObject data = new JSONObject();
         try {
             //Get database connection & execute query
             conn = ConnectionManager.getConnection();
@@ -202,20 +201,20 @@ public class ArticleDAO {
                     story.put("picLink", rs.getString("relPath"));
                     story.put("sentiment", rs.getString("sentiment"));
                     story.put("type", rs.getString("type"));
-                   String abPath = System.getenv("OPENSHIFT_DATA_DIR");
-                   if(abPath!=null){
-                       story.put("abPath", abPath + rs.getString("relPath"));
-                   }else{
-                       
-                   }
-                   storybook.put(story);
+                    String abPath = System.getenv("OPENSHIFT_DATA_DIR");
+                    if (abPath != null) {
+                        story.put("abPath", abPath + rs.getString("relPath"));
+                    } else {
+
+                    }
+                    storybook.put(story);
 
                 } catch (SQLException e) {
                     System.out.println(e.getMessage());
                 }
 
             }
-           // data.put("data",storybook);
+            // data.put("data",storybook);
         } catch (SQLException e) {
 
             System.out.println(e.getMessage());
@@ -227,7 +226,7 @@ public class ArticleDAO {
             //Close connection, statement and resultset
             ConnectionManager.close(conn, ps, rs);
         }
-        
+
         return storybook;
     }
 
@@ -319,35 +318,33 @@ public class ArticleDAO {
 
         return data;
     }
-    
-     public static JSONObject getResults() {
+
+    public static JSONArray getResults() {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         String query = "";
         Statement st = null;
-        JSONArray newsStand = new JSONArray();
-        JSONObject data = new JSONObject();
+        JSONArray experiments = new JSONArray();
+        
         try {
             //Get database connection & execute query
             conn = ConnectionManager.getConnection();
-            query = "select * from experiments order by name";
+            query = "select * from experiments order by id";
             st = conn.createStatement();
             rs = st.executeQuery(query);
-
+            
             while (rs.next()) {
                 try {
-                    JSONObject agency = new JSONObject();
-                    agency.put("name", rs.getString("name"));
-                    agency.put("pic", rs.getString("relPath"));
+                    JSONObject exp = new JSONObject(rs.getString("experiment"));
+                   experiments.put(exp);
 
-                    newsStand.put(agency);
                 } catch (SQLException e) {
                     System.out.println(e.getMessage());
                 }
 
             }
-            data.put("data", newsStand);
+
         } catch (SQLException e) {
             //insertedLine = 100;
             System.out.println(e.getMessage());
@@ -360,17 +357,17 @@ public class ArticleDAO {
             ConnectionManager.close(conn, ps, rs);
         }
 
-        return data;
+        return experiments;
     }
-     
+
     public static String getNewsAgencySingle(String name) {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         String newsAgency = "";
-        String query="";
+        String query = "";
         Statement st = null;
-       
+
         try {
             //Get database connection & execute query
             conn = ConnectionManager.getConnection();
@@ -380,15 +377,15 @@ public class ArticleDAO {
 
             while (rs.next()) {
                 try {
-                   
-                   newsAgency= rs.getString("relPath");
+
+                    newsAgency = rs.getString("relPath");
 
                 } catch (SQLException e) {
                     System.out.println(e.getMessage());
                 }
 
             }
-           
+
         } catch (SQLException e) {
             //insertedLine = 100;
             System.out.println(e.getMessage());
@@ -403,7 +400,5 @@ public class ArticleDAO {
 
         return newsAgency;
     }
-
-   
 
 }

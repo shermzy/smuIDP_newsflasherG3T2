@@ -3091,14 +3091,21 @@ input.gn-search:focus {
     font-size: 2rem;
     margin-bottom:1px;
 }
-
+#repent{
+    display:none;
+    margin-right:50px;
+}
 .title{
     font-size:3rem;
 
 }
+.cheat{
+    text-align: center;
+    padding: 50px;
+}
 .green{
 
-    color: #117A08;
+    color: #1FFF0B;
 }
 .white{
     color: #fff;
