@@ -2517,11 +2517,10 @@ ul.gn-menu li:hover{
 input.gn-search {
     position: relative;
     z-index: 10;
-    //padding-left: 60px;
     outline: none;
     border: none;
-    background: transparent;
-    color: #5f6f81;
+    background: rgba(255, 255, 255, 0.83);
+    color: #197DEC;
     font-weight: 300;
     font-family: 'Lato', Arial, sans-serif;
     cursor: pointer;

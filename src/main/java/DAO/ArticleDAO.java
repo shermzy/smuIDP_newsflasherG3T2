@@ -276,6 +276,62 @@ public class ArticleDAO {
         return data;
     }
 
+    public static JSONObject getSearchArticle(String searchWords) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String reply = "";
+        String[] search = searchWords.split("\\s+");
+        JSONArray newspaper = new JSONArray();
+        JSONObject data = new JSONObject();
+        try {
+            //Get database connection & execute query
+            conn = ConnectionManager.getConnection();
+
+            ps = conn.prepareStatement(GET_ARTICLE);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                try {
+                    String articleSearch = rs.getString("search");
+                    String[] compare = articleSearch.split("\\s+");
+                    for (String s : compare) {
+                        for (String t : search) {
+                            if (s.equalsIgnoreCase(t)) {
+                                JSONObject article = new JSONObject();
+                                article.put("name", rs.getString("NewsArticle_Name"));
+                                article.put("snippet", rs.getString("NewsArticle_Snippet"));
+                                article.put("link", rs.getString("NewsArticle_link"));
+                                article.put("relpic", rs.getString("NewsArticle_pic"));
+                                article.put("category", rs.getString("category"));
+
+                                newspaper.put(article);
+                            }
+                        }
+                    }
+
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+
+            }
+            System.out.println(newspaper);
+            data.put("data", newspaper);
+        } catch (SQLException e) {
+            //insertedLine = 100;
+            System.out.println(e.getMessage());
+            reply = "duplicate";
+        } catch (Exception ex) {
+            //insertedLine = 101;
+            ex.printStackTrace();
+        } finally {
+            //Close connection, statement and resultset
+            ConnectionManager.close(conn, ps, rs);
+        }
+
+        return data;
+    }
+
     public static JSONObject getNewsAgency() {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -326,18 +382,18 @@ public class ArticleDAO {
         String query = "";
         Statement st = null;
         JSONArray experiments = new JSONArray();
-        
+
         try {
             //Get database connection & execute query
             conn = ConnectionManager.getConnection();
             query = "select * from experiments order by id";
             st = conn.createStatement();
             rs = st.executeQuery(query);
-            
+
             while (rs.next()) {
                 try {
                     JSONObject exp = new JSONObject(rs.getString("experiment"));
-                   experiments.put(exp);
+                    experiments.put(exp);
 
                 } catch (SQLException e) {
                     System.out.println(e.getMessage());

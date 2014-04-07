@@ -105,6 +105,52 @@
     this.$neuLarge = $('#neuL');
     $isAnimating = false;
 
+    $('#search').keydown(function(e) {
+        if (e.keyCode == 13) {
+            console.log("search enter");
+            $('#colone').html("");
+            $('#coltwo').html("");
+            $('#colthree').html("");
+            $.getJSON("getNews", {type: "search", article: $('#search').val()}, function(response) {
+                console.log(response.data);
+                var counter = 0;
+                
+                $.each(response.data, function(key, val) {
+                  
+                        var content = "";
+
+                        content += '<div class="news_category">';
+
+                        var categories = val.category.split(";");
+                        for (var i = 0; i < categories.length - 1; i++) {
+                            content += '<div class="news-btn ' + categories[i] + '">' + categories[i] + '</div>';
+                        }
+
+                        content += '</div>';
+                        content += '<div class="news_body">';
+                        content += '<div class="news_img">';
+                        content += '<img class="center pic-overlay img-responsive" src="' + val.relpic + '" />';
+                        content += '<div class="news_caption">';
+                        content += '<div class="news_caption_title" id="' + val.name + '">';
+                        content += val.name;
+                        content += '</div></div></div>';
+                        content += '</div>';
+                        if (counter % 3 === 0) {
+                            $('<div class="news_article" id="' + val.name + '">  ' + content + '</div>').appendTo("#colone");
+                            counter += 1;
+                        } else if (counter % 3 === 1) {
+                            $('<div class="news_article" id="' + val.name + '">' + content + '</div>').appendTo("#coltwo");
+                            counter += 1;
+                        } else if (counter % 3 === 2) {
+                            $('<div class="news_article" id="' + val.name + '"> ' + content + '</div>').appendTo("#colthree");
+                            counter += 1;
+                        }
+                    
+                });
+                init();
+            })
+        }
+    });
     $("#socialSourceHead").click(function() {
 
         $('.socialOptions').slideToggle();

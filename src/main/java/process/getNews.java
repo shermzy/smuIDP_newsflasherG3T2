@@ -40,23 +40,28 @@ public class getNews extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             //get Specific news
             if (request.getParameter("type") != null) {
-                System.out.println(request.getParameter("type"));
-                  try{
-                  JSONObject articles = ArticleDAO.getSingleArticle((String)request.getParameter("article"));
-                  System.out.println("hi: " + (String)request.getParameter("article"));
-                  JSONArray stories = ArticleDAO.getStories((String)request.getParameter("article"));
-                  articles.put("stories",stories);
-                 
-                  System.out.println(articles);
-                  out.print(articles);
-                  }catch (Exception e){
-                      
-                  }
+                if (request.getParameter("type").equalsIgnoreCase("single")) {
+                    System.out.println(request.getParameter("type"));
+                    try {
+                        JSONObject articles = ArticleDAO.getSingleArticle((String) request.getParameter("article"));
+                        System.out.println("hi: " + (String) request.getParameter("article"));
+                        JSONArray stories = ArticleDAO.getStories((String) request.getParameter("article"));
+                        articles.put("stories", stories);
+
+                        System.out.println(articles);
+                        out.print(articles);
+                    } catch (Exception e) {
+
+                    }
+                }else{
+                    
+                    String searchWords = (String) request.getParameter("article");
+                    JSONObject articles = ArticleDAO.getSearchArticle(searchWords);
+                     out.print(articles);
+                }
             } else {
                 //get all news article for main page
                 JSONObject articles = ArticleDAO.getArticles();
-                
-                
 
                 try {
                     JSONTokener tokener = new JSONTokener(articles.toString()); //tokenize the ugly JSON string
