@@ -295,21 +295,24 @@ public class ArticleDAO {
                 try {
                     String articleSearch = rs.getString("search");
                     String[] compare = articleSearch.split("\\s+");
+                    boolean add = false;
+                     JSONObject article=null;
                     for (String s : compare) {
                         for (String t : search) {
                             if (s.equalsIgnoreCase(t)) {
-                                JSONObject article = new JSONObject();
+                                article = new JSONObject();
                                 article.put("name", rs.getString("NewsArticle_Name"));
                                 article.put("snippet", rs.getString("NewsArticle_Snippet"));
                                 article.put("link", rs.getString("NewsArticle_link"));
                                 article.put("relpic", rs.getString("NewsArticle_pic"));
                                 article.put("category", rs.getString("category"));
-
-                                newspaper.put(article);
+                                add = true;
                             }
                         }
                     }
-
+                    if (add && article != null) {
+                        newspaper.put(article);
+                    }
                 } catch (SQLException e) {
                     System.out.println(e.getMessage());
                 }

@@ -3056,7 +3056,7 @@ input.gn-search:focus {
     transition: box-shadow 0.2s ease-in-out;
 }
 .cbp-fwslider {
-    // position: relative;
+     position: fixed;
     //  margin: 0 0 10px;
     font-size: 1.2rem;
     // padding-top: 25.5%;
