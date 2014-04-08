@@ -29,7 +29,8 @@
                         <ul class="gn-menu">
                             <li id="fb-pic"><img class="fb-pic"/></i><span class="menu-info" id="user-name"> Hello, </span></li>
                             <li>
-                                <i class="fa fa-search fa-padding-15"></i><span class="menu-info"><input placeholder="Search" type="search" class="gn-search" id="search"></span>
+                                <i class="fa fa-search fa-padding-15"></i><span class="menu-info"><input placeholder="Search" type="search" class="gn-search" id="search">
+                               </span>     <span id="go" style="margin-left:25px">Go!</span>
 
                             </li>
                             <!--  <li><i class="fa fa-cogs fa-padding-15"></i> <span class="menu-info">Settings</span></li> -->

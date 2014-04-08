@@ -73,7 +73,7 @@
                         <!-- Add other related news here-->
                         <ul class="bmenu">
                             <!--<li class="home"><div><i class="fa fa-home"></i>Home</div></li>-->
-                            <div id="sentiments">            
+                   <!--         <div id="sentiments">            
                                 <li>
                                     <div class='filter' id="sentimentsHead">
                                         <i class="fa fa-thumbs-up"></i>Sentiments
@@ -102,7 +102,7 @@
                                         <span class="white pull-right" id="newsCount"></span>
                                     </div>                                   
                                 </div>
-                            </div>
+                            </div>-->
                         </ul>
                     </div>
                     <div class="col-md-offset-1 col-md-4 col-sm-offset-1 col-sm-4" id="middleStory">
