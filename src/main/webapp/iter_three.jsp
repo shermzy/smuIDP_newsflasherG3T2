@@ -226,12 +226,14 @@
         filterStoriesBySource();
         checkAll();
     });
-    $('li.stories').click(function() {
-        $('#myModal').modal('show');
-        $('#myModalLabel').html($(this).find('.story-metadata-name').text());
-        $('.modal-body').text($(this).find('.story').html());
-        $('<br/><br/><b>This news snippet is to illustrate the functionality of the actual news source showing on clicking of a particular story.</b>').appendTo($('.modal-body'));
-    })
+    function storyInit() {
+        $('li.stories').click(function() {
+            $('#myModal').modal('show');
+            $('#myModalLabel').html($(this).find('.story-metadata-name').text());
+            $('.modal-body').text($(this).find('.story').html());
+            $('<br/><br/><b>This news snippet is to illustrate the functionality of the actual news source showing on clicking of a particular story.</b>').appendTo($('.modal-body'));
+        })
+    }
 
     function checkAll() {
         if ($('.sents.selected').length == 0 && $('.nSource.selected').length == 0) {
@@ -413,7 +415,7 @@
 
         $('<li class="stories">' + content + '</li>').insertAfter($('#commentBox'));
         $('#cbp-fwslider').cbpFWSlider();
-
+storyInit();
     }
     ;
     $(function() {
