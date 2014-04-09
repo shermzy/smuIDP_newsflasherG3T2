@@ -115,6 +115,23 @@
 
 <!--End News Slider-->
 </div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel"></h4>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
 
 
 </body>
@@ -208,7 +225,14 @@
         $(this).toggleClass('selected');
         filterStoriesBySource();
         checkAll();
+    });
+    $('li.stories').click(function() {
+        $('#myModal').modal('show');
+        $('#myModalLabel').html($(this).find('.story-metadata-name').text());
+        $('.modal-body').text($(this).find('.story').html());
+        $('<br/><br/><b>This news snippet is to illustrate the functionality of the actual news source showing on clicking of a particular story.</b>').appendTo($('.modal-body'));
     })
+
     function checkAll() {
         if ($('.sents.selected').length == 0 && $('.nSource.selected').length == 0) {
 
