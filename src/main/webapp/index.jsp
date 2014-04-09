@@ -353,7 +353,7 @@
     };
     $(window).unload(function() {
         close();
-        alert("back");
+
     });
     $("#close").click(function() {
         close();
@@ -388,6 +388,7 @@
     });
     function storyInit() {
         $('li.stories').click(function() {
+
             $('#myModal').modal('show');
             $('#myModalLabel').html($(this).find('.story-metadata-name').text());
             $('.modal-body').text($(this).find('.story').html());
@@ -568,7 +569,7 @@
                     }
                     count += 1;
                 });
-
+                storyInit();
                 $('#cbp-fwslider').cbpFWSlider();
 
             });
@@ -578,7 +579,7 @@
                 $('.newsDetails').show(500);
             });
             $('#newsDetails').css('height', $(window).height() / 2);
-$('#cbp-fwslider').css('width',$(window).width());
+            $('#cbp-fwslider').css('width', $(window).width());
             $('.newsArticle').css('height', $(window).height() / 2 - 25);
             $('.menu').css("width", $(window).width() + 15);
             $slider.css('height', $(window).height() / 2 - 25);

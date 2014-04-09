@@ -362,7 +362,7 @@
     };
     $(window).unload(function() {
         close();
-        alert("back");
+
     });
     $("#close").click(function() {
         close();
@@ -415,7 +415,7 @@
 
         $('<li class="stories">' + content + '</li>').insertAfter($('#commentBox'));
         $('#cbp-fwslider').cbpFWSlider();
-storyInit();
+        storyInit();
     }
     ;
     $(function() {
@@ -569,7 +569,7 @@ storyInit();
                     }
                     count += 1;
                 });
-
+                storyInit();
                 $('#cbp-fwslider').cbpFWSlider();
 
             });
