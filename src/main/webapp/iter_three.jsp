@@ -50,42 +50,42 @@
         <!--Issue-->
         <div class="overlay">
             <div class="col-md-3 col-sm-3 hidden-xs">
-<ul class="bmenu">
-                          <li class="home"><div><i class="fa fa-home"></i>Home</div></li>
-                   <div id="sentiments">            
-                                <li>
-                                    <div class='filter' id="sentimentsHead">
-                                        <i class="fa fa-thumbs-up"></i>Sentiments
-                                    </div>
-                                </li>
-                                <div class="sentsOption">
-                                    <div class="sents" id="neuL">Neutral
-                                        <span class="white pull-right" id="neuCount"></span></div>
-                                    <div class="sents" id="posL">Positive
-                                        <span class="white pull-right" id="posCount"></span></div>
-                                    <div class="sents" id="negL">Negative
-                                        <span class="white pull-right" id="negCount"></span></div>
-                                </div>
+                <ul class="bmenu">
+                    <li class="home"><div><i class="fa fa-home"></i>Home</div></li>
+                    <div id="sentiments">            
+                        <li>
+                            <div class='filter' id="sentimentsHead">
+                                <i class="fa fa-thumbs-up"></i>Sentiments
                             </div>
+                        </li>
+                        <div class="sentsOption">
+                            <div class="sents" id="neuL">Neutral
+                                <span class="white pull-right" id="neuCount"></span></div>
+                            <div class="sents" id="posL">Positive
+                                <span class="white pull-right" id="posCount"></span></div>
+                            <div class="sents" id="negL">Negative
+                                <span class="white pull-right" id="negCount"></span></div>
+                        </div>
+                    </div>
 
-                            <div id="newsSource"> 
-                                <li>
-                                    <div class='filter' id="newsSourceHead">
-                                        <i class="fa fa-flash"></i>News Source
-                                    </div>
-                                </li>
-                                <div class="newsSourceOptions">
-                                    <div class="nSource" id="social">Social media
-                                        <span class="white pull-right" id="socialCount"></span></div>
-                                    <div class="nSource" id="news">News Agency
-                                        <span class="white pull-right" id="newsCount"></span>
-                                    </div>                                   
-                                </div>
+                    <div id="newsSource"> 
+                        <li>
+                            <div class='filter' id="newsSourceHead">
+                                <i class="fa fa-flash"></i>News Source
                             </div>
-                        </ul>
+                        </li>
+                        <div class="newsSourceOptions">
+                            <div class="nSource" id="social">Social media
+                                <span class="white pull-right" id="socialCount"></span></div>
+                            <div class="nSource" id="news">News Agency
+                                <span class="white pull-right" id="newsCount"></span>
+                            </div>                                   
+                        </div>
+                    </div>
+                </ul>
             </div>
 
-        
+
 
             <div class="col-md-offset-1 col-md-4 col-xs-12" id="middleStory">
 
@@ -143,9 +143,9 @@
         }
     });
     $('#go').click(function() {
-        
-            searchInit();
-        
+
+        searchInit();
+
     });
 
     function searchInit() {
@@ -192,19 +192,29 @@
         })
     }
     ;
-    $("#socialSourceHead").click(function() {
-
-        $('.socialOptions').slideToggle();
-    })
-
     $("#newsSourceHead").click(function() {
         $('.newsSourceOptions').slideToggle();
+        $('.sents').removeClass('selected');
     })
     $("#sentimentsHead").click(function() {
-
-
         $('.sentsOption').slideToggle();
+        $('.nSource').removeClass('selected');
+    });
+    $('.sents').click(function() {
+        $('.nSource').removeClass('selected');
+    });
+    $('.nSource').click(function() {
+        $('.sents').removeClass('selected');
+        $(this).toggleClass('selected');
+        filterStoriesBySource();
+        checkAll();
     })
+    function checkAll() {
+        if ($('.sents.selected').length == 0 && $('.nSource.selected').length == 0) {
+
+            $('li.stories').show("slide");
+        }
+    }
     //Enable swiping...
     $(".newsDetails").swipe({
         //Generic swipe handler for all directions
@@ -248,15 +258,20 @@
     })
     $posLarge.click(function() {
         $(this).toggleClass('selected');
-        filterStories();
+        filterStoriesBySentiments();
+        checkAll();
     });
     $negLarge.click(function() {
+
         $(this).toggleClass('selected');
-        filterStories();
+        filterStoriesBySentiments();
+        checkAll();
     });
     $('#neuL').click(function() {
+
         $(this).toggleClass('selected');
-        filterStories();
+        filterStoriesBySentiments();
+        checkAll();
     });
 
     $('#filter').click(function() {
@@ -610,87 +625,57 @@
         }
         return selectedSentiments;
     }
-    function filterStories() {
-        var sources = checkSource();
-        var sentiments = checkSentiments();
+    function filterStoriesBySentiments() {
 
-        console.log(sources);
-        console.log(sentiments);
+
         if ($posLarge.hasClass('selected')) {
-            if (sources.length > 0) {
-                for (var i = 0; i < sources.length - 1; i++) {
-                    $('li.stories.positiveNews' + sources[i]).show("slide");
-                }
-            } else {
-                $('li.stories.positiveNews').show("slide");
-            }
+            $('li.stories.positiveNews.news').show("slide");
+            $('li.stories.positiveNews.social').show("slide");
         } else {
-            $('li.stories.positiveNews').hide("slide");
+            $('li.stories.positiveNews.news').hide("slide");
+            $('li.stories.positiveNews.social').hide("slide");
         }
 
         if ($negLarge.hasClass('selected')) {
-            if (sources.length > 0) {
-                for (var i = 0; i < sources.length - 1; i++) {
-                    $('li.stories.negativeNews' + sources[i]).show("slide");
-                }
-            } else {
-                $('li.stories.negativeNews').show("slide");
-            }
+
+            $('li.stories.negativeNews.news').show("slide");
+            $('li.stories.negativeNews.social').show("slide");
         } else {
-            $('li.stories.negativeNews').hide("slide");
+
+            $('li.stories.negativeNews.news').hide("slide");
+            $('li.stories.negativeNews.social').hide("slide");
         }
         if ($neuLarge.hasClass('selected')) {
-            if (sources.length > 0) {
-                for (var i = 0; i < sources.length - 1; i++) {
-                    $('li.stories.negativeNews' + sources[i]).show("slide");
-                }
-            } else {
-                $('li.stories.neutralNews').show("slide");
-            }
+
+            $('li.stories.neutralNews.news').show("slide");
+            $('li.stories.neutralNews.social').show("slide");
         } else {
-            $('li.stories.neutralNews').hide("slide");
+
+            $('li.stories.neutralNews.news').hide("slide");
+            $('li.stories.neutralNews.social').hide("slide");
         }
-
+    }
+    function filterStoriesBySource() {
         if ($('#social').hasClass('selected')) {
-            if (sentiments.length > 0) {
-                for (var i = 0; i < sentiments.length - 1; i++) {
-                    $('li.stories' + sentiments[i] + '.social').show("slide");
-                }
-            } else {
-                $('li.stories.social').show("slide");
-            }
 
+            $('li.stories.negativeNews.social').show("slide");
+            $('li.stories.positiveNews.social').show("slide");
+            $('li.stories.neutralNews.social').show("slide");
         } else {
-            $('li.stories.social').hide("slide");
+            $('li.stories.negativeNews.social').hide("slide");
+            $('li.stories.positiveNews.social').hide("slide");
+            $('li.stories.neutralNews.social').hide("slide");
         }
 
 
         if ($('#news').hasClass('selected')) {
-            if (sentiments.length > 0) {
-                for (var i = 0; i < sentiments.length - 1; i++) {
-                    $('li.stories' + sentiments[i] + '.news').show("slide");
-                }
-            } else {
-                $('li.stories.news').show("slide");
-            }
+            $('li.stories.negativeNews.news').show("slide");
+            $('li.stories.positiveNews.news').show("slide");
+            $('li.stories.neutraleNews.news').show("slide");
         } else {
-            $('li.stories.news').hide("slide");
-        }
-
-
-        if ($('#others').hasClass('selected')) {
-            if (sentiments.length > 0) {
-                for (var i = 0; i < sentiments.length - 1; i++) {
-                    $('li.stories' + sentiments[i] + '.others').show("slide");
-                }
-            } else {
-                $('li.stories.others').show("slide");
-            }
-        } else {
-            $('li.stories.others').hide("slide");
-        }
-        if (sources.length == 0 && sentiments.length == 0) {
-            $('li.stories').show("slide");
+            $('li.stories.negativeNews.news').hide("slide");
+            $('li.stories.positiveNews.news').hide("slide");
+            $('li.stories.neutralNews.news').hide("slide");
         }
     }
 
