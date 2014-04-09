@@ -2992,8 +2992,8 @@ input.gn-search:focus {
 }
 
 .cbp-fwslider nav span{
-    position: absolute;
-    top: 35%;
+    position: fixed;
+    top: 75%;
     width: 40px;
     height: 70px;
     background: #333435;
