@@ -42,41 +42,7 @@
 
 </div>
 <div class="newsDetails" id="newsDetails">
-    <div class="sentimentsFilter"> <div class="col-md-12 col-sm-12">
-            <ul class="bmenu">
-        
-                <div id="sentiments">            
-                    <li>
-                        <div class='filter' id="sentimentsHead">
-                            <i class="fa fa-thumbs-up"></i>Sentiments
-                        </div>
-                    </li>
-                    <div class="sentsOption">
-                        <div class="sents" id="neuL">Neutral
-                            <span class="white pull-right" id="neuCount"></span></div>
-                        <div class="sents" id="posL">Positive
-                            <span class="white pull-right" id="posCount"></span></div>
-                        <div class="sents" id="negL">Negative
-                            <span class="white pull-right" id="negCount"></span></div>
-                    </div>
-                </div>
 
-                <div id="newsSource"> 
-                    <li>
-                        <div class='filter' id="newsSourceHead">
-                            <i class="fa fa-flash"></i>News Source
-                        </div>
-                    </li>
-                    <div class="newsSourceOptions">
-                        <div class="nSource" id="social">Social media
-                            <span class="white pull-right" id="socialCount"></span></div>
-                        <div class="nSource" id="news">News Agency
-                            <span class="white pull-right" id="newsCount"></span>
-                        </div>                                   
-                    </div>
-                </div>
-            </ul>
-        </div></div>
 
     <div class="newsArticle">
         <div class="foregroundStory"></div>
@@ -84,39 +50,39 @@
         <!--Issue-->
         <div class="overlay">
             <div class="col-md-3 col-sm-3 hidden-xs">
-                 <ul class="bmenu">
-                            <li class="home"><div><i class="fa fa-home"></i>Home</div></li>
-                            <div id="sentiments">            
-                                <li>
-                                    <div class='filter' id="sentimentsHead">
-                                        <i class="fa fa-thumbs-up"></i>Sentiments
-                                    </div>
-                                </li>
-                                <div class="sentsOption">
-                                    <div class="sents" id="neuL">Neutral
-                                        <span class="white pull-right" id="neuCount"></span></div>
-                                    <div class="sents" id="posL">Positive
-                                        <span class="white pull-right" id="posCount"></span></div>
-                                    <div class="sents" id="negL">Negative
-                                        <span class="white pull-right" id="negCount"></span></div>
-                                </div>
+                <ul class="bmenu">
+                    <li class="home"><div><i class="fa fa-home"></i>Home</div></li>
+                    <div id="sentiments">            
+                        <li>
+                            <div class='filter' id="sentimentsHead">
+                                <i class="fa fa-thumbs-up"></i>Sentiments
                             </div>
-        
-                            <div id="newsSource"> 
-                                <li>
-                                    <div class='filter' id="newsSourceHead">
-                                        <i class="fa fa-flash"></i>News Source
-                                    </div>
-                                </li>
-                                <div class="newsSourceOptions">
-                                    <div class="nSource" id="social">Social media
-                                        <span class="white pull-right" id="socialCount"></span></div>
-                                    <div class="nSource" id="news">News Agency
-                                        <span class="white pull-right" id="newsCount"></span>
-                                    </div>                                   
-                                </div>
+                        </li>
+                        <div class="sentsOption">
+                            <div class="sents" id="neuL">Neutral
+                                <span class="white pull-right" id="neuCount"></span></div>
+                            <div class="sents" id="posL">Positive
+                                <span class="white pull-right" id="posCount"></span></div>
+                            <div class="sents" id="negL">Negative
+                                <span class="white pull-right" id="negCount"></span></div>
+                        </div>
+                    </div>
+
+                    <div id="newsSource"> 
+                        <li>
+                            <div class='filter' id="newsSourceHead">
+                                <i class="fa fa-flash"></i>News Source
                             </div>
-                        </ul>
+                        </li>
+                        <div class="newsSourceOptions">
+                            <div class="nSource" id="social">Social media
+                                <span class="white pull-right" id="socialCount"></span></div>
+                            <div class="nSource" id="news">News Agency
+                                <span class="white pull-right" id="newsCount"></span>
+                            </div>                                   
+                        </div>
+                    </div>
+                </ul>
             </div>
 
 
@@ -166,6 +132,7 @@
         </div>
     </div>
 </div>
+
 
 </body>
 
@@ -258,7 +225,15 @@
         $(this).toggleClass('selected');
         filterStoriesBySource();
         checkAll();
-    })
+    });
+    function storyInit() {
+        $('li.stories').click(function() {
+            $('#myModal').modal('show');
+            $('#myModalLabel').html($(this).find('.story-metadata-name').text());
+            $('.modal-body').text($(this).find('.story').html());
+            $('<br/><br/><b>This news snippet is to illustrate the functionality of the actual news source showing on clicking of a particular story.</b>').appendTo($('.modal-body'));
+        })
+    }
 
     function checkAll() {
         if ($('.sents.selected').length == 0 && $('.nSource.selected').length == 0) {
@@ -267,58 +242,42 @@
         }
     }
     //Enable swiping...
-    /*   $(".newsDetails").swipe({
-     //Generic swipe handler for all directions
-     swipe: function(event, direction, distance, duration, fingerCount) {
-     if (direction == "down") {
-     $('.newsArticle').css("-webkit-filter", "blur(5px)");
-     $slider.css("-webkit-filter", "blur(5px)");
-     $sentimentsFilter.slideToggle();
-     if ($('#filter').hasClass('active')) {
-     $('#filter').removeClass('active');
-     } else {
-     $('#filter').addClass('active');
-     }
-     
-     }
-     },
-     //Default is 75px, set to 0 for demo so any distance triggers swipe
-     threshold: 20
-     });*/
-    $("#filter").swipe({
-        tap: function() {
-            $sentimentsFilter.slideToggle();
-            $('#filter').toggleClass('active');
-
-            if ($('#filter').hasClass('active')) {
+    $(".newsDetails").swipe({
+        //Generic swipe handler for all directions
+        swipe: function(event, direction, distance, duration, fingerCount) {
+            if (direction == "down") {
                 $('.newsArticle').css("-webkit-filter", "blur(5px)");
                 $slider.css("-webkit-filter", "blur(5px)");
-            } else {
+                $sentimentsFilter.slideToggle();
+                if ($('#filter').hasClass('active')) {
+                    $('#filter').removeClass('active');
+                } else {
+                    $('#filter').addClass('active');
+                }
+
+            }
+        },
+        //Default is 75px, set to 0 for demo so any distance triggers swipe
+        threshold: 20
+    });
+    $(".sentimentsFilter").swipe({
+        //Generic swipe handler for all directions
+        swipe: function(event, direction, distance, duration, fingerCount) {
+            if (direction == "up") {
+                $sentimentsFilter.slideToggle();
                 $('.newsArticle').css("-webkit-filter", "blur(0px)");
                 $slider.css("-webkit-filter", "blur(0px)");
-            }
+                if ($('#filter').hasClass('active')) {
+                    $('#filter').removeClass('active');
+                } else {
+                    $('#filter').addClass('active');
+                }
 
+            }
         },
-        threshold: 10
+        //Default is 75px, set to 0 for demo so any distance triggers swipe
+        threshold: 20
     });
-    /*   $(".sentimentsFilter").swipe({
-     //Generic swipe handler for all directions
-     swipe: function(event, direction, distance, duration, fingerCount) {
-     if (direction == "up") {
-     $sentimentsFilter.slideToggle();
-     $('.newsArticle').css("-webkit-filter", "blur(0px)");
-     $slider.css("-webkit-filter", "blur(0px)");
-     if ($('#filter').hasClass('active')) {
-     $('#filter').removeClass('active');
-     } else {
-     $('#filter').addClass('active');
-     }
-     
-     }
-     },
-     //Default is 75px, set to 0 for demo so any distance triggers swipe
-     threshold: 20
-     });*/
 
     $posLarge.click(function() {
         $(this).toggleClass('selected');
@@ -342,11 +301,11 @@
         $sentimentsFilter.slideToggle();
         $('#filter').toggleClass('active');
         if ($('#filter').hasClass('active')) {
-            $('.newsArticle').css("-webkit-filter", "blur(5px)");
-            $slider.css("-webkit-filter", "blur(5px)");
-        } else {
             $('.newsArticle').css("-webkit-filter", "blur(0px)");
             $slider.css("-webkit-filter", "blur(0px)");
+        } else {
+            $('.newsArticle').css("-webkit-filter", "blur(5px)");
+            $slider.css("-webkit-filter", "blur(5px)");
         }
     });
     $('.home').click(function() {
@@ -391,12 +350,7 @@
         threshold: 0
     });
 
-    $("#backButton").swipe({
-        tap: function() {
-            close();
-        },
-        threshold: 10
-    });
+
 
 
     bajb_backdetect.OnBack = function()
@@ -406,9 +360,6 @@
     $(window).unload(function() {
         close();
 
-    });
-    $('#backButton').click(function() {
-        close();
     });
     $("#close").click(function() {
         close();
@@ -441,15 +392,6 @@
             }
         });
     });
-    function storyInit() {
-        $('li.stories').click(function() {
-
-            $('#myModal').modal('show');
-            $('#myModalLabel').html($(this).find('.story-metadata-name').text());
-            $('.modal-body').text($(this).find('.story').html());
-            $('<br/><br/><b>This news snippet is to illustrate the functionality of the actual news source showing on clicking of a particular story.</b>').appendTo($('.modal-body'));
-        })
-    }
     function insertStory(pictureRelLink) {
         var time = new Date().toString();
         var gmt = time.indexOf("G");
@@ -634,7 +576,7 @@
                 $('.newsDetails').show(500);
             });
             $('#newsDetails').css('height', $(window).height() / 2);
-            $('#cbp-fwslider').css('width', $(window).width());
+
             $('.newsArticle').css('height', $(window).height() / 2 - 25);
             $('.menu').css("width", $(window).width() + 15);
             $slider.css('height', $(window).height() / 2 - 25);

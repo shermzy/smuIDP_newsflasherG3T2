@@ -42,7 +42,41 @@
 
 </div>
 <div class="newsDetails" id="newsDetails">
+    <div class="sentimentsFilter"> <div class="col-md-12 col-sm-12">
+            <ul class="bmenu">
+        
+                <div id="sentiments">            
+                    <li>
+                        <div class='filter' id="sentimentsHead">
+                            <i class="fa fa-thumbs-up"></i>Sentiments
+                        </div>
+                    </li>
+                    <div class="sentsOption">
+                        <div class="sents" id="neuL">Neutral
+                            <span class="white pull-right" id="neuCount"></span></div>
+                        <div class="sents" id="posL">Positive
+                            <span class="white pull-right" id="posCount"></span></div>
+                        <div class="sents" id="negL">Negative
+                            <span class="white pull-right" id="negCount"></span></div>
+                    </div>
+                </div>
 
+                <div id="newsSource"> 
+                    <li>
+                        <div class='filter' id="newsSourceHead">
+                            <i class="fa fa-flash"></i>News Source
+                        </div>
+                    </li>
+                    <div class="newsSourceOptions">
+                        <div class="nSource" id="social">Social media
+                            <span class="white pull-right" id="socialCount"></span></div>
+                        <div class="nSource" id="news">News Agency
+                            <span class="white pull-right" id="newsCount"></span>
+                        </div>                                   
+                    </div>
+                </div>
+            </ul>
+        </div></div>
 
     <div class="newsArticle">
         <div class="foregroundStory"></div>
@@ -233,46 +267,59 @@
         }
     }
     //Enable swiping...
-    $(".newsDetails").swipe({
-        //Generic swipe handler for all directions
-        swipe: function(event, direction, distance, duration, fingerCount) {
-            if (direction == "down") {
+    /*   $(".newsDetails").swipe({
+     //Generic swipe handler for all directions
+     swipe: function(event, direction, distance, duration, fingerCount) {
+     if (direction == "down") {
+     $('.newsArticle').css("-webkit-filter", "blur(5px)");
+     $slider.css("-webkit-filter", "blur(5px)");
+     $sentimentsFilter.slideToggle();
+     if ($('#filter').hasClass('active')) {
+     $('#filter').removeClass('active');
+     } else {
+     $('#filter').addClass('active');
+     }
+     
+     }
+     },
+     //Default is 75px, set to 0 for demo so any distance triggers swipe
+     threshold: 20
+     });*/
+    $("#filter").swipe({
+        tap: function() {
+            $sentimentsFilter.slideToggle();
+            $('#filter').toggleClass('active');
+
+            if ($('#filter').hasClass('active')) {
                 $('.newsArticle').css("-webkit-filter", "blur(5px)");
                 $slider.css("-webkit-filter", "blur(5px)");
-                $sentimentsFilter.slideToggle();
-                if ($('#filter').hasClass('active')) {
-                    $('#filter').removeClass('active');
-                } else {
-                    $('#filter').addClass('active');
-                }
-
-            }
-        },
-        //Default is 75px, set to 0 for demo so any distance triggers swipe
-        threshold: 20
-    });
-    $(".sentimentsFilter").swipe({
-        //Generic swipe handler for all directions
-        swipe: function(event, direction, distance, duration, fingerCount) {
-            if (direction == "up") {
-                $sentimentsFilter.slideToggle();
+            } else {
                 $('.newsArticle').css("-webkit-filter", "blur(0px)");
                 $slider.css("-webkit-filter", "blur(0px)");
-                if ($('#filter').hasClass('active')) {
-                    $('#filter').removeClass('active');
-                } else {
-                    $('#filter').addClass('active');
-                }
-
             }
+
         },
-        //Default is 75px, set to 0 for demo so any distance triggers swipe
-        threshold: 20
+        threshold: 10
     });
-    $('.nSource').click(function() {
-        $(this).toggleClass('selected');
-        filterStories();
-    })
+    /*   $(".sentimentsFilter").swipe({
+     //Generic swipe handler for all directions
+     swipe: function(event, direction, distance, duration, fingerCount) {
+     if (direction == "up") {
+     $sentimentsFilter.slideToggle();
+     $('.newsArticle').css("-webkit-filter", "blur(0px)");
+     $slider.css("-webkit-filter", "blur(0px)");
+     if ($('#filter').hasClass('active')) {
+     $('#filter').removeClass('active');
+     } else {
+     $('#filter').addClass('active');
+     }
+     
+     }
+     },
+     //Default is 75px, set to 0 for demo so any distance triggers swipe
+     threshold: 20
+     });*/
+
     $posLarge.click(function() {
         $(this).toggleClass('selected');
         filterStoriesBySentiments();
@@ -295,11 +342,11 @@
         $sentimentsFilter.slideToggle();
         $('#filter').toggleClass('active');
         if ($('#filter').hasClass('active')) {
-            $('.newsArticle').css("-webkit-filter", "blur(0px)");
-            $slider.css("-webkit-filter", "blur(0px)");
-        } else {
             $('.newsArticle').css("-webkit-filter", "blur(5px)");
             $slider.css("-webkit-filter", "blur(5px)");
+        } else {
+            $('.newsArticle').css("-webkit-filter", "blur(0px)");
+            $slider.css("-webkit-filter", "blur(0px)");
         }
     });
     $('.home').click(function() {
@@ -344,7 +391,12 @@
         threshold: 0
     });
 
-
+    $("#backButton").swipe({
+        tap: function() {
+            close();
+        },
+        threshold: 10
+    });
 
 
     bajb_backdetect.OnBack = function()
@@ -354,6 +406,9 @@
     $(window).unload(function() {
         close();
 
+    });
+    $('#backButton').click(function() {
+        close();
     });
     $("#close").click(function() {
         close();
