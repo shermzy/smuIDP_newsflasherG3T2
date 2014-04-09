@@ -166,24 +166,24 @@ function fb_login() {
             this.isAnimating = false;
             // the list (ul) will have a width of 100% x itemsCount
             var size = 2.5;
-            if ($(window).width() < 422 && $(window).width()>0) {
+            if ($(window).width() < 422 && $(window).width() > 0) {
                 size = 1;
             } else {
             }
-     /*       if ($(window).width() != 0) {
-                this.$list.css('width', ($(window).width() + 80) / size * this.itemsCount + 'px');
-            }else {
-                this.$list.css('width', 1680 / size * this.itemsCount + 'px');
-            }*/
-            
-             this.$list.css('width', 100 / size * this.itemsCount + '%');
+            /*       if ($(window).width() != 0) {
+             this.$list.css('width', ($(window).width() + 80) / size * this.itemsCount + 'px');
+             }else {
+             this.$list.css('width', 1680 / size * this.itemsCount + 'px');
+             }*/
+
+            this.$list.css('width', 100 / size * this.itemsCount + '%');
             // apply the transition
             if (this.support) {
                 this.$list.css('transition', this.transformName + ' ' + this.options.speed + 'ms ' + this.options.easing);
             }
             // each item will have a width of 100 / itemsCount
             this.$items.css('width', 100 / this.itemsCount + '%');
-      
+
             // add navigation arrows and the navigation dots if there is more than 1 item
             if (this.itemsCount > 1) {
                 $('nav').remove();
@@ -211,28 +211,30 @@ function fb_login() {
 
             var self = this;
             if (this.itemsCount > 1) {
+               
+                    $(".cbp-fwslider").swipe({
+                        //Generic swipe handler for all directions
+                        swipe: function(event, direction, distance, duration, fingerCount) {
+                            if (direction == "right") {
+                                self._navigate('previous');
 
-           /*     $(".cbp-fwslider").swipe({
-                    //Generic swipe handler for all directions
-                    swipe: function(event, direction, distance, duration, fingerCount) {
-                        if (direction == "right") {
-                            self._navigate('previous');
+                            } else {
+                                self._navigate('next');
 
-                        } else {
-                            self._navigate('next');
+                            }
+                        }, 
+                        //Default is 75px, set to 0 for demo so any distance triggers swipe
+                        threshold: 20
+                    });
+                
+                    this.$navPrev.on('click.cbpFWSlider', $.proxy(this._navigate, this, 'previous'));
+                    this.$navNext.on('click.cbpFWSlider', $.proxy(this._navigate, this, 'next'));
 
-                        }
-                    },
-                    //Default is 75px, set to 0 for demo so any distance triggers swipe
-                    threshold: 0
-                });*/
-                this.$navPrev.on('click.cbpFWSlider', $.proxy(this._navigate, this, 'previous'));
-                this.$navNext.on('click.cbpFWSlider', $.proxy(this._navigate, this, 'next'));
-
-                this.$navDots.on('click.cbpFWSlider', function() {
-                    self._jump($(this).index());
-                });
-            }
+                    this.$navDots.on('click.cbpFWSlider', function() {
+                        self._jump($(this).index());
+                    });
+                }
+           
 
         },
         _navigate: function(direction) {
@@ -269,7 +271,7 @@ function fb_login() {
                 size = 1;
             }
             var translateVal = -1 * this.current * ($(window).width()) / size;
-           
+
             if (this.support) {
                 this.$list.css('transform', this.support3d ? 'translate3d(' + translateVal + 'px,0,0)' : 'translate(' + translateVal + 'px)');
             }

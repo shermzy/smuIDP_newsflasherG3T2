@@ -578,7 +578,7 @@
                 $('.newsDetails').show(500);
             });
             $('#newsDetails').css('height', $(window).height() / 2);
-
+$('#cbp-fwslider').css('width',$(window).width());
             $('.newsArticle').css('height', $(window).height() / 2 - 25);
             $('.menu').css("width", $(window).width() + 15);
             $slider.css('height', $(window).height() / 2 - 25);
