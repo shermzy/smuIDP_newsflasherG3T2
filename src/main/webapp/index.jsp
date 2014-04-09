@@ -50,39 +50,39 @@
         <!--Issue-->
         <div class="overlay">
             <div class="col-md-3 col-sm-3 hidden-xs">
-        <!--        <ul class="bmenu">
-                    <li class="home"><div><i class="fa fa-home"></i>Home</div></li>
-                    <div id="sentiments">            
-                        <li>
-                            <div class='filter' id="sentimentsHead">
-                                <i class="fa fa-thumbs-up"></i>Sentiments
+                <!--        <ul class="bmenu">
+                            <li class="home"><div><i class="fa fa-home"></i>Home</div></li>
+                            <div id="sentiments">            
+                                <li>
+                                    <div class='filter' id="sentimentsHead">
+                                        <i class="fa fa-thumbs-up"></i>Sentiments
+                                    </div>
+                                </li>
+                                <div class="sentsOption">
+                                    <div class="sents" id="neuL">Neutral
+                                        <span class="white pull-right" id="neuCount"></span></div>
+                                    <div class="sents" id="posL">Positive
+                                        <span class="white pull-right" id="posCount"></span></div>
+                                    <div class="sents" id="negL">Negative
+                                        <span class="white pull-right" id="negCount"></span></div>
+                                </div>
                             </div>
-                        </li>
-                        <div class="sentsOption">
-                            <div class="sents" id="neuL">Neutral
-                                <span class="white pull-right" id="neuCount"></span></div>
-                            <div class="sents" id="posL">Positive
-                                <span class="white pull-right" id="posCount"></span></div>
-                            <div class="sents" id="negL">Negative
-                                <span class="white pull-right" id="negCount"></span></div>
-                        </div>
-                    </div>
-
-                    <div id="newsSource"> 
-                        <li>
-                            <div class='filter' id="newsSourceHead">
-                                <i class="fa fa-flash"></i>News Source
+        
+                            <div id="newsSource"> 
+                                <li>
+                                    <div class='filter' id="newsSourceHead">
+                                        <i class="fa fa-flash"></i>News Source
+                                    </div>
+                                </li>
+                                <div class="newsSourceOptions">
+                                    <div class="nSource" id="social">Social media
+                                        <span class="white pull-right" id="socialCount"></span></div>
+                                    <div class="nSource" id="news">News Agency
+                                        <span class="white pull-right" id="newsCount"></span>
+                                    </div>                                   
+                                </div>
                             </div>
-                        </li>
-                        <div class="newsSourceOptions">
-                            <div class="nSource" id="social">Social media
-                                <span class="white pull-right" id="socialCount"></span></div>
-                            <div class="nSource" id="news">News Agency
-                                <span class="white pull-right" id="newsCount"></span>
-                            </div>                                   
-                        </div>
-                    </div>
-                </ul>-->
+                        </ul>-->
             </div>
 
 
@@ -115,7 +115,23 @@
 
 <!--End News Slider-->
 </div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel"></h4>
+            </div>
+            <div class="modal-body">
 
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 
@@ -147,7 +163,12 @@
         searchInit();
 
     });
-
+    $('li.stories').click(function() {
+        $('#myModal').modal('show');
+        $('#myModalLabel').html($(this).find('.story-metadata-name').text());
+        $('.modal-body').text($(this).find('.story').html());
+        $('<br/><br/><b>This news snippet is to illustrate the functionality of the actual news source showing on clicking of a particular story.</b>').appendTo($('.modal-body'));
+    })
     function searchInit() {
         $('#colone').html("");
         $('#coltwo').html("");
@@ -209,6 +230,7 @@
         filterStoriesBySource();
         checkAll();
     })
+
     function checkAll() {
         if ($('.sents.selected').length == 0 && $('.nSource.selected').length == 0) {
 
